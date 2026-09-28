@@ -1,0 +1,310 @@
+---
+title: "Analyse des conditions socioéconomiques et accès aux services essentiels des ménages de la commune de Tchaoudjo 2"
+author: "Nyuiadzi ZIKPI"
+
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    css: styles.css
+    #df-print: "kable" # pour obtenir de belles tables plutôt qu’une sortie logiciel
+    tbl-cap-location: "top" # pour faire apparaitre la légende au-dessus de la table (vous pouvez choisir “top”, « bottom », ou « margin » )
+
+  typst:
+    toc: true
+    number-sections: true
+    #fontsize: 12pt
+    #df-print: "kable"
+    tbl-cap-location: "top"
+
+  docx:
+    toc: true
+    number-sections: true
+    tbl-cap-location: top
+
+execute:
+#   echo: false
+#   warning: false
+#   message: false
+  code-fold: true
+  cacbe: true
+  freeze: true
+  
+
+editor: source
+---
+
+# - Introduction générale
+
+Dans un contexte de décentralisation où les communes assument des responsabilités croissantes en matière de développement local et de services de proximité, la qualité des décisions publiques dépend largement de la connaissance du territoire et des populations qui y vivent. La planification du développement constitue ainsi un levier essentiel pour permettre aux collectivités territoriales d’organiser leur action, de hiérarchiser les besoins et d’orienter efficacement les ressources disponibles vers l’amélioration des conditions de vie des populations. Planifier consiste à disposer d’un diagnostic suffisamment précis permettant de comprendre les dynamiques démographiques, sociales, économiques et territoriales qui déterminent les besoins des populations.
+
+La connaissance des caractéristiques démographiques et socioéconomiques des ménages constitue un préalable à une planification locale fondée sur des données probantes. Des informations fiables sur la composition des ménages, le niveau d’éducation, l’emploi, les activités économiques, les sources de revenus, les conditions d’habitat, les facteurs de vulnérabilité ou encore l’accès aux services essentiels permettent aux autorités locales de mieux identifier les besoins, de cibler les populations et les territoires les plus vulnérables et d’effectuer des arbitrages dans l’allocation des ressources. Elles permettent également de suivre les transformations du territoire et d’apprécier la situation des différentes zones de la commune et celle de la commune par rapport à d’autres territoires ou aux tendances observées à l’échelle nationale. La disponibilité de données désagrégées à l’échelle communale représente ainsi un enjeu important pour une gouvernance locale davantage orientée vers les résultats.
+
+C’est dans cette perspective que, dans le cadre du processus d’élaboration du Plan de développement communal (PDC) de Tchaoudjo 2, une enquête auprès des ménages a été réalisée afin de mieux documenter les caractéristiques et les conditions de vie de vie des populations. Les données recueillies portent notamment sur les caractéristiques sociodémographiques des ménages, l’éducation, la santé, l’emploi et les activités économiques, les revenus et moyens d’existence, l’habitat, l’accès à l’eau, l’assainissement, l’énergie, le transport ainsi que certaines caractéristiques de leur environnement. Au-delà de leur utilisation pour l’établissement du diagnostic communal, ces données offrent l’opportunité d’approfondir l’analyse des relations entre les conditions socioéconomiques des ménages et leur capacité à accéder aux services sociaux essentiels.
+
+En effet, l’existence d’une école, d’une formation sanitaire ou d’un autre équipement collectif sur un territoire ne garantit pas nécessairement son accessibilité effective à l’ensemble de la population. Un ménage peut, par exemple, renoncer ou recourir tardivement aux soins de santé en raison de ressources financières insuffisantes, de l’éloignement d’une formation sanitaire ou des coûts de transport. De même, la fréquentation scolaire peut être affectée par les ressources du ménage, la distance séparant le domicile de l’établissement, les caractéristiques du chef de ménage ou encore la zone de résidence. Il importe dès lors de dépasser la simple mesure du niveau d’accès aux services pour chercher à comprendre les facteurs susceptibles d’expliquer les différences observées entre les ménages.
+
+La problématique centrale de ce mémoire consiste ainsi à analyser dans quelle mesure les conditions socioéconomiques et sociodémographiques des ménages influencent leur accès aux services sociaux de base dans la commune de Tchaoudjo 2. Les ménages accèdent-ils moins aux soins principalement en raison de contraintes financières ou du fait de l’éloignement des structures sanitaires ? Les contraintes économiques expliquent-elles davantage les difficultés d’accès aux services que d’autres caractéristiques telles que le niveau d’éducation du chef de ménage, la composition du ménage ou la zone de résidence ? Plus généralement, dans quelle mesure les caractéristiques socioéconomiques des ménages de Tchaoudjo 2 sont-elles associées à leur niveau d’accès aux services essentiels ? L’analyse de ces différentes dimensions permettra de mieux comprendre les mécanismes par lesquels les contraintes socioéconomiques et territoriales peuvent se traduire par des limitations d’accès aux services sociaux de base.
+
+Pour répondre à cette problématique, notre étude est structurée en trois chapitres. Le premier chapitre présente le cadre conceptuel et méthodologique de l’étude, notamment les concepts, les données, les variables et les méthodes d’analyse retenues. Le deuxième chapitre est consacré à la revue de la littérature théorique et empirique sur les relations entre caractéristiques socioéconomiques des ménages et accès aux services sociaux de base. Enfin, le troisième chapitre analyse, à partir des données de l’enquête auprès des ménages, l’effet des caractéristiques socioéconomiques, sociodémographiques et territoriales sur l’accès aux services sociaux de base dans la commune de Tchaoudjo 2, avant d’en dégager les principaux enseignements pour la planification du développement communal.
+
+# - Cadre conceptuel
+
+## - Objectifs du mémoire 
+
+### - Objectif général
+
+Analyser les conditions socioéconomiques des ménages de la commune de Tchaoudjo 2 et les facteurs associés à leur accès aux services essentiels, afin d'en dégager les principaux enjeux pour le développement communal.
+
+### - Objectifs spécifiques
+-	Caractériser le profil démographique et socioéconomique des ménages de Tchaoudjo 2 ;
+-	Analyser les différences d'accès aux services essentiels selon les caractéristiques socioéconomiques et la localisation géographique des ménages ;
+-	Formuler des recommandations susceptibles d'améliorer le ciblage des interventions communales.
+
+## - Problématique
+L'amélioration des conditions de vie des populations constitue l'une des finalités du développement local. Elle dépend à la fois des possibilités offertes aux ménages d'exercer des activités économiques et de générer des revenus, mais aussi de leur capacité à accéder à des services essentiels tels que l'eau potable, l'assainissement, l'électricité, l'éducation, la santé et les infrastructures de mobilité.
+Or, l'existence d'une infrastructure ou d'un service dans une commune ne signifie pas nécessairement que l'ensemble des ménages y accède dans des conditions similaires. L'accès peut être influencé par la localisation géographique, les caractéristiques économiques du ménage, les distances, les infrastructures disponibles, les coûts ou encore certaines caractéristiques sociodémographiques.
+
+Dans le cas de Tchaoudjo 2, les premiers résultats du diagnostic communal montrent simultanément des progrès dans certains domaines et la persistance de contraintes. À titre d'exemple, l'enquête fait apparaître une combinaison importante entre raccordement au réseau électrique et recours aux solutions solaires, tandis que les conditions d'accès à l'eau potable et à d'autres services présentent des situations variables selon les territoires. Les analyses préliminaires réalisées montrent également des associations statistiquement significatives entre certaines variables d'accès aux services et la zone de résidence.
+La problématique peut donc être formulée autour de la question suivante : Dans quelle mesure les caractéristiques socioéconomiques et territoriales des ménages de Tchaoudjo 2 sont-elles associées à leur niveau d'accès aux services essentiels ?
+
+## - Questions de recherche
+Quelles sont les conditions socioéconomiques des ménages de Tchaoudjo 2 et quels facteurs sont associés à leur accès aux services essentiels ? Les questions spécifiques suivantes sont posées :
+
+- Quelles sont les principales caractéristiques démographiques et socioéconomiques des ménages de Tchaoudjo 2 ?
+- Existe-t-il des différences significatives dans l'accès aux services essentiels selon les caractéristiques socioéconomiques des ménages et leur zone de résidence ?
+- Quels enseignements ces résultats peuvent-ils fournir pour améliorer le ciblage des interventions de développement communal ?
+
+## - Hypothèses de recherche
+
+**Hypothèse 1 :** Conditions socioéconomiques
+Les ménages de Tchaoudjo 2 présentent des conditions socioéconomiques différenciées selon leurs caractéristiques démographiques, leurs activités économiques et leur localisation géographique.
+
+**Hypothèse 2 :** Relation entre situation socioéconomique et services essentiels
+Les caractéristiques socioéconomiques des ménages sont significativement associées à leur niveau d'accès aux services essentiels.
+
+## - Résultats attendus
+À l’issue de cette étude, les principaux résultats attendus sont :
+
+•	Le profil socioéconomique et sociodémographique des ménages de la commune de Tchaoudjo 2 est établi à partir des données de l’enquête ménage ;
+
+•	Les relations entre les caractéristiques sociodémographiques des ménages et leur accès aux services sociaux de base sont analysés, notamment en fonction du niveau d’éducation du chef de ménage, de la taille et de la composition du ménage ;
+
+•	Des recommandations fondées sur les résultats de l’étude sont formulées afin d’améliorer le ciblage des interventions, la priorisation des investissements et la planification des services sociaux de base dans la commune de Tchaoudjo 2.
+
+## - Définitions des principaux concepts
+
+### - Le ménage
+
+Le ménage est l’unité fondamentale d'observation de l'étude. Le concept de « ménage » est fondé sur les dispositions prises par les personnes individuellement ou d’une façon collective afin de pourvoir à leurs besoins vitaux. On distingue deux sortes de ménages : le ménage ordinaire et le ménage collectif.
+
+#### - Le ménage ordinaire
+
+Le ménage ordinaire est constitué par une personne ou un groupe de personnes apparentées ou non, vivant dans une même unité d’habitation, prenant le plus souvent leurs repas en commun, subvenant ensemble à leurs autres besoins essentiels et reconnaissant l’autorité d’une personne de référence appelée Chef de Ménage (CM). Une concession peut donc abriter plusieurs ménages ordinaires . Le chef de la concession n’est pas le chef de tous les ménages de la concession mais uniquement le chef du ménage auquel il appartient. Quelques cas spécifiques de ménages ordinaires peuvent être :
+
+- un homme avec son épouse ou ses épouses avec ou sans enfant(s) ; 
+- un homme avec son épouse ou ses épouses avec leurs enfants non mariés et leurs parents ; 
+- un homme avec son ou ses épouse(s) vivant avec leurs enfants mariés partageant le même repas ; 
+- un homme ou une femme vivant avec ses enfants ;
+- un homme ou une femme vivant seul.
+
+Il faudra également différencier un ménage et une famille. Les membres d’un ménage ne sont pas nécessairement apparentés alors que tel est le cas pour les membres d’une famille. De même, les membres d’une famille peuvent ne pas vivre ensemble alors que c’est le cas pour les membres d’un ménage.
+
+#### - Le ménage collectif
+
+Un ménage collectif est constitué par un groupe de personnes, sans lien de parenté a priori, qui vivent ensemble au sein d’une même institution pour des raisons de santé, d’études, de religion, de travail, de voyage, de privation de liberté et autres.  C’est l’institution qui règlemente les conditions de leur coexistence, compte tenu de son statut et de ses propres objectifs. Entrent dans ce cadre les institutions suivantes :
+
+- Les casernes ;
+- Les communautés de religieux ;
+- Les orphelinats ;
+- Les centres des personnes vivant avec un handicap ;
+- Les prisons/centres de détention /établissements pénitenciers ;
+- Les hôtels ;
+- Les hôpitaux ;
+- Les internats scolaires/universitaires ;
+- Les cités scolaires/universitaires ;
+- Les sans-abris ;
+- Les villages des accompagnants : espace aménagé à l’intérieur d’un hôpital pour héberger temporairement ceux qui accompagnent les hospitalisés.
+
+### - Conditions socioéconomiques
+
+Ensemble des caractéristiques relatives à la situation économique et sociale des ménages : activité, emploi, revenus, éducation, habitat, moyens de production, patrimoine, etc.
+
+### - Services essentiels
+
+Ensemble des services contribuant directement aux besoins fondamentaux et aux conditions de vie : eau, assainissement, énergie, santé, éducation, mobilité, etc.
+
+###	- Accès
+
+L’accès à un service essentiel ne se limite pas seulement à la présence d'une infrastructure ou à un service public de base. L’accès peut faire référence à la disponibilité du service, son accessibilité géographique et économique, son utilisation effective, la qualité et/ou la permanence du service.
+
+# - Cadre méthodologique
+
+## - Méthode d’analyse
+
+Pour atteindre les objectifs assignés à notre recherche, une méthodologie combinant la recherche documentaire et l’analyse de données d’enquêtes a été privilégiée. L’analyse se fera donc en deux étapes :
+
+La première étape consiste à faire une analyse documentaire ou revue de la littérature sur le sujet, afin de faire ressortir les travaux déjà effectués dans le domaine et d’en étudier les différentes positions et théories proposées par les divers auteurs. Cette recherche documentaire a été menée via internet et les documents collectés auprès des acteurs et autorités communales sur le terrain. 
+
+La deuxième étape a été une étude qui repose sur une approche quantitative fondée sur une enquête auprès des ménages réalisée dans les différentes localités de la commune de Tchaoudjo 2. Ce choix méthodologique permet de recueillir directement auprès des populations des données détaillées sur leurs caractéristiques sociodémographiques, leurs activités et conditions socioéconomiques ainsi que leur niveau d’accès aux services sociaux de base, notamment l’eau potable, l’hygiène, l’assainissement, l’éducation et la santé. Par rapport à une simple revue documentaire, l’enquête ménage présente l’avantage de produire des données primaires, récentes et désagrégées à l’échelle locale, permettant de mieux rendre compte des réalités vécues par les ménages et des différences pouvant exister entre catégories de population et zones géographiques. Elle permet également de mettre en relation plusieurs caractéristiques des ménages afin d’analyser statistiquement les facteurs économiques, sociodémographiques et territoriaux associés aux difficultés d’accès aux services essentiels.
+
+Cette approche présente néanmoins certaines limites. Les informations recueillies reposent en partie sur les déclarations des personnes enquêtées et peuvent ainsi être affectées par des erreurs de mémoire, des difficultés d’estimation notamment pour les revenus et certaines dépenses ou des biais de déclaration. Par ailleurs, une enquête réalisée à un moment donné fournit essentiellement une photographie de la situation et permet difficilement d’établir, à elle seule, des relations de causalité entre les caractéristiques socioéconomiques et l’accès aux services. Ces limites seront prises en compte dans l’interprétation des résultats et, lorsque cela est pertinent, les données de l’enquête seront confrontées aux informations issues des sources documentaires et administratives disponibles.
+
+L’analyse a été menée à plusieurs niveaux, à savoir une analyse statistique univariée, bivariée et multivariée. Pour cela, nous utiliserons les outils comme les statistiques descriptives, test de Khi-2, la comparaison de moyenne, l’ANOVA, en fonction des types de variables et de l’objectif recherché par l’analyse. Une méthode économétrique relative aux variables qualitatives est également envisagée pour l’analyse.
+
+Pour le traitement des données, nous avons utilisé le logiciel R et l’IDE  Positron pour la manipulation des données, la réalisation des graphiques, les tests statistiques et l’analyse économétrique au besoin. Le choix de R s’est imposé par sa simplicité, la reproductibilité, l’existence de nombreux packages pour tout type d’analyse notamment le Tidyverse  et la grande disponibilité de ressources en ligne sur cet outil.
+
+## - Population d'étude
+
+La population cible est constituée des ménages résidant dans la commune de Tchaoudjo 2. Dans le cadre de notre étude, l’unité statistique est donc le ménage. Le chef de ménage constitue le principal répondant de l’enquête, en raison de sa connaissance supposée des caractéristiques générales du ménage, de ses activités économiques, de ses ressources, de ses conditions de vie et de son accès aux différents services essentiels. 
+Les informations recueillies auprès du chef de ménage ont permis ainsi de caractériser l’ensemble du ménage, sans pour autant assimiler le chef de ménage à l’unité statistique. Certaines caractéristiques propres au chef de ménage, telles que le sexe, l’âge, le niveau d’instruction ou l’activité professionnelle, sont également être utilisées comme variables explicatives afin d’analyser leur association avec les conditions socioéconomiques et l’accès du ménage aux services sociaux de base.
+
+## - Échantillonnage
+
+Dans le cadre de l’enquête auprès des ménages, un échantillonnage stratifié géographique a été retenu afin de garantir une couverture représentative des différentes parties du territoire communal. La commune, dont la population totale est de 24 891 habitants (RGPH 5, 2022), a été subdivisée en quatre strates géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest. Sur la base d'une hypothèse moyenne de 5 personnes par ménage, la population communale correspond à environ 4 978 ménages.
+
+La répartition des ménages entre les quatre strates est la suivante : 1 039 ménages dans la zone Nord-Est (20,9 %), 877 ménages dans la zone Nord-Ouest (17,6 %), 2 431 ménages dans la zone Sud-Est (48,8 %) et 631 ménages dans la zone Sud-Ouest (12,7 %). Cette stratification permet de tenir compte de la répartition spatiale de la population et d'assurer la présence de chacune des zones dans l'échantillon.
+
+La taille minimale de l'échantillon a ensuite été déterminée indépendamment pour chacune des quatre strates, à partir de la formule de Dagnelie pour l'estimation d'une proportion dans une population finie. Cette approche permet d'adapter la taille de l'échantillon à la population de chaque zone, plutôt que de calculer un seul échantillon pour l'ensemble de la commune et de le répartir mécaniquement entre les zones. La taille finale de l'échantillon communal correspond à la somme des tailles minimales obtenues pour les quatre strates.
+
+La sélection des ménages enquêtés est ensuite effectuée à l'intérieur de chaque strate, selon une procédure de tirage définie pour assurer une sélection aussi objective et représentative que possible des ménages. Les enquêteurs sélectionnent les ménages selon un itinéraire en sautant un ménage sur deux. Ainsi, chaque zone géographique constitue une strate d'échantillonnage indépendante, tandis que les ménages constituent les unités statistiques directement enquêtées.
+
+La taille minimum de l’échantillon (n) dans chaque zone est obtenue en utilisant l’approximation normale de la distribution binomiale de Dagnélie suivant la formule :
+
+$$\frac{z^2\times p(1-p)\times N} {z^2\times p(1-p) + (N-1) \times y^2}$$
+Avec : 
+n : taille de l'échantillon ; 
+N : nombre de ménage ;
+p : proportion de personnes disposée à répondre aux questions. p n'étant pas vraiment connue, sa valeur est fixée dans le cadre de cette étude à 0,5 afin d'avoir un grand nombre d'échantillons conformément aux règles statistiques ; 
+y : Marge d'erreur ;
+z : la valeur associée à l'intervalle de confiance d'échantillonnage.
+
+Avec les valeurs de : p = 0,5 ; y = 0,05 ; z à 95% = 1,96 ; Taux estimé de non réponse = 0,1 ; N = 1039 (Nord-Est), 877 (Nord-Ouest), 2431(Sud-Est) et 631(Sud-Ouest).
+
+La @tbl-echantillon présente l’échantillon minimum représentatif pour chaque zone d’enquête et le nombre de ménages à enquêter prévus pour chaque zonelors de la collecte des données sur le terrain.
+
+```{r}
+#| label: tbl-echantillon
+#| tbl-cap: "Echantillon minimum représentatif pour chaque zone d’enquête"
+```
+
+|Zone	    |Minimum|Prévu|
+|-------------|----------|--------|
+|Nord-Est     |	192	     |312     |
+|Nord-Ouest   |	187	     |298     |
+|Sud-Est      |	210	     |369     |
+|Sud-Ouest    |	266	     |313     |
+|**Total**    |	**855**	 |**1292**|
+
+## - Outils de collecte de données
+
+Pour la collecte des données, nous avons utilisé l'outils Kobotoolbox et l'application mobile KoboCollect sur Android. Ces outils ont l'avantage d'être gratuit et open sources. Aussi, le mode hors ligne disponible est idéal pour le terrain ainsi que la prise en charge de la géolocalisation et du multimédia (image, vidéo, audio). La plateforme Kobotoolbox a permis d'élaborer le questionnaire, de paramétrer les sauts conditionnels, la sélection en cascade et les critères de validation. Ces applications présente aussi l’avantage de géoréférencer les unités enquêtés, de suivre l'évolution des agents de collecte sur le terrain, de disposer des données en temps réel et de faciliter les contrôles des données à distance.
+
+## - Le questionnaire d'enquête et le dictionnaire de données
+
+Le questionnaire, conçu et administré à l’aide de KoboToolbox, regroupe les variables d’intérêt de l’étude en **douze sections thématiques complémentaires**, couvrant les principales dimensions démographiques, socioéconomiques, environnementales et d’accès aux services essentiels des ménages. Chaque section vise à recueillir des informations spécifiques permettant de caractériser les conditions de vie des ménages et d’identifier les disparités territoriales ainsi que les principaux besoins de la population.
+
+- **Section 1 – Identification et localisation :** permet d’identifier le ménage enquêté et de renseigner sa localisation géographique et administrative afin de faciliter la désagrégation spatiale des résultats.
+- **Section 2 – Accès à l’eau :** renseigne sur les principales sources d’approvisionnement en eau, leur accessibilité, les distances parcourues et les conditions d’accès des ménages à l’eau.
+- **Section 3 – Accès à la santé :** apprécie l’accès des ménages aux structures et services de santé, notamment en termes de disponibilité, de distance et de recours aux soins.
+- **Section 4 – Hygiène et assainissement :** analyse les pratiques d’hygiène ainsi que l’accès et l’utilisation des infrastructures d’assainissement et des dispositifs de gestion des déchets.
+- **Section 5 – Caractéristiques de l’habitat :** décrit les conditions de logement des ménages à travers le type d’habitat, les matériaux de construction, les équipements et certaines caractéristiques du cadre de vie.
+- **Section 6 – Accès à l’électricité et à l’énergie :** renseigne sur les sources d’électricité et d’éclairage ainsi que sur les principales formes d’énergie utilisées par les ménages, notamment pour la cuisson.
+- **Section 7 – Environnement, changement climatique et ressources forestières :** recueille les perceptions et pratiques des ménages concernant l’environnement, les effets du changement climatique, les ressources forestières et leur gestion.
+- **Section 8 – Transport et mobilité :** examine les moyens de déplacement utilisés, les conditions de mobilité ainsi que les principales contraintes rencontrées pour le transport des personnes et des biens.
+- **Section 9 – Caractéristiques sociodémographiques :** décrit la composition et le profil des membres du ménage à partir de variables telles que le sexe, l’âge, le statut matrimonial et d’autres caractéristiques démographiques.
+- **Section 10 – Éducation et formation :** renseigne sur le niveau d’instruction, la fréquentation scolaire, l’accès à l’éducation et à la formation ainsi que les éventuelles difficultés rencontrées.
+- **Section 11 – Emploi, revenu et conditions de vie :** analyse la situation économique des ménages à travers l’activité, l’emploi, les sources de revenus et différents éléments permettant d’apprécier leurs conditions de vie.
+- **Section 12 – Conclusion :** clôture l’entretien en recueillant, le cas échéant, les observations, préoccupations ou informations complémentaires du ménage utiles à l’analyse.
+
+## - Recrutement et formation des enquêteurs
+
+Les agents de collecte de données ont été recrutés avec des critétères prédéfis comme avoir au moins le BAC II, disposer d'un smartphone, d'avoir une expérience dans l'utilisation de l'outil informatique, avoir une expérience en matière de collecte de données sociodémographique et/ou une expérience dans l'utilisation d'un outil digital de collecte de données. Les profils des agents ont ensuite été vérifié et validés après un attention pour s'assurer de leur capacité à faire l'enquête sur le terrain. Les agents de collecte de données sont en grande majorité des personnes qui ont une bonne connaissance du territoire géographique à savoir la commune de Tchaoudjo 2.
+
+Afin de garantir la qualité, la fiabilité et la cohérence des données collectées auprès des ménages, les enquêteurs ont été formés sur les outils numériques de collecte de données, les techniques d'enquête et les règles déontologiques en matière de collecte de données auprès des ménages. La formation a durée une journée en plus d'une demi-journé de pré-enquête de test sur le terrain avant leur déploiement pour l'enquête proprement dite. La formation a permis de renforcer les capacités des enquêteurs sur :
+
+- la méthodologie de collecte ;
+- l'utilisation de KoboCollect ;
+- les techniques d'entretien ;
+- l'éthique de la collecte ;
+- les simulations pratiques sur le terrain.
+
+Au total vingt (20) enquêteurs dont onze (11) femmes ont été formés pour la collecte des données sur le terrain.
+
+## - Communication et sensibilisation
+
+La communication et la sensibilisation ont été assuré par la mairie de Tchaoudjo 2. Elles ont consisté à des réunions d'informations des chefs de village et des CVD sur le processus et la période de l'activité. Ces derniers à leur tour ont informé leur population. L'atelier de lancement officiel du processus d'élaboration du PDC a également permis à l'équipe de consultant de sensibiliser les représentants des villages présents sur le processus de collecte de données dans les ménages.
+
+## - Réalisation de l'enquête et transfert des données
+
+La collecte des données a durée trois (03) jours, du 6 au 8 août 2026. La méthode de collecte retenue est "l’interview directe". Cette méthode consiste à se présenter dans chaque ménage, à poser des questions au Chef de ménage ou son répondant, c’est-à-dire tout autre membre capable d’y répondre et à enregistrer les renseignements recueillis. Les enquêteurs ont été répartis en 4 groupes selon les zones avec 3 superviseurs pour suivre et intervenir en cas de difficulté.
+
+La collecte de données sur le terrain est assurée par les agents d'enquête à l’aide des smartphoses via l'application mobile KoboCollect. Les agents d'enquête collectent les données qui sont ensuite transférées automatiquement par internet sur un serveur de Kobotoolbox. Les Superviseurs consultes le nombre d'enquête réalisé chaque jour par chaque agent d'enquête et font le point au Chef de mission. Ce dernier vérifie en fin de journée sur Kobotoolbox les données collectées et les localités couvertes pour déceler des incohérences éventuelles.
+
+## - Outils de traitement et d'analyse
+
+Le traitement et l'analyse des données est fait par le logiciel R et l'outils Quarto pour générer un rapport d'analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d'un fichier source contenant à la fois du texte, du code et des résultats. Dans notre cas d'utilisation de R, Quarto est particulièrement intéressant pour produire un rapport d'analyse en s'affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des "navettes" entre différents outils. Quarto permet également de générer des documents dans différents formats (HTML, PDF, Word, etc.) à partir d'un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d'intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.
+
+## - Nettoyage des données
+
+Å l'issue de la collecte, les données sont exportées depuis Kobotoolbox au format Excel pour le traitement et l'analyse. Le fichier de données est ensuite nettoyé et préparé dans R et exporté en format CSV pour l'analyse statistique. 
+
+Le nettoyage des données a essentiellement consisté à :
+
+- la suppresion les colonnes inutiles pour notre analyse (`start`, `end`, `username`, `deviceid`, `phonenumber`, `Localisation`, `Localisation_altitude`, `Localisation_precision`);
+- renommer presque toutes les variables issues des questions du formulaire Kobotoolbox pour réduire la longueur des colonne tout en s'assurant que le noms de colonne soit compréhensible ;
+- recoder les modalités de certaines variables prenant des valeur 1 = oui et 0 = non (voir le fichier le nettoayge `enquete_tchaoudjo_clean.qmd`);
+- faire le traitement des colonnes "autre à préciser".
+
+La @tbl-echantillon_realise ci-dessous présente le nombre de ménages enquêtés par rapport à l'échantillon minimum représentative, le nombre prévu pour chaque zone et le nombre effectivement réalisé à la fin de l'enquête.
+
+```{r}
+#| label: tbl-echantillon_realise
+#| tbl-cap: "Le nombre de ménage enquêtés à l'issue d’enquête"
+```
+
+| Zone              | Minimum |     Prévu |   Réalisé |
+|-------------------|--------:|----------:|----------:|
+| Nord-Est          |     192 |       312 |       459 |
+| Nord-Ouest        |     187 |       298 |       245 |
+| Sud-Est           |     210 |       369 |       441 |
+| Sud-Ouest         |     266 |       313 |       313 |
+| **Total général** | **855** | **1 292** | **1 458** |
+
+## - Installation des packages
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse,
+               readxl, readr, janitor,
+               tidyr, here,
+               gt,flextable, gtsummary, gtExtras)
+```
+
+**Rôle des différents packages utilisés dans l'analyse des données :**
+
+- pacman : permet d'installer et de charger facilement plusieurs packages.
+- tidyverse : Ensemble de packages pour la manipulation et la visualisation des données. Il contient entre autres dplyr, ggplot2, readr qui sont utilisés dans ce rapport.
+- readxl, readr : Packages pour lire des fichiers csv, Excel et texte.
+- janitor : Package pour le nettoyage des données et la création de tableau de fréquences.
+- tidyr : pour réorganiser et restructurer les tableaux en format long ou inversement selon les besoins.
+- here : pour gérer les chemins de fichiers.
+- gt, flextable, gtsummary, gtExtras : Packages pour la création de tableaux formatés.
+
+## - Importation des données
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| output: false
+# Importation des données
+data_tchaoudjo2 <- read_csv(here("data/enquete_tchaoudjo2_clean3.csv"))
+head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de données
+```
+
+# - Troisième partie – résultats, analyse et discussion
