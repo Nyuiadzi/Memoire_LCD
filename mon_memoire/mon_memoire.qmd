@@ -157,14 +157,15 @@ Pour le traitement des données, nous avons utilisé le logiciel R et l’IDE  P
 
 ## - Population d'étude
 
-La population cible est constituée des ménages résidant dans la commune de Tchaoudjo 2. Dans le cadre de notre étude, l’unité statistique est donc le ménage. Le chef de ménage constitue le principal répondant de l’enquête, en raison de sa connaissance supposée des caractéristiques générales du ménage, de ses activités économiques, de ses ressources, de ses conditions de vie et de son accès aux différents services essentiels. 
+La population cible est constituée des ménages résidant dans la commune de Tchaoudjo 2. Dans le cadre de notre étude, l’unité statistique est donc le ménage. Le chef de ménage constitue le principal répondant de l’enquête, en raison de sa connaissance supposée des caractéristiques générales du ménage, de ses activités économiques, de ses ressources, de ses conditions de vie et de son accès aux différents services essentiels.
+
 Les informations recueillies auprès du chef de ménage ont permis ainsi de caractériser l’ensemble du ménage, sans pour autant assimiler le chef de ménage à l’unité statistique. Certaines caractéristiques propres au chef de ménage, telles que le sexe, l’âge, le niveau d’instruction ou l’activité professionnelle, sont également être utilisées comme variables explicatives afin d’analyser leur association avec les conditions socioéconomiques et l’accès du ménage aux services sociaux de base.
 
 ## - Échantillonnage
 
-Dans le cadre de l’enquête auprès des ménages, un échantillonnage stratifié géographique a été retenu afin de garantir une couverture représentative des différentes parties du territoire communal. La commune, dont la population totale est de 24 891 habitants (RGPH 5, 2022), a été subdivisée en quatre strates géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest. Sur la base d'une hypothèse moyenne de 5 personnes par ménage, la population communale correspond à environ 4 978 ménages.
+Dans le cadre de l’enquête auprès des ménages, un échantillonnage stratifié géographique a été retenu afin de garantir une couverture représentative des différentes parties du territoire communal. La commune, dont la population totale est de 24 891 habitants selon le Recensemsent Général de la Population et de l'Habitat (RGPH 5, 2022), a été subdivisée en quatre strates géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest. Sur la base d'une hypothèse moyenne de 5 personnes par ménage, la population communale correspond à environ 4 978 ménages.
 
-La répartition des ménages entre les quatre strates est la suivante : 1 039 ménages dans la zone Nord-Est (20,9 %), 877 ménages dans la zone Nord-Ouest (17,6 %), 2 431 ménages dans la zone Sud-Est (48,8 %) et 631 ménages dans la zone Sud-Ouest (12,7 %). Cette stratification permet de tenir compte de la répartition spatiale de la population et d'assurer la présence de chacune des zones dans l'échantillon.
+En tenant compte de la proportion de population des localités selon le RGPH 5 2022, la répartition des ménages entre les quatre strates est la suivante : 1 039 ménages dans la zone Nord-Est (20,9 %), 877 ménages dans la zone Nord-Ouest (17,6 %), 2 431 ménages dans la zone Sud-Est (48,8 %) et 631 ménages dans la zone Sud-Ouest (12,7 %). Cette stratification permet de tenir compte de la répartition spatiale de la population et d'assurer la présence de chacune des zones dans l'échantillon.
 
 La taille minimale de l'échantillon a ensuite été déterminée indépendamment pour chacune des quatre strates, à partir de la formule de Dagnelie pour l'estimation d'une proportion dans une population finie. Cette approche permet d'adapter la taille de l'échantillon à la population de chaque zone, plutôt que de calculer un seul échantillon pour l'ensemble de la commune et de le répartir mécaniquement entre les zones. La taille finale de l'échantillon communal correspond à la somme des tailles minimales obtenues pour les quatre strates.
 
@@ -244,7 +245,7 @@ La collecte de données sur le terrain est assurée par les agents d'enquête à
 
 ## - Outils de traitement et d'analyse
 
-Le traitement et l'analyse des données est fait par le logiciel R et l'outils Quarto pour générer un rapport d'analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d'un fichier source contenant à la fois du texte, du code et des résultats. Dans notre cas d'utilisation de R, Quarto est particulièrement intéressant pour produire un rapport d'analyse en s'affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des "navettes" entre différents outils. Quarto permet également de générer des documents dans différents formats (HTML, PDF, Word, etc.) à partir d'un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d'intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.
+Le traitement et l'analyse des données est fait par le logiciel `R` et l'outils `Quarto` pour générer un rapport d'analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d'un fichier source contenant à la fois du texte, du code et des résultats. Dans notre cas d'utilisation de `R`, `Quarto` est particulièrement intéressant pour produire un rapport d'analyse en s'affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des "navettes" entre différents outils. `Quarto` permet également de générer des documents dans différents formats (`HTML`, `PDF`, `Word`, etc.) à partir d'un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d'intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.
 
 ## - Nettoyage des données
 
@@ -287,13 +288,13 @@ pacman::p_load(tidyverse,
 
 **Rôle des différents packages utilisés dans l'analyse des données :**
 
-- pacman : permet d'installer et de charger facilement plusieurs packages.
-- tidyverse : Ensemble de packages pour la manipulation et la visualisation des données. Il contient entre autres dplyr, ggplot2, readr qui sont utilisés dans ce rapport.
-- readxl, readr : Packages pour lire des fichiers csv, Excel et texte.
-- janitor : Package pour le nettoyage des données et la création de tableau de fréquences.
-- tidyr : pour réorganiser et restructurer les tableaux en format long ou inversement selon les besoins.
-- here : pour gérer les chemins de fichiers.
-- gt, flextable, gtsummary, gtExtras : Packages pour la création de tableaux formatés.
+- **pacman** : permet d'installer et de charger facilement plusieurs packages.
+- **tidyverse** : est un ensemble de packages pour la manipulation et la visualisation des données. Il contient entre autres `dplyr`, `ggplot2`, `readr` qui sont utilisés dans ce rapport.
+- **readxl, readr** : Packages pour lire des fichiers csv, Excel et texte.
+- **janitor** : Package pour le nettoyage des données et la création de tableau de fréquences.
+- **tidyr** : pour réorganiser et restructurer les tableaux en format long ou inversement selon les besoins.
+- **here** : pour gérer les chemins de fichiers.
+- **gt, flextable, gtsummary, gtExtras** : Packages pour la création de tableaux formatés.
 
 ## - Importation des données
 
@@ -307,4 +308,126 @@ data_tchaoudjo2 <- read_csv(here("data/enquete_tchaoudjo2_clean3.csv"))
 head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de données
 ```
 
-# - Troisième partie – résultats, analyse et discussion
+# - Résultats, analyse et discussion
+## - Caractéristiques démographiques et conditions socioéconomiques des ménages
+### - Profil démographique des ménages
+
+#### - Répartition des enquêtés selon le sexe
+
+```{r}
+#| echo: false
+#| label: tbl-sexe
+#| tbl-cap: "Répartition des ménages enquêtés selon le sexe du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(sexe) |> 
+  adorn_totals("row") |>
+  adorn_pct_formatting(digits = 1) |> 
+  rename("Sexe" = sexe, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      rows = Sexe == "Total"
+    )
+  )
+```
+
+:::callout-note
+La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs de ménage enquêtés : ils représentent `75,7 %` contre `24,3 %` de femmes. Cette configuration apparaît cohérente avec le contexte socioculturel togolais, dans lequel la responsabilité du ménage est encore majoritairement attribuée aux hommes. La proportion non négligeable de ménages dirigés par des femmes, soit près d’un ménage sur quatre dans l’échantillon, mérite toutefois une attention particulière dans l’analyse de leurs caractéristiques socioéconomiques et de leurs éventuelles vulnérabilités.
+:::
+
+#### - Répartition des enquêtés selon la tranche d’âge et le sexe
+
+```{r}
+#| echo: false
+#| label: fig-tranche_age
+#| fig-cap: "Répartition des individus par tranche d'âge et le sexe"
+data_tchaoudjo2|>
+  ggplot() +
+  aes(x = age, fill = sexe)+
+  geom_bar(position = "dodge")+
+  labs(title = "Répartition des enquêtés par tranche d'âge et le sexe",
+       caption = "Source : Enquête ménages Tchaoudjo 2, 2026",
+       x = "Sexe",
+       y = "Effectif")+
+  theme_bw() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+#### - Situation matrimoniale selon le sexe du chefs de ménage
+
+```{r}
+#| echo: false
+#| label: tbl-situation_matri
+#| tbl-cap: "Répartition des enquêtés selon la situation matrimoniale et le sexe du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(situation_matri, sexe) |> 
+  mutate(Total = Féminin + Masculin) |> 
+  arrange(desc(Total)) |> 
+  as.data.frame() |>
+  adorn_totals("row") |>
+  rename(Situation_matrimoniale = situation_matri) |> 
+  gt()
+```
+
+:::callout-note
+Les résultats de la @tbl-situation_matri montrent que la grande majorité des chefs de ménage enquêtés vivent en couple ou sont mariés. Cette catégorie représente `70,1 %` des répondants, soit 1 022 personnes sur les 1 458 enquêtées. 
+Les veufs et veuves constituent la deuxième catégorie la plus importante, avec `17,9 %` des répondants (261 personnes), devant les célibataires qui représentent `9,8 %` (143 personnes). Les personnes divorcées sont, quant à elles, faiblement représentées avec seulement `2,2 %` (32 personnes). Au total, près de trois chefs de ménage sur dix (`29,9 %`) ne vivent donc pas en couple au moment de l’enquête.
+
+Les données montrent également que le veuvage est nettement plus représenté chez les femmes chefs de ménage : sur les 261 personnes veufs ou veuves, 190 sont des femmes contre 71 hommes, soit environ `72,8 %` de femmes; alors que les femmes ne représentent que `24,3 %` de l'ensemble des chefs de ménage enquêtés. 
+
+Ces résultats suggèrent donc que l'accès au statut de chef de ménage diffère fortement selon le sexe et la situation matrimoniale : chez les hommes, il est principalement associé à la vie en couple, tandis que chez les femmes, il apparaît beaucoup plus fréquemment associé au veuvage. Cette situation pourrait avoir des implications importantes sur les conditions socioéconomiques et l'accès aux services essentiels pour les ménages dirigés par des femmes, notamment en termes de ressources financières, de charge familiale et de vulnérabilité sociale.
+:::
+
+Test du Khi-deux d'indépendance entre la situation matrimoniale et le sexe du chef de ménage. Il permettrait de déterminer si les différences observées sont statistiquement significatives ; le V de Cramér permettrait ensuite d'en apprécier l'intensité.
+
+```{r}
+khi2_matri_sexe  <- chisq.test(
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
+)
+
+khi2_matri_sexe
+```
+
+```{r}
+# vérifier les effectifs attendus
+khi2_matri_sexe$expected
+```
+
+```{r}
+# effectifs attendus minimum
+min(khi2_matri_sexe$expected)
+```
+
+```{r}
+DescTools::CramerV(
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
+)
+```
+
+:::callout-note
+**Interprétation :**
+
+Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, Khi2(3)=463,9, p<0,001. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de 7,79. Le V de Cramér V=0,564 révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs.
+:::
+
+### - Niveau d'éducation et capital humain
+
+
+### - Emploi et activités économiques
+
+
+
+### - Sources de revenus et moyens d'existence
+
+
+
+### - Caractéristiques de l'habitat
+
+
+
+### - Équipements et patrimoine des ménages
+
+
+
+### - Synthèse/typologie des conditions socioéconomiques
