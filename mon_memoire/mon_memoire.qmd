@@ -363,6 +363,18 @@ data_tchaoudjo2|>
   ggplot() +
   aes(x = age, fill = sexe)+
   geom_bar(position = "dodge")+
+
+  geom_text(
+    aes(
+      label = after_stat(count),
+      group = sexe
+    ),
+    stat = "count",
+    position = position_dodge(width = 0.9),
+    vjust = -0.3,
+    size = 3
+  ) +
+
   labs(title = "",
        caption = "",
        x = "Sexe",
@@ -466,40 +478,75 @@ Le test du Khi-deux met en évidence une association statistiquement significati
 
 ```{r}
 #| echo: false
-tab_ethnie <- table(data_tchaoudjo2$ethnie)
-pourcentage <- round(prop.table(tab_ethnie) * 100, 1)
-labels <- paste0(names(tab_ethnie), " : ", pourcentage, "%")
-
-pie(
-  tab_ethnie,
-  labels = labels,
-  #col = c("skyblue", "yellow", "tomato", "seagreen"),
-  main = "Répartition des enquêtés selon l'ethnie"
-)
+#| output: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    ethnie = if_else(ethnie == "Nawba", "Nawda", ethnie)
+  )
 ```
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 |> 
+  tabyl(ethnie) |> 
+  arrange(desc(n))
+```
+
+```{r}
+#| echo: false
+data_tchaoudjo2 <- data_tchaoudjo2 |> 
+  mutate(
+    ethnie_rec = case_when(
+      ethnie %in% c("Ife", "Konkomba", "Sola", "Akposso", "Lokpa", "Mina", "Pouda", "Samourè", "Yaka", "Zarma") ~ "Autres",
+      TRUE ~ ethnie
+    )
+  )
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 |> 
+  tabyl(ethnie_rec) |> 
+  arrange(desc(n))
+```
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 ```{r}
 #| echo: false
 #| label: fig-ethinie
 #| fig-cap: "Répartition des ménages selon l'ethnie du chef de ménage"
 data_tchaoudjo2 |>
-  count(ethnie) |>
-  ggplot(aes(x = reorder(ethnie, -n), y = n)) +
-  geom_col(fill = "steelblue") +
+  count(ethnie_rec) |>
+  ggplot(aes(x = reorder(ethnie_rec, -n), y = n)) +
+  geom_col(color = "#0f5612", fill = "#26c293") +
   geom_text(
     aes(label = n),
     vjust = -0.3
   ) +
   labs(
+    title = "",
+    caption = "",
     x = "Ethnie",
     y = "Effectif"
   ) +
   theme_bw()
 ```
 
+:::
+
+::: {.column width="50%"}
+
 ```{r}
 #| echo: false
-tab_ethnie <- table(data_tchaoudjo2$religion)
+#| label: fig-religion
+#| fig-cap: "Répartition des ménages selon la religion du chef de ménage"
+tab_religion <- table(data_tchaoudjo2$religion)
 pourcentage <- round(prop.table(tab_religion) * 100, 1)
 labels <- paste0(names(tab_religion), " : ", pourcentage, "%")
 
@@ -507,14 +554,194 @@ pie(
   tab_religion,
   labels = labels,
   #col = c("skyblue", "yellow", "tomato", "seagreen"),
-  main = "Répartition des enquêtés selon la religion"
+  main = ""
 )
 ```
 
-### - Niveau d'éducation et capital humain
+:::
+
+:::callout-note
+**Interprétation:**
+
+La @fig-ethinie mettent en évidence que `55,1 %` des chefs de ménage sont Kabyè contre `21,7 %` de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ `76,8 %` des chefs de ménage enquêtés de l'échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent `6 %`, les Losso `5,4 %`, les Lamba `5 %` et les Nawda `2,7 %`.
+
+Le reste des partenances ethniques sont très minoritaires. Les Ewé représentent `0,8 %`, des Moba avec `0,6 %`, les Bassar 0,`4 %` et des Adja `0,3 %`. La catégorie « Autres » (Ife, Konkomba, Sola, Akposso, Lokpa, Mina, Pouda, Samourè, Yaka, Zarma) regroupe `0,9 %` des enquêtés. Par ailleurs, l’appartenance ethnique n’est pas renseignée pour `1 %` des chefs de ménage.
+
+Au niveau de la religion la @fig-religion montre que le christianisme constitue la religion la plus représentée parmi les chefs de ménage enquêtés, avec `42,9 %` de l’effectif total. Il est suivi de l’islam, pratiqué par `31,5 %` des chefs de ménage. Ces deux principales religions regroupent ainsi `74,4 %` des enquêtés. Les religions traditionnelles concernent pour leur part `11,2 %` des chefs de ménage. Par ailleurs, une proportion non négligeable des chefs de ménage, soit `13,6`, déclare n’appartenir à aucune religion, tandis que `0,8 %` n’ont pas précisé leur appartenance religieuse (NSP).
+:::
+
+#### - Nombre de personnes à charge
+
+```{r}
+data_tchaoudjo2 |> 
+    select("Nombre de personne à charge" = personne_nb_charge) |> 
+    summary()
+```
+
+```{r}
+#| echo: false
+#| label: fig-perso_charge
+#| fig-cap: "Répartition des individus selon le nombre de personnes à charge"
+data_tchaoudjo2 |>
+  ggplot(aes(x = personne_nb_charge)) +
+  geom_histogram(
+    binwidth = 1,
+    color = "blue",
+    fill = "skyblue"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 30, by = 2)
+  ) +
+  labs(
+    title = "",
+    caption = "",
+    x = "Nombre de personnes à charge",
+    y = "Effectif"
+  ) +
+  theme_bw()
+```
+
+
+::: callout-note
+## **Interprétation**
+
+Le nombre moyen de personnes à charge s’établit à **5,68 personnes**, tandis que la médiane est de **5 personnes**. Cela signifie que la moitié des ménages compte **au plus 5 personnes à charge**, et l’autre moitié **au moins 5**. La moyenne étant légèrement supérieure à la médiane, la distribution présente une certaine asymétrie (@fig-perso_charge) vers les valeurs élevées, liée à l’existence de ménages ayant un nombre important de personnes à charge.
+
+Les quartiles montrent par ailleurs que **25 % des ménages ont au plus 3 personnes à charge**, tandis que **75 % en ont au plus 8** ; autrement dit, la moitié centrale des ménages se situe entre **3 et 8 personnes à charge**. Certains ménages ne déclarent donc aucune personne à charge, alors que d’autres supportent une charge familiale particulièrement élevée, pouvant atteindre 25 personnes puisque le nombre observé va de **0 à 25 personnes**.
+:::
+
+#### - Acte de naissance
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-acte-naissance
+#| tbl-cap: "Enfant sans acte de naissance"
+data_tchaoudjo2 |> 
+  tabyl(enfant_pas_naissance) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  rename("Enfants sans acte de naissance" = enfant_pas_naissance, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-sans-acte-raison
+#| tbl-cap: "Raison de l'absence d'acte de naissance"
+
+data_tchaoudjo2 |> 
+  tabyl(enfant_pas_naissance_raison, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Raisons de l'absence d'acte de naissance" = enfant_pas_naissance_raison, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+:::
+
+::: callout-note
+**Interprétation :**
+
+Les résultats de la @tbl-acte-naissance montrent que la grande majorité des ménages enquêtés **(88,1 %)** déclarent que les enfants ont un acte de naissance. Toutefois, **173 ménages (11,9 %)** déclarent avoir au moins un enfant sans acte de naissance. Bien que minoritaire, cette proportion reste notable puisqu’elle signifie qu’environ **un ménage sur huit** est concerné. L’absence d’acte de naissance peut constituer un obstacle à l’exercice de certains droits et à l’accès à diverses démarches administratives et services, notamment en matière de scolarisation et d’identification.
+
+Concernant les raisons évoquées dans la table  @tbl-sans-acte-raison, la principale difficulté tient à la **destruction ou à la perte de l’acte de naissance**, citée dans **50,3 %** des cas renseignés. Les obstacles directement liés à l’accessibilité des services d’état civil apparaissent également : **7,1 %** évoquent l’éloignement du centre d’état civil et **3,9 %** le coût jugé trop élevé de l’établissement de l’acte.
+
+Les « autres raisons » évoquées représentent également une part importante (**38,7 %**). Ces raisons sont : "l'établissement de l'acte est en cours", "l'enfant n'était pas né au Togo", "absence de régistre ou problème avec l'agent d'état civil", "l'âge de l'enfant est dépassé", "l'acte est fait mais c'est un faux", "l'agent d'état civil a pris l'argent mais ne l'a pas fait", "le père avait voyagé", "le délai est dépassé", "le manque de moyens financiers", "par négligeance", "l'enfant est un orphelin recueilli", "l'oublie". Ces résultats suggèrent ainsi que la problématique ne relève pas uniquement de l’enregistrement initial des naissances, mais également de la conservation et de la sécurisation des actes déjà établis.
+:::
+
+### - Education et formation
+
+#### - Niveau d'étude et de diplôme du chef de ménage
+
+:::: {.columns}
+::: {.columns width = "50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-niveau-etude
+#| tbl-cap: "Niveau d'étude du chef de ménage"
+system.time({
+data_tchaoudjo2 |> 
+    tabyl(education_niveau_etude, show_na = FALSE) |> 
+    adorn_pct_formatting(digits = 1) |> 
+    arrange(desc(n)) |> 
+    rename("Niveau d'étude" = education_niveau_etude, "Effectif" = n, "Pourcentage" = percent)
+})
+```
+:::
+
+
+```{r}
+system.time({
+  data_tchaoudjo2 |> 
+    tabyl(education_niveau_etude, show_na = FALSE) |> 
+    adorn_pct_formatting(digits = 1) |> 
+    arrange(desc(n)) |> 
+    rename(
+      "Niveau d'étude" = education_niveau_etude,
+      "Effectif" = n,
+      "Pourcentage" = percent
+    )
+})
+```
+
+
+::: {.columns width = "50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-niveau-diplome
+#| tbl-cap: "Niveau de diplome du chef de ménage"
+data_tchaoudjo2 |> 
+    tabyl(education_niveau_diplome, show_na = FALSE) |> 
+    adorn_pct_formatting(digits = 1) |> 
+    arrange(desc(n)) |> 
+    rename("Niveau de diplôme" = education_niveau_diplome, "Effectif" = n, "Pourcentage" = percent)
+```
+:::
+
+#### - Niveau d'étude et de diplôme du/de la conjoint(e)
+
+:::: {.columns}
+::: {.columns width = "50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-niveau-etude-conjoint
+#| tbl-cap: "Niveau d'étude du/de la conjoint(e)"
+data_tchaoudjo2 |> 
+    tabyl(education_niveau_etude_conjoint_e, show_na = FALSE) |> 
+    adorn_pct_formatting(digits = 1) |> 
+    arrange(desc(n)) |> 
+    rename("Niveau d'étude" = education_niveau_etude_conjoint_e, "Effectif" = n, "Pourcentage" = percent)
+```
+:::
+
+::: {.columns width = "50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-niveau-diplome-conjoint
+#| tbl-cap: "Niveau de diplôme du/de la conjoint(e)"
+data_tchaoudjo2 |> 
+    tabyl(education_niveau_diplome_conjoint_e, show_na = FALSE) |> 
+    adorn_pct_formatting(digits = 1) |> 
+    arrange(desc(n)) |> 
+    rename("Niveau d'étude" = education_niveau_diplome_conjoint_e, "Effectif" = n, "Pourcentage" = percent)
+```
+:::
+
+
 
 
 ### - Emploi et activités économiques
+
+
 
 
 
