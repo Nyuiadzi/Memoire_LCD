@@ -1,6 +1,7 @@
 ---
 title: "Analyse des conditions socioéconomiques et accès aux services essentiels des ménages de la commune de Tchaoudjo 2"
 author: "Nyuiadzi ZIKPI"
+date: "`r Sys.Date()`"
 
 format: 
   html:
@@ -10,6 +11,7 @@ format:
     css: styles.css
     #df-print: "kable" # pour obtenir de belles tables plutôt qu’une sortie logiciel
     tbl-cap-location: "top" # pour faire apparaitre la légende au-dessus de la table (vous pouvez choisir “top”, « bottom », ou « margin » )
+    fig-cap-location: "top"
 
   typst:
     toc: true
@@ -28,7 +30,7 @@ execute:
 #   warning: false
 #   message: false
   code-fold: true
-  cacbe: true
+  cache: true
   freeze: true
   
 
@@ -333,6 +335,8 @@ data_tchaoudjo2 |>
 ```
 
 :::callout-note
+## **Interprétation :**
+
 La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs de ménage enquêtés : ils représentent `75,7 %` contre `24,3 %` de femmes. Cette configuration apparaît cohérente avec le contexte socioculturel togolais, dans lequel la responsabilité du ménage est encore majoritairement attribuée aux hommes. La proportion non négligeable de ménages dirigés par des femmes, soit près d’un ménage sur quatre dans l’échantillon, mérite toutefois une attention particulière dans l’analyse de leurs caractéristiques socioéconomiques et de leurs éventuelles vulnérabilités.
 :::
 
@@ -340,19 +344,59 @@ La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs
 
 ```{r}
 #| echo: false
+#| label: tbl-age_sexe
+#| tbl-cap: "Répartition des enquêtés selon la tranche d'âge et le sexe du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(age, sexe) |> 
+  mutate(Total = Féminin + Masculin) |> 
+  as.data.frame() |>
+  adorn_totals("row") |>
+  rename(Âge = age) |> 
+  gt()
+```
+
+```{r}
+#| echo: false
 #| label: fig-tranche_age
-#| fig-cap: "Répartition des individus par tranche d'âge et le sexe"
+#| fig-cap: "Répartition des enquêtés par tranche d'âge et par sexe"
 data_tchaoudjo2|>
   ggplot() +
   aes(x = age, fill = sexe)+
   geom_bar(position = "dodge")+
-  labs(title = "Répartition des enquêtés par tranche d'âge et le sexe",
-       caption = "Source : Enquête ménages Tchaoudjo 2, 2026",
+  labs(title = "",
+       caption = "",
        x = "Sexe",
-       y = "Effectif")+
+       y = "Effectif",
+       fill = "Sexe") +
+        
   theme_bw() +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    theme(
+    # Titre du graphique
+    plot.title = element_text(size = 14, face = "bold"),
+    # Sous-titre du graphique
+    plot.subtitle = element_text(size = 12, face = "italic"),
+    # Note de bas de page du graphique
+    plot.caption = element_text(size = 10, face = "italic"),
+    # Valeurs graduées de l'axe Y
+    axis.text.y = element_text(size = 12),
+    # Modalités de l'axe X
+    axis.text.x = element_text(size = 10, face = "bold",  angle = 45, hjust = 1),
+    # Titre de l'axe X
+    axis.title.x = element_text(size = 12, face = "bold"),
+    # Titre de l'axe Y
+    axis.title.y = element_text(size = 12,face = "bold"),
+    # Légende
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(0.8, "cm")
+)
 ```
+
+::: callout-note
+## **Interprétation :**
+
+La répartition des chefs de ménage selon l’âge montre une **forte concentration dans les classes d’âge actives**, notamment entre **35 et 64 ans (68,5 %)**, avec un maximum observé chez les **45–49 ans (14,6 % ; 213 personnes)**, suivis des 35–39 ans (**13,2 % ; 192**) et des 40–44 ans (**12,6 % ; 184**). Les jeunes chefs de ménage sont relativement peu nombreux, particulièrement chez les 18–24 ans (**1,7 % ; 25 personnes**), ce qui suggère que l’accès au statut de chef de ménage intervient généralement à un âge plus avancé, probablement en lien avec la constitution d’un ménage et l’acquisition d’une certaine autonomie économique. À partir de 65 ans, les effectifs diminuent progressivement, même si la présence de chefs de ménage âgés demeure notable (**15,8 % ont 65 ans ou plus**). La prédominance masculine observée dans l’ensemble de l’échantillon se retrouve dans **toutes les classes d’âge**, avec 1 103 hommes (**75,7 %**) contre 355 femmes (**24,3 %**) au total. Cette structure met ainsi en évidence un profil de chefs de ménage principalement **masculins et d’âge adulte**, tout en révélant la coexistence de plusieurs générations de responsables de ménage.
+:::
 
 #### - Situation matrimoniale selon le sexe du chefs de ménage
 
@@ -371,6 +415,8 @@ data_tchaoudjo2 |>
 ```
 
 :::callout-note
+## **Interprétation :**
+
 Les résultats de la @tbl-situation_matri montrent que la grande majorité des chefs de ménage enquêtés vivent en couple ou sont mariés. Cette catégorie représente `70,1 %` des répondants, soit 1 022 personnes sur les 1 458 enquêtées. 
 Les veufs et veuves constituent la deuxième catégorie la plus importante, avec `17,9 %` des répondants (261 personnes), devant les célibataires qui représentent `9,8 %` (143 personnes). Les personnes divorcées sont, quant à elles, faiblement représentées avec seulement `2,2 %` (32 personnes). Au total, près de trois chefs de ménage sur dix (`29,9 %`) ne vivent donc pas en couple au moment de l’enquête.
 
@@ -379,37 +425,91 @@ Les données montrent également que le veuvage est nettement plus représenté 
 Ces résultats suggèrent donc que l'accès au statut de chef de ménage diffère fortement selon le sexe et la situation matrimoniale : chez les hommes, il est principalement associé à la vie en couple, tandis que chez les femmes, il apparaît beaucoup plus fréquemment associé au veuvage. Cette situation pourrait avoir des implications importantes sur les conditions socioéconomiques et l'accès aux services essentiels pour les ménages dirigés par des femmes, notamment en termes de ressources financières, de charge familiale et de vulnérabilité sociale.
 :::
 
-Test du Khi-deux d'indépendance entre la situation matrimoniale et le sexe du chef de ménage. Il permettrait de déterminer si les différences observées sont statistiquement significatives ; le V de Cramér permettrait ensuite d'en apprécier l'intensité.
+Test du Khi-deux d'indépendance entre la situation matrimoniale et le sexe du chef de ménage permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d'en apprécier l'intensité de cette relation.
 
 ```{r}
 khi2_matri_sexe  <- chisq.test(
-  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
-)
-
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
 khi2_matri_sexe
 ```
 
 ```{r}
-# vérifier les effectifs attendus
+#| echo: false
+# Vérification des effectifs attendus et de l'effectif attendus minimum
 khi2_matri_sexe$expected
+effectif_min  <- min(khi2_matri_sexe$expected)
 ```
 
 ```{r}
-# effectifs attendus minimum
-min(khi2_matri_sexe$expected)
+#| echo: false
+paste("L'effectif attendu minimum est :", round(effectif_min, 2))
 ```
 
 ```{r}
-DescTools::CramerV(
-  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
+# Calcul du V de Cramer
+v_cramer <- DescTools::CramerV(
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
+```
+
+```{r}
+#| echo: false
+paste("La valeur du V de Cramer est :", round(v_cramer, 2))
+```
+
+::: callout-note
+## **Interprétation :**
+
+Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, `Khi2(3) = 463,9`, `p < 0,001`. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de `7,79`. Le V de Cramér `V = 0,564` révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs.
+:::
+
+#### - Ethnie et religion du chef de ménage
+
+```{r}
+#| echo: false
+tab_ethnie <- table(data_tchaoudjo2$ethnie)
+pourcentage <- round(prop.table(tab_ethnie) * 100, 1)
+labels <- paste0(names(tab_ethnie), " : ", pourcentage, "%")
+
+pie(
+  tab_ethnie,
+  labels = labels,
+  #col = c("skyblue", "yellow", "tomato", "seagreen"),
+  main = "Répartition des enquêtés selon l'ethnie"
 )
 ```
 
-:::callout-note
-**Interprétation :**
+```{r}
+#| echo: false
+#| label: fig-ethinie
+#| fig-cap: "Répartition des ménages selon l'ethnie du chef de ménage"
+data_tchaoudjo2 |>
+  count(ethnie) |>
+  ggplot(aes(x = reorder(ethnie, -n), y = n)) +
+  geom_col(fill = "steelblue") +
+  geom_text(
+    aes(label = n),
+    vjust = -0.3
+  ) +
+  labs(
+    x = "Ethnie",
+    y = "Effectif"
+  ) +
+  theme_bw()
+```
 
-Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, Khi2(3)=463,9, p<0,001. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de 7,79. Le V de Cramér V=0,564 révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs.
-:::
+```{r}
+#| echo: false
+tab_ethnie <- table(data_tchaoudjo2$religion)
+pourcentage <- round(prop.table(tab_religion) * 100, 1)
+labels <- paste0(names(tab_religion), " : ", pourcentage, "%")
+
+pie(
+  tab_religion,
+  labels = labels,
+  #col = c("skyblue", "yellow", "tomato", "seagreen"),
+  main = "Répartition des enquêtés selon la religion"
+)
+```
 
 ### - Niveau d'éducation et capital humain
 
