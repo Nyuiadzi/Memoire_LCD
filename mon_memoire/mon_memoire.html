@@ -3304,36 +3304,1187 @@ Note
 </div>
 </div><section id="education-et-formation" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="education-et-formation"><span class="header-section-number">4.1.2</span> - Education et formation</h3>
-<section id="niveau-dinstruction-et-de-diplôme-du-chef-de-ménage" class="level4" data-number="4.1.2.1">
-<h4 data-number="4.1.2.1" class="anchored"><span class="header-section-number">4.1.2.1</span> - Niveau d’instruction et de diplôme du chef de ménage</h4>
+<section id="niveau-déducation-du-chef-de-ménage" class="level4" data-number="4.1.2.1">
+<h4 data-number="4.1.2.1" class="anchored" data-anchor-id="niveau-déducation-du-chef-de-ménage"><span class="header-section-number">4.1.2.1</span> - Niveau d’éducation du chef de ménage</h4>
 <div class="columns">
-<div class="columns" width="50%">
+<div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabyl</span>(education_niveau_etude, <span class="at">show_na =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="st">"Niveau d'étude"</span> <span class="ot">=</span> education_niveau_etude, <span class="st">"Effectif"</span> <span class="ot">=</span> n, <span class="st">"Pourcentage"</span> <span class="ot">=</span> percent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-etude-sexe" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-etude-sexe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: Niveau d’étude et sexe du chef de ménage
+</figcaption>
+<div aria-describedby="tbl-etude-sexe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="iuukiivdve" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#iuukiivdve table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#iuukiivdve thead, #iuukiivdve tbody, #iuukiivdve tfoot, #iuukiivdve tr, #iuukiivdve td, #iuukiivdve th {
+  border-style: none;
+}
+
+#iuukiivdve p {
+  margin: 0;
+  padding: 0;
+}
+
+#iuukiivdve .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#iuukiivdve .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#iuukiivdve .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#iuukiivdve .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#iuukiivdve .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#iuukiivdve .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#iuukiivdve .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#iuukiivdve .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#iuukiivdve .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#iuukiivdve .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#iuukiivdve .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#iuukiivdve .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#iuukiivdve .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#iuukiivdve .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#iuukiivdve .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#iuukiivdve .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#iuukiivdve .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#iuukiivdve .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#iuukiivdve .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#iuukiivdve .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#iuukiivdve .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#iuukiivdve .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#iuukiivdve .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#iuukiivdve .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#iuukiivdve .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#iuukiivdve .gt_left {
+  text-align: left;
+}
+
+#iuukiivdve .gt_center {
+  text-align: center;
+}
+
+#iuukiivdve .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#iuukiivdve .gt_font_normal {
+  font-weight: normal;
+}
+
+#iuukiivdve .gt_font_bold {
+  font-weight: bold;
+}
+
+#iuukiivdve .gt_font_italic {
+  font-style: italic;
+}
+
+#iuukiivdve .gt_super {
+  font-size: 65%;
+}
+
+#iuukiivdve .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#iuukiivdve .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#iuukiivdve .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#iuukiivdve .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#iuukiivdve .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#iuukiivdve .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#iuukiivdve .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#iuukiivdve .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#iuukiivdve div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Niveau-d'étude" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Niveau d'étude</th>
+<th id="Féminin" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Féminin</th>
+<th id="Masculin" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Masculin</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Aucun</td>
+<td class="gt_row gt_right" headers="Féminin">188 (53.0%)</td>
+<td class="gt_row gt_right" headers="Masculin">382 (34.6%)</td>
+<td class="gt_row gt_right" headers="Total">570 (39.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">NSP</td>
+<td class="gt_row gt_right" headers="Féminin">0 (0.0%)</td>
+<td class="gt_row gt_right" headers="Masculin">6 (0.5%)</td>
+<td class="gt_row gt_right" headers="Total">6 (0.4%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Primaire</td>
+<td class="gt_row gt_right" headers="Féminin">107 (30.1%)</td>
+<td class="gt_row gt_right" headers="Masculin">325 (29.5%)</td>
+<td class="gt_row gt_right" headers="Total">432 (29.6%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">Secondaire 1 (Collège)</td>
+<td class="gt_row gt_right" headers="Féminin">47 (13.2%)</td>
+<td class="gt_row gt_right" headers="Masculin">254 (23.0%)</td>
+<td class="gt_row gt_right" headers="Total">301 (20.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Secondaire 2 (Lycée)</td>
+<td class="gt_row gt_right" headers="Féminin">10 (2.8%)</td>
+<td class="gt_row gt_right" headers="Masculin">110 (10.0%)</td>
+<td class="gt_row gt_right" headers="Total">120 (8.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">Université</td>
+<td class="gt_row gt_right" headers="Féminin">3 (0.8%)</td>
+<td class="gt_row gt_right" headers="Masculin">26 (2.4%)</td>
+<td class="gt_row gt_right" headers="Total">29 (2.0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Total</td>
+<td class="gt_row gt_right" headers="Féminin">355 (100.0%)</td>
+<td class="gt_row gt_right" headers="Masculin">1,103 (100.0%)</td>
+<td class="gt_row gt_right" headers="Total">1,458 (100.0%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-etude-sexe" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-etude-sexe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Niveau d’étude et sexe du chef de ménage
+</figcaption>
+<div aria-describedby="fig-etude-sexe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mon_memoire_files/figure-html/fig-etude-sexe-1.png" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Interprétation :</strong></p>
+<p>Selon la <a href="#tbl-etude-sexe" class="quarto-xref">Table&nbsp;8</a> et la <a href="#fig-etude-sexe" class="quarto-xref">Figure&nbsp;5</a>, le niveau d’instruction des chefs de ménage enquêtés demeure globalement faible. En effet, <strong>39,1 % n’ont aucun niveau d’étude</strong>, tandis que <strong>29,6 % ont atteint le primaire</strong>. Ainsi, près de sept chefs de ménage sur dix (68,7 %) n’ont pas dépassé le niveau primaire. À l’inverse, seuls <strong>20,6 %</strong> ont atteint le secondaire 1, <strong>8,2 %</strong> le secondaire 2 et <strong>2,0 %</strong> l’université. Ces résultats mettent en évidence une diminution progressive des effectifs à mesure que le niveau d’étude s’élève.</p>
+<p>Des différences importantes apparaissent également selon le sexe du chef de ménage. La proportion de personnes <strong>sans aucun niveau d’étude est nettement plus élevée chez les femmes (53,0 %) que chez les hommes (34,6 %)</strong>. À l’inverse, les hommes sont proportionnellement plus nombreux aux niveaux secondaire 1 (<strong>23,0 % contre 13,2 %</strong> chez les femmes), secondaire 2 (<strong>10,0 % contre 2,8 %</strong>) et universitaire (<strong>2,4 % contre 0,8 %</strong>). Ces écarts indiquent que, parmi les chefs de ménage enquêtés, les femmes présentent globalement des niveaux d’instruction plus faibles que les hommes.</p>
+</div>
+</div>
+<p>Test du Khi-deux d’indépendance entre le niveau d’éducation et le sexe du chef de ménage permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d’en apprécier l’intensité de cette relation.</p>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>         Niveau d'étude Effectif Pourcentage
-                  Aucun      570       39.1%
-               Primaire      432       29.6%
- Secondaire 1 (Collège)      301       20.6%
-   Secondaire 2 (Lycée)      120        8.2%
-             Université       29        2.0%
-                    NSP        6        0.4%</code></pre>
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  with(filter(data_tchaoudjo2, education_niveau_etude != "NSP"),     table(education_niveau_etude, sexe))
+X-squared = 55.208, df = 4, p-value = 2.938e-11</code></pre>
 </div>
 </div>
-</div><div class="columns" width="50%">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "L'effectif attendu minimum est : 7.09"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La valeur du V de Cramer est : 0.2"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Après exclusion de la modalité « NSP », le test du Khi-deux de Pearson confirme l’existence d’une <strong>association statistiquement significative entre le sexe du chef de ménage et son niveau d’étude</strong> : (χ²(4) = 55,21), avec (p &lt; 0,001). Les conditions d’application du test sont désormais pleinement satisfaites, puisque <strong>l’effectif théorique minimum est de 7,09</strong>, donc supérieur à 5. L’hypothèse d’indépendance entre les deux variables peut ainsi être rejetée : la répartition des niveaux d’étude diffère significativement selon le sexe des chefs de ménage enquêtés.</p>
+<p>Cette association reste toutefois d’une <strong>intensité faible à modérée</strong>, comme l’indique le <strong>V de Cramér de 0,20</strong>. Les résultats descriptifs permettent d’en préciser le sens : les femmes chefs de ménage sont proportionnellement plus nombreuses à n’avoir <strong>aucun niveau d’étude (53,0 % contre 34,6 % chez les hommes)</strong>, tandis que les hommes sont davantage représentés dans les niveaux secondaire et universitaire. Ces résultats mettent donc en évidence des <strong>disparités de niveau d’instruction selon le sexe</strong> parmi les chefs de ménage enquêtés, sans pour autant permettre d’établir une relation causale entre le sexe et le niveau d’étude.</p>
+</div>
+</div>
+</section>
+<section id="education-des-enfants" class="level4" data-number="4.1.2.2">
+<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="education-des-enfants"><span class="header-section-number">4.1.2.2</span> - Education des enfants</h4>
+<div class="cell">
+<div id="tbl-educ-enfant" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-educ-enfant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: Niveau d’étude chef de ménage et Scolarisation des efants de 9 à 14 ans
+</figcaption>
+<div aria-describedby="tbl-educ-enfant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="anzuoyylwq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#anzuoyylwq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-</div><section id="niveau-dinstruction-et-de-diplôme-dude-la-conjointe" class="level4" data-number="4.1.2.2">
-<h4 data-number="4.1.2.2" class="anchored"><span class="header-section-number">4.1.2.2</span> - Niveau d’instruction et de diplôme du/de la conjoint(e)</h4>
-<div class="columns">
-<div class="columns" width="50%">
+#anzuoyylwq thead, #anzuoyylwq tbody, #anzuoyylwq tfoot, #anzuoyylwq tr, #anzuoyylwq td, #anzuoyylwq th {
+  border-style: none;
+}
 
-</div><div class="columns" width="50%">
+#anzuoyylwq p {
+  margin: 0;
+  padding: 0;
+}
 
-</div><section id="emploi-et-activités-économiques" class="level3" data-number="4.1.3">
+#anzuoyylwq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#anzuoyylwq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#anzuoyylwq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#anzuoyylwq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#anzuoyylwq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#anzuoyylwq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#anzuoyylwq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#anzuoyylwq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#anzuoyylwq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#anzuoyylwq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#anzuoyylwq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#anzuoyylwq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#anzuoyylwq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#anzuoyylwq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#anzuoyylwq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#anzuoyylwq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#anzuoyylwq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#anzuoyylwq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#anzuoyylwq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#anzuoyylwq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#anzuoyylwq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#anzuoyylwq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#anzuoyylwq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#anzuoyylwq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#anzuoyylwq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#anzuoyylwq .gt_left {
+  text-align: left;
+}
+
+#anzuoyylwq .gt_center {
+  text-align: center;
+}
+
+#anzuoyylwq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#anzuoyylwq .gt_font_normal {
+  font-weight: normal;
+}
+
+#anzuoyylwq .gt_font_bold {
+  font-weight: bold;
+}
+
+#anzuoyylwq .gt_font_italic {
+  font-style: italic;
+}
+
+#anzuoyylwq .gt_super {
+  font-size: 65%;
+}
+
+#anzuoyylwq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#anzuoyylwq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#anzuoyylwq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#anzuoyylwq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#anzuoyylwq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#anzuoyylwq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#anzuoyylwq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#anzuoyylwq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#anzuoyylwq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Niveau-d'étude" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Niveau d'étude</th>
+<th id="Non" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Non</th>
+<th id="Oui" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Oui</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Aucun</td>
+<td class="gt_row gt_right" headers="Non">536 (38.1%)</td>
+<td class="gt_row gt_right" headers="Oui">34 (73.9%)</td>
+<td class="gt_row gt_right" headers="Total">570 (39.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">Primaire</td>
+<td class="gt_row gt_right" headers="Non">423 (30.1%)</td>
+<td class="gt_row gt_right" headers="Oui">9 (19.6%)</td>
+<td class="gt_row gt_right" headers="Total">432 (29.8%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Secondaire 1 (Collège)</td>
+<td class="gt_row gt_right" headers="Non">299 (21.3%)</td>
+<td class="gt_row gt_right" headers="Oui">2 (4.3%)</td>
+<td class="gt_row gt_right" headers="Total">301 (20.7%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">Secondaire 2 (Lycée)</td>
+<td class="gt_row gt_right" headers="Non">119 (8.5%)</td>
+<td class="gt_row gt_right" headers="Oui">1 (2.2%)</td>
+<td class="gt_row gt_right" headers="Total">120 (8.3%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Niveau d'étude">Université</td>
+<td class="gt_row gt_right" headers="Non">29 (2.1%)</td>
+<td class="gt_row gt_right" headers="Oui">0 (0.0%)</td>
+<td class="gt_row gt_right" headers="Total">29 (2.0%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Niveau d'étude">Total</td>
+<td class="gt_row gt_right" headers="Non">1,406 (100.0%)</td>
+<td class="gt_row gt_right" headers="Oui">46 (100.0%)</td>
+<td class="gt_row gt_right" headers="Total">1,452 (100.0%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Test du Khi-deux d’indépendance entre le niveau d’éducation du chef de ménage et la scolarisation des enfants (9-14 ans) permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d’en apprécier l’intensité de cette relation.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in stats::chisq.test(x, y, ...): L’approximation du Chi-2 est peut-être
+incorrecte</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  with(filter(data_tchaoudjo2, education_niveau_etude != "NSP"),     table(education_niveau_etude, education_9_14ans_non_scolarise))
+X-squared = 25.423, df = 4, p-value = 4.136e-05</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "L'effectif attendu minimum est : 0.92"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La valeur du V de Cramer est : 0.13"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <a href="#tbl-educ-enfant" class="quarto-xref">Table&nbsp;9</a> met en évidence une relation nette entre le <strong>niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage</strong>. Parmi les ménages déclarant des enfants de 9 à 14 ans non scolarisés, <strong>73,9 % des chefs de ménage n’ont aucun niveau d’étude</strong>, contre seulement <strong>38,1 %</strong> parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : <strong>19,6 %</strong> des chefs ont le niveau primaire, <strong>4,3 %</strong> le secondaire 1, <strong>2,2 %</strong> le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.</p>
+<p>Le test du Khi-deux indique effectivement une <strong>association statistiquement significative</strong> entre les deux variables ((^2(4)=25,42) ; (p&lt;0,001)). Toutefois, ce résultat doit être interprété avec prudence, car les conditions d’application du test de Pearson ne sont pas entièrement satisfaites : <strong>l’effectif théorique minimum est de 0,92</strong> et plusieurs effectifs attendus sont inférieurs à 5, ce qui explique l’avertissement produit par R. Par ailleurs, le <strong>V de Cramér de 0,13</strong> indique que l’association observée est de <strong>faible intensité</strong>. On peut donc retenir que les données montrent une association entre le niveau d’étude du chef de ménage et la non-scolarisation des enfants de 9 à 14 ans, mais <strong>sans conclure à un effet causal</strong> du niveau d’étude.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab_etude_scolarisation <span class="ot">&lt;-</span> data_tchaoudjo2 <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(education_niveau_etude <span class="sc">!=</span> <span class="st">"NSP"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">table</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    education_niveau_etude,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    education_9_14ans_non_scolarise</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  tab_etude_scolarisation,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">simulate.p.value =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">B =</span> <span class="dv">10000</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with simulated p-value (based on 10000
+    replicates)
+
+data:  tab_etude_scolarisation
+X-squared = 25.423, df = NA, p-value = 9.999e-05</code></pre>
+</div>
+</div>
+<p>Cette solution conserve tes cinq niveaux d’étude tout en évitant de dépendre excessivement de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. En raison de la faiblesse de certains effectifs théoriques, la significativité a été vérifiée à l’aide d’un test du Khi-deux avec p-value simulée sur 10 000 réplications. Le résultat confirme l’association observée (<strong>χ² = 25,42 ; p &lt; 0,001</strong>). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : <code>73,9 %</code> des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre 38,1 % parmi les ménages non concernés. Toutefois, le V de Cramér (<strong>V = 0,13</strong>) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.</p>
+</div>
+</div>
+</section>
+</section><section id="emploi-et-activités-économiques" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="emploi-et-activités-économiques"><span class="header-section-number">4.1.3</span> - Emploi et activités économiques</h3>
 </section><section id="sources-de-revenus-et-moyens-dexistence" class="level3" data-number="4.1.4">
 <h3 data-number="4.1.4" class="anchored" data-anchor-id="sources-de-revenus-et-moyens-dexistence"><span class="header-section-number">4.1.4</span> - Sources de revenus et moyens d’existence</h3>
@@ -3343,11 +4494,6 @@ Note
 <h3 data-number="4.1.6" class="anchored" data-anchor-id="équipements-et-patrimoine-des-ménages"><span class="header-section-number">4.1.6</span> - Équipements et patrimoine des ménages</h3>
 </section><section id="synthèsetypologie-des-conditions-socioéconomiques" class="level3" data-number="4.1.7">
 <h3 data-number="4.1.7" class="anchored" data-anchor-id="synthèsetypologie-des-conditions-socioéconomiques"><span class="header-section-number">4.1.7</span> - Synthèse/typologie des conditions socioéconomiques</h3>
-</section>
-</div>
-</section>
-</div>
-</section>
 </section>
 </div>
 </section>

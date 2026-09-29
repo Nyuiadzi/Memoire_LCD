@@ -656,87 +656,219 @@ Les « autres raisons » évoquées représentent également une part importante
 
 ### - Education et formation
 
-#### - Niveau d'étude et de diplôme du chef de ménage
+#### - Niveau d'éducation du chef de ménage
 
 :::: {.columns}
-::: {.columns width = "50%"}
+
+::: {.column width ="40%"}
 
 ```{r}
 #| echo: false
-#| label: tbl-niveau-etude
-#| tbl-cap: "Niveau d'étude du chef de ménage"
-system.time({
+#| label: tbl-etude-sexe
+#| tbl-cap: "Niveau d'étude et sexe du chef de ménage"
 data_tchaoudjo2 |> 
-    tabyl(education_niveau_etude, show_na = FALSE) |> 
-    adorn_pct_formatting(digits = 1) |> 
-    arrange(desc(n)) |> 
-    rename("Niveau d'étude" = education_niveau_etude, "Effectif" = n, "Pourcentage" = percent)
-})
+  tabyl(education_niveau_etude, sexe) |>
+  adorn_totals(c("row", "col")) |>
+  adorn_percentages("col") |>
+  adorn_pct_formatting(digits = 1) |>
+  adorn_ns(position = "front") |>
+  rename("Niveau d'étude" = education_niveau_etude) |> 
+  gt()
 ```
+
 :::
 
-
-```{r}
-system.time({
-  data_tchaoudjo2 |> 
-    tabyl(education_niveau_etude, show_na = FALSE) |> 
-    adorn_pct_formatting(digits = 1) |> 
-    arrange(desc(n)) |> 
-    rename(
-      "Niveau d'étude" = education_niveau_etude,
-      "Effectif" = n,
-      "Pourcentage" = percent
-    )
-})
-```
-
-
-::: {.columns width = "50%"}
+::: {.column width ="60%"}
 
 ```{r}
 #| echo: false
-#| label: tbl-niveau-diplome
-#| tbl-cap: "Niveau de diplome du chef de ménage"
-data_tchaoudjo2 |> 
-    tabyl(education_niveau_diplome, show_na = FALSE) |> 
-    adorn_pct_formatting(digits = 1) |> 
-    arrange(desc(n)) |> 
-    rename("Niveau de diplôme" = education_niveau_diplome, "Effectif" = n, "Pourcentage" = percent)
+#| label: fig-etude-sexe
+#| fig-cap: "Niveau d'étude et sexe du chef de ménage"
+data_tchaoudjo2|>
+  ggplot() +
+  aes(x = education_niveau_etude, fill = sexe)+
+  geom_bar(position = "dodge")+
+  geom_text(
+    aes(
+      label = after_stat(count),
+      group = sexe
+    ),
+    stat = "count",
+    position = position_dodge(width = 0.9),
+    vjust = -0.3,
+    size = 3
+  ) +
+
+  labs(title = "",
+       caption = "",
+       x = "Niveau d'étude",
+       y = "Effectif",
+       fill = "Sexe") +
+        
+  theme_bw() +
+    theme(
+    # Titre du graphique
+    plot.title = element_text(size = 14, face = "bold"),
+    # Sous-titre du graphique
+    plot.subtitle = element_text(size = 12, face = "italic"),
+    # Note de bas de page du graphique
+    plot.caption = element_text(size = 10, face = "italic"),
+    # Valeurs graduées de l'axe Y
+    axis.text.y = element_text(size = 12),
+    # Modalités de l'axe X
+    axis.text.x = element_text(size = 10, face = "bold",  angle = 25, hjust = 1),
+    # Titre de l'axe X
+    axis.title.x = element_text(size = 12, face = "bold"),
+    # Titre de l'axe Y
+    axis.title.y = element_text(size = 12,face = "bold"),
+    # Légende
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(0.8, "cm")
+)
 ```
+
 :::
 
-#### - Niveau d'étude et de diplôme du/de la conjoint(e)
+::::
 
-:::: {.columns}
-::: {.columns width = "50%"}
+::: callout-note
+**Interprétation :**
+
+Selon la @tbl-etude-sexe et la @fig-etude-sexe, le niveau d’instruction des chefs de ménage enquêtés demeure globalement faible. En effet, **39,1 % n’ont aucun niveau d’étude**, tandis que **29,6 % ont atteint le primaire**. Ainsi, près de sept chefs de ménage sur dix (68,7 %) n’ont pas dépassé le niveau primaire. À l’inverse, seuls **20,6 %** ont atteint le secondaire 1, **8,2 %** le secondaire 2 et **2,0 %** l’université. Ces résultats mettent en évidence une diminution progressive des effectifs à mesure que le niveau d’étude s’élève.
+
+Des différences importantes apparaissent également selon le sexe du chef de ménage. La proportion de personnes **sans aucun niveau d’étude est nettement plus élevée chez les femmes (53,0 %) que chez les hommes (34,6 %)**. À l’inverse, les hommes sont proportionnellement plus nombreux aux niveaux secondaire 1 (**23,0 % contre 13,2 %** chez les femmes), secondaire 2 (**10,0 % contre 2,8 %**) et universitaire (**2,4 % contre 0,8 %**). Ces écarts indiquent que, parmi les chefs de ménage enquêtés, les femmes présentent globalement des niveaux d’instruction plus faibles que les hommes.
+:::
+
+Test du Khi-deux d'indépendance entre le niveau d'éducation et le sexe du chef de ménage permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d'en apprécier l'intensité de cette relation.
 
 ```{r}
 #| echo: false
-#| label: tbl-niveau-etude-conjoint
-#| tbl-cap: "Niveau d'étude du/de la conjoint(e)"
-data_tchaoudjo2 |> 
-    tabyl(education_niveau_etude_conjoint_e, show_na = FALSE) |> 
-    adorn_pct_formatting(digits = 1) |> 
-    arrange(desc(n)) |> 
-    rename("Niveau d'étude" = education_niveau_etude_conjoint_e, "Effectif" = n, "Pourcentage" = percent)
-```
-:::
+khi2_etude_sexe <- data_tchaoudjo2 |> 
+  filter(education_niveau_etude != "NSP") |> 
+  with(table(education_niveau_etude, sexe)) |> 
+  chisq.test()
 
-::: {.columns width = "50%"}
+khi2_etude_sexe
+```
 
 ```{r}
 #| echo: false
-#| label: tbl-niveau-diplome-conjoint
-#| tbl-cap: "Niveau de diplôme du/de la conjoint(e)"
-data_tchaoudjo2 |> 
-    tabyl(education_niveau_diplome_conjoint_e, show_na = FALSE) |> 
-    adorn_pct_formatting(digits = 1) |> 
-    arrange(desc(n)) |> 
-    rename("Niveau d'étude" = education_niveau_diplome_conjoint_e, "Effectif" = n, "Pourcentage" = percent)
+#| output: false
+# Vérification des effectifs attendus et de l'effectif attendus minimum
+khi2_etude_sexe$expected
+eff_min  <- min(khi2_etude_sexe$expected)
 ```
+
+
+```{r}
+#| echo: false
+paste("L'effectif attendu minimum est :", round(eff_min, 2))
+```
+
+```{r}
+#| echo: false
+# Calcul du V de Cramer
+v_cramer2 <- DescTools::CramerV(
+  table(data_tchaoudjo2$education_niveau_etude, data_tchaoudjo2$sexe))
+```
+
+
+```{r}
+#| echo: false
+paste("La valeur du V de Cramer est :", round(v_cramer2, 2))
+```
+
+
+::: callout-note
+Après exclusion de la modalité « NSP », le test du Khi-deux de Pearson confirme l’existence d’une **association statistiquement significative entre le sexe du chef de ménage et son niveau d’étude** : \(χ²(4) = 55,21\), avec \(p < 0,001\). Les conditions d’application du test sont désormais pleinement satisfaites, puisque **l’effectif théorique minimum est de 7,09**, donc supérieur à 5. L’hypothèse d’indépendance entre les deux variables peut ainsi être rejetée : la répartition des niveaux d’étude diffère significativement selon le sexe des chefs de ménage enquêtés.
+
+Cette association reste toutefois d’une **intensité faible à modérée**, comme l’indique le **V de Cramér de 0,20**. Les résultats descriptifs permettent d’en préciser le sens : les femmes chefs de ménage sont proportionnellement plus nombreuses à n’avoir **aucun niveau d’étude (53,0 % contre 34,6 % chez les hommes)**, tandis que les hommes sont davantage représentés dans les niveaux secondaire et universitaire. Ces résultats mettent donc en évidence des **disparités de niveau d’instruction selon le sexe** parmi les chefs de ménage enquêtés, sans pour autant permettre d’établir une relation causale entre le sexe et le niveau d’étude.
 :::
 
+#### - Education des enfants
 
+```{r}
+#| echo: false
+#| label: tbl-educ-enfant
+#| tbl-cap: "Niveau d'étude chef de ménage et Scolarisation des efants de 9 à 14 ans"
+data_tchaoudjo2 |> 
+  filter(education_niveau_etude != "NSP") |> 
+  tabyl(education_niveau_etude, education_9_14ans_non_scolarise) |>
+  adorn_totals(c("row", "col")) |>
+  adorn_percentages("col") |>
+  adorn_pct_formatting(digits = 1) |>
+  adorn_ns(position = "front") |>
+  rename("Niveau d'étude" = education_niveau_etude) |> 
+  gt()
+```
+
+Test du Khi-deux d'indépendance entre le niveau d'éducation du chef de ménage et la scolarisation des enfants (9-14 ans) permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d'en apprécier l'intensité de cette relation.
+
+```{r}
+#| echo: false
+khi2_etude_scol <- data_tchaoudjo2 |> 
+  filter(education_niveau_etude != "NSP") |> 
+  with(table(education_niveau_etude, education_9_14ans_non_scolarise)) |> 
+  chisq.test()
+
+khi2_etude_scol
+```
+
+```{r}
+#| echo: false
+#| output: false
+# Vérification des effectifs attendus et de l'effectif attendus minimum
+khi2_etude_scol$expected
+eff_min  <- min(khi2_etude_scol$expected)
+```
+
+
+```{r}
+#| echo: false
+paste("L'effectif attendu minimum est :", round(eff_min, 2))
+```
+
+```{r}
+#| echo: false
+# Calcul du V de Cramer
+v_cramer2 <- DescTools::CramerV(
+  table(data_tchaoudjo2$education_niveau_etude, data_tchaoudjo2$education_9_14ans_non_scolarise))
+```
+
+
+```{r}
+#| echo: false
+paste("La valeur du V de Cramer est :", round(v_cramer2, 2))
+```
+
+::: callout-note
+La @tbl-educ-enfant met en évidence une relation nette entre le **niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage**. Parmi les ménages déclarant des enfants de 9 à 14 ans non scolarisés, **73,9 % des chefs de ménage n’ont aucun niveau d’étude**, contre seulement **38,1 %** parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : **19,6 %** des chefs ont le niveau primaire, **4,3 %** le secondaire 1, **2,2 %** le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.
+
+Le test du Khi-deux indique effectivement une **association statistiquement significative** entre les deux variables (\(\chi^2(4)=25,42\) ; \(p<0,001\)). Toutefois, ce résultat doit être interprété avec prudence, car les conditions d’application du test de Pearson ne sont pas entièrement satisfaites : **l’effectif théorique minimum est de 0,92** et plusieurs effectifs attendus sont inférieurs à 5, ce qui explique l’avertissement produit par R. Par ailleurs, le **V de Cramér de 0,13** indique que l’association observée est de **faible intensité**. On peut donc retenir que les données montrent une association entre le niveau d’étude du chef de ménage et la non-scolarisation des enfants de 9 à 14 ans, mais **sans conclure à un effet causal** du niveau d’étude.
+:::
+
+```{r}
+tab_etude_scolarisation <- data_tchaoudjo2 |>
+  filter(education_niveau_etude != "NSP") |>
+  with(table(
+    education_niveau_etude,
+    education_9_14ans_non_scolarise
+  ))
+
+chisq.test(
+  tab_etude_scolarisation,
+  simulate.p.value = TRUE,
+  B = 10000
+)
+```
+
+Cette solution conserve tes cinq niveaux d’étude tout en évitant de dépendre excessivement de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.
+
+::: callout-note
+Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. En raison de la faiblesse de certains effectifs théoriques, la significativité a été vérifiée à l’aide d’un test du Khi-deux avec p-value simulée sur 10 000 réplications. Le résultat confirme l’association observée (**χ² = 25,42 ; p < 0,001**). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : `73,9 %` des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre 38,1 % parmi les ménages non concernés. Toutefois, le V de Cramér (**V = 0,13**) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.
+
+:::
 
 
 ### - Emploi et activités économiques
