@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nyuiadzi ZIKPI">
-<meta name="dcterms.date" content="2026-09-29">
+<meta name="dcterms.date" content="2026-09-30">
 
 <title>Analyse des conditions socioéconomiques et accès aux services essentiels des ménages de la commune de Tchaoudjo 2</title>
 <style>
@@ -185,7 +185,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2026</p>
+      <p class="date">September 30, 2026</p>
     </div>
   </div>
   
@@ -419,7 +419,7 @@ Table&nbsp;1: Echantillon minimum représentatif pour chaque zone d’enquête
 </section>
 <section id="outils-de-traitement-et-danalyse" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="outils-de-traitement-et-danalyse"><span class="header-section-number">3.9</span> - Outils de traitement et d’analyse</h2>
-<p>Le traitement et l’analyse des données est fait par le logiciel <code>R</code> et l’outils <code>Quarto</code> pour générer un rapport d’analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d’un fichier source contenant à la fois du texte, du code et des résultats. Dans notre cas d’utilisation de <code>R</code>, <code>Quarto</code> est particulièrement intéressant pour produire un rapport d’analyse en s’affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des “navettes” entre différents outils. <code>Quarto</code> permet également de générer des documents dans différents formats (<code>HTML</code>, <code>PDF</code>, <code>Word</code>, etc.) à partir d’un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d’intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.</p>
+<p>Le traitement et l’analyse des données est fait par le logiciel <code>R</code> et l’outils <code>Quarto</code> pour générer un rapport d’analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d’un fichier source contenant à la fois du texte, du code, des tableaux, des graphiques et les résultats d’une analyse. Dans notre cas d’utilisation de <code>R</code>, <code>Quarto</code> est particulièrement intéressant pour produire un rapport d’analyse en s’affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des “navettes” entre différents outils. <code>Quarto</code> permet également de générer des documents dans différents formats (<code>HTML</code>, <code>PDF</code>, <code>Word</code>, etc.) à partir d’un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d’intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.</p>
 </section>
 <section id="nettoyage-des-données" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="nettoyage-des-données"><span class="header-section-number">3.10</span> - Nettoyage des données</h2>
@@ -511,7 +511,7 @@ Table&nbsp;2: Le nombre de ménage enquêtés à l’issue d’enquête
 <h2 data-number="3.12" class="anchored" data-anchor-id="importation-des-données"><span class="header-section-number">3.12</span> - Importation des données</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importation des données</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/enquete_tchaoudjo2_clean3.csv"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/data_tchaoudjo2.csv"</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_tchaoudjo2, <span class="dv">10</span>) <span class="co"># visualisation des 10 premières lignes du jeu de données</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -1021,7 +1021,7 @@ Table&nbsp;3: Répartition des ménages enquêtés selon le sexe du chef de mén
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><strong>Interprétation :</strong>
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1624,7 +1624,7 @@ Figure&nbsp;1: Répartition des enquêtés par tranche d’âge et par sexe
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><strong>Interprétation :</strong>
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2147,7 +2147,7 @@ Table&nbsp;5: Répartition des enquêtés selon la situation matrimoniale et le 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><strong>Interprétation :</strong>
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2200,7 +2200,7 @@ X-squared = 463.9, df = 3, p-value &lt; 2.2e-16</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><strong>Interprétation :</strong>
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2247,11 +2247,10 @@ Figure&nbsp;3: Répartition des ménages selon la religion du chef de ménage
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Interprétation:</strong></p>
 <p>La <a href="#fig-ethinie" class="quarto-xref">Figure&nbsp;2</a> mettent en évidence que <code>55,1 %</code> des chefs de ménage sont Kabyè contre <code>21,7 %</code> de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ <code>76,8 %</code> des chefs de ménage enquêtés de l’échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent <code>6 %</code>, les Losso <code>5,4 %</code>, les Lamba <code>5 %</code> et les Nawda <code>2,7 %</code>.</p>
 <p>Le reste des partenances ethniques sont très minoritaires. Les Ewé représentent <code>0,8 %</code>, des Moba avec <code>0,6 %</code>, les Bassar 0,<code>4 %</code> et des Adja <code>0,3 %</code>. La catégorie « Autres » (Ife, Konkomba, Sola, Akposso, Lokpa, Mina, Pouda, Samourè, Yaka, Zarma) regroupe <code>0,9 %</code> des enquêtés. Par ailleurs, l’appartenance ethnique n’est pas renseignée pour <code>1 %</code> des chefs de ménage.</p>
 <p>Au niveau de la religion la <a href="#fig-religion" class="quarto-xref">Figure&nbsp;3</a> montre que le christianisme constitue la religion la plus représentée parmi les chefs de ménage enquêtés, avec <code>42,9 %</code> de l’effectif total. Il est suivi de l’islam, pratiqué par <code>31,5 %</code> des chefs de ménage. Ces deux principales religions regroupent ainsi <code>74,4 %</code> des enquêtés. Les religions traditionnelles concernent pour leur part <code>11,2 %</code> des chefs de ménage. Par ailleurs, une proportion non négligeable des chefs de ménage, soit <code>13,6</code>, déclare n’appartenir à aucune religion, tandis que <code>0,8 %</code> n’ont pas précisé leur appartenance religieuse (NSP).</p>
@@ -3293,11 +3292,10 @@ Table&nbsp;7: Raison de l’absence d’acte de naissance
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Interprétation :</strong></p>
 <p>Les résultats de la <a href="#tbl-acte-naissance" class="quarto-xref">Table&nbsp;6</a> montrent que la grande majorité des ménages enquêtés <strong>(88,1 %)</strong> déclarent que les enfants ont un acte de naissance. Toutefois, <strong>173 ménages (11,9 %)</strong> déclarent avoir au moins un enfant sans acte de naissance. Bien que minoritaire, cette proportion reste notable puisqu’elle signifie qu’environ <strong>un ménage sur huit</strong> est concerné. L’absence d’acte de naissance peut constituer un obstacle à l’exercice de certains droits et à l’accès à diverses démarches administratives et services, notamment en matière de scolarisation et d’identification.</p>
 <p>Concernant les raisons évoquées dans la table <a href="#tbl-sans-acte-raison" class="quarto-xref">Table&nbsp;7</a>, la principale difficulté tient à la <strong>destruction ou à la perte de l’acte de naissance</strong>, citée dans <strong>50,3 %</strong> des cas renseignés. Les obstacles directement liés à l’accessibilité des services d’état civil apparaissent également : <strong>7,1 %</strong> évoquent l’éloignement du centre d’état civil et <strong>3,9 %</strong> le coût jugé trop élevé de l’établissement de l’acte.</p>
 <p>Les « autres raisons » évoquées représentent également une part importante (<strong>38,7 %</strong>). Ces raisons sont : “l’établissement de l’acte est en cours”, “l’enfant n’était pas né au Togo”, “absence de régistre ou problème avec l’agent d’état civil”, “l’âge de l’enfant est dépassé”, “l’acte est fait mais c’est un faux”, “l’agent d’état civil a pris l’argent mais ne l’a pas fait”, “le père avait voyagé”, “le délai est dépassé”, “le manque de moyens financiers”, “par négligeance”, “l’enfant est un orphelin recueilli”, “l’oublie”. Ces résultats suggèrent ainsi que la problématique ne relève pas uniquement de l’enregistrement initial des naissances, mais également de la conservation et de la sécurisation des actes déjà établis.</p>
@@ -3850,11 +3848,10 @@ Figure&nbsp;5: Niveau d’étude et sexe du chef de ménage
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Interprétation :</strong></p>
 <p>Selon la <a href="#tbl-etude-sexe" class="quarto-xref">Table&nbsp;8</a> et la <a href="#fig-etude-sexe" class="quarto-xref">Figure&nbsp;5</a>, le niveau d’instruction des chefs de ménage enquêtés demeure globalement faible. En effet, <strong>39,1 % n’ont aucun niveau d’étude</strong>, tandis que <strong>29,6 % ont atteint le primaire</strong>. Ainsi, près de sept chefs de ménage sur dix (68,7 %) n’ont pas dépassé le niveau primaire. À l’inverse, seuls <strong>20,6 %</strong> ont atteint le secondaire 1, <strong>8,2 %</strong> le secondaire 2 et <strong>2,0 %</strong> l’université. Ces résultats mettent en évidence une diminution progressive des effectifs à mesure que le niveau d’étude s’élève.</p>
 <p>Des différences importantes apparaissent également selon le sexe du chef de ménage. La proportion de personnes <strong>sans aucun niveau d’étude est nettement plus élevée chez les femmes (53,0 %) que chez les hommes (34,6 %)</strong>. À l’inverse, les hommes sont proportionnellement plus nombreux aux niveaux secondaire 1 (<strong>23,0 % contre 13,2 %</strong> chez les femmes), secondaire 2 (<strong>10,0 % contre 2,8 %</strong>) et universitaire (<strong>2,4 % contre 0,8 %</strong>). Ces écarts indiquent que, parmi les chefs de ménage enquêtés, les femmes présentent globalement des niveaux d’instruction plus faibles que les hommes.</p>
 </div>
@@ -3885,7 +3882,7 @@ X-squared = 55.208, df = 4, p-value = 2.938e-11</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3894,13 +3891,13 @@ Note
 </div>
 </div>
 </section>
-<section id="education-des-enfants" class="level4" data-number="4.1.2.2">
-<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="education-des-enfants"><span class="header-section-number">4.1.2.2</span> - Education des enfants</h4>
+<section id="relation-entre-léducation-des-enfants-et-le-niveau-détude-du-chef-de-ménage" class="level4" data-number="4.1.2.2">
+<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="relation-entre-léducation-des-enfants-et-le-niveau-détude-du-chef-de-ménage"><span class="header-section-number">4.1.2.2</span> - Relation entre l’éducation des enfants et le niveau d’étude du chef de ménage</h4>
 <div class="cell">
 <div id="tbl-educ-enfant" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-educ-enfant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;9: Niveau d’étude chef de ménage et Scolarisation des efants de 9 à 14 ans
+Table&nbsp;9: Niveau d’étude chef de ménage et Scolarisation des enfants de 9 à 14 ans
 </figcaption>
 <div aria-describedby="tbl-educ-enfant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -4409,6 +4406,19 @@ Table&nbsp;9: Niveau d’étude chef de ménage et Scolarisation des efants de 9
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <a href="#tbl-educ-enfant" class="quarto-xref">Table&nbsp;9</a> semblre mettre en évidence une relation entre le <strong>niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage</strong>. Parmi les <code>46</code> sur <code>1452</code> ménages déclarant des enfants de 9 à 14 ans non scolarisés, <strong>73,9 % des chefs de ménage n’ont aucun niveau d’étude</strong>, contre seulement <code>38,1 %</code> parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : <code>19,6 %</code> des chefs ont le niveau primaire, <code>4,3 %</code> le secondaire 1, <code>2,2 %</code> le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.</p>
+</div>
+</div>
 <p>Test du Khi-deux d’indépendance entre le niveau d’éducation du chef de ménage et la scolarisation des enfants (9-14 ans) permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d’en apprécier l’intensité de cette relation.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
@@ -4428,48 +4438,578 @@ X-squared = 25.423, df = 4, p-value = 4.136e-05</code></pre>
 <pre><code>[1] "L'effectif attendu minimum est : 0.92"</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "La valeur du V de Cramer est : 0.13"</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span><strong>Point d’attention</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La <a href="#tbl-educ-enfant" class="quarto-xref">Table&nbsp;9</a> met en évidence une relation nette entre le <strong>niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage</strong>. Parmi les ménages déclarant des enfants de 9 à 14 ans non scolarisés, <strong>73,9 % des chefs de ménage n’ont aucun niveau d’étude</strong>, contre seulement <strong>38,1 %</strong> parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : <strong>19,6 %</strong> des chefs ont le niveau primaire, <strong>4,3 %</strong> le secondaire 1, <strong>2,2 %</strong> le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.</p>
-<p>Le test du Khi-deux indique effectivement une <strong>association statistiquement significative</strong> entre les deux variables ((^2(4)=25,42) ; (p&lt;0,001)). Toutefois, ce résultat doit être interprété avec prudence, car les conditions d’application du test de Pearson ne sont pas entièrement satisfaites : <strong>l’effectif théorique minimum est de 0,92</strong> et plusieurs effectifs attendus sont inférieurs à 5, ce qui explique l’avertissement produit par R. Par ailleurs, le <strong>V de Cramér de 0,13</strong> indique que l’association observée est de <strong>faible intensité</strong>. On peut donc retenir que les données montrent une association entre le niveau d’étude du chef de ménage et la non-scolarisation des enfants de 9 à 14 ans, mais <strong>sans conclure à un effet causal</strong> du niveau d’étude.</p>
+<p>En raison de la faiblesse de certains effectifs théoriques, la significativité sera vérifiée à l’aide d’un test de <strong>Fisher</strong>. Ce test conserve les cinq niveaux d’étude tout en évitant de dépendre de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab_etude_scolarisation <span class="ot">&lt;-</span> data_tchaoudjo2 <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(education_niveau_etude <span class="sc">!=</span> <span class="st">"NSP"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">table</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    education_niveau_etude,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    education_9_14ans_non_scolarise</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  tab_etude_scolarisation,</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">simulate.p.value =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">B =</span> <span class="dv">10000</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        education_9_14ans_non_scolarise
+education_niveau_etude   Non Oui
+  Aucun                  536  34
+  Primaire               423   9
+  Secondaire 1 (Collège) 299   2
+  Secondaire 2 (Lycée)   119   1
+  Université              29   0</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Pearson's Chi-squared test with simulated p-value (based on 10000
-    replicates)
+    Fisher's Exact Test for Count Data
 
-data:  tab_etude_scolarisation
-X-squared = 25.423, df = NA, p-value = 9.999e-05</code></pre>
+data:  tab_etude_parent_scolarisation
+p-value = 6.736e-05
+alternative hypothesis: two.sided</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1323211</code></pre>
 </div>
 </div>
-<p>Cette solution conserve tes cinq niveaux d’étude tout en évitant de dépendre excessivement de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>Interprétation</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. Le résultat confirme l’association observée (<strong>χ² = 25,42 ; p &lt; 0,001</strong>). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : <code>73,9 %</code> des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre <code>38,1 %</code> parmi les ménages non concernés. Toutefois, le V de Cramér (<strong>V = 0,13</strong>) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.</p>
+</div>
+</div>
+</section>
+<section id="raison-de-la-non-scolarisation-des-enfants" class="level4" data-number="4.1.2.3">
+<h4 data-number="4.1.2.3" class="anchored" data-anchor-id="raison-de-la-non-scolarisation-des-enfants"><span class="header-section-number">4.1.2.3</span> - Raison de la non scolarisation des enfants</h4>
+<div class="cell">
+<div id="tbl-raison-scol" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-raison-scol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10: Raisons de la non scolarisation des enfants
+</figcaption>
+<div aria-describedby="tbl-raison-scol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="wezbjyqpgs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wezbjyqpgs table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wezbjyqpgs thead, #wezbjyqpgs tbody, #wezbjyqpgs tfoot, #wezbjyqpgs tr, #wezbjyqpgs td, #wezbjyqpgs th {
+  border-style: none;
+}
+
+#wezbjyqpgs p {
+  margin: 0;
+  padding: 0;
+}
+
+#wezbjyqpgs .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wezbjyqpgs .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wezbjyqpgs .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wezbjyqpgs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wezbjyqpgs .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wezbjyqpgs .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wezbjyqpgs .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wezbjyqpgs .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wezbjyqpgs .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wezbjyqpgs .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wezbjyqpgs .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wezbjyqpgs .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wezbjyqpgs .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wezbjyqpgs .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wezbjyqpgs .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wezbjyqpgs .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wezbjyqpgs .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wezbjyqpgs .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wezbjyqpgs .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wezbjyqpgs .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wezbjyqpgs .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wezbjyqpgs .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wezbjyqpgs .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wezbjyqpgs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wezbjyqpgs .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wezbjyqpgs .gt_left {
+  text-align: left;
+}
+
+#wezbjyqpgs .gt_center {
+  text-align: center;
+}
+
+#wezbjyqpgs .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wezbjyqpgs .gt_font_normal {
+  font-weight: normal;
+}
+
+#wezbjyqpgs .gt_font_bold {
+  font-weight: bold;
+}
+
+#wezbjyqpgs .gt_font_italic {
+  font-style: italic;
+}
+
+#wezbjyqpgs .gt_super {
+  font-size: 65%;
+}
+
+#wezbjyqpgs .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wezbjyqpgs .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wezbjyqpgs .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wezbjyqpgs .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wezbjyqpgs .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wezbjyqpgs .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wezbjyqpgs .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wezbjyqpgs .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wezbjyqpgs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Raisons-de-la-non-scolarisation-des-enfants" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Raisons de la non scolarisation des enfants</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Abandon, mauvais résultats scolaires</td>
+<td class="gt_row gt_right" headers="Effectif">19</td>
+<td class="gt_row gt_right" headers="Pourcentage">41.3%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">En apprentissage</td>
+<td class="gt_row gt_right" headers="Effectif">9</td>
+<td class="gt_row gt_right" headers="Pourcentage">19.6%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Autre, précisez</td>
+<td class="gt_row gt_right" headers="Effectif">5</td>
+<td class="gt_row gt_right" headers="Pourcentage">10.9%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Trop jeune</td>
+<td class="gt_row gt_right" headers="Effectif">4</td>
+<td class="gt_row gt_right" headers="Pourcentage">8.7%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Ecole trop éloignée</td>
+<td class="gt_row gt_right" headers="Effectif">3</td>
+<td class="gt_row gt_right" headers="Pourcentage">6.5%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">NSP</td>
+<td class="gt_row gt_right" headers="Effectif">3</td>
+<td class="gt_row gt_right" headers="Pourcentage">6.5%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">A cause de maladie, infirmité ou accident</td>
+<td class="gt_row gt_right" headers="Effectif">1</td>
+<td class="gt_row gt_right" headers="Pourcentage">2.2%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Frais de scolarité élevés</td>
+<td class="gt_row gt_right" headers="Effectif">1</td>
+<td class="gt_row gt_right" headers="Pourcentage">2.2%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Raisons de la non scolarisation des enfants">Préférence pour le travail</td>
+<td class="gt_row gt_right" headers="Effectif">1</td>
+<td class="gt_row gt_right" headers="Pourcentage">2.2%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4480,8 +5020,1508 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. En raison de la faiblesse de certains effectifs théoriques, la significativité a été vérifiée à l’aide d’un test du Khi-deux avec p-value simulée sur 10 000 réplications. Le résultat confirme l’association observée (<strong>χ² = 25,42 ; p &lt; 0,001</strong>). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : <code>73,9 %</code> des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre 38,1 % parmi les ménages non concernés. Toutefois, le V de Cramér (<strong>V = 0,13</strong>) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.</p>
+<p><strong>Interprétation</strong></p>
+<p>Les résultats de la <a href="#tbl-raison-scol" class="quarto-xref">Table&nbsp;10</a> montrent que la principale raison de non-scolarisation des enfants de 9-14 ans est l’abandon ou les mauvais résultats scolaires, qui représentent <code>41,3 %</code> des cas (19 enfants). Cette situation met en évidence l’importance des difficultés de maintien des enfants dans le système scolaire au niveau de certains ménages. L’apprentissage constitue la deuxième raison avec <code>19,6 %</code> (9 cas), ce qui indique qu’une partie des enfants non scolarisés s’oriente vers l’acquisition d’un métier en dehors du cursus scolaire formel alors que loi impose la scolarité pour les enfants jusqu’à l’âge de 15 ans au Togo. Les <em>autres raisons</em> représentent <code>10,9 %</code>, tandis que <code>8,7 %</code> des cas sont liés au fait que l’enfant est considéré comme trop jeune, ce qui parrait atypique.</p>
+<p>Les contraintes d’accessibilité ou socioéconomiques apparaissent moins fréquemment citées : l’<em>éloignement de l’école</em> représente <code>6,5 %</code> des cas, tandis que le <em>manque de moyens financiers</em>, la <em>maladie, l’infirmité ou un accident</em> et la <em>préférence pour le travail</em> représentent chacun <code>4,3 %</code>. Dans l’ensemble, les résultats suggèrent que la non-scolarisation observée est davantage associée aux <em>difficultés de parcours et de maintien à l’école</em> qu’aux seules contraintes financières ou géographiques. Toutefois un faible nombre de ménages sont concernés par ces situations à savoir seulement <code>46</code> ménages sur 1452 qui ont répondu à la question.</p>
 </div>
+</div>
+</section>
+<section id="alphabétisation" class="level4" data-number="4.1.2.4">
+<h4 data-number="4.1.2.4" class="anchored" data-anchor-id="alphabétisation"><span class="header-section-number">4.1.2.4</span> - Alphabétisation</h4>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div id="tbl-alpha" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11: Personnes de plus de 15 ans qui se savent lire et écrire
+</figcaption>
+<div aria-describedby="tbl-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="dddaobrefv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dddaobrefv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dddaobrefv thead, #dddaobrefv tbody, #dddaobrefv tfoot, #dddaobrefv tr, #dddaobrefv td, #dddaobrefv th {
+  border-style: none;
+}
+
+#dddaobrefv p {
+  margin: 0;
+  padding: 0;
+}
+
+#dddaobrefv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dddaobrefv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dddaobrefv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dddaobrefv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dddaobrefv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dddaobrefv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dddaobrefv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dddaobrefv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dddaobrefv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dddaobrefv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dddaobrefv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dddaobrefv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dddaobrefv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dddaobrefv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dddaobrefv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dddaobrefv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dddaobrefv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dddaobrefv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dddaobrefv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dddaobrefv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dddaobrefv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dddaobrefv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dddaobrefv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dddaobrefv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dddaobrefv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dddaobrefv .gt_left {
+  text-align: left;
+}
+
+#dddaobrefv .gt_center {
+  text-align: center;
+}
+
+#dddaobrefv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dddaobrefv .gt_font_normal {
+  font-weight: normal;
+}
+
+#dddaobrefv .gt_font_bold {
+  font-weight: bold;
+}
+
+#dddaobrefv .gt_font_italic {
+  font-style: italic;
+}
+
+#dddaobrefv .gt_super {
+  font-size: 65%;
+}
+
+#dddaobrefv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dddaobrefv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dddaobrefv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dddaobrefv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dddaobrefv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dddaobrefv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dddaobrefv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dddaobrefv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dddaobrefv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Ne-sais-pas-lire-et-écrire" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ne sais pas lire et écrire</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Ne sais pas lire et écrire">Non</td>
+<td class="gt_row gt_right" headers="Effectif">1351</td>
+<td class="gt_row gt_right" headers="Pourcentage">92.7%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Ne sais pas lire et écrire">Oui</td>
+<td class="gt_row gt_right" headers="Effectif">107</td>
+<td class="gt_row gt_right" headers="Pourcentage">7.3%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div id="tbl-alpha-cours" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-alpha-cours-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12: Personnes qui suivent un cours d’alphabétisation
+</figcaption>
+<div aria-describedby="tbl-alpha-cours-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="jzqmuykeev" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jzqmuykeev table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jzqmuykeev thead, #jzqmuykeev tbody, #jzqmuykeev tfoot, #jzqmuykeev tr, #jzqmuykeev td, #jzqmuykeev th {
+  border-style: none;
+}
+
+#jzqmuykeev p {
+  margin: 0;
+  padding: 0;
+}
+
+#jzqmuykeev .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jzqmuykeev .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jzqmuykeev .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jzqmuykeev .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jzqmuykeev .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jzqmuykeev .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jzqmuykeev .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jzqmuykeev .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jzqmuykeev .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jzqmuykeev .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jzqmuykeev .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jzqmuykeev .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jzqmuykeev .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jzqmuykeev .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jzqmuykeev .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jzqmuykeev .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jzqmuykeev .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jzqmuykeev .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jzqmuykeev .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jzqmuykeev .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jzqmuykeev .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jzqmuykeev .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jzqmuykeev .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jzqmuykeev .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jzqmuykeev .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jzqmuykeev .gt_left {
+  text-align: left;
+}
+
+#jzqmuykeev .gt_center {
+  text-align: center;
+}
+
+#jzqmuykeev .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jzqmuykeev .gt_font_normal {
+  font-weight: normal;
+}
+
+#jzqmuykeev .gt_font_bold {
+  font-weight: bold;
+}
+
+#jzqmuykeev .gt_font_italic {
+  font-style: italic;
+}
+
+#jzqmuykeev .gt_super {
+  font-size: 65%;
+}
+
+#jzqmuykeev .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jzqmuykeev .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jzqmuykeev .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jzqmuykeev .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jzqmuykeev .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jzqmuykeev .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jzqmuykeev .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jzqmuykeev .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jzqmuykeev div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Suit-un-cours-d'alphabétisation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Suit un cours d'alphabétisation</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Suit un cours d'alphabétisation">Non</td>
+<td class="gt_row gt_right" headers="Effectif">96</td>
+<td class="gt_row gt_right" headers="Pourcentage">89.7%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Suit un cours d'alphabétisation">Oui</td>
+<td class="gt_row gt_right" headers="Effectif">7</td>
+<td class="gt_row gt_right" headers="Pourcentage">6.5%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Suit un cours d'alphabétisation">NSP</td>
+<td class="gt_row gt_right" headers="Effectif">4</td>
+<td class="gt_row gt_right" headers="Pourcentage">3.7%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="collout-note">
+<p><strong>Interprétation</strong></p>
+<p>Les résultats des <a href="#tbl-alpha" class="quarto-xref">Table&nbsp;11</a> et <strong>?@tbl-tbl-alpha-cours</strong> montrent que <code>107</code> ménages enquêtés, soit <code>7,3 %</code>, déclarent compter au moins une personne âgée de <code>15 ans</code> ou plus ne sachant ni lire ni écrire, contre <code>92,7 %</code> qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.</p>
+<p>Parmi les ménages concernés, le recours aux dispositifs d’alphabétisation apparaît toutefois très limité : seulement <strong>7 personnes</strong>, soit <code>6,5 %</code>, suivent un cours d’alphabétisation, contre <code>96 (89,7 %)</code> qui n’en suivent pas ; <code>3,7 %</code> des réponses sont indéterminées (NSP). Ainsi, la grande majorité des personnes identifiées comme ne sachant ni lire ni écrire ne semble pas bénéficier d’un apprentissage compensatoire. Ces résultats mettent en évidence un écart important entre l’existence d’un besoin d’alphabétisation et la participation effective aux cours, ce qui invite à examiner notamment la disponibilité et l’accessibilité des programmes d’alphabétisation ainsi que les facteurs susceptibles de limiter leur fréquentation.</p>
+</div>
+</section>
+<section id="apprentissage-et-formation-professionnelle" class="level4" data-number="4.1.2.5">
+<h4 data-number="4.1.2.5" class="anchored" data-anchor-id="apprentissage-et-formation-professionnelle"><span class="header-section-number">4.1.2.5</span> - Apprentissage et formation professionnelle</h4>
+<div class="cell">
+<div id="tbl-formation" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-formation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13: Formation professionnelle du chef de ménage
+</figcaption>
+<div aria-describedby="tbl-formation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="nctdoqohmm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nctdoqohmm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#nctdoqohmm thead, #nctdoqohmm tbody, #nctdoqohmm tfoot, #nctdoqohmm tr, #nctdoqohmm td, #nctdoqohmm th {
+  border-style: none;
+}
+
+#nctdoqohmm p {
+  margin: 0;
+  padding: 0;
+}
+
+#nctdoqohmm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nctdoqohmm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nctdoqohmm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nctdoqohmm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nctdoqohmm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nctdoqohmm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nctdoqohmm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nctdoqohmm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nctdoqohmm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nctdoqohmm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nctdoqohmm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nctdoqohmm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nctdoqohmm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nctdoqohmm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nctdoqohmm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nctdoqohmm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nctdoqohmm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nctdoqohmm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nctdoqohmm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nctdoqohmm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nctdoqohmm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nctdoqohmm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nctdoqohmm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nctdoqohmm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nctdoqohmm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nctdoqohmm .gt_left {
+  text-align: left;
+}
+
+#nctdoqohmm .gt_center {
+  text-align: center;
+}
+
+#nctdoqohmm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nctdoqohmm .gt_font_normal {
+  font-weight: normal;
+}
+
+#nctdoqohmm .gt_font_bold {
+  font-weight: bold;
+}
+
+#nctdoqohmm .gt_font_italic {
+  font-style: italic;
+}
+
+#nctdoqohmm .gt_super {
+  font-size: 65%;
+}
+
+#nctdoqohmm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#nctdoqohmm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nctdoqohmm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nctdoqohmm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nctdoqohmm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nctdoqohmm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nctdoqohmm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#nctdoqohmm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nctdoqohmm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Formation-professionnelle/apprentissage" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Formation professionnelle/apprentissage</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Formation professionnelle/apprentissage">Non</td>
+<td class="gt_row gt_right" headers="Effectif">1274</td>
+<td class="gt_row gt_right" headers="Pourcentage">87.4%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Formation professionnelle/apprentissage">Oui</td>
+<td class="gt_row gt_right" headers="Effectif">184</td>
+<td class="gt_row gt_right" headers="Pourcentage">12.6%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-filiere" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-filiere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Filière d’apprentissage du chef de ménage
+</figcaption>
+<div aria-describedby="fig-filiere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mon_memoire_files/figure-html/fig-filiere-1.png" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="collout-note">
+<p><strong>Interprétation</strong></p>
+<p>La <a href="#fig-filiere" class="quarto-xref">Figure&nbsp;6</a> montre une diversification des filières d’apprentissage, avec toutefois une prédominance des métiers artisanaux et techniques. La <em>maçonnerie/carrelage</em> constitue la principale filière avec <code>17,4 %</code> des apprenants, suivie de la <em>couture</em> (<code>13,6 %</code>), de la <em>menuiserie bois ou aluminium</em> (<code>12,0 %</code>) et de la <em>ferraille/soudure/forge</em> (<code>10,9 %</code>). À elles seules, ces quatre filières concentrent plus de la moitié des apprenants (<code>53,9 %</code>), traduisant une forte orientation vers les métiers du bâtiment, de l’artisanat et de la production.</p>
+<p>D’autres filières occupent également une place non négligeable, notamment la <em>mécanique auto/moto</em> (<code>8,2 %</code>), la <em>coiffure</em> (<code>7,1 %</code>) et l’<em>électricité</em> (<code>6,5 %</code>). En revanche, l’agriculture/élevage (<code>4,3 %</code>), l’enseignement (<code>2,7 %</code>), le secrétariat/informatique (<code>2,7 %</code>), le textile/tissage (<code>1,6 %</code>) et la peinture (<code>1,1 %</code>) restent faiblement représentés. Dans l’ensemble, ces résultats mettent en évidence le rôle important de l’apprentissage professionnel comme voie d’acquisition de compétences pratiques, principalement orientée vers les métiers artisanaux et techniques.</p>
 </div>
 </section>
 </section><section id="emploi-et-activités-économiques" class="level3" data-number="4.1.3">

@@ -247,7 +247,7 @@ La collecte de données sur le terrain est assurée par les agents d'enquête à
 
 ## - Outils de traitement et d'analyse
 
-Le traitement et l'analyse des données est fait par le logiciel `R` et l'outils `Quarto` pour générer un rapport d'analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d'un fichier source contenant à la fois du texte, du code et des résultats. Dans notre cas d'utilisation de `R`, `Quarto` est particulièrement intéressant pour produire un rapport d'analyse en s'affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des "navettes" entre différents outils. `Quarto` permet également de générer des documents dans différents formats (`HTML`, `PDF`, `Word`, etc.) à partir d'un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d'intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.
+Le traitement et l'analyse des données est fait par le logiciel `R` et l'outils `Quarto` pour générer un rapport d'analyse. Quarto est un système de publication scientifique et technique qui permet de créer des documents reproductibles à partir d'un fichier source contenant à la fois du texte, du code, des tableaux, des graphiques et les résultats d'une analyse. Dans notre cas d'utilisation de `R`, `Quarto` est particulièrement intéressant pour produire un rapport d'analyse en s'affranchissant des outils comme Word et Excel et de pouvoir faire tout au même endroit sans faire des "navettes" entre différents outils. `Quarto` permet également de générer des documents dans différents formats (`HTML`, `PDF`, `Word`, etc.) à partir d'un même fichier source, ce qui facilite la diffusion et le partage des résultats. Il offre également la possibilité d'intégrer des visualisations interactives et des graphiques dynamiques, ce qui peut enrichir la présentation des résultats.
 
 ## - Nettoyage des données
 
@@ -306,7 +306,7 @@ pacman::p_load(tidyverse,
 #| warning: false
 #| output: false
 # Importation des données
-data_tchaoudjo2 <- read_csv(here("data/enquete_tchaoudjo2_clean3.csv"))
+data_tchaoudjo2 <- read_csv(here("data/data_tchaoudjo2.csv"))
 head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de données
 ```
 
@@ -335,7 +335,7 @@ data_tchaoudjo2 |>
 ```
 
 :::callout-note
-## **Interprétation :**
+## **Interprétation**
 
 La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs de ménage enquêtés : ils représentent `75,7 %` contre `24,3 %` de femmes. Cette configuration apparaît cohérente avec le contexte socioculturel togolais, dans lequel la responsabilité du ménage est encore majoritairement attribuée aux hommes. La proportion non négligeable de ménages dirigés par des femmes, soit près d’un ménage sur quatre dans l’échantillon, mérite toutefois une attention particulière dans l’analyse de leurs caractéristiques socioéconomiques et de leurs éventuelles vulnérabilités.
 :::
@@ -405,7 +405,7 @@ data_tchaoudjo2|>
 ```
 
 ::: callout-note
-## **Interprétation :**
+## **Interprétation**
 
 La répartition des chefs de ménage selon l’âge montre une **forte concentration dans les classes d’âge actives**, notamment entre **35 et 64 ans (68,5 %)**, avec un maximum observé chez les **45–49 ans (14,6 % ; 213 personnes)**, suivis des 35–39 ans (**13,2 % ; 192**) et des 40–44 ans (**12,6 % ; 184**). Les jeunes chefs de ménage sont relativement peu nombreux, particulièrement chez les 18–24 ans (**1,7 % ; 25 personnes**), ce qui suggère que l’accès au statut de chef de ménage intervient généralement à un âge plus avancé, probablement en lien avec la constitution d’un ménage et l’acquisition d’une certaine autonomie économique. À partir de 65 ans, les effectifs diminuent progressivement, même si la présence de chefs de ménage âgés demeure notable (**15,8 % ont 65 ans ou plus**). La prédominance masculine observée dans l’ensemble de l’échantillon se retrouve dans **toutes les classes d’âge**, avec 1 103 hommes (**75,7 %**) contre 355 femmes (**24,3 %**) au total. Cette structure met ainsi en évidence un profil de chefs de ménage principalement **masculins et d’âge adulte**, tout en révélant la coexistence de plusieurs générations de responsables de ménage.
 :::
@@ -427,7 +427,7 @@ data_tchaoudjo2 |>
 ```
 
 :::callout-note
-## **Interprétation :**
+## **Interprétation**
 
 Les résultats de la @tbl-situation_matri montrent que la grande majorité des chefs de ménage enquêtés vivent en couple ou sont mariés. Cette catégorie représente `70,1 %` des répondants, soit 1 022 personnes sur les 1 458 enquêtées. 
 Les veufs et veuves constituent la deuxième catégorie la plus importante, avec `17,9 %` des répondants (261 personnes), devant les célibataires qui représentent `9,8 %` (143 personnes). Les personnes divorcées sont, quant à elles, faiblement représentées avec seulement `2,2 %` (32 personnes). Au total, près de trois chefs de ménage sur dix (`29,9 %`) ne vivent donc pas en couple au moment de l’enquête.
@@ -469,7 +469,7 @@ paste("La valeur du V de Cramer est :", round(v_cramer, 2))
 ```
 
 ::: callout-note
-## **Interprétation :**
+## **Interprétation**
 
 Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, `Khi2(3) = 463,9`, `p < 0,001`. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de `7,79`. Le V de Cramér `V = 0,564` révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs.
 :::
@@ -561,7 +561,7 @@ pie(
 :::
 
 :::callout-note
-**Interprétation:**
+## **Interprétation**
 
 La @fig-ethinie mettent en évidence que `55,1 %` des chefs de ménage sont Kabyè contre `21,7 %` de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ `76,8 %` des chefs de ménage enquêtés de l'échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent `6 %`, les Losso `5,4 %`, les Lamba `5 %` et les Nawda `2,7 %`.
 
@@ -645,7 +645,7 @@ data_tchaoudjo2 |>
 :::
 
 ::: callout-note
-**Interprétation :**
+## **Interprétation**
 
 Les résultats de la @tbl-acte-naissance montrent que la grande majorité des ménages enquêtés **(88,1 %)** déclarent que les enfants ont un acte de naissance. Toutefois, **173 ménages (11,9 %)** déclarent avoir au moins un enfant sans acte de naissance. Bien que minoritaire, cette proportion reste notable puisqu’elle signifie qu’environ **un ménage sur huit** est concerné. L’absence d’acte de naissance peut constituer un obstacle à l’exercice de certains droits et à l’accès à diverses démarches administratives et services, notamment en matière de scolarisation et d’identification.
 
@@ -733,7 +733,7 @@ data_tchaoudjo2|>
 ::::
 
 ::: callout-note
-**Interprétation :**
+## **Interprétation**
 
 Selon la @tbl-etude-sexe et la @fig-etude-sexe, le niveau d’instruction des chefs de ménage enquêtés demeure globalement faible. En effet, **39,1 % n’ont aucun niveau d’étude**, tandis que **29,6 % ont atteint le primaire**. Ainsi, près de sept chefs de ménage sur dix (68,7 %) n’ont pas dépassé le niveau primaire. À l’inverse, seuls **20,6 %** ont atteint le secondaire 1, **8,2 %** le secondaire 2 et **2,0 %** l’université. Ces résultats mettent en évidence une diminution progressive des effectifs à mesure que le niveau d’étude s’élève.
 
@@ -781,19 +781,21 @@ paste("La valeur du V de Cramer est :", round(v_cramer2, 2))
 
 
 ::: callout-note
+## **Interprétation**
+
 Après exclusion de la modalité « NSP », le test du Khi-deux de Pearson confirme l’existence d’une **association statistiquement significative entre le sexe du chef de ménage et son niveau d’étude** : \(χ²(4) = 55,21\), avec \(p < 0,001\). Les conditions d’application du test sont désormais pleinement satisfaites, puisque **l’effectif théorique minimum est de 7,09**, donc supérieur à 5. L’hypothèse d’indépendance entre les deux variables peut ainsi être rejetée : la répartition des niveaux d’étude diffère significativement selon le sexe des chefs de ménage enquêtés.
 
 Cette association reste toutefois d’une **intensité faible à modérée**, comme l’indique le **V de Cramér de 0,20**. Les résultats descriptifs permettent d’en préciser le sens : les femmes chefs de ménage sont proportionnellement plus nombreuses à n’avoir **aucun niveau d’étude (53,0 % contre 34,6 % chez les hommes)**, tandis que les hommes sont davantage représentés dans les niveaux secondaire et universitaire. Ces résultats mettent donc en évidence des **disparités de niveau d’instruction selon le sexe** parmi les chefs de ménage enquêtés, sans pour autant permettre d’établir une relation causale entre le sexe et le niveau d’étude.
 :::
 
-#### - Education des enfants
+#### - Relation entre l'éducation des enfants et le niveau d'étude du chef de ménage
 
 ```{r}
 #| echo: false
 #| label: tbl-educ-enfant
-#| tbl-cap: "Niveau d'étude chef de ménage et Scolarisation des efants de 9 à 14 ans"
+#| tbl-cap: "Niveau d'étude chef de ménage et Scolarisation des enfants de 9 à 14 ans"
 data_tchaoudjo2 |> 
-  filter(education_niveau_etude != "NSP") |> 
+  filter(education_niveau_etude != "NSP") |> # suppression de la modalité "NSP"
   tabyl(education_niveau_etude, education_9_14ans_non_scolarise) |>
   adorn_totals(c("row", "col")) |>
   adorn_percentages("col") |>
@@ -802,6 +804,13 @@ data_tchaoudjo2 |>
   rename("Niveau d'étude" = education_niveau_etude) |> 
   gt()
 ```
+
+::: callout-note
+## **Interprétation**
+
+La @tbl-educ-enfant semblre mettre en évidence une relation entre le **niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage**. Parmi les `46` sur `1452` ménages déclarant des enfants de 9 à 14 ans non scolarisés, **73,9 % des chefs de ménage n’ont aucun niveau d’étude**, contre seulement `38,1 %` parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : `19,6 %` des chefs ont le niveau primaire, `4,3 %` le secondaire 1, `2,2 %` le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.
+:::
+
 
 Test du Khi-deux d'indépendance entre le niveau d'éducation du chef de ménage et la scolarisation des enfants (9-14 ans) permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d'en apprécier l'intensité de cette relation.
 
@@ -829,45 +838,215 @@ eff_min  <- min(khi2_etude_scol$expected)
 paste("L'effectif attendu minimum est :", round(eff_min, 2))
 ```
 
-```{r}
-#| echo: false
-# Calcul du V de Cramer
-v_cramer2 <- DescTools::CramerV(
-  table(data_tchaoudjo2$education_niveau_etude, data_tchaoudjo2$education_9_14ans_non_scolarise))
-```
-
-
-```{r}
-#| echo: false
-paste("La valeur du V de Cramer est :", round(v_cramer2, 2))
-```
-
-::: callout-note
-La @tbl-educ-enfant met en évidence une relation nette entre le **niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage**. Parmi les ménages déclarant des enfants de 9 à 14 ans non scolarisés, **73,9 % des chefs de ménage n’ont aucun niveau d’étude**, contre seulement **38,1 %** parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : **19,6 %** des chefs ont le niveau primaire, **4,3 %** le secondaire 1, **2,2 %** le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.
-
-Le test du Khi-deux indique effectivement une **association statistiquement significative** entre les deux variables (\(\chi^2(4)=25,42\) ; \(p<0,001\)). Toutefois, ce résultat doit être interprété avec prudence, car les conditions d’application du test de Pearson ne sont pas entièrement satisfaites : **l’effectif théorique minimum est de 0,92** et plusieurs effectifs attendus sont inférieurs à 5, ce qui explique l’avertissement produit par R. Par ailleurs, le **V de Cramér de 0,13** indique que l’association observée est de **faible intensité**. On peut donc retenir que les données montrent une association entre le niveau d’étude du chef de ménage et la non-scolarisation des enfants de 9 à 14 ans, mais **sans conclure à un effet causal** du niveau d’étude.
+::: callout-warning
+## **Point d'attention**
+En raison de la faiblesse de certains effectifs théoriques, la significativité sera vérifiée à l’aide d’un test de **Fisher**. Ce test conserve les cinq niveaux d’étude tout en évitant de dépendre de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.
 :::
 
 ```{r}
-tab_etude_scolarisation <- data_tchaoudjo2 |>
+#| echo: false
+# Tableau de contingence
+tab_etude_parent_scolarisation <- data_tchaoudjo2 |>
   filter(education_niveau_etude != "NSP") |>
   with(table(
     education_niveau_etude,
     education_9_14ans_non_scolarise
   ))
 
-chisq.test(
-  tab_etude_scolarisation,
-  simulate.p.value = TRUE,
-  B = 10000
+tab_etude_parent_scolarisation
+
+# Test exact de Fisher
+fisher.test(tab_etude_parent_scolarisation)
+
+# Intensité de l'association
+DescTools::CramerV(tab_etude_parent_scolarisation)
+```
+
+::: callout-note
+## **Interprétation**
+Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. Le résultat confirme l’association observée (**χ² = 25,42 ; p < 0,001**). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : `73,9 %` des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre `38,1 %` parmi les ménages non concernés. Toutefois, le V de Cramér (**V = 0,13**) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.
+
+:::
+
+#### - Raison de la non scolarisation des enfants
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 |> 
+  select(education_9_14ans_non_scolarise_raison, education_9_14ans_non_scolarise_raison_autre) |> 
+  filter(education_9_14ans_non_scolarise_raison == "Autre, précisez") |> 
+  gt()
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    education_9_14ans_non_scolarise_raison = if_else(
+      education_9_14ans_non_scolarise_raison == "Autre, précisez" &
+        !is.na(education_9_14ans_non_scolarise_raison_autre),
+      
+      education_9_14ans_non_scolarise_raison_autre,
+      education_9_14ans_non_scolarise_raison
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| output: false
+# Recodage des modalités de la variable
+data_tchaoudjo2 <- data_tchaoudjo2 |> 
+  mutate(
+    education_9_14ans_non_scolarise_raison = recode(
+      education_9_14ans_non_scolarise_raison,
+      "Frais de scolarité élevés" = "Manque de moyens financiers",
+      "A cause de maladie, infirmité ou accident" = "Maladie, infirmité ou accident",
+      "Handicap auditif" = "Maladie, infirmité ou accident",
+      "Au pâturage" = "Préférence pour le travail",
+      "Frais de scolarité élevés" = "Manque de moyens financiers",
+      "Refuse catégorique de l'enfant" = "Autres raisons",
+      "NSP" = "Autres raisons",
+      "L'erreur des parents" = "Autres raisons",
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| label: tbl-raison-scol
+#| tbl-cap: "Raisons de la non scolarisation des enfants"
+data_tchaoudjo2 |> 
+  tabyl(education_9_14ans_non_scolarise_raison, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Raisons de la non scolarisation des enfants" = education_9_14ans_non_scolarise_raison, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+::: callout-note
+**Interprétation**
+
+Les résultats de la @tbl-raison-scol montrent que la principale raison de non-scolarisation des enfants de 9-14 ans est l’abandon ou les mauvais résultats scolaires, qui représentent `41,3 %` des cas (19 enfants). Cette situation met en évidence l’importance des difficultés de maintien des enfants dans le système scolaire au niveau de certains ménages. L’apprentissage constitue la deuxième raison avec `19,6 %` (9 cas), ce qui indique qu’une partie des enfants non scolarisés s’oriente vers l’acquisition d’un métier en dehors du cursus scolaire formel alors que loi impose la scolarité pour les enfants jusqu'à l'âge de 15 ans au Togo. Les *autres raisons* représentent `10,9 %`, tandis que `8,7 %` des cas sont liés au fait que l’enfant est considéré comme trop jeune, ce qui parrait atypique.
+
+Les contraintes d’accessibilité ou socioéconomiques apparaissent moins fréquemment citées : l’*éloignement de l’école* représente `6,5 %` des cas, tandis que le *manque de moyens financiers*, la *maladie, l’infirmité ou un accident* et la *préférence pour le travail* représentent chacun `4,3 %`. Dans l’ensemble, les résultats suggèrent que la non-scolarisation observée est davantage associée aux *difficultés de parcours et de maintien à l’école* qu’aux seules contraintes financières ou géographiques. Toutefois un faible nombre de ménages sont concernés par ces situations à savoir seulement `46` ménages sur 1452 qui ont répondu à la question.
+
+:::
+
+#### - Alphabétisation
+
+:::: {.columns}
+
+::: {.column width ="50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-alpha
+#| tbl-cap: "Personnes de plus de 15 ans qui se savent lire et écrire"
+data_tchaoudjo2 |> 
+  tabyl(education_plus_15an_analphabete, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Ne sais pas lire et écrire" = education_plus_15an_analphabete, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+:::
+
+::: {.column width ="50%"}
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 |> 
+  select(education_plus_15an_analphabete, education_alphabetisation) |> 
+  filter(education_plus_15an_analphabete == "Oui")
+```
+
+```{r}
+#| echo: false
+#| label: tbl-alpha-cours
+#| tbl-cap: "Personnes qui suivent un cours d'alphabétisation"
+data_tchaoudjo2 |> 
+  tabyl(education_alphabetisation, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Suit un cours d'alphabétisation" = education_alphabetisation, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+:::
+::::
+
+::: collout-note
+**Interprétation**
+
+Les résultats des @tbl-alpha et @tbl-tbl-alpha-cours montrent que `107` ménages enquêtés, soit `7,3 %`, déclarent compter au moins une personne âgée de `15 ans` ou plus ne sachant ni lire ni écrire, contre `92,7 %` qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.
+
+Parmi les ménages concernés, le recours aux dispositifs d’alphabétisation apparaît toutefois très limité : seulement **7 personnes**, soit `6,5 %`, suivent un cours d’alphabétisation, contre `96 (89,7 %)` qui n’en suivent pas ; `3,7 %` des réponses sont indéterminées (NSP). Ainsi, la grande majorité des personnes identifiées comme ne sachant ni lire ni écrire ne semble pas bénéficier d’un apprentissage compensatoire. Ces résultats mettent en évidence un écart important entre l’existence d’un besoin d’alphabétisation et la participation effective aux cours, ce qui invite à examiner notamment la disponibilité et l’accessibilité des programmes d’alphabétisation ainsi que les facteurs susceptibles de limiter leur fréquentation.
+:::
+
+#### - Apprentissage et formation professionnelle
+
+```{r}
+#| echo: false
+#| label: tbl-formation
+#| tbl-cap: "Formation professionnelle du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(education_apprentissage, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Formation professionnelle/apprentissage" = education_apprentissage, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+```{r}
+#| echo: false
+#| label: fig-filiere
+#| fig-cap: "Filière d'apprentissage du chef de ménage"
+
+data_tchaoudjo2 |>
+  filter(!is.na(education_apprentissage_filière)) |>
+  count(education_apprentissage_filière) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(
+    aes(x = reorder(education_apprentissage_filière, -pourcentage),
+      y = pourcentage)
+  ) +
+  geom_col(color = "#254a98", fill = "#83baf1") +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    vjust = -0.3
+  ) +
+  labs(
+    title = "",
+    caption = "",
+    x = "Filière",
+    y = ""
+  ) +
+  theme_bw() +
+    theme(
+    # Modalités de l'axe X
+    axis.text.x = element_text(size = 10, face = "bold",  angle = 25, hjust = 1)
 )
 ```
 
-Cette solution conserve tes cinq niveaux d’étude tout en évitant de dépendre excessivement de l’approximation asymptotique du Khi-deux lorsque certains effectifs théoriques sont très faibles.
 
-::: callout-note
-Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. En raison de la faiblesse de certains effectifs théoriques, la significativité a été vérifiée à l’aide d’un test du Khi-deux avec p-value simulée sur 10 000 réplications. Le résultat confirme l’association observée (**χ² = 25,42 ; p < 0,001**). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : `73,9 %` des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre 38,1 % parmi les ménages non concernés. Toutefois, le V de Cramér (**V = 0,13**) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.
+```{r}
+#| echo: false
+#| output: false
+write_csv(x = data_tchaoudjo2, file = "data/data_tchaoudjo2.csv")
+```
 
+::: collout-note
+**Interprétation**
+
+La @fig-filiere montre une diversification des filières d’apprentissage, avec toutefois une prédominance des métiers artisanaux et techniques. La *maçonnerie/carrelage* constitue la principale filière avec `17,4 %` des apprenants, suivie de la *couture* (`13,6 %`), de la *menuiserie bois ou aluminium* (`12,0 %`) et de la *ferraille/soudure/forge* (`10,9 %`). À elles seules, ces quatre filières concentrent plus de la moitié des apprenants (`53,9 %`), traduisant une forte orientation vers les métiers du bâtiment, de l’artisanat et de la production.
+
+D’autres filières occupent également une place non négligeable, notamment la *mécanique auto/moto* (`8,2 %`), la *coiffure* (`7,1 %`) et l’*électricité* (`6,5 %`). En revanche, l’agriculture/élevage (`4,3 %`), l’enseignement (`2,7 %`), le secrétariat/informatique (`2,7 %`), le textile/tissage (`1,6 %`) et la peinture (`1,1 %`) restent faiblement représentés. Dans l’ensemble, ces résultats mettent en évidence le rôle important de l’apprentissage professionnel comme voie d’acquisition de compétences pratiques, principalement orientée vers les métiers artisanaux et techniques.
 :::
 
 
