@@ -26,9 +26,9 @@ format:
     tbl-cap-location: top
 
 execute:
-#   echo: false
-#   warning: false
-#   message: false
+  echo: false
+  warning: false
+  message: false
   code-fold: true
   cache: true
   freeze: true
@@ -36,6 +36,8 @@ execute:
 
 editor: source
 ---
+
+{{< pagebreak >}}
 
 # - Introduction générale
 
@@ -50,6 +52,8 @@ En effet, l’existence d’une école, d’une formation sanitaire ou d’un au
 La problématique centrale de ce mémoire consiste ainsi à analyser dans quelle mesure les conditions socioéconomiques et sociodémographiques des ménages influencent leur accès aux services sociaux de base dans la commune de Tchaoudjo 2. Les ménages accèdent-ils moins aux soins principalement en raison de contraintes financières ou du fait de l’éloignement des structures sanitaires ? Les contraintes économiques expliquent-elles davantage les difficultés d’accès aux services que d’autres caractéristiques telles que le niveau d’éducation du chef de ménage, la composition du ménage ou la zone de résidence ? Plus généralement, dans quelle mesure les caractéristiques socioéconomiques des ménages de Tchaoudjo 2 sont-elles associées à leur niveau d’accès aux services essentiels ? L’analyse de ces différentes dimensions permettra de mieux comprendre les mécanismes par lesquels les contraintes socioéconomiques et territoriales peuvent se traduire par des limitations d’accès aux services sociaux de base.
 
 Pour répondre à cette problématique, notre étude est structurée en trois chapitres. Le premier chapitre présente le cadre conceptuel et méthodologique de l’étude, notamment les concepts, les données, les variables et les méthodes d’analyse retenues. Le deuxième chapitre est consacré à la revue de la littérature théorique et empirique sur les relations entre caractéristiques socioéconomiques des ménages et accès aux services sociaux de base. Enfin, le troisième chapitre analyse, à partir des données de l’enquête auprès des ménages, l’effet des caractéristiques socioéconomiques, sociodémographiques et territoriales sur l’accès aux services sociaux de base dans la commune de Tchaoudjo 2, avant d’en dégager les principaux enseignements pour la planification du développement communal.
+
+{{< pagebreak >}}
 
 # - Cadre conceptuel
 
@@ -311,7 +315,7 @@ head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de don
 ```
 
 # - Résultats, analyse et discussion
-## - Caractéristiques démographiques et conditions socioéconomiques des ménages
+## - Caractéristiques démographiques
 ### - Profil démographique des ménages
 
 #### - Répartition des enquêtés selon le sexe
@@ -344,6 +348,7 @@ La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs
 
 ```{r}
 #| echo: false
+#| output: false
 #| label: tbl-age_sexe
 #| tbl-cap: "Répartition des enquêtés selon la tranche d'âge et le sexe du chef de ménage"
 data_tchaoudjo2 |> 
@@ -440,6 +445,7 @@ Ces résultats suggèrent donc que l'accès au statut de chef de ménage diffèr
 Test du Khi-deux d'indépendance entre la situation matrimoniale et le sexe du chef de ménage permet de déterminer si les différences observées sont statistiquement significatives. Le V de Cramér permettra ensuite d'en apprécier l'intensité de cette relation.
 
 ```{r}
+#| echo: false
 khi2_matri_sexe  <- chisq.test(
   table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
 khi2_matri_sexe
@@ -454,10 +460,11 @@ effectif_min  <- min(khi2_matri_sexe$expected)
 
 ```{r}
 #| echo: false
-paste("L'effectif attendu minimum est :", round(effectif_min, 2))
+paste("L'effectif attendu minimum est égal à :", round(effectif_min, 2))
 ```
 
 ```{r}
+#| echo: false
 # Calcul du V de Cramer
 v_cramer <- DescTools::CramerV(
   table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
@@ -465,7 +472,7 @@ v_cramer <- DescTools::CramerV(
 
 ```{r}
 #| echo: false
-paste("La valeur du V de Cramer est :", round(v_cramer, 2))
+paste("La valeur du V de Cramer est égal à :", round(v_cramer, 2))
 ```
 
 ::: callout-note
@@ -984,7 +991,7 @@ data_tchaoudjo2 |>
 ::: collout-note
 **Interprétation**
 
-Les résultats des @tbl-alpha et @tbl-tbl-alpha-cours montrent que `107` ménages enquêtés, soit `7,3 %`, déclarent compter au moins une personne âgée de `15 ans` ou plus ne sachant ni lire ni écrire, contre `92,7 %` qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.
+Les résultats des @tbl-alpha et @tbl-alpha-cours montrent que `107` ménages enquêtés, soit `7,3 %`, déclarent compter au moins une personne âgée de `15 ans` ou plus ne sachant ni lire ni écrire, contre `92,7 %` qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.
 
 Parmi les ménages concernés, le recours aux dispositifs d’alphabétisation apparaît toutefois très limité : seulement **7 personnes**, soit `6,5 %`, suivent un cours d’alphabétisation, contre `96 (89,7 %)` qui n’en suivent pas ; `3,7 %` des réponses sont indéterminées (NSP). Ainsi, la grande majorité des personnes identifiées comme ne sachant ni lire ni écrire ne semble pas bénéficier d’un apprentissage compensatoire. Ces résultats mettent en évidence un écart important entre l’existence d’un besoin d’alphabétisation et la participation effective aux cours, ce qui invite à examiner notamment la disponibilité et l’accessibilité des programmes d’alphabétisation ainsi que les facteurs susceptibles de limiter leur fréquentation.
 :::
@@ -1007,33 +1014,44 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: fig-filiere
 #| fig-cap: "Filière d'apprentissage du chef de ménage"
+#| fig-width: 10
+#| fig-height: 7
+#| out-width: "100%"
 
 data_tchaoudjo2 |>
   filter(!is.na(education_apprentissage_filière)) |>
   count(education_apprentissage_filière) |>
-  mutate(pourcentage = n / sum(n) * 100) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
   ggplot(
-    aes(x = reorder(education_apprentissage_filière, -pourcentage),
-      y = pourcentage)
+    aes(
+      x = pourcentage,
+      y = reorder(education_apprentissage_filière, pourcentage)
+    )
   ) +
-  geom_col(color = "#254a98", fill = "#83baf1") +
+  geom_col(
+    color = "#701d35",
+    fill = "#d0889e"
+  ) +
   geom_text(
     aes(label = paste0(round(pourcentage, 1), " %")),
-    vjust = -0.3
+    hjust = -0.15
   ) +
   labs(
-    title = "",
-    caption = "",
-    x = "Filière",
-    y = ""
+    x = "Pourcentage (%)",
+    y = "Filière"
   ) +
-  theme_bw() +
-    theme(
-    # Modalités de l'axe X
-    axis.text.x = element_text(size = 10, face = "bold",  angle = 25, hjust = 1)
-)
+  expand_limits(
+    x = max(
+      data_tchaoudjo2 |>
+        filter(!is.na(education_apprentissage_filière)) |>
+        count(education_apprentissage_filière) |>
+        pull(n)
+    )
+  ) +
+  theme_bw()
 ```
-
 
 ```{r}
 #| echo: false
@@ -1049,14 +1067,959 @@ La @fig-filiere montre une diversification des filières d’apprentissage, avec
 D’autres filières occupent également une place non négligeable, notamment la *mécanique auto/moto* (`8,2 %`), la *coiffure* (`7,1 %`) et l’*électricité* (`6,5 %`). En revanche, l’agriculture/élevage (`4,3 %`), l’enseignement (`2,7 %`), le secrétariat/informatique (`2,7 %`), le textile/tissage (`1,6 %`) et la peinture (`1,1 %`) restent faiblement représentés. Dans l’ensemble, ces résultats mettent en évidence le rôle important de l’apprentissage professionnel comme voie d’acquisition de compétences pratiques, principalement orientée vers les métiers artisanaux et techniques.
 :::
 
+## -  Conditions socioéconomiques des ménages
 
-### - Emploi et activités économiques
+### - Emploi, revenu et conditions de vie
+
+#### - Profession du chef de ménage
+
+```{r}
+#| echo: false
+#| label: tbl-profession
+#| tbl-cap: "Profession du chef de ménage"
+
+data_tchaoudjo2 |> 
+  tabyl(profession) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Profession" = profession, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+::: callout-note
+**Interprétation**
+
+La structure professionnelle des chefs de ménage enquêtés est fortement dominée par les activités du secteur primaire, avec `46,5 %` d’agriculteurs, éleveurs ou pêcheurs. Cette prédominance confirme le poids important des activités agro-pastorales dans les moyens d’existence des ménages. Toutefois, la proportion élevée de chefs de ménage déclarés *sans emploi* (`25,7 %`) constitue également un résultat majeur : plus d’un chef de ménage sur quatre ne dispose pas d’un emploi déclaré. Les activités artisanales (`8,1 %`) et commerciales (`5,9 %`) constituent les principales professions après l’agriculture, tandis que les enseignants, éducateurs et instituteurs représentent `3,7 %` et les ménagères `3,6 %`.
+
+Les autres catégories professionnelles restent très faiblement représentées individuellement : chauffeurs de taxi/taxi-moto/tricycle (`1,5 %`), autres professions (`1,4 %`), retraités (`0,9 %`) et élèves/étudiants (`0,5 %`), tandis que plusieurs professions spécialisées représentent chacune moins de `0,5 %`. Dans l’ensemble, cette répartition met en évidence une faible diversification des activités professionnelles, avec une forte concentration dans l’agriculture et, dans une moindre mesure, l’artisanat et le commerce. Elle souligne également l’importance de la question de l’emploi, compte tenu du poids des personnes sans emploi parmi les chefs de ménage enquêtés.
+:::
+
+#### - Domaine et secteur d'activité du chef de ménage
+
+```{r}
+#| echo: false
+#| label: tbl-domaine
+#| tbl-cap: "Domaine d'activité du chef de ménage"
+
+data_tchaoudjo2 |> 
+  tabyl(domaine_activité) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Domaine d'activité" = domaine_activité, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+::: callout-note
+**Interprétation**
+
+La répartition des chefs de ménage selon leur domaine d’activité confirme la forte orientation agro-pastorale de l’économie locale : l’agriculture et l’élevage concentrent à eux seuls `72,4 %` des enquêtés (`1 055 personnes`). Loin derrière, l’*artisanat* (`7,8 %`) et le *commerce* (`6,4 %`) constituent les deux autres principaux domaines d’activité, tandis que l’éducation représente `3,4 %` et le transport `1,5 %`. Les activités relevant de l’industrie et de la transformation ne représentent que `1,0 %`, et les secteurs tels que la santé, l’énergie, les télécommunications, l’environnement ou l’hôtellerie restent chacun en dessous de `1 %`. Cette structure met ainsi en évidence une faible diversification des domaines d’activité, caractérisée par une forte dépendance aux activités agricoles et une présence encore limitée des activités de transformation et des services spécialisés.
+
+La structure professionnelle des chefs de ménage enquêtés est fortement dominée par les activités du secteur primaire, avec `46,5 %` d’agriculteurs. Cette prédominance confirme le poids important des activités agro-pastorales dans les moyens d’existence des ménages. Toutefois, la proportion élevée de chefs de ménage déclarés *sans emploi* (`25,7 %`) constitue également un résultat majeur : plus d’un chef de ménage sur quatre ne dispose pas d’un emploi déclaré. Les activités artisanales (`8,1 %`) et commerciales (`5,9 %`) constituent les principales professions après l’agriculture, tandis que les enseignants, éducateurs et instituteurs représentent `3,7 %` et les ménagères `3,6 %`.
+:::
+
+```{r}
+#| echo: false
+#| output: false
+#| label: tbl-secteur
+#| tbl-cap: "Secteur d'activité du chef de ménage"
+
+data_tchaoudjo2 |> 
+  tabyl(secteur_activité) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Secteur d'activité" = secteur_activité, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+```{r}
+#| echo: false
+#| label: fig-secteur
+#| fig-cap: "Secteur d'activité du chef de ménage"
+#| fig-width: 10
+#| fig-height: 6
+
+data_tchaoudjo2 |>
+  filter(!is.na(secteur_activité)) |>
+  count(secteur_activité) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  ggplot(
+    aes(
+      x = pourcentage,
+      y = reorder(secteur_activité, pourcentage)
+    )
+  ) +
+  geom_col(
+    color = "#176529",
+    fill = "#a4d0ae"
+  ) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))
+  ) +
+  labs(
+    x = "Pourcentage (%)",
+    y = "Secteur d'activité"
+  ) +
+  theme_bw()
+```
+
+::: callout-note
+**Interprétation**
+
+La répartition des chefs de ménage selon leur secteur d’activité montre une très forte prédominance du secteur privé, qui concentre `94,0 %` des actifs (`1 371` personnes). Cette situation s’explique notamment par le poids des activités agricoles, artisanales, commerciales et autres activités indépendantes dans l’économie locale. À l’inverse, l’*administration publique* ne représente que `4,9 %`, tandis que les *entreprises publiques* (`0,8 %`) et les *ONG/associations* (`0,3 %`) occupent une place marginale. Cette structure traduit ainsi une économie locale essentiellement portée par les activités privées, avec une faible présence de l’emploi public et institutionnel parmi les chefs de ménage enquêtés.
+:::
+
+#### - Revenu et sexe du chef de ménage
+
+```{r}
+#| echo: false
+#| label: tbl-revenu
+#| tbl-cap: "Revenu selon le sexe du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(revenu, sexe) |> 
+  arrange(desc(Masculin)) |> 
+  mutate(Total = Féminin + Masculin) |> 
+  as.data.frame() |>
+  adorn_totals("row") |>
+  rename("Tranches de revenu" = revenu) |> 
+  gt()
+```
+
+
+::: callout-note
+**Interprétation**
+
+La répartition des chefs de ménage selon les tranches de revenu (@tbl-revenu) met en évidence une forte concentration dans les faibles niveaux de revenu. Sur les 1 458 chefs de ménage enquêtés, `852 (58,4 %)` déclarent ne pas percevoir de revenu, tandis que `383 (26,3 %)` disposent d’un revenu inférieur à `52 500 F CFA` qui est le niveau du SMIG au Togo. Ainsi, `84,7 %` des chefs de ménage déclarent soit ne pas avoir de revenu, soit percevoir moins de `52 500 F CFA`. Les proportions diminuent fortement à mesure que le revenu augmente : `83` chefs de ménage `(5,7 %)` se situent entre `52 500` et `74 900 F CFA`, `45 (3,1 %)` entre `75 000` et `99 900 F CFA`, et seulement `95` personnes, soit environ `6,5 %`, déclarent un revenu mensuel d’au moins `100 000 F CFA`. Les revenus de 200 000 F CFA et plus restent particulièrement rares.
+
+La ventilation selon le sexe fait également apparaître une concentration des femmes dans les tranches les plus faibles : `226` femmes sur `355 (63,7 %)` déclarent ne pas avoir de revenu, contre `56,8 %` des hommes. Par ailleurs, les femmes sont très peu représentées dans les tranches de revenus les plus élevées. Ces résultats traduisent globalement une faible capacité de revenu monétaire des chefs de ménage enquêtés, avec des disparités selon le sexe qui mériteraient d’être vérifiées statistiquement. Un test du Khi-deux entre la tranche de revenu et le sexe serait pertinent, sous réserve des faibles effectifs théoriques dans les tranches supérieures ; dans ce cas, un test de Fisher ou une p-value simulée pourrait être utilisé.
+
+:::
+
+Pour le test de khi2, nous avons regroupé les modalités des tranches de revenu de 100 000 à 149 000 et les modalités de 150 000 et plus.
+
+```{r}
+#| echo: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    revenu_rec = case_when(
+      
+      revenu %in% c(
+        "100 000 à 124 900 F",
+        "125 000 à 149 900 F"
+      ) ~ "100 000 à 149 900 F",
+      
+      revenu %in% c(
+        "150 000 à 199 900 F",
+        "200 000 à 249 900 F",
+        "250 000 à 299 900 F",
+        "300 000 à 399 900 F",
+        "500 000 F et plus"
+      ) ~ "150 000 F et plus",
+      
+      TRUE ~ revenu
+    )
+  )
+```
+
+On obtient le tableau @tbl-revenu-rec ci-dessous :
+
+```{r}
+#| echo: false
+#| label: tbl-revenu-rec
+#| tbl-cap: "Revenu selon le sexe du chef de ménage"
+data_tchaoudjo2 |> 
+  tabyl(revenu_rec, sexe) |> 
+  mutate(Total = Féminin + Masculin) |> 
+  arrange(desc(Total)) |> 
+  as.data.frame() |>
+  adorn_totals("row") |>
+  rename("Tranches de revenu" = revenu_rec) |> 
+  gt()
+```
+
+**Réalisation du test de Khi2**
+
+```{r}
+#| echo: false
+# Tableau de contingence
+tab_revenu_rec <- data_tchaoudjo2 |>
+  with(table(revenu_rec, sexe))
+
+tab_revenu_rec
+
+# Test de khi2 de Pearson
+chisq.test(tab_revenu_rec)
+
+# Intensité de l'association
+DescTools::CramerV(tab_revenu_rec)
+```
+
+::: callout-note
+**Interprétation**
+
+Les résultats du test du Khi-deux de Pearson **ne mettent pas en évidence d’association statistiquement significative entre le sexe du chef de ménage et sa tranche de revenu**. En effet, le test donne \(χ²(5)=8,47\) avec une **p-value** de `0,132`, supérieure au seuil conventionnel de 5 %. On ne peut donc pas rejeter l’hypothèse d’indépendance entre les deux variables. Autrement dit, même si le tableau descriptif fait apparaître certaines différences entre femmes et hommes selon les tranches de revenu, celles-ci ne sont pas suffisamment importantes pour conclure, sur la base de cet échantillon, à une association statistiquement significative entre le sexe et la tranche de revenu.
+
+Cette conclusion est également cohérente avec le **V de Cramér** de `0,076`, qui traduit une **association de très faible intensité** entre les deux variables. Ainsi, dans l’échantillon étudié, le sexe du chef de ménage apparaît peu associé à son appartenance aux différentes tranches de revenu.
+
+Les informations qualitatives recueillies lors des focus groups avec les femmes permettent d’éclairer ce résultat. Elles font ressortir une forte implication des femmes dans les activités économiques, notamment dans le commerce, ainsi que leur participation à des groupements et systèmes de tontine, qui constituent des mécanismes importants de mobilisation de l’épargne et de financement de leurs activités. Les participantes ont également souligné leur contribution substantielle aux dépenses du ménage, notamment pour l’éducation et la santé des enfants, ainsi que l’appui financier qu’elles peuvent apporter à leur conjoint en période de difficulté. Ces constats qualitatifs sont cohérents avec l’absence d’un écart statistiquement significatif de revenu selon le sexe et montrent que l’activité économique et la contribution financière des femmes occupent une place importante dans l’économie des ménages.
+:::
+
+
+#### - Difficulté du chef de ménage à faire face aux besoins vitaux du ménage
+
+```{r}
+#| echo: false
+#| label: tbl-difficulte
+#| tbl-cap: "Difficultés pour faire face aux besoins vitaux"
+data_tchaoudjo2 |> 
+  tabyl(difficulte_besoin_vitaux) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |> 
+  rename("Difficultés" = difficulte_besoin_vitaux, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| label: tbl-difficulte_principale
+#| tbl-cap: "Les trois principales difficultés ?"
+data_tchaoudjo2 |> 
+  filter(!is.na(difficulte_besoin_vitaux_principales)) |> 
+  tabyl(difficulte_besoin_vitaux_principales) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |> 
+  rename("Difficultés principales" = difficulte_besoin_vitaux_principales, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+::: callout-note
+**Interprétation**
+
+Les résultats de la @tbl-difficulte montrent que les difficultés économiques et sociales touchent une large majorité des ménages enquêtés : `927` ménages, soit `63,6 %`, déclarent rencontrer des difficultés pour satisfaire leurs principaux besoins, contre `36,4 %` qui n’en déclarent pas.
+
+Les difficultés rencontrées par les ménages apparaissent principalement liées à la **satisfaction des besoins essentiels**, avec une forte imbrication des contraintes alimentaires, sanitaires et éducatives. La combinaison la plus fréquemment déclarée associe en effet la nécessité de **nourrir la famille, d’assurer l’accès aux soins de santé et de prendre en charge la scolarité des enfants**. L’accès aux soins ressort également comme une préoccupation importante, aussi bien lorsqu’il est cité seul qu’en association avec l’alimentation, la scolarité ou encore le transport. Dans l’ensemble, la multiplicité des combinaisons déclarées montre que les ménages sont généralement confrontés à **plusieurs difficultés simultanées**, traduisant des contraintes économiques qui affectent conjointement leur capacité à assurer l’alimentation, la santé, l’éducation des enfants, le paiement des charges courantes et les déplacements.
+:::
+
+
+### - Accès à l'eau potable
+
+#### - Source d'approvisionnement en eau au sein du ménage
+
+::: {.columns}
+
+:::: {.column width=40%}
+
+```{r}
+#| echo: false
+#| label: tbl-eau-maison
+#| tbl-cap: "Source d’approvisionnement en eau dans le ménage"
+data_tchaoudjo2 |> 
+  tabyl(eau_dans_maison, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Source d'eau disponible dans le ménage" = eau_dans_maison, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "",
+      subtitle = ""
+    )
+```
+
+::::
+
+:::: {.column width=10%}
+
+
+::::
+
+:::: {.column width=50%}
+
+```{r}
+#| echo: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    eau_type_source_rec = case_when(
+      eau_type_source %in% c(
+        "Puit",
+        "PMH (Pompe à motricité humaine)",
+        "Adduction d'eau potable (AEP) communautaire",
+        "Forage personnel"
+      ) ~ eau_type_source,
+      
+      !is.na(eau_type_source) ~ "Combinaisons de plusieurs sources",
+      
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| label: tbl-type-source
+#| tbl-cap: "Type d'installation d'eau dans le ménage"
+data_tchaoudjo2 |> 
+  tabyl(eau_type_source_rec, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Type de source d'eau dans le ménage" = eau_type_source_rec, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+::::
+
+#### - Source principale d'approvisionnement pour l'eau potable
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 |> 
+  tabyl(eau_potable_source_princ) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Source principale d'eau potable" = eau_potable_source_princ) |> 
+  gt()
+```
+
+
+```{r}
+#| echo: false
+#| label: fig-eau-potable
+#| fig-cap: "Source principale d'eau potable du ménage"
+#| fig-width: 6
+#| fig-height: 4
+
+data_tchaoudjo2 |>
+  filter(!is.na(eau_potable_source_princ)) |>
+  count(eau_potable_source_princ) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  arrange(desc(pourcentage)) |>
+  ggplot(
+    aes(
+      x = "",
+      y = pourcentage,
+      fill = eau_potable_source_princ
+    )
+  ) +
+  geom_col(
+    width = 1,
+    color = "white"
+  ) +
+  coord_polar(
+    theta = "y"
+  ) +
+  geom_text(
+    aes(
+      label = paste0(round(pourcentage, 1), " %")
+    ),
+    position = position_stack(vjust = 0.5),
+    size = 4
+  ) +
+  labs(
+    fill = "Source principale\nd'eau potable"
+  ) +
+  theme_void() +
+  theme(
+    legend.position = "right"
+  )
+```
+
+::: callout-note
+## **Interprétation**
+
+Les résultats de la @tbl-eau-maison mettent en évidence une **disponibilité limitée des sources d’eau au sein même des ménages** : seuls **35,9 % des ménages (524)** déclarent disposer d’une source d’eau, contre **64,1 % (934)** qui n’en disposent pas. 
+
+Selon la @tbl-type-source  Parmi les ménages disposant d’une source, le **puits domine très largement (68,9 %)**, loin devant les **pompes à motricité humaine (10,9 %)**, les **adductions d’eau potable communautaires (9,0 %)** et les **forages personnels (6,7 %)**. Les autres situations correspondent essentiellement à des ménages combinant plusieurs types de sources et restent marginales. Cette configuration traduit donc une forte prédominance des solutions traditionnelles ou individuelles, en particulier les puits, et une présence relativement limitée des infrastructures améliorées d’approvisionnement en eau au niveau des ménages.
+
+Concernant la **source principale d’eau potable** (@fig-eau-potable), les puits occupent également la première place : **53,9 % des ménages** déclarent l’eau de puits comme principale source, contre **24,8 % pour les forages** et **18,9 % pour les PMH**. L’**eau de surface (marigot, rivière)** concerne encore **2,5 % des ménages**. Ainsi, plus de la moitié des ménages dépendent principalement des puits pour leur approvisionnement en eau destinée à la consommation alors que l'eau de puit n'est pas considérée comme source d'eau potable. Ce résultat constitue un enjeu important pour l’accès à une eau de qualité, notamment selon le **niveau de protection des puits et la qualité effective de l’eau**. La persistance du recours aux eaux de surface, même minoritaire, signale également l’existence de ménages particulièrement vulnérables en matière d’accès à l’eau potable.
+:::
+
+#### - Distance du ménage par rapport au point d'eau
+
+::: {.columns}
+
+:::: {.column width=30%}
+
+Statistiques descriptives "Distance par rapport au point d'eau"
+
+```{r}
+#| echo: false
+data_tchaoudjo2 |> 
+  select("Distance point d'eau" = eau_distance) |> 
+  summary(eau_distance, rm.na = TRUE)
+```
+::::
+
+:::: {.column width=10%}
+
+::::
+
+:::: {.column width=60%}
+
+```{r}
+#| echo: false
+#| label: fig-distance-eau
+#| fig-cap: "Distribution de la distance des ménages par rapport au point d'eau"
+#| fig-width: 8
+#| fig-height: 4
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance)) |>
+  ggplot(aes(x = eau_distance)) +
+  geom_boxplot(
+    fill = "#d0e09a",
+    color = "#176529",
+    width = 0.4
+  ) +
+  labs(
+    x = "Distance au point d'eau (mètres)",
+    y = NULL
+  ) +
+  theme_bw()
+```
+::::
+
+::: callout-note
+**Interprétation**
+
+Les résultats montrent que la distance moyenne entre le ménage et le point d’eau est d’environ `361` mètres, tandis que la médiane est de `200` mètres, ce qui signifie que la moitié des ménages concernés se situe à 200 mètres ou moins d’un point d’eau et l'autre moitié à plus de `200` mètres. Le premier quartile est de `50` mètres et le troisième quartile de `500` mètres : ainsi, `50 %` des ménages se trouvent à une distance comprise entre `50` et `500` mètres. Aussi, un ménage sur quatre parcours plus de `500` mètre pour atteindre un point d'eau alors que les normes stipulent qu'un point d'eau potable ne doit pas être au delà de `500` mètres. La moyenne, sensiblement supérieure à la médiane, ainsi que la distance maximale de `3 000` mètres, indiquent une distribution asymétrique vers les grandes distances : certains ménages doivent donc parcourir des distances particulièrement importantes pour accéder à l’eau.
+
+Le boxplot confirme une forte asymétrie de la distribution des distances au point d’eau. La médiane se situe à `200` mètres, tandis que `50 %` des ménages concernés se trouvent approximativement entre `50` mètres (1er quartile) et 500 mètres (3e quartile). Le graphique met ainsi en évidence des inégalités d’accessibilité géographique à l’eau.
+:::
+
+#### - Qualité de l'eau, traitement et couverture des besoins en eau du ménage
+
+```{r}
+#| echo: false
+#| label: tbl-qualite-eau
+#| tbl-cap: "Appréciation de la qualité de l'eau"
+data_tchaoudjo2 |> 
+  tabyl(eau_qualite_conso) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Qualité de l'eau" = eau_qualite_conso) |> 
+  gt()
+```
+
+::: {.columns}
+
+:::: {.column width=45%}
+
+```{r}
+#| echo: false
+#| label: tbl-traitement-eau
+#| tbl-cap: "Traitement de l'eau de boisson avant consommation"
+data_tchaoudjo2 |> 
+  tabyl(eau_traite, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Traitement de l'eau" = eau_traite) |> 
+  gt()
+```
+::::
+
+:::: {.column width=10%}
+
+::::
+
+:::: {.column width=45%}
+
+```{r}
+#| echo: false
+#| label: tbl-courture-besoin
+#| tbl-cap: "Courverture des besoins en eau"
+data_tchaoudjo2 |> 
+  tabyl(eau_besoin_couvert, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Couverture des besoins en eau" = eau_besoin_couvert) |> 
+  gt()
+```
+::::
+
+::: callout-note
+**Interprétation**
+
+Les résultats de la @tbl-qualite-eau mettent en évidence des difficultés importantes concernant à la fois la qualité, la sécurisation et la disponibilité de l’eau au niveau des ménages. Concernant la qualité perçue, `46,0 %` des ménages considèrent l’eau consommée comme étant de bonne qualité, tandis que `29,4 %` la jugent de mauvaise qualité et `24,6 %` estiment qu’elle est parfois bonne et parfois mauvaise. Ainsi, plus de la moitié des ménages (`54,0 %`) ne disposent pas d’une perception constamment positive de la qualité de leur eau. Cette situation traduit notamment une possible variabilité de la qualité des sources utilisées.
+
+Le traitement de l’eau reste par ailleurs peu répandu (@tbl-traitement-eau) : parmi les ménages concernés par cette question, `77,6 %` déclarent ne pas traiter l’eau, contre seulement `22,4 %` qui procèdent à un traitement. Ce constat mérite une attention particulière au regard de la proportion de ménages qui considèrent leur eau comme mauvaise ou de qualité variable. 
+
+Enfin, la couverture des besoins en eau (@tbl-courture-besoin) apparaît insuffisante pour une majorité des ménages : `64,7 %` déclarent que leurs besoins ne sont pas couverts, contre seulement `35,3 %` qui estiment disposer d’une quantité d’eau suffisante pour satisfaire leurs besoins**. Dans l’ensemble, ces résultats montrent que les enjeux d’approvisionnement ne se limitent donc pas à la proximité des points d’eau : ils concernent également la quantité disponible, la régularité de la qualité et les pratiques de traitement de l’eau, trois dimensions essentielles à prendre en compte dans l’amélioration du service d’approvisionnement en eau.
+:::
+
+#### - Quantité et dépenses moyennes d'eau consommé par les ménage
+
+::: {.columns}
+
+::::{.column width=45%}
+
+```{r}
+#| echo: false
+#| label: fig-qte-eau
+#| fig-cap: "Quantité journalière d'eau consommée (litre)"
+#| fig-width: 8
+#| fig-height: 5
+
+data_tchaoudjo2 |>
+  filter(!is.na(eau_qte_litre)) |>
+  count(eau_qte_litre) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  ggplot(
+    aes(
+      x = pourcentage,
+      y = reorder(eau_qte_litre, pourcentage)
+    )
+  ) +
+  geom_col(
+    color = "#161483",
+    fill = "#5974c6",
+    width = 0.7
+  ) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))
+  ) +
+  labs(
+    x = "Pourcentage (%)",
+    y = "Quantité moyenne journalière"
+  ) +
+  theme_bw()
+```
+
+::::
+
+::::{.column width=10%}
+
+::::
+
+::::{.column width=45%}
+
+```{r}
+#| echo: false
+#| label: fig-depense-eau
+#| fig-cap: "Dépense mensuelle d'eau consommée (Fcfa)"
+#| fig-width: 8
+#| fig-height: 5
+
+data_tchaoudjo2 |>
+  filter(!is.na(eau_depense_mois)) |>
+  count(eau_depense_mois) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  ggplot(
+    aes(
+      x = pourcentage,
+      y = reorder(eau_depense_mois, pourcentage)
+    )
+  ) +
+  geom_col(
+    color = "#6f4b12",
+    fill = "#df9c50",
+    width = 0.7
+  ) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))
+  ) +
+  labs(
+    x = "Pourcentage (%)",
+    y = "Dépense moyenne mensuelle"
+  ) +
+  theme_bw()
+```
+
+::::
+
+::: callout-note
+**Interprétation**
+
+La @fig-qte-eau montre que la consommation journalière d’eau des ménages est assez dispersée, même si elle se concentre principalement entre 50 et `100` litres par jour. Les tranches les plus représentées sont `75` à `100` litres `(16,7 %)`, 60 à 75 litres `(15,5 %)` et 50 à 60 litres `(15,2 %)` soit près de la moitié des ménages concernés. Il convient également de relever que 9,1 % des ménages déclarent une consommation supérieure à `500` litres par jour, ce qui traduit une forte hétérogénéité des volumes consommés, probablement liée notamment à la taille des ménages et aux différents usages de l’eau.
+
+Au niveau de la @fig-depense-eau, les dépenses consacrées à l’eau sont très fortement concentrées dans la tranche inférieure à `500 F CFA` par mois soit `78,3 %` des ménages. Les ménages dépensant entre `500` et `1 000 F CFA` représentent `9,1 %`, puis les proportions diminuent rapidement à mesure que le montant augmente : `5,2 %` dépensent entre `1 000` et ` 500 F CFA` et seulement une faible minorité supporte des dépenses mensuelles supérieures à `2 000 F CFA`. Cette faiblesse apparente des dépenses doit toutefois être interprétée au regard des modes d'approvisionnement en eau observés précédemment, notamment le recours important aux puits et autres sources qui peuvent ne pas donner lieu à un paiement monétaire régulier. Ainsi, une faible dépense ne signifie pas nécessairement une bonne accessibilité économique à un service d’eau potable, mais peut également refléter le recours à des sources gratuites ou peu coûteuses.
+:::
+
+
+#### - Lieu de stockage de l'eau dans les ménages
+
+```{r}
+#| echo: false
+#| label: tbl-stockage-eau
+#| tbl-cap: "Lieu de stockage de l'eau"
+data_tchaoudjo2 |> 
+  tabyl(eau_lieu_stock) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Lieu de stockage de l'eau" = eau_lieu_stock, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+::: callout-note
+**Interprétation**
+
+Les résultats de la @tbl-tbl-stockage-eau montrent que le stockage de l’eau dans les ménages repose principalement sur des récipients traditionnels ou mobiles. Près de la moitié des ménages `(49,1 %)` utilisent des jarres, qui constituent de loin le principal mode de stockage, suivies des bidons ou récipients en plastique `(28,3 %)` et des tonneaux `(17,4 %)`. Les seaux ou bassines ne concernent que 3,8 % des ménages, tandis que l’utilisation de sachets plastiques `(1,3 %)` et de marmites `(0,1 %)` reste marginale. Cette prédominance des jarres, bidons et tonneaux montre l’importance du stockage domestique de l’eau, probablement en lien avec la nécessité de constituer des réserves pour les besoins quotidiens. Elle souligne également l’enjeu des conditions d’hygiène, de couverture et d’entretien des récipients, afin d’éviter une contamination de l’eau entre son prélèvement et sa consommation.
+:::
+
+#### - Satisfaction des ménages par rapport aux besoins en eau potable
+
+```{r}
+#| echo: false
+#| label: tbl-satisfaction-eau
+#| tbl-cap: "Satisfaction par rapport aux besoins en eau potable"
+data_tchaoudjo2 |> 
+  tabyl(eau_est_satisfait_besoin) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Satisfait" = eau_est_satisfait_besoin, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+```{r}
+#| echo: false
+#| label: tbl-satisfaction-eau
+#| tbl-cap: "Raison d'insatisfaction par rapport aux besoins en eau potable"
+data_tchaoudjo2 |> 
+  tabyl(eau_raison_non_satisfait, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Raison d'insafisfaction" = eau_raison_non_satisfait, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
+```
+
+### Attentes par rapport à l'eau potable
+
+```{r}
+# data_tchaoudjo2 |> 
+#   tabyl(eau_attentes_acces)
+```
+
+## Résultats sur l'accès à la santé
+
+### Principal type de centre de santé fréquenté
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(sante_struct_frequente, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Type de centre" = sante_struct_frequente, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Principal centre de santé fréquenté",
+      subtitle = ""
+    )
+```
+
+### Handicap (Est-ce qu'un membre du ménage vit avec un handicap ?)
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(sante_handicap_type, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Type de handicap" = sante_handicap_type, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Existence de personnes handicapées dans le ménage",
+      subtitle = ""
+    )
+```
+
+### Auto médication
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(sante_auto_medication, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Auto médication" = sante_auto_medication, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Auto médication du chef de ménage",
+      subtitle = ""
+    )
+```
+
+### Lieu où le chef de ménage procure les médicaments pour le soin
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(sante_lieu_medicament, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Lieu d'achat de médicament" = sante_lieu_medicament, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Lieu où se procure le chef de ménage en médicament",
+      subtitle = ""
+    )
+```
+
+### Assurance santé
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(sante_assurance, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Assurance santé" = sante_assurance, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Existence d'une assurance santé",
+      subtitle = ""
+    )
+```
+
+### Attentes par rapport à l'accès à la santé
+
+```{r}
+#| echo: true
+#| output: false
+data_tchaoudjo2 |> 
+   tabyl(sante_attente, show_na = FALSE) |> 
+   adorn_pct_formatting(digits = 1) |> 
+   arrange(desc(n)) |> 
+   rename("Attentes" = sante_attente, "Effectif" = n, "Pourcentage" = percent) |> 
+   gt() |> 
+     tab_header(
+       title = "Attentes par rapport à l'accès à la santé",
+       subtitle = ""
+     )
+```
+
+## Résultats par rapport à l'assainissement
+
+### Existence de latrine dans le ménage
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_latrine_maison, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Latrine à la maison" = assainis_latrine_maison, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Existence de latrine dans le ménage",
+      subtitle = ""
+    )
+```
+
+### Type de latrine dans les ménages qui en possède
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_latrine_type, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Mode de vidance" = assainis_latrine_type, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Type de latrine dans le ménage",
+      subtitle = ""
+    )
+```
+
+### Mode de vidange des latrines dans les maisons qui en possède
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_latrine_mode_vidange, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Mode de vidance" = assainis_latrine_mode_vidange, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Mode de vidange des latrines",
+      subtitle = ""
+    )
+```
+
+### Lieu où le ménage fait ses besoins à l'absence de latrine
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_latrine_lieu_besoin, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Lieu de défécation" = assainis_latrine_lieu_besoin, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Lieu où le ménage fait ses besoins",
+      subtitle = ""
+    )
+```
+
+### Raison de l'absence de latrine dans les ménages qui n'en possèdent pas
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_latrine_pourquoi_absente, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Raisons" = assainis_latrine_pourquoi_absente, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Raison de l'absence de latrine dans le ménage",
+      subtitle = ""
+    )
+```
+
+```{r}
+#| echo: false
+#| eval: false
+data_tchaoudjo2 <- data_tchaoudjo2 |> 
+  mutate(
+    assainis_latrine_pourquoi_absente = case_when(
+      assainis_latrine_absente_autre == "Locateur" ~ "Le propriétaire n'en a pas constuit",
+      assainis_latrine_absente_autre == "Location" ~ "Le propriétaire n'en a pas constuit",
+      assainis_latrine_absente_autre == "À l' air libre" ~ "Autre raison",
+      assainis_latrine_absente_autre == "À l'air libre" ~ "Autre raison",
+      assainis_latrine_absente_autre == "En-cours d'élaboration" ~ "Autre raison",
+      assainis_latrine_absente_autre == "Le sol ne tient pas" ~ "Autre raison",
+      assainis_latrine_absente_autre == "On avait un WC mais c'est gâté" ~ "Autre raison",
+      TRUE ~ assainis_latrine_pourquoi_absente
+    )
+  )
+```
+
+```{r}
+data_tchaoudjo2 |> 
+  select(starts_with("assainis_douche")) |> 
+  colnames()
+```
+
+### Existence de douche dans le ménage
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_douche_dans_maison, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Existence de douche" = assainis_douche_dans_maison, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Existence de douche dans le ménage",
+      subtitle = ""
+    )
+```
+
+### Type de douche dans les ménages
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_douche_type, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Types de douche" = assainis_douche_type, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Types de douche dans les ménages",
+      subtitle = ""
+    )
+```
+
+### Lieu de douche des ménages qui n'en possède pas
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_douche_lieu, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Lieu de douche" = assainis_douche_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Lieu de douche des ménages qui n'en possèdent pas",
+      subtitle = ""
+    )
+```
+
+### Mode d'évacuation des eaux usées des ménages
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_eaux_usées_mode_devac, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Mode d'évacuation" = assainis_eaux_usées_mode_devac, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Mode d'évacuation des eaux usées dans les ménages",
+      subtitle = ""
+    )
+```
+
+### Existence de poubelle dans le ménage
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_a_poubelle, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Existence de poubelle" = assainis_a_poubelle, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Existence de poubelle dans les ménages",
+      subtitle = ""
+    )
+```
+
+### Lieu de dépotoir des ménages
+
+```{r}
+data_tchaoudjo2 |> 
+  tabyl(assainis_depotoir_lieu, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Lieu de dépotoir" = assainis_depotoir_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Lieu de dépotoir des ménages",
+      subtitle = ""
+    )
+```
+
+### Principaux problèmes d'assainissement selon ménage
+
+```{r}
+#| echo: false
+#| eval: false
+data_tchaoudjo2 |> 
+  tabyl(assainis_insalubrite_probleme, show_na = FALSE) |> 
+  adorn_pct_formatting(digits = 1) |> 
+  arrange(desc(n)) |> 
+  rename("Réponses" = assainis_insalubrite_probleme, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt() |> 
+    tab_header(
+      title = "Principaux problèmes d'assainissement selon ménage",
+      subtitle = ""
+    )
+```
 
 
 
 
+### - Accès à la santé
 
-### - Sources de revenus et moyens d'existence
+
+
+### - Accès à l'hygiène et assainissement
 
 
 
@@ -1064,8 +2027,20 @@ D’autres filières occupent également une place non négligeable, notamment l
 
 
 
-### - Équipements et patrimoine des ménages
+### - Accès à l'énergie et à l'électricité
 
 
 
-### - Synthèse/typologie des conditions socioéconomiques
+### - Situation par rapport à l'environnement, le changement climatique et les ressources forestières
+
+
+
+### - Transport et mobilité
+
+
+
+```{r}
+#| echo: false
+#| output: false
+write_csv(x = data_tchaoudjo2, file = "data/data_tchaoudjo2.csv")
+```
