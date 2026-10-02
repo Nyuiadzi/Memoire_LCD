@@ -8,6 +8,7 @@ format:
     theme: cosmo
     toc: true
     number-sections: true
+    number-depth: 5
     css: styles.css
     #df-print: "kable" # pour obtenir de belles tables plutôt qu’une sortie logiciel
     tbl-cap-location: "top" # pour faire apparaitre la légende au-dessus de la table (vous pouvez choisir “top”, « bottom », ou « margin » )
@@ -16,13 +17,17 @@ format:
   typst:
     toc: true
     number-sections: true
+    number-depth: 5
+    section-numbering: "1.1.1.1.1"
     #fontsize: 12pt
     #df-print: "kable"
     tbl-cap-location: "top"
+    fontsize: 12pt
 
   docx:
     toc: true
     number-sections: true
+    number-depth: 5
     tbl-cap-location: top
 
 execute:
@@ -935,7 +940,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats de la @tbl-raison-scol montrent que la principale raison de non-scolarisation des enfants de 9-14 ans est l’abandon ou les mauvais résultats scolaires, qui représentent `41,3 %` des cas (19 enfants). Cette situation met en évidence l’importance des difficultés de maintien des enfants dans le système scolaire au niveau de certains ménages. L’apprentissage constitue la deuxième raison avec `19,6 %` (9 cas), ce qui indique qu’une partie des enfants non scolarisés s’oriente vers l’acquisition d’un métier en dehors du cursus scolaire formel alors que loi impose la scolarité pour les enfants jusqu'à l'âge de 15 ans au Togo. Les *autres raisons* représentent `10,9 %`, tandis que `8,7 %` des cas sont liés au fait que l’enfant est considéré comme trop jeune, ce qui parrait atypique.
 
@@ -989,7 +994,7 @@ data_tchaoudjo2 |>
 ::::
 
 ::: collout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats des @tbl-alpha et @tbl-alpha-cours montrent que `107` ménages enquêtés, soit `7,3 %`, déclarent compter au moins une personne âgée de `15 ans` ou plus ne sachant ni lire ni écrire, contre `92,7 %` qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.
 
@@ -1060,7 +1065,7 @@ write_csv(x = data_tchaoudjo2, file = "data/data_tchaoudjo2.csv")
 ```
 
 ::: collout-note
-**Interprétation**
+## **Interprétation**
 
 La @fig-filiere montre une diversification des filières d’apprentissage, avec toutefois une prédominance des métiers artisanaux et techniques. La *maçonnerie/carrelage* constitue la principale filière avec `17,4 %` des apprenants, suivie de la *couture* (`13,6 %`), de la *menuiserie bois ou aluminium* (`12,0 %`) et de la *ferraille/soudure/forge* (`10,9 %`). À elles seules, ces quatre filières concentrent plus de la moitié des apprenants (`53,9 %`), traduisant une forte orientation vers les métiers du bâtiment, de l’artisanat et de la production.
 
@@ -1087,7 +1092,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 La structure professionnelle des chefs de ménage enquêtés est fortement dominée par les activités du secteur primaire, avec `46,5 %` d’agriculteurs, éleveurs ou pêcheurs. Cette prédominance confirme le poids important des activités agro-pastorales dans les moyens d’existence des ménages. Toutefois, la proportion élevée de chefs de ménage déclarés *sans emploi* (`25,7 %`) constitue également un résultat majeur : plus d’un chef de ménage sur quatre ne dispose pas d’un emploi déclaré. Les activités artisanales (`8,1 %`) et commerciales (`5,9 %`) constituent les principales professions après l’agriculture, tandis que les enseignants, éducateurs et instituteurs représentent `3,7 %` et les ménagères `3,6 %`.
 
@@ -1110,7 +1115,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 La répartition des chefs de ménage selon leur domaine d’activité confirme la forte orientation agro-pastorale de l’économie locale : l’agriculture et l’élevage concentrent à eux seuls `72,4 %` des enquêtés (`1 055 personnes`). Loin derrière, l’*artisanat* (`7,8 %`) et le *commerce* (`6,4 %`) constituent les deux autres principaux domaines d’activité, tandis que l’éducation représente `3,4 %` et le transport `1,5 %`. Les activités relevant de l’industrie et de la transformation ne représentent que `1,0 %`, et les secteurs tels que la santé, l’énergie, les télécommunications, l’environnement ou l’hôtellerie restent chacun en dessous de `1 %`. Cette structure met ainsi en évidence une faible diversification des domaines d’activité, caractérisée par une forte dépendance aux activités agricoles et une présence encore limitée des activités de transformation et des services spécialisés.
 
@@ -1170,7 +1175,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 La répartition des chefs de ménage selon leur secteur d’activité montre une très forte prédominance du secteur privé, qui concentre `94,0 %` des actifs (`1 371` personnes). Cette situation s’explique notamment par le poids des activités agricoles, artisanales, commerciales et autres activités indépendantes dans l’économie locale. À l’inverse, l’*administration publique* ne représente que `4,9 %`, tandis que les *entreprises publiques* (`0,8 %`) et les *ONG/associations* (`0,3 %`) occupent une place marginale. Cette structure traduit ainsi une économie locale essentiellement portée par les activités privées, avec une faible présence de l’emploi public et institutionnel parmi les chefs de ménage enquêtés.
 :::
@@ -1193,7 +1198,7 @@ data_tchaoudjo2 |>
 
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 La répartition des chefs de ménage selon les tranches de revenu (@tbl-revenu) met en évidence une forte concentration dans les faibles niveaux de revenu. Sur les 1 458 chefs de ménage enquêtés, `852 (58,4 %)` déclarent ne pas percevoir de revenu, tandis que `383 (26,3 %)` disposent d’un revenu inférieur à `52 500 F CFA` qui est le niveau du SMIG au Togo. Ainsi, `84,7 %` des chefs de ménage déclarent soit ne pas avoir de revenu, soit percevoir moins de `52 500 F CFA`. Les proportions diminuent fortement à mesure que le revenu augmente : `83` chefs de ménage `(5,7 %)` se situent entre `52 500` et `74 900 F CFA`, `45 (3,1 %)` entre `75 000` et `99 900 F CFA`, et seulement `95` personnes, soit environ `6,5 %`, déclarent un revenu mensuel d’au moins `100 000 F CFA`. Les revenus de 200 000 F CFA et plus restent particulièrement rares.
 
@@ -1261,7 +1266,7 @@ DescTools::CramerV(tab_revenu_rec)
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats du test du Khi-deux de Pearson **ne mettent pas en évidence d’association statistiquement significative entre le sexe du chef de ménage et sa tranche de revenu**. En effet, le test donne \(χ²(5)=8,47\) avec une **p-value** de `0,132`, supérieure au seuil conventionnel de 5 %. On ne peut donc pas rejeter l’hypothèse d’indépendance entre les deux variables. Autrement dit, même si le tableau descriptif fait apparaître certaines différences entre femmes et hommes selon les tranches de revenu, celles-ci ne sont pas suffisamment importantes pour conclure, sur la base de cet échantillon, à une association statistiquement significative entre le sexe et la tranche de revenu.
 
@@ -1300,7 +1305,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats de la @tbl-difficulte montrent que les difficultés économiques et sociales touchent une large majorité des ménages enquêtés : `927` ménages, soit `63,6 %`, déclarent rencontrer des difficultés pour satisfaire leurs principaux besoins, contre `36,4 %` qui n’en déclarent pas.
 
@@ -1444,25 +1449,32 @@ Concernant la **source principale d’eau potable** (@fig-eau-potable), les puit
 
 #### - Distance du ménage par rapport au point d'eau
 
-::: {.columns}
-
-:::: {.column width=30%}
-
-Statistiques descriptives "Distance par rapport au point d'eau"
+- **Statistiques descriptives**
 
 ```{r}
 #| echo: false
-data_tchaoudjo2 |> 
-  select("Distance point d'eau" = eau_distance) |> 
-  summary(eau_distance, rm.na = TRUE)
+#| label: tbl-stat-distance
+#| tbl-cap: "Statistiques descriptives de la distance du ménage au point d'eau"
+
+data_tchaoudjo2 |>
+  summarise(
+    `Nombre d'observations` = sum(!is.na(eau_distance)),
+    Moyenne = mean(eau_distance, na.rm = TRUE),
+    Q1 = quantile(eau_distance, 0.25, na.rm = TRUE),
+    Médiane = median(eau_distance, na.rm = TRUE),
+    Q3 = quantile(eau_distance, 0.75, na.rm = TRUE),
+    Variance = var(eau_distance, na.rm = TRUE),
+    `Écart-type` = sd(eau_distance, na.rm = TRUE),
+    Minimum = min(eau_distance, na.rm = TRUE),
+    Maximum = max(eau_distance, na.rm = TRUE),
+    Étendue = max(eau_distance, na.rm = TRUE) - min(eau_distance, na.rm = TRUE),
+    IQR = IQR(eau_distance, na.rm = TRUE),
+  ) |>
+  gt() |>
+  fmt_number(decimals = 1)
 ```
-::::
 
-:::: {.column width=10%}
-
-::::
-
-:::: {.column width=60%}
+**Boxplot (boîte à moustaches)**
 
 ```{r}
 #| echo: false
@@ -1484,15 +1496,265 @@ data_tchaoudjo2 |>
   ) +
   theme_bw()
 ```
-::::
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
-Les résultats montrent que la distance moyenne entre le ménage et le point d’eau est d’environ `361` mètres, tandis que la médiane est de `200` mètres, ce qui signifie que la moitié des ménages concernés se situe à 200 mètres ou moins d’un point d’eau et l'autre moitié à plus de `200` mètres. Le premier quartile est de `50` mètres et le troisième quartile de `500` mètres : ainsi, `50 %` des ménages se trouvent à une distance comprise entre `50` et `500` mètres. Aussi, un ménage sur quatre parcours plus de `500` mètre pour atteindre un point d'eau alors que les normes stipulent qu'un point d'eau potable ne doit pas être au delà de `500` mètres. La moyenne, sensiblement supérieure à la médiane, ainsi que la distance maximale de `3 000` mètres, indiquent une distribution asymétrique vers les grandes distances : certains ménages doivent donc parcourir des distances particulièrement importantes pour accéder à l’eau.
+Les résultats de la @tbl-stat-distance montrent que la distance moyenne entre le ménage et le point d’eau est d’environ `361` mètres, tandis que la médiane est de `200` mètres, ce qui signifie que la moitié des ménages concernés se situe à `200` mètres ou moins d’un point d’eau et l'autre moitié à plus de `200` mètres. Le premier quartile est de `50` mètres et le troisième quartile de `500` mètres : ainsi, `50 %` des ménages se trouvent à une distance comprise entre `50` et `500` mètres. Un ménage sur quatre parcours plus de `500` mètre pour atteindre un point d'eau alors que les normes stipulent qu'un point d'eau potable ne doit pas être au delà de `500` mètres.
 
-Le boxplot confirme une forte asymétrie de la distribution des distances au point d’eau. La médiane se situe à `200` mètres, tandis que `50 %` des ménages concernés se trouvent approximativement entre `50` mètres (1er quartile) et 500 mètres (3e quartile). Le graphique met ainsi en évidence des inégalités d’accessibilité géographique à l’eau.
+Le boxplot confirme une forte asymétrie de la distribution des distances au point d’eau. La médiane se situe à `200` mètres, tandis que `50 %` des ménages concernés se trouvent approximativement entre `50` mètres (1er quartile) et 500 mètres (3e quartile). Le graphique met ainsi en évidence des inégalités d’accessibilité géographique à l’eau. Cette forte dispersion est également confirmée par un écart-type de `438,7` mètres, indiquant que les distances observées sont très dispersées autour de la moyenne. La médiane et l’écart interquartile constituent donc des indicateurs particulièrement pertinents pour caractériser la situation générale, car ils sont moins sensibles aux distances exceptionnellement élevées que la moyenne et l’écart-type. Ces résultats mettent ainsi en évidence des disparités importantes d’accessibilité géographique à l’eau entre les ménages de la commune. Certains ménages doivent donc parcourir des distances particulièrement importantes pour accéder à l’eau.
 :::
+
+##### - Analyse de la relation entre distance au point d'eau et la zone de résidence du ménage**
+
+```{r}
+#| echo: false
+#| label: tbl-distance-zone
+#| tbl-cap: "Statistiques descriptives de la distance du ménage au point d'eau selon la zone de résidence"
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance) & !is.na(Zone)) |>
+  group_by(Zone) |>
+  summarise(
+    `Nombre d'observations` = n(),
+    Moyenne = mean(eau_distance, na.rm = TRUE),
+    Q1 = quantile(eau_distance, 0.25, na.rm = TRUE),
+    Médiane = median(eau_distance, na.rm = TRUE),
+    Q3 = quantile(eau_distance, 0.75, na.rm = TRUE),
+    `Écart-type` = sd(eau_distance, na.rm = TRUE),
+    Minimum = min(eau_distance, na.rm = TRUE),
+    Maximum = max(eau_distance, na.rm = TRUE)
+  ) |>
+  pivot_longer(
+    cols = -Zone,
+    names_to = "Statistique",
+    values_to = "Valeur"
+  ) |>
+  pivot_wider(
+    names_from = Zone,
+    values_from = Valeur
+  ) |>
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 1,
+    dec_mark = ",",
+    sep_mark = " "
+  )
+```
+
+::: callout-note
+## **Interprétation**
+
+L’analyse par zone de la @tbl-distance-zone met en évidence des disparités importantes dans l’accessibilité géographique des ménages aux points d’eau. La situation apparaît particulièrement contraignante dans la zone **Sud-Ouest**, où la distance moyenne atteint `456,3 m` et la médiane `250 m`, soit les valeurs les plus élevées des quatre zones. Cette zone présente également la plus forte dispersion des distances, avec un écart-type de `560,5 m`, traduisant des situations très hétérogènes entre les ménages. À l’inverse, le **Nord-Ouest** enregistre la médiane la plus faible `(45 m)` et un premier quartile de seulement `20 m`*, même si sa moyenne de `272,7 m` et son écart-type élevé `(378,3 m)` révèlent la présence de ménages beaucoup plus éloignés. Le **Sud-Est** présente également une situation relativement plus favorable, avec une médiane de `100 m` et une moyenne de `287,6 m`, tandis que le **Nord-Est** se caractérise par une médiane de `200 m`, une moyenne de `357,1 m` et des distances pouvant atteindre `3 000 m`.
+
+Dans toutes les zones, la moyenne est sensiblement supérieure à la médiane et les écarts-types sont élevés, ce qui indique des distributions asymétriques vers les grandes distances, sous l’effet de ménages particulièrement éloignés des points d’eau. Par ailleurs, le troisième quartile est de 500 m dans les quatre zones, signifiant qu’environ `75 %` des ménages disposant d’une distance renseignée se situent à **500 m ou moins** d’un point d’eau et que `25 %` des ménages se situent à **500 m ou plus**.
+
+**Ces résultats montrent donc que, derrière cette caractéristique commune, les conditions d’accès restent très différenciées, avec des contraintes particulièrement marquées pour une partie des ménages du Sud-Ouest et du Nord-Est**.
+:::
+
+##### - Les distances d’accès à l’eau diffèrent-elles selon les quatre zones de résidence ?
+
+**Q-Q plots pour chauque zone de résidence afin de vérifier la normalité des distributions.**
+
+```{r}
+#| echo: false
+#| label: fig-qqplt-zone
+#| fig-cap: "Q-Q plots de la distance des ménages par rapport au point d'eau selon la zone de résidence"
+#| fig-width: 8
+#| fig-height: 6
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance), !is.na(Zone)) |>
+  ggplot(aes(sample = eau_distance, colour = Zone)) +
+  stat_qq() +
+  stat_qq_line() +
+  facet_wrap(~ Zone) +
+  theme_bw()
+```
+
+::: callout-note
+## **Interprétation du QQ-plot**
+
+Les QQ-plots (@fig-qqplt-zone) montrent que, dans les quatre zones, les observations s’écartent sensiblement de la droite théorique d’une distribution normale, particulièrement dans la partie supérieure des distributions. Les écarts sont très marqués pour les grandes distances, notamment au Nord-Est et au Sud-Ouest, où plusieurs observations atteignent 2 000 à 3 000 mètres. On observe également une accumulation importante des observations aux faibles distances et une longue queue vers les valeurs élevées. Ces configurations traduisent des distributions asymétriques à droite et une violation manifeste de l’hypothèse de normalité. Le phénomène est observable dans toutes les zones, même si son intensité varie.
+:::
+
+**Boxplots pour examiner graphiquement les distributions de chaque zone de résidence.**
+
+```{r}
+#| echo: false
+#| label: fig-boxplot-zone
+#| fig-cap: "Boxplot de la distance des ménages par rapport au point d'eau selon la zone de résidence"
+#| fig-width: 8
+#| fig-height: 6
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance), !is.na(Zone)) |>
+  ggplot(aes(x = Zone, y = eau_distance, fill = Zone)) +
+  geom_boxplot() +
+  labs(
+    x = "Zone",
+    y = "Distance au point d'eau (m)"
+  ) +
+  theme_bw() +
+  theme(
+    legend.position = "none"
+  )
+```
+
+::: callout-note
+## **Interprétation du boxplot**
+
+Le boxplot (@fig-boxplot-zone) confirme cette forte asymétrie et met en évidence des différences de position et de dispersion entre les zones. Les médianes sont visuellement différentes : elles sont notamment plus élevées au Sud-Ouest et au Nord-Est et plus faibles au Nord-Ouest et au Sud-Est, ce qui concorde avec les statistiques descriptives précédemment obtenues. Les quatre distributions présentent également des valeurs extrêmes dans leur partie supérieure. Le Sud-Ouest semble présenter une dispersion particulièrement importante, tandis que le Nord-Ouest se caractérise par une forte concentration des observations aux faibles distances, accompagnée néanmoins de quelques valeurs élevées. Ces résultats indiquent donc une forte hétérogénéité des distances à l’intérieur des zones et suggèrent des différences entre zones.
+:::
+
+**Histogrammes pour examiner graphiquement les distributions de chaque zone de résidence.**
+
+```{r}
+#| echo: false
+#| label: fig-hist-distance-eau
+#| fig-cap: "Distribution de la distance des ménages au point d'eau"
+#| fig-width: 8
+#| fig-height: 6
+
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance), !is.na(Zone)) |>
+  ggplot(
+    aes(
+      x = eau_distance,
+      fill = Zone
+    )
+  ) +
+  geom_histogram(
+    aes(y = after_stat(density)),
+    binwidth = 100,
+    boundary = 0,
+    color = "white",
+    alpha = 0.7
+  ) +
+  geom_density(
+    linewidth = 1,
+    alpha = 0.2
+  ) +
+  facet_wrap(
+    ~ Zone,
+    ncol = 2
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 3000, by = 500),
+    limits = c(0, 3000)
+  ) +
+  labs(
+    x = "Distance au point d'eau (m)",
+    y = "Densité"
+  ) +
+  theme_bw() +
+  theme(
+    legend.position = "none"
+  )
+```
+
+::: callout-note
+## **Interprétation de l'histogramme**
+
+Ce graphique confirme nettement les constats issus des statistiques descriptives, des boxplots et des QQ-plots. Dans les quatre zones, la distribution des distances au point d’eau est fortement asymétrique à droite : les observations sont principalement concentrées sur les faibles distances, tandis qu’un nombre plus limité de ménages parcourt des distances beaucoup plus importantes, formant une longue queue vers la droite.
+:::
+
+**Tester l'homogénéité des variances avec le test de Levene**
+
+```{r}
+#| echo: false
+library(car)
+leveneTest(
+  eau_distance ~ Zone,
+  data = data_tchaoudjo2
+)
+```
+
+::: callout-note
+## **Interprétation du test de Levene**
+
+Le test de Levene ne met pas en évidence de différence statistiquement significative entre les variances des quatre zones au seuil de 5 % (F(3, 930) = 2,31 ; p = 0,075), de sorte que l’hypothèse d’homogénéité des variances n’est pas rejetée. 
+
+Toutefois, compte tenu de la forte asymétrie des distributions, de la présence de valeurs extrêmes et du non-respect manifeste de la normalité, une approche non paramétrique apparaît appropriée pour comparer les distances entre les quatre zones. Le test de Kruskal-Wallis sera ainsi utilisé pour déterminer si la distribution des distances d’accès au point d’eau diffère significativement selon la zone de résidence.
+:::
+
+
+**Test de Kruskal-Wallis pour comparer les distances au point d'eau entre les quatre zones de résidence**
+
+Le de Kruskal-Wallis est un test non paramétrique utile lorsque les distributions sont fortement asymétriques dans le cadre d'un échantillon indépendant avec plus de 2 groupes. Il se repose sur les rangs et teste si les distributions des groupes diffèrent. 
+
+1. Hypothèses du test :
+
+H₀ — Hypothèse nulle : la distribution des distances d’accès au point d’eau ne diffère pas significativement entre les quatre zones de résidence.
+H₁ — Hypothèse alternative : la distribution des distances d’accès au point d’eau diffère significativement entre au moins deux zones de résidence.
+
+La règle de décision au seuil de 5 % est :
+
+- p ≥ 0,05 : on ne rejette pas H₀ ; les données ne permettent pas de mettre en évidence une différence statistiquement significative entre les zones ;
+
+- p < 0,05 : on rejette H₀ ; les distances d’accès à l’eau diffèrent statistiquement entre au moins deux zones.
+
+2. Réaliser le test global de Kruskal-Wallis
+
+```{r}
+#| echo: false
+kruskal.test(eau_distance ~ Zone, data = data_tchaoudjo2)
+```
+
+::: callout-note
+## **Interprétation du test de Kruskal-Wallis**
+
+Le test de Kruskal-Wallis met en évidence une différence statistiquement significative de la distance d’accès au point d’eau entre les quatre zones de résidence `(χ²(3) = 32,615 ; p = 3,883 × 10⁻⁷)`. La p-value étant très largement inférieure au seuil de `5 %`, l’hypothèse nulle d’absence de différence entre les distributions des distances selon les zones est rejetée. 
+
+On peut donc conclure que la distance d’accès au point d’eau diffère significativement selon la zone de résidence. Autrement dit, les écarts observés dans les statistiques descriptives ne peuvent raisonnablement être attribués aux seules fluctuations d’échantillonnage. Les résultats descriptifs suggérant des conditions d’accessibilité géographique différentes selon les zones. Toutefois, le test de Kruskal-Wallis étant un test global, ce résultat permet uniquement d’affirmer qu’au moins deux zones diffèrent significativement ; il ne permet pas d’identifier lesquelles. Il convient donc de compléter l’analyse par un test post-hoc de Dunn, avec correction des p-values pour comparaisons multiples, ainsi que par une taille d’effet afin d’apprécier l’ampleur pratique des différences observées.
+:::
+
+3. Mesurer la taille de l'effet
+
+Une p-value significative indique l'existence d'une différence entre les zones, mais pas son importance. Pour cela, il est nécessaire de calculer la taille d'effet du test de Kruskal-Wallis. La taille d'effet permet d'évaluer l'ampleur de la différence entre les groupes et de déterminer si cette différence est cliniquement ou pratiquement significative.:
+
+```{r}
+library(rstatix)
+
+# Taille d'effet du test de Kruskal-Wallis
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance), !is.na(Zone)) |>
+  kruskal_effsize(eau_distance ~ Zone)
+```
+
+4. Identification des zones différentes
+
+Kruskal-Wallis te dira seulement qu'une différence existe quelque part parmi les quatre zones. Il faudra ensuite effectuer des comparaisons deux à deux.
+
+On obtiendra les six comparaisons :
+
+Nord-Est   vs Nord-Ouest
+
+Nord-Est   vs Sud-Est
+
+Nord-Est   vs Sud-Ouest
+
+Nord-Ouest vs Sud-Est
+
+Nord-Ouest vs Sud-Ouest
+
+Sud-Est    vs Sud-Ouest
+
+```{r}
+# Comparaisons post-hoc entre les zones
+data_tchaoudjo2 |>
+  filter(!is.na(eau_distance), !is.na(Zone)) |>
+  dunn_test(
+    eau_distance ~ Zone,
+    p.adjust.method = "holm"
+  )
+```
+
+::: callout-note
+## **Interprétation des comparaisons post-hoc**
+
+Le test de Kruskal-Wallis met en évidence une différence statistiquement significative de la distribution des distances d’accès au point d’eau selon la zone de résidence `(χ²(3) = 32,615 ; p < 0,001)`. Toutefois, la taille d’effet associée demeure faible `(η²[H] = 0,032)`, indiquant que, bien que les différences entre zones soient statistiquement établies, leur ampleur globale reste limitée. Les comparaisons post-hoc de Dunn, avec correction de Holm, montrent que le Nord-Est diffère significativement du Nord-Ouest `(p-ajustée = 0,035)` et du Sud-Est `(p-ajustée = 0,001)`, tandis qu’aucune différence significative n’est observée entre le Nord-Est et le Sud-Ouest `(p-ajustée = 0,125)` De même, le Sud-Ouest diffère significativement du Nord-Ouest (p-ajustée = 0,003) et du Sud-Est `(p-ajustée < 0,001)`, alors que le Nord-Ouest et le Sud-Est ne présentent pas de différence significative `(p-ajustée = 0,490)`. Ces résultats, mis en perspective avec les médianes observées (45 m au Nord-Ouest, 100 m au Sud-Est, 200 m au Nord-Est et 250 m au Sud-Ouest) indiquent globalement des distances d’accès plus importantes au Nord-Est et au Sud-Ouest qu’au Nord-Ouest et au Sud-Est.
+:::
+
+
 
 #### - Qualité de l'eau, traitement et couverture des besoins en eau du ménage
 
@@ -1545,7 +1807,7 @@ data_tchaoudjo2 |>
 ::::
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats de la @tbl-qualite-eau mettent en évidence des difficultés importantes concernant à la fois la qualité, la sécurisation et la disponibilité de l’eau au niveau des ménages. Concernant la qualité perçue, `46,0 %` des ménages considèrent l’eau consommée comme étant de bonne qualité, tandis que `29,4 %` la jugent de mauvaise qualité et `24,6 %` estiment qu’elle est parfois bonne et parfois mauvaise. Ainsi, plus de la moitié des ménages (`54,0 %`) ne disposent pas d’une perception constamment positive de la qualité de leur eau. Cette situation traduit notamment une possible variabilité de la qualité des sources utilisées.
 
@@ -1649,7 +1911,7 @@ data_tchaoudjo2 |>
 ::::
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 La @fig-qte-eau montre que la consommation journalière d’eau des ménages est assez dispersée, même si elle se concentre principalement entre 50 et `100` litres par jour. Les tranches les plus représentées sont `75` à `100` litres `(16,7 %)`, 60 à 75 litres `(15,5 %)` et 50 à 60 litres `(15,2 %)` soit près de la moitié des ménages concernés. Il convient également de relever que 9,1 % des ménages déclarent une consommation supérieure à `500` litres par jour, ce qui traduit une forte hétérogénéité des volumes consommés, probablement liée notamment à la taille des ménages et aux différents usages de l’eau.
 
@@ -1672,9 +1934,9 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
-Les résultats de la @tbl-tbl-stockage-eau montrent que le stockage de l’eau dans les ménages repose principalement sur des récipients traditionnels ou mobiles. Près de la moitié des ménages `(49,1 %)` utilisent des jarres, qui constituent de loin le principal mode de stockage, suivies des bidons ou récipients en plastique `(28,3 %)` et des tonneaux `(17,4 %)`. Les seaux ou bassines ne concernent que 3,8 % des ménages, tandis que l’utilisation de sachets plastiques `(1,3 %)` et de marmites `(0,1 %)` reste marginale. Cette prédominance des jarres, bidons et tonneaux montre l’importance du stockage domestique de l’eau, probablement en lien avec la nécessité de constituer des réserves pour les besoins quotidiens. Elle souligne également l’enjeu des conditions d’hygiène, de couverture et d’entretien des récipients, afin d’éviter une contamination de l’eau entre son prélèvement et sa consommation.
+Les résultats de la @tbl-stockage-eau montrent que le stockage de l’eau dans les ménages repose principalement sur des récipients traditionnels ou mobiles. Près de la moitié des ménages `(49,1 %)` utilisent des jarres, qui constituent de loin le principal mode de stockage, suivies des bidons ou récipients en plastique `(28,3 %)` et des tonneaux `(17,4 %)`. Les seaux ou bassines ne concernent que 3,8 % des ménages, tandis que l’utilisation de sachets plastiques `(1,3 %)` et de marmites `(0,1 %)` reste marginale. Cette prédominance des jarres, bidons et tonneaux montre l’importance du stockage domestique de l’eau, probablement en lien avec la nécessité de constituer des réserves pour les besoins quotidiens. Elle souligne également l’enjeu des conditions d’hygiène, de couverture et d’entretien des récipients, afin d’éviter une contamination de l’eau entre son prélèvement et sa consommation.
 :::
 
 #### - Satisfaction des ménages par rapport aux besoins en eau potable
@@ -1704,7 +1966,7 @@ data_tchaoudjo2 |>
 ```
 
 ::: callout-note
-**Interprétation**
+## **Interprétation**
 
 Les résultats de la @tbl-satisfaction-eau mettent en évidence un niveau élevé d’insatisfaction des ménages vis-à-vis de leurs besoins en eau potable : `68,3 %` des ménages (996) se déclarent insatisfaits, contre seulement `31,7 %` (462) qui se déclarent satisfaits. Cette insatisfaction est principalement liée à la mauvaise qualité de l’eau (couleur, odeur ou goût), citée par `61,5 %` des ménages insatisfaits, suivie des coupures régulières de la source d’approvisionnement `(26,6 %)`. Les autres motifs sont nettement moins fréquents, notamment l’insuffisance de la quantité d’eau `(4,1 %)`, la vétusté des équipements et installations `(3,1 %)`, la mauvaise gestion des points d’eau `(2,0 %)` ou encore la distance à parcourir `(1,0 %)`. Le prix de l’eau n’est cité que par 0,8 % des ménages insatisfaits. Ces résultats montrent ainsi que l’enjeu prioritaire ne semble pas être principalement financier, mais concerne surtout la qualité de l’eau et la continuité de l’approvisionnement, qui apparaissent comme les principaux facteurs limitant la satisfaction des besoins en eau potable des ménages.
 
@@ -2015,12 +2277,6 @@ data_tchaoudjo2 |>
 
 
 
-### - Accès à la santé
-
-
-
-### - Accès à l'hygiène et assainissement
-
 
 
 ### - Caractéristiques de l'habitat
@@ -2037,7 +2293,7 @@ data_tchaoudjo2 |>
 
 ### - Transport et mobilité
 
-
+# - Conclusion
 
 ```{r}
 #| echo: false
