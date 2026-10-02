@@ -7699,28 +7699,6 @@ Note
 </div>
 </div>
 <p>Pour le test de khi2, nous avons regroupé les modalités des tranches de revenu de 100 000 à 149 000 et les modalités de 150 000 et plus.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="ot">&lt;-</span> data_tchaoudjo2 <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">revenu_rec =</span> <span class="fu">case_when</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      revenu <span class="sc">%in%</span> <span class="fu">c</span>(</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"100 000 à 124 900 F"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"125 000 à 149 900 F"</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">~</span> <span class="st">"100 000 à 149 900 F"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>      revenu <span class="sc">%in%</span> <span class="fu">c</span>(</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"150 000 à 199 900 F"</span>,</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"200 000 à 249 900 F"</span>,</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"250 000 à 299 900 F"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"300 000 à 399 900 F"</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"500 000 F et plus"</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">~</span> <span class="st">"150 000 F et plus"</span>,</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> revenu</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>On obtient le tableau <a href="#tbl-revenu-rec" class="quarto-xref">Table&nbsp;18</a> ci-dessous :</p>
 <div class="cell">
 <div id="tbl-revenu-rec" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -9832,16 +9810,17 @@ Figure&nbsp;8: Source principale d’eau potable du ménage
 <h4 data-number="4.2.2.3" class="anchored"><span class="header-section-number">4.2.2.3</span> - Distance du ménage par rapport au point d’eau</h4>
 <div class="columns">
 <div class="column" style="width:30%;">
+<p>Statistiques descriptives “Distance par rapport au point d’eau”</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  eau_distance   
- Min.   :   0.0  
- 1st Qu.:  50.0  
- Median : 200.0  
- Mean   : 360.9  
- 3rd Qu.: 500.0  
- Max.   :3000.0  
- NAs    :524     </code></pre>
+<pre><code> Distance point d'eau
+ Min.   :   0.0      
+ 1st Qu.:  50.0      
+ Median : 200.0      
+ Mean   : 360.9      
+ 3rd Qu.: 500.0      
+ Max.   :3000.0      
+ NAs    :524         </code></pre>
 </div>
 </div>
 </div><div class="column" style="width:10%;">
@@ -11355,7 +11334,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>*<strong>Interprétation</strong></p>
+<p><strong>Interprétation</strong></p>
 <p>Les résultats de la <a href="#tbl-qualite-eau" class="quarto-xref">Table&nbsp;23</a> mettent en évidence des difficultés importantes concernant à la fois la qualité, la sécurisation et la disponibilité de l’eau au niveau des ménages. Concernant la qualité perçue, <code>46,0 %</code> des ménages considèrent l’eau consommée comme étant de bonne qualité, tandis que <code>29,4 %</code> la jugent de mauvaise qualité et <code>24,6 %</code> estiment qu’elle est parfois bonne et parfois mauvaise. Ainsi, plus de la moitié des ménages (<code>54,0 %</code>) ne disposent pas d’une perception constamment positive de la qualité de leur eau. Cette situation traduit notamment une possible variabilité de la qualité des sources utilisées.</p>
 <p>Le traitement de l’eau reste par ailleurs peu répandu (<a href="#tbl-traitement-eau" class="quarto-xref">Table&nbsp;24</a>) : parmi les ménages concernés par cette question, <code>77,6 %</code> déclarent ne pas traiter l’eau, contre seulement <code>22,4 %</code> qui procèdent à un traitement. Ce constat mérite une attention particulière au regard de la proportion de ménages qui considèrent leur eau comme mauvaise ou de qualité variable.</p>
 <p>Enfin, la couverture des besoins en eau (<a href="#tbl-courture-besoin" class="quarto-xref">Table&nbsp;25</a>) apparaît insuffisante pour une majorité des ménages : <code>64,7 %</code> déclarent que leurs besoins ne sont pas couverts, contre seulement <code>35,3 %</code> qui estiment disposer d’une quantité d’eau suffisante pour satisfaire leurs besoins**. Dans l’ensemble, ces résultats montrent que les enjeux d’approvisionnement ne se limitent donc pas à la proximité des points d’eau : ils concernent également la quantité disponible, la régularité de la qualité et les pratiques de traitement de l’eau, trois dimensions essentielles à prendre en compte dans l’amélioration du service d’approvisionnement en eau.</p>
@@ -11412,6 +11391,12 @@ Note
 </div><section id="lieu-de-stockage-de-leau-dans-les-ménages" class="level4" data-number="4.2.2.6">
 <h4 data-number="4.2.2.6" class="anchored" data-anchor-id="lieu-de-stockage-de-leau-dans-les-ménages"><span class="header-section-number">4.2.2.6</span> - Lieu de stockage de l’eau dans les ménages</h4>
 <div class="cell">
+<div id="tbl-stockage-eau" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stockage-eau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26: Lieu de stockage de l’eau
+</figcaption>
+<div aria-describedby="tbl-stockage-eau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div id="fbtxgfwyes" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#fbtxgfwyes table {
@@ -11863,45 +11848,42 @@ Note
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Lieu de stockage de l'eau dans les ménages</td>
-</tr>
-<tr class="gt_col_headings even">
-<th id="Lieu-de-stockage" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Lieu de stockage</th>
+<tr class="gt_col_headings header">
+<th id="Lieu-de-stockage-de-l'eau" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Lieu de stockage de l'eau</th>
 <th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
 <th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Lieu de stockage">Jarre</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Jarre</td>
 <td class="gt_row gt_right" headers="Effectif">716</td>
 <td class="gt_row gt_right" headers="Pourcentage">49.1%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Lieu de stockage">Bidon/récipient en plastique</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Bidon/récipient en plastique</td>
 <td class="gt_row gt_right" headers="Effectif">412</td>
 <td class="gt_row gt_right" headers="Pourcentage">28.3%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Lieu de stockage">Tonneaux</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Tonneaux</td>
 <td class="gt_row gt_right" headers="Effectif">253</td>
 <td class="gt_row gt_right" headers="Pourcentage">17.4%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Lieu de stockage">Seaux/bassines</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Seaux/bassines</td>
 <td class="gt_row gt_right" headers="Effectif">56</td>
 <td class="gt_row gt_right" headers="Pourcentage">3.8%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Lieu de stockage">Sachets plastiques</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Sachets plastiques</td>
 <td class="gt_row gt_right" headers="Effectif">19</td>
 <td class="gt_row gt_right" headers="Pourcentage">1.3%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Lieu de stockage">Marmite</td>
+<td class="gt_row gt_left" headers="Lieu de stockage de l'eau">Marmite</td>
 <td class="gt_row gt_right" headers="Effectif">2</td>
 <td class="gt_row gt_right" headers="Pourcentage">0.1%</td>
 </tr>
@@ -11911,9 +11893,32 @@ Note
 </div>
 </div>
 </div>
-</section><section id="satisfaction-des-ménages-par-rapport-aux-besoins-en-eau-potable" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="satisfaction-des-ménages-par-rapport-aux-besoins-en-eau-potable"><span class="header-section-number">4.2.3</span> Satisfaction des ménages par rapport aux besoins en eau potable</h3>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Interprétation</strong></p>
+<p>Les résultats de la <strong>?@tbl-tbl-stockage-eau</strong> montrent que le stockage de l’eau dans les ménages repose principalement sur des récipients traditionnels ou mobiles. Près de la moitié des ménages <code>(49,1 %)</code> utilisent des jarres, qui constituent de loin le principal mode de stockage, suivies des bidons ou récipients en plastique <code>(28,3 %)</code> et des tonneaux <code>(17,4 %)</code>. Les seaux ou bassines ne concernent que 3,8 % des ménages, tandis que l’utilisation de sachets plastiques <code>(1,3 %)</code> et de marmites <code>(0,1 %)</code> reste marginale. Cette prédominance des jarres, bidons et tonneaux montre l’importance du stockage domestique de l’eau, probablement en lien avec la nécessité de constituer des réserves pour les besoins quotidiens. Elle souligne également l’enjeu des conditions d’hygiène, de couverture et d’entretien des récipients, afin d’éviter une contamination de l’eau entre son prélèvement et sa consommation.</p>
+</div>
+</div>
+</section><section id="satisfaction-des-ménages-par-rapport-aux-besoins-en-eau-potable" class="level4" data-number="4.2.2.7">
+<h4 data-number="4.2.2.7" class="anchored" data-anchor-id="satisfaction-des-ménages-par-rapport-aux-besoins-en-eau-potable"><span class="header-section-number">4.2.2.7</span> - Satisfaction des ménages par rapport aux besoins en eau potable</h4>
 <div class="cell">
+<div id="tbl-satisfaction-eau" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-satisfaction-eau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;27: Satisfaction par rapport aux besoins en eau potable
+</figcaption>
+<div aria-describedby="tbl-satisfaction-eau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div id="iuyadfnokc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#iuyadfnokc table {
@@ -12365,12 +12370,9 @@ Note
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Satisfaction par rapport aux besoins en eau potable</td>
-</tr>
-<tr class="gt_col_headings even">
+<tr class="gt_col_headings header">
 <th id="Satisfait" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Satisfait</th>
 <th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
 <th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
@@ -12393,7 +12395,16 @@ Note
 </div>
 </div>
 </div>
+</figure>
+</div>
+</div>
 <div class="cell">
+<div id="tbl-raison-insatisfaction" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-raison-insatisfaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;28: Raison d’insatisfaction par rapport aux besoins en eau potable
+</figcaption>
+<div aria-describedby="tbl-raison-insatisfaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div id="hrloyxsyea" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#hrloyxsyea table {
@@ -12845,12 +12856,9 @@ Note
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Raison d'insatisfaction par rapport aux besoins en eau potable</td>
-</tr>
-<tr class="gt_col_headings even">
+<tr class="gt_col_headings header">
 <th id="Raison-d'insafisfaction" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Raison d'insafisfaction</th>
 <th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
 <th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
@@ -12908,12 +12916,27 @@ Note
 </div>
 </div>
 </div>
-</section><section id="attentes-par-rapport-à-leau-potable" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="attentes-par-rapport-à-leau-potable"><span class="header-section-number">4.2.4</span> Attentes par rapport à l’eau potable</h3>
-</section><section id="résultats-sur-laccès-à-la-santé" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="résultats-sur-laccès-à-la-santé"><span class="header-section-number">4.3</span> Résultats sur l’accès à la santé</h2>
-<section id="principal-type-de-centre-de-santé-fréquenté" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="principal-type-de-centre-de-santé-fréquenté"><span class="header-section-number">4.3.1</span> Principal type de centre de santé fréquenté</h3>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Interprétation</strong></p>
+<p>Les résultats de la <a href="#tbl-satisfaction-eau" class="quarto-xref">Table&nbsp;27</a> mettent en évidence un niveau élevé d’insatisfaction des ménages vis-à-vis de leurs besoins en eau potable : <code>68,3 %</code> des ménages (996) se déclarent insatisfaits, contre seulement <code>31,7 %</code> (462) qui se déclarent satisfaits. Cette insatisfaction est principalement liée à la mauvaise qualité de l’eau (couleur, odeur ou goût), citée par <code>61,5 %</code> des ménages insatisfaits, suivie des coupures régulières de la source d’approvisionnement <code>(26,6 %)</code>. Les autres motifs sont nettement moins fréquents, notamment l’insuffisance de la quantité d’eau <code>(4,1 %)</code>, la vétusté des équipements et installations <code>(3,1 %)</code>, la mauvaise gestion des points d’eau <code>(2,0 %)</code> ou encore la distance à parcourir <code>(1,0 %)</code>. Le prix de l’eau n’est cité que par 0,8 % des ménages insatisfaits. Ces résultats montrent ainsi que l’enjeu prioritaire ne semble pas être principalement financier, mais concerne surtout la qualité de l’eau et la continuité de l’approvisionnement, qui apparaissent comme les principaux facteurs limitant la satisfaction des besoins en eau potable des ménages.</p>
+</div>
+</div>
+</section><section id="accès-à-la-santé" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="accès-à-la-santé"><span class="header-section-number">4.2.3</span> - Accès à la santé</h3>
+</section><section id="principal-type-de-centre-de-santé-fréquenté" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="principal-type-de-centre-de-santé-fréquenté"><span class="header-section-number">4.2.4</span> Principal type de centre de santé fréquenté</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fhtpfqbmvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -13429,9 +13452,8 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="handicap-est-ce-quun-membre-du-ménage-vit-avec-un-handicap" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="handicap-est-ce-quun-membre-du-ménage-vit-avec-un-handicap"><span class="header-section-number">4.3.2</span> Handicap (Est-ce qu’un membre du ménage vit avec un handicap ?)</h3>
+</section><section id="handicap-est-ce-quun-membre-du-ménage-vit-avec-un-handicap" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="handicap-est-ce-quun-membre-du-ménage-vit-avec-un-handicap"><span class="header-section-number">4.2.5</span> Handicap (Est-ce qu’un membre du ménage vit avec un handicap ?)</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="ccmrdyvrmj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -14022,9 +14044,8 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="auto-médication" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="auto-médication"><span class="header-section-number">4.3.3</span> Auto médication</h3>
+</section><section id="auto-médication" class="level3" data-number="4.2.6">
+<h3 data-number="4.2.6" class="anchored" data-anchor-id="auto-médication"><span class="header-section-number">4.2.6</span> Auto médication</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fativwlbtm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -14505,9 +14526,8 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="lieu-où-le-chef-de-ménage-procure-les-médicaments-pour-le-soin" class="level3" data-number="4.3.4">
-<h3 data-number="4.3.4" class="anchored" data-anchor-id="lieu-où-le-chef-de-ménage-procure-les-médicaments-pour-le-soin"><span class="header-section-number">4.3.4</span> Lieu où le chef de ménage procure les médicaments pour le soin</h3>
+</section><section id="lieu-où-le-chef-de-ménage-procure-les-médicaments-pour-le-soin" class="level3" data-number="4.2.7">
+<h3 data-number="4.2.7" class="anchored" data-anchor-id="lieu-où-le-chef-de-ménage-procure-les-médicaments-pour-le-soin"><span class="header-section-number">4.2.7</span> Lieu où le chef de ménage procure les médicaments pour le soin</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="wadgyibuog" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -15003,9 +15023,8 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="assurance-santé" class="level3" data-number="4.3.5">
-<h3 data-number="4.3.5" class="anchored" data-anchor-id="assurance-santé"><span class="header-section-number">4.3.5</span> Assurance santé</h3>
+</section><section id="assurance-santé" class="level3" data-number="4.2.8">
+<h3 data-number="4.2.8" class="anchored" data-anchor-id="assurance-santé"><span class="header-section-number">4.2.8</span> Assurance santé</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="ofbklexgxg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -15491,26 +15510,24 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="attentes-par-rapport-à-laccès-à-la-santé" class="level3" data-number="4.3.6">
-<h3 data-number="4.3.6" class="anchored" data-anchor-id="attentes-par-rapport-à-laccès-à-la-santé"><span class="header-section-number">4.3.6</span> Attentes par rapport à l’accès à la santé</h3>
+</section><section id="attentes-par-rapport-à-laccès-à-la-santé" class="level3" data-number="4.2.9">
+<h3 data-number="4.2.9" class="anchored" data-anchor-id="attentes-par-rapport-à-laccès-à-la-santé"><span class="header-section-number">4.2.9</span> Attentes par rapport à l’accès à la santé</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="sc">|&gt;</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabyl</span>(sante_attente, <span class="at">show_na =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="st">"Attentes"</span> <span class="ot">=</span> sante_attente, <span class="st">"Effectif"</span> <span class="ot">=</span> n, <span class="st">"Pourcentage"</span> <span class="ot">=</span> percent) <span class="sc">|&gt;</span> </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">tab_header</span>(</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Attentes par rapport à l'accès à la santé"</span>,</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">""</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data_tchaoudjo2 <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabyl</span>(sante_attente, <span class="at">show_na =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="st">"Attentes"</span> <span class="ot">=</span> sante_attente, <span class="st">"Effectif"</span> <span class="ot">=</span> n, <span class="st">"Pourcentage"</span> <span class="ot">=</span> percent) <span class="sc">|&gt;</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">tab_header</span>(</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Attentes par rapport à l'accès à la santé"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">""</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-</section><section id="résultats-par-rapport-à-lassainissement" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="résultats-par-rapport-à-lassainissement"><span class="header-section-number">4.4</span> Résultats par rapport à l’assainissement</h2>
-<section id="existence-de-latrine-dans-le-ménage" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="existence-de-latrine-dans-le-ménage"><span class="header-section-number">4.4.1</span> Existence de latrine dans le ménage</h3>
+</section><section id="résultats-par-rapport-à-lassainissement" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="résultats-par-rapport-à-lassainissement"><span class="header-section-number">4.3</span> Résultats par rapport à l’assainissement</h2>
+<section id="existence-de-latrine-dans-le-ménage" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="existence-de-latrine-dans-le-ménage"><span class="header-section-number">4.3.1</span> Existence de latrine dans le ménage</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="xjijuqculg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -15992,8 +16009,8 @@ Note
 </div>
 </div>
 </section>
-<section id="type-de-latrine-dans-les-ménages-qui-en-possède" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="type-de-latrine-dans-les-ménages-qui-en-possède"><span class="header-section-number">4.4.2</span> Type de latrine dans les ménages qui en possède</h3>
+<section id="type-de-latrine-dans-les-ménages-qui-en-possède" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="type-de-latrine-dans-les-ménages-qui-en-possède"><span class="header-section-number">4.3.2</span> Type de latrine dans les ménages qui en possède</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="irfxncharx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -16490,8 +16507,8 @@ Note
 </div>
 </div>
 </section>
-<section id="mode-de-vidange-des-latrines-dans-les-maisons-qui-en-possède" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="mode-de-vidange-des-latrines-dans-les-maisons-qui-en-possède"><span class="header-section-number">4.4.3</span> Mode de vidange des latrines dans les maisons qui en possède</h3>
+<section id="mode-de-vidange-des-latrines-dans-les-maisons-qui-en-possède" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="mode-de-vidange-des-latrines-dans-les-maisons-qui-en-possède"><span class="header-section-number">4.3.3</span> Mode de vidange des latrines dans les maisons qui en possède</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="datevfdvpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -16988,8 +17005,8 @@ Note
 </div>
 </div>
 </section>
-<section id="lieu-où-le-ménage-fait-ses-besoins-à-labsence-de-latrine" class="level3" data-number="4.4.4">
-<h3 data-number="4.4.4" class="anchored" data-anchor-id="lieu-où-le-ménage-fait-ses-besoins-à-labsence-de-latrine"><span class="header-section-number">4.4.4</span> Lieu où le ménage fait ses besoins à l’absence de latrine</h3>
+<section id="lieu-où-le-ménage-fait-ses-besoins-à-labsence-de-latrine" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="lieu-où-le-ménage-fait-ses-besoins-à-labsence-de-latrine"><span class="header-section-number">4.3.4</span> Lieu où le ménage fait ses besoins à l’absence de latrine</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="vnyblaucav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -17486,8 +17503,8 @@ Note
 </div>
 </div>
 </section>
-<section id="raison-de-labsence-de-latrine-dans-les-ménages-qui-nen-possèdent-pas" class="level3" data-number="4.4.5">
-<h3 data-number="4.4.5" class="anchored" data-anchor-id="raison-de-labsence-de-latrine-dans-les-ménages-qui-nen-possèdent-pas"><span class="header-section-number">4.4.5</span> Raison de l’absence de latrine dans les ménages qui n’en possèdent pas</h3>
+<section id="raison-de-labsence-de-latrine-dans-les-ménages-qui-nen-possèdent-pas" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="raison-de-labsence-de-latrine-dans-les-ménages-qui-nen-possèdent-pas"><span class="header-section-number">4.3.5</span> Raison de l’absence de latrine dans les ménages qui n’en possèdent pas</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="kwobwqxcxb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -17985,8 +18002,8 @@ Note
 </div>
 </div>
 </section>
-<section id="existence-de-douche-dans-le-ménage" class="level3" data-number="4.4.6">
-<h3 data-number="4.4.6" class="anchored" data-anchor-id="existence-de-douche-dans-le-ménage"><span class="header-section-number">4.4.6</span> Existence de douche dans le ménage</h3>
+<section id="existence-de-douche-dans-le-ménage" class="level3" data-number="4.3.6">
+<h3 data-number="4.3.6" class="anchored" data-anchor-id="existence-de-douche-dans-le-ménage"><span class="header-section-number">4.3.6</span> Existence de douche dans le ménage</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="googbnnqjq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -18468,8 +18485,8 @@ Note
 </div>
 </div>
 </section>
-<section id="type-de-douche-dans-les-ménages" class="level3" data-number="4.4.7">
-<h3 data-number="4.4.7" class="anchored" data-anchor-id="type-de-douche-dans-les-ménages"><span class="header-section-number">4.4.7</span> Type de douche dans les ménages</h3>
+<section id="type-de-douche-dans-les-ménages" class="level3" data-number="4.3.7">
+<h3 data-number="4.3.7" class="anchored" data-anchor-id="type-de-douche-dans-les-ménages"><span class="header-section-number">4.3.7</span> Type de douche dans les ménages</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="kohlrqitcc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -18951,8 +18968,8 @@ Note
 </div>
 </div>
 </section>
-<section id="lieu-de-douche-des-ménages-qui-nen-possède-pas" class="level3" data-number="4.4.8">
-<h3 data-number="4.4.8" class="anchored" data-anchor-id="lieu-de-douche-des-ménages-qui-nen-possède-pas"><span class="header-section-number">4.4.8</span> Lieu de douche des ménages qui n’en possède pas</h3>
+<section id="lieu-de-douche-des-ménages-qui-nen-possède-pas" class="level3" data-number="4.3.8">
+<h3 data-number="4.3.8" class="anchored" data-anchor-id="lieu-de-douche-des-ménages-qui-nen-possède-pas"><span class="header-section-number">4.3.8</span> Lieu de douche des ménages qui n’en possède pas</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="vewhgbwoli" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -19444,8 +19461,8 @@ Note
 </div>
 </div>
 </section>
-<section id="mode-dévacuation-des-eaux-usées-des-ménages" class="level3" data-number="4.4.9">
-<h3 data-number="4.4.9" class="anchored" data-anchor-id="mode-dévacuation-des-eaux-usées-des-ménages"><span class="header-section-number">4.4.9</span> Mode d’évacuation des eaux usées des ménages</h3>
+<section id="mode-dévacuation-des-eaux-usées-des-ménages" class="level3" data-number="4.3.9">
+<h3 data-number="4.3.9" class="anchored" data-anchor-id="mode-dévacuation-des-eaux-usées-des-ménages"><span class="header-section-number">4.3.9</span> Mode d’évacuation des eaux usées des ménages</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fczrvkjunt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -19937,8 +19954,8 @@ Note
 </div>
 </div>
 </section>
-<section id="existence-de-poubelle-dans-le-ménage" class="level3" data-number="4.4.10">
-<h3 data-number="4.4.10" class="anchored" data-anchor-id="existence-de-poubelle-dans-le-ménage"><span class="header-section-number">4.4.10</span> Existence de poubelle dans le ménage</h3>
+<section id="existence-de-poubelle-dans-le-ménage" class="level3" data-number="4.3.10">
+<h3 data-number="4.3.10" class="anchored" data-anchor-id="existence-de-poubelle-dans-le-ménage"><span class="header-section-number">4.3.10</span> Existence de poubelle dans le ménage</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="kaursjjpdu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -20420,8 +20437,8 @@ Note
 </div>
 </div>
 </section>
-<section id="lieu-de-dépotoir-des-ménages" class="level3" data-number="4.4.11">
-<h3 data-number="4.4.11" class="anchored" data-anchor-id="lieu-de-dépotoir-des-ménages"><span class="header-section-number">4.4.11</span> Lieu de dépotoir des ménages</h3>
+<section id="lieu-de-dépotoir-des-ménages" class="level3" data-number="4.3.11">
+<h3 data-number="4.3.11" class="anchored" data-anchor-id="lieu-de-dépotoir-des-ménages"><span class="header-section-number">4.3.11</span> Lieu de dépotoir des ménages</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div id="brbkrrctvd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -20913,26 +20930,26 @@ Note
 </div>
 </div>
 </section>
-<section id="principaux-problèmes-dassainissement-selon-ménage" class="level3" data-number="4.4.12">
-<h3 data-number="4.4.12" class="anchored" data-anchor-id="principaux-problèmes-dassainissement-selon-ménage"><span class="header-section-number">4.4.12</span> Principaux problèmes d’assainissement selon ménage</h3>
+<section id="principaux-problèmes-dassainissement-selon-ménage" class="level3" data-number="4.3.12">
+<h3 data-number="4.3.12" class="anchored" data-anchor-id="principaux-problèmes-dassainissement-selon-ménage"><span class="header-section-number">4.3.12</span> Principaux problèmes d’assainissement selon ménage</h3>
 </section>
-<section id="accès-à-la-santé" class="level3" data-number="4.4.13">
-<h3 data-number="4.4.13" class="anchored" data-anchor-id="accès-à-la-santé"><span class="header-section-number">4.4.13</span> - Accès à la santé</h3>
+<section id="accès-à-la-santé-1" class="level3" data-number="4.3.13">
+<h3 data-number="4.3.13" class="anchored" data-anchor-id="accès-à-la-santé-1"><span class="header-section-number">4.3.13</span> - Accès à la santé</h3>
 </section>
-<section id="accès-à-lhygiène-et-assainissement" class="level3" data-number="4.4.14">
-<h3 data-number="4.4.14" class="anchored" data-anchor-id="accès-à-lhygiène-et-assainissement"><span class="header-section-number">4.4.14</span> - Accès à l’hygiène et assainissement</h3>
+<section id="accès-à-lhygiène-et-assainissement" class="level3" data-number="4.3.14">
+<h3 data-number="4.3.14" class="anchored" data-anchor-id="accès-à-lhygiène-et-assainissement"><span class="header-section-number">4.3.14</span> - Accès à l’hygiène et assainissement</h3>
 </section>
-<section id="caractéristiques-de-lhabitat" class="level3" data-number="4.4.15">
-<h3 data-number="4.4.15" class="anchored" data-anchor-id="caractéristiques-de-lhabitat"><span class="header-section-number">4.4.15</span> - Caractéristiques de l’habitat</h3>
+<section id="caractéristiques-de-lhabitat" class="level3" data-number="4.3.15">
+<h3 data-number="4.3.15" class="anchored" data-anchor-id="caractéristiques-de-lhabitat"><span class="header-section-number">4.3.15</span> - Caractéristiques de l’habitat</h3>
 </section>
-<section id="accès-à-lénergie-et-à-lélectricité" class="level3" data-number="4.4.16">
-<h3 data-number="4.4.16" class="anchored" data-anchor-id="accès-à-lénergie-et-à-lélectricité"><span class="header-section-number">4.4.16</span> - Accès à l’énergie et à l’électricité</h3>
+<section id="accès-à-lénergie-et-à-lélectricité" class="level3" data-number="4.3.16">
+<h3 data-number="4.3.16" class="anchored" data-anchor-id="accès-à-lénergie-et-à-lélectricité"><span class="header-section-number">4.3.16</span> - Accès à l’énergie et à l’électricité</h3>
 </section>
-<section id="situation-par-rapport-à-lenvironnement-le-changement-climatique-et-les-ressources-forestières" class="level3" data-number="4.4.17">
-<h3 data-number="4.4.17" class="anchored" data-anchor-id="situation-par-rapport-à-lenvironnement-le-changement-climatique-et-les-ressources-forestières"><span class="header-section-number">4.4.17</span> - Situation par rapport à l’environnement, le changement climatique et les ressources forestières</h3>
+<section id="situation-par-rapport-à-lenvironnement-le-changement-climatique-et-les-ressources-forestières" class="level3" data-number="4.3.17">
+<h3 data-number="4.3.17" class="anchored" data-anchor-id="situation-par-rapport-à-lenvironnement-le-changement-climatique-et-les-ressources-forestières"><span class="header-section-number">4.3.17</span> - Situation par rapport à l’environnement, le changement climatique et les ressources forestières</h3>
 </section>
-<section id="transport-et-mobilité" class="level3" data-number="4.4.18">
-<h3 data-number="4.4.18" class="anchored" data-anchor-id="transport-et-mobilité"><span class="header-section-number">4.4.18</span> - Transport et mobilité</h3>
+<section id="transport-et-mobilité" class="level3" data-number="4.3.18">
+<h3 data-number="4.3.18" class="anchored" data-anchor-id="transport-et-mobilité"><span class="header-section-number">4.3.18</span> - Transport et mobilité</h3>
 </section>
 </section>
 </div>

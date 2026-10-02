@@ -1693,7 +1693,7 @@ data_tchaoudjo2 |>
 
 ```{r}
 #| echo: false
-#| label: tbl-satisfaction-eau
+#| label: tbl-raison-insatisfaction
 #| tbl-cap: "Raison d'insatisfaction par rapport aux besoins en eau potable"
 data_tchaoudjo2 |> 
   tabyl(eau_raison_non_satisfait, show_na = FALSE) |> 
@@ -1703,16 +1703,16 @@ data_tchaoudjo2 |>
   gt()
 ```
 
-### Attentes par rapport à l'eau potable
+::: callout-note
+**Interprétation**
 
-```{r}
-# data_tchaoudjo2 |> 
-#   tabyl(eau_attentes_acces)
-```
+Les résultats de la @tbl-satisfaction-eau mettent en évidence un niveau élevé d’insatisfaction des ménages vis-à-vis de leurs besoins en eau potable : `68,3 %` des ménages (996) se déclarent insatisfaits, contre seulement `31,7 %` (462) qui se déclarent satisfaits. Cette insatisfaction est principalement liée à la mauvaise qualité de l’eau (couleur, odeur ou goût), citée par `61,5 %` des ménages insatisfaits, suivie des coupures régulières de la source d’approvisionnement `(26,6 %)`. Les autres motifs sont nettement moins fréquents, notamment l’insuffisance de la quantité d’eau `(4,1 %)`, la vétusté des équipements et installations `(3,1 %)`, la mauvaise gestion des points d’eau `(2,0 %)` ou encore la distance à parcourir `(1,0 %)`. Le prix de l’eau n’est cité que par 0,8 % des ménages insatisfaits. Ces résultats montrent ainsi que l’enjeu prioritaire ne semble pas être principalement financier, mais concerne surtout la qualité de l’eau et la continuité de l’approvisionnement, qui apparaissent comme les principaux facteurs limitant la satisfaction des besoins en eau potable des ménages.
 
-## Résultats sur l'accès à la santé
+:::
 
-### Principal type de centre de santé fréquenté
+### - Accès à la santé
+
+#### - Principal type de centre de santé fréquenté
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -1727,7 +1727,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Handicap (Est-ce qu'un membre du ménage vit avec un handicap ?)
+#### - Handicap (Est-ce qu'un membre du ménage vit avec un handicap ?)
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -1742,7 +1742,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Auto médication
+#### - Auto médication
 
 ```{r}
 data_tchaoudjo2 |> 
