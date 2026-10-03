@@ -23,6 +23,13 @@ format:
     #df-print: "kable"
     tbl-cap-location: "top"
     fontsize: 12pt
+    fontsize:
+      main: 12pt
+      header: 12pt
+      footer: 12pt
+    margin:
+      x: 2cm
+      y: 2cm
 
   docx:
     toc: true
@@ -320,7 +327,9 @@ head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de don
 ```
 
 # - Résultats, analyse et discussion
+
 ## - Caractéristiques démographiques
+
 ### - Profil démographique des ménages
 
 #### - Répartition des enquêtés selon le sexe
@@ -343,7 +352,7 @@ data_tchaoudjo2 |>
   )
 ```
 
-:::callout-note
+::: callout-note
 ## **Interprétation**
 
 La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs de ménage enquêtés : ils représentent `75,7 %` contre `24,3 %` de femmes. Cette configuration apparaît cohérente avec le contexte socioculturel togolais, dans lequel la responsabilité du ménage est encore majoritairement attribuée aux hommes. La proportion non négligeable de ménages dirigés par des femmes, soit près d’un ménage sur quatre dans l’échantillon, mérite toutefois une attention particulière dans l’analyse de leurs caractéristiques socioéconomiques et de leurs éventuelles vulnérabilités.
@@ -436,7 +445,7 @@ data_tchaoudjo2 |>
   gt()
 ```
 
-:::callout-note
+::: callout-note
 ## **Interprétation**
 
 Les résultats de la @tbl-situation_matri montrent que la grande majorité des chefs de ménage enquêtés vivent en couple ou sont mariés. Cette catégorie représente `70,1 %` des répondants, soit 1 022 personnes sur les 1 458 enquêtées. 
@@ -527,7 +536,7 @@ data_tchaoudjo2 |>
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 
 ```{r}
 #| echo: false
@@ -552,7 +561,12 @@ data_tchaoudjo2 |>
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="10%"}
+
+
+:::
+
+::: {.column width="45%"}
 
 ```{r}
 #| echo: false
@@ -572,7 +586,9 @@ pie(
 
 :::
 
-:::callout-note
+::::
+
+::: callout-note
 ## **Interprétation**
 
 La @fig-ethinie mettent en évidence que `55,1 %` des chefs de ménage sont Kabyè contre `21,7 %` de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ `76,8 %` des chefs de ménage enquêtés de l'échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent `6 %`, les Losso `5,4 %`, les Lamba `5 %` et les Nawda `2,7 %`.
@@ -655,6 +671,8 @@ data_tchaoudjo2 |>
   gt()
 ```
 :::
+
+::::
 
 ::: callout-note
 ## **Interprétation**
@@ -993,8 +1011,7 @@ data_tchaoudjo2 |>
 :::
 ::::
 
-::: collout-note
-## **Interprétation**
+::: {.callout-note title="Interprétation" icon="true"}
 
 Les résultats des @tbl-alpha et @tbl-alpha-cours montrent que `107` ménages enquêtés, soit `7,3 %`, déclarent compter au moins une personne âgée de `15 ans` ou plus ne sachant ni lire ni écrire, contre `92,7 %` qui ne signalent aucune personne dans cette situation. Bien que cette proportion soit minoritaire à l’échelle des ménages enquêtés, elle met en évidence la persistance de situations d’analphabétisme au sein d’une partie de la population adulte de la commune.
 
@@ -1064,8 +1081,7 @@ data_tchaoudjo2 |>
 write_csv(x = data_tchaoudjo2, file = "data/data_tchaoudjo2.csv")
 ```
 
-::: collout-note
-## **Interprétation**
+::: {.callout-note title="Interprétation" icon="true"}
 
 La @fig-filiere montre une diversification des filières d’apprentissage, avec toutefois une prédominance des métiers artisanaux et techniques. La *maçonnerie/carrelage* constitue la principale filière avec `17,4 %` des apprenants, suivie de la *couture* (`13,6 %`), de la *menuiserie bois ou aluminium* (`12,0 %`) et de la *ferraille/soudure/forge* (`10,9 %`). À elles seules, ces quatre filières concentrent plus de la moitié des apprenants (`53,9 %`), traduisant une forte orientation vers les métiers du bâtiment, de l’artisanat et de la production.
 
@@ -1317,9 +1333,9 @@ Les difficultés rencontrées par les ménages apparaissent principalement liée
 
 #### - Source d'approvisionnement en eau au sein du ménage
 
-::: {.columns}
+:::: {.columns}
 
-:::: {.column width=40%}
+::: {.column width=40%}
 
 ```{r}
 #| echo: false
@@ -1337,14 +1353,14 @@ data_tchaoudjo2 |>
     )
 ```
 
-::::
+:::
 
-:::: {.column width=10%}
+::: {.column width=10%}
 
 
-::::
+:::
 
-:::: {.column width=50%}
+::: {.column width=50%}
 
 ```{r}
 #| echo: false
@@ -1376,6 +1392,8 @@ data_tchaoudjo2 |>
   rename("Type de source d'eau dans le ménage" = eau_type_source_rec, "Effectif" = n, "Pourcentage" = percent) |> 
   gt()
 ```
+
+:::
 
 ::::
 
@@ -1770,9 +1788,9 @@ data_tchaoudjo2 |>
   gt()
 ```
 
-::: {.columns}
+:::: {.columns}
 
-:::: {.column width=45%}
+::: {.column width=45%}
 
 ```{r}
 #| echo: false
@@ -1785,13 +1803,13 @@ data_tchaoudjo2 |>
   rename("Traitement de l'eau" = eau_traite) |> 
   gt()
 ```
-::::
+:::
 
-:::: {.column width=10%}
+::: {.column width=10%}
 
-::::
+:::
 
-:::: {.column width=45%}
+::: {.column width=45%}
 
 ```{r}
 #| echo: false
@@ -1804,6 +1822,8 @@ data_tchaoudjo2 |>
   rename("Couverture des besoins en eau" = eau_besoin_couvert) |> 
   gt()
 ```
+:::
+
 ::::
 
 ::: callout-note
@@ -1818,9 +1838,9 @@ Enfin, la couverture des besoins en eau (@tbl-courture-besoin) apparaît insuffi
 
 #### - Quantité et dépenses moyennes d'eau consommé par les ménage
 
-::: {.columns}
+:::: {.columns}
 
-::::{.column width=45%}
+:::{.column width=45%}
 
 ```{r}
 #| echo: false
@@ -1861,13 +1881,13 @@ data_tchaoudjo2 |>
   theme_bw()
 ```
 
-::::
+:::
 
-::::{.column width=10%}
+::: {.column width=10%}
 
-::::
+:::
 
-::::{.column width=45%}
+:::{.column width=45%}
 
 ```{r}
 #| echo: false
@@ -1907,6 +1927,8 @@ data_tchaoudjo2 |>
   ) +
   theme_bw()
 ```
+
+:::
 
 ::::
 
@@ -1977,98 +1999,192 @@ Les résultats de la @tbl-satisfaction-eau mettent en évidence un niveau élev�
 #### - Principal type de centre de santé fréquenté
 
 ```{r}
-data_tchaoudjo2 |> 
-  tabyl(sante_struct_frequente, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Type de centre" = sante_struct_frequente, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Principal centre de santé fréquenté",
-      subtitle = ""
+#| echo: false
+#| label: fig-centre-frequente
+#| fig-cap: "Type de centre de santé fréquenté par le ménage"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(sante_struct_frequente)) |>
+  count(sante_struct_frequente) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  ggplot(
+    aes(
+      x = pourcentage,
+      y = reorder(sante_struct_frequente, pourcentage)
     )
+  ) +
+  geom_col(
+    color = "#161483",
+    fill = "#5974c6",
+    width = 0.7
+  ) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))
+  ) +
+  labs(
+    x = "Pourcentage (%)",
+    y = "Type de centre de santé"
+  ) +
+  theme_bw()
 ```
 
-#### - Handicap (Est-ce qu'un membre du ménage vit avec un handicap ?)
+::: {.callout-note title="Interprétation" icon="true"}
+
+La @fig-centre-frequente montrent une forte concentration de la fréquentation des ménages au niveau des Unités de soins périphériques (USP), qui constituent le principal type de centre de santé fréquenté pour `85,5 %` des ménages enquêtés. Les Centres médico-sociaux (CMS) arrivent loin derrière avec `9,5 %`, tandis que les autres structures sont très faiblement sollicitées : consultation à domicile `(1,6 %)`, hôpitaux régionaux ou préfectoraux (CHR/CHP) `(1,4 %)` et autres structures `(0,9 %)`. Les recours aux guérisseurs/tradipraticiens `(0,5 %)`, au CHU `(0,3 %)`, aux cliniques ou cabinets médicaux privés `(0,1 %)` et aux pharmacies `(0,1 %)` demeurent marginaux. Cette distribution met ainsi en évidence le rôle central des structures sanitaires de proximité, particulièrement des USP, dans l'accès aux soins des ménages de Tchaoudjo 2. Elle souligne par conséquent l'importance de leur disponibilité géographique, de leur capacité d'accueil, de leur dotation en personnel et équipements ainsi que de la qualité des services offerts, compte tenu de la forte dépendance des ménages à ce premier niveau de l'offre de soins.
+:::
+
+#### - Personnes handicapées dans le ménage
 
 ```{r}
-data_tchaoudjo2 |> 
-  tabyl(sante_handicap_type, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Type de handicap" = sante_handicap_type, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Existence de personnes handicapées dans le ménage",
-      subtitle = ""
+#| echo: false
+#| output: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    sante_handicap_type_rec = case_when(
+      
+      # Modalités simples à conserver
+      sante_handicap_type %in% c(
+        "Aucun handicap",
+        "handicap moteur",
+        "handicap visuel",
+        "Sourd et/ou muet",
+        "Handicapé mental",
+        "Autre handicap",
+        "Albinisme"
+      ) ~ sante_handicap_type,
+      
+      # Toutes les autres modalités non manquantes correspondent
+      # à une combinaison de plusieurs handicaps
+      !is.na(sante_handicap_type) ~ "Combinaison de handicaps",
+      
+      # Conservation des valeurs manquantes
+      TRUE ~ NA_character_
     )
+  )
 ```
 
-#### - Auto médication
+```{r}
+#| echo: false
+#| label: fig-handicap-type
+#| fig-cap: "Type de personnes handicapées dans le ménage"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(sante_handicap_type_rec)) |>
+  count(sante_handicap_type_rec) |>
+  mutate(
+    pourcentage = n / sum(n) * 100
+  ) |>
+  ggplot(
+    aes(
+      x = pourcentage,
+      y = reorder(sante_handicap_type_rec, pourcentage)
+    )
+  ) +
+  geom_col(
+    color = "#0e4a18",
+    fill = "#5cdd7c",
+    width = 0.7
+  ) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))
+  ) +
+  labs(
+    x = "Pourcentage (%)",
+    y = "Handicap"
+  ) +
+  theme_bw()
+```
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+La @fig-handicap-type montrent que la grande majorité des ménages enquêtés `(87,6 %)` ne déclarent aucune personne vivant avec un handicap. À l'inverse, `12,4 %` des ménages sont concernés par au moins une situation de handicap. Parmi les différentes situations recensées, le handicap moteur est le plus fréquemment déclaré (`3,8 %` des ménages), suivi du handicap visuel (2,7 %) et des ménages cumulant plusieurs types de handicap `(1,9 %)`. Les situations de surdité et/ou de mutité représentent `1,8 %`, tandis que le handicap mental `(1,0 %)`, les autres formes de handicap `(0,8 %)` et l'albinisme `(0,3 %)` sont moins fréquemment rapportés. Bien que les proportions soient relativement faibles à l'échelle de l'ensemble des ménages, la présence de personnes vivant avec un handicap constitue un enjeu à prendre en compte dans la planification communale, notamment en matière d'accessibilité aux services de santé et aux autres services essentiels, d'inclusion sociale et d'adaptation des infrastructures et équipements publics.
+:::
+
+
+#### - Auto-médication et lieu d'approvisionnement en médicaments pour le soin
+
+:::: {.columns}
+
+::: {.column width=45%}
 
 ```{r}
+#| echo: false
+#| label: tbl-auto-medication
+#| tbl-cap: "Auto médication du chef de ménage"
 data_tchaoudjo2 |> 
   tabyl(sante_auto_medication, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Auto médication" = sante_auto_medication, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Auto médication du chef de ménage",
-      subtitle = ""
-    )
+  gt()
 ```
 
-### Lieu où le chef de ménage procure les médicaments pour le soin
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
 
 ```{r}
+#| echo: false
+#| label: tbl-lieu-medicament
+#| tbl-cap: "Lieu d'approvisionnement en médicaments pour le soin"
 data_tchaoudjo2 |> 
   tabyl(sante_lieu_medicament, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
-  rename("Lieu d'achat de médicament" = sante_lieu_medicament, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Lieu où se procure le chef de ménage en médicament",
-      subtitle = ""
-    )
+  rename("Lieu d'approvisionnement en médicaments" = sante_lieu_medicament, "Effectif" = n, "Pourcentage" = percent) |> 
+  gt()
 ```
 
-### Assurance santé
+:::
+
+::::
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Les résultats mettent en évidence une forte pratique de l’automédication parmi les chefs de ménage enquêtés (@tbl-lieu-medicament): près de deux tiers `(63,9 %)` déclarent y avoir recours, contre `36,1 %` qui ne la pratiquent pas. Cette tendance se reflète également dans les modes d’approvisionnement en médicaments. En effet, `41,6 %` des chefs de ménage déclarent se procurer principalement leurs médicaments dans la rue, une proportion légèrement supérieure à celle des achats effectués principalement en pharmacie `(39,0 %)`. Par ailleurs, `10,4 %` déclarent préférer se soigner eux-mêmes, tandis que `8,3 %` s’approvisionnent principalement auprès d’un tradithérapeute. Ces résultats révèlent ainsi l’importance des pratiques de soins réalisées en dehors du circuit sanitaire et pharmaceutique formel. La prédominance de l’automédication et le recours important aux médicaments vendus dans la rue constituent des enjeux de santé publique, notamment en matière de sécurisation de l’usage des médicaments, de sensibilisation des populations et d’amélioration de l’accès aux conseils et services de santé qualifiés.
+:::
+
+#### - Assurance santé pour le chef de ménage et les membres du ménage
 
 ```{r}
+#| echo: false
+#| label: tbl-assurance-sante
+#| tbl-cap: "Existence d'une assurance santé"
 data_tchaoudjo2 |> 
   tabyl(sante_assurance, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Assurance santé" = sante_assurance, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Existence d'une assurance santé",
-      subtitle = ""
-    )
+  gt()
 ```
 
-### Attentes par rapport à l'accès à la santé
+::: {.callout-note title="Interprétation" icon="true"}
 
-```{r}
-#| echo: true
-#| output: false
-data_tchaoudjo2 |> 
-   tabyl(sante_attente, show_na = FALSE) |> 
-   adorn_pct_formatting(digits = 1) |> 
-   arrange(desc(n)) |> 
-   rename("Attentes" = sante_attente, "Effectif" = n, "Pourcentage" = percent) |> 
-   gt() |> 
-     tab_header(
-       title = "Attentes par rapport à l'accès à la santé",
-       subtitle = ""
-     )
-```
+La @tbl-assurance-sante met en évidence une très faible couverture des ménages par une assurance santé. En effet, `86,6 %` des chefs de ménage déclarent ne disposer d’aucune assurance santé, ni pour eux-mêmes ni pour leur famille. Seulement `13,4 %` bénéficient d’une couverture : `9,8 %` déclarent être assurés avec les membres de leur famille, tandis que `3,6 %` disposent d’une assurance uniquement pour eux-mêmes. Ainsi, une très grande majorité des ménages reste exposée à une prise en charge directe des dépenses de santé sur leurs ressources propres. Cette situation peut constituer un facteur de vulnérabilité économique, notamment pour les ménages confrontés à des dépenses de santé importantes ou imprévues, et souligne l’enjeu de l’extension des mécanismes de protection financière contre le risque maladie au profit des populations de la commune.
+:::
 
-## Résultats par rapport à l'assainissement
 
-### Existence de latrine dans le ménage
+### - Hygiène et assainissement
+
+#### - Existence de latrine dans le ménage
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2083,7 +2199,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Type de latrine dans les ménages qui en possède
+#### - Type de latrine dans les ménages qui en possède
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2098,7 +2214,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Mode de vidange des latrines dans les maisons qui en possède
+#### - Mode de vidange des latrines dans les maisons qui en possède
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2113,7 +2229,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Lieu où le ménage fait ses besoins à l'absence de latrine
+#### - Lieu où le ménage fait ses besoins à l'absence de latrine
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2128,7 +2244,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Raison de l'absence de latrine dans les ménages qui n'en possèdent pas
+#### - Raison de l'absence de latrine dans les ménages qui n'en possèdent pas
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2167,7 +2283,7 @@ data_tchaoudjo2 |>
   colnames()
 ```
 
-### Existence de douche dans le ménage
+#### - Existence de douche dans le ménage
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2182,7 +2298,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Type de douche dans les ménages
+#### - Type de douche dans les ménages
 
 ```{r}
 data_tchaoudjo2 |> 
@@ -2197,7 +2313,7 @@ data_tchaoudjo2 |>
     )
 ```
 
-### Lieu de douche des ménages qui n'en possède pas
+#### - Lieu de douche des ménages qui n'en possède pas
 
 ```{r}
 data_tchaoudjo2 |> 
