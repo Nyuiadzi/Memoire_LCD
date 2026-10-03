@@ -1,6 +1,6 @@
 ---
 title: "Analyse des conditions socioéconomiques et accès aux services essentiels des ménages de la commune de Tchaoudjo 2"
-author: "Nyuiadzi ZIKPI"
+author: "Nyuiadzi Komi ZIKPI"
 date: "`r Sys.Date()`"
 
 format: 
@@ -23,13 +23,13 @@ format:
     #df-print: "kable"
     tbl-cap-location: "top"
     fontsize: 12pt
-    fontsize:
-      main: 12pt
-      header: 12pt
-      footer: 12pt
-    margin:
-      x: 2cm
-      y: 2cm
+    # # fontsize:
+    # #   main: 12pt
+    # #   header: 12pt
+    # #   footer: 12pt
+    # margin:
+    #   x: 2cm
+    #   y: 2cm
 
   docx:
     toc: true
@@ -1421,34 +1421,14 @@ data_tchaoudjo2 |>
 data_tchaoudjo2 |>
   filter(!is.na(eau_potable_source_princ)) |>
   count(eau_potable_source_princ) |>
-  mutate(
-    pourcentage = n / sum(n) * 100
-  ) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
   arrange(desc(pourcentage)) |>
-  ggplot(
-    aes(
-      x = "",
-      y = pourcentage,
-      fill = eau_potable_source_princ
-    )
-  ) +
-  geom_col(
-    width = 1,
-    color = "white"
-  ) +
-  coord_polar(
-    theta = "y"
-  ) +
-  geom_text(
-    aes(
-      label = paste0(round(pourcentage, 1), " %")
-    ),
-    position = position_stack(vjust = 0.5),
-    size = 4
-  ) +
-  labs(
-    fill = "Source principale\nd'eau potable"
-  ) +
+  ggplot(aes(x = "", y = pourcentage, fill = eau_potable_source_princ)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    position = position_stack(vjust = 0.5), size = 4) +
+  labs(fill = "Source principale\nd'eau potable") +
   theme_void() +
   theme(
     legend.position = "right"
@@ -2184,218 +2164,285 @@ La @tbl-assurance-sante met en évidence une très faible couverture des ménage
 
 ### - Hygiène et assainissement
 
-#### - Existence de latrine dans le ménage
+#### - Existence type et mode de vidance des latrines dans les ménages
+
+:::: {.columns}
+
+::: {.column width=45%}
 
 ```{r}
+#| echo: false
+#| label: tbl-latrine-maison
+#| tbl-cap: "Existence d'une latrine dans le ménage"
 data_tchaoudjo2 |> 
   tabyl(assainis_latrine_maison, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Latrine à la maison" = assainis_latrine_maison, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Existence de latrine dans le ménage",
-      subtitle = ""
-    )
+  gt()
 ```
 
-#### - Type de latrine dans les ménages qui en possède
+:::
+
+::: {.column width=10%}
+
+:::
+
+::: {.column width=45%}
 
 ```{r}
+#| echo: false
+#| label: tbl-latrine-type
+#| tbl-cap: "Type de latrine dans le ménage"
 data_tchaoudjo2 |> 
   tabyl(assainis_latrine_type, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Mode de vidance" = assainis_latrine_type, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Type de latrine dans le ménage",
-      subtitle = ""
-    )
+  gt()
 ```
 
-#### - Mode de vidange des latrines dans les maisons qui en possède
+:::
+::::
+
 
 ```{r}
+#| echo: false
+#| label: tbl-latrine-vidange
+#| tbl-cap: "Mode de vidange des latrines"
 data_tchaoudjo2 |> 
   tabyl(assainis_latrine_mode_vidange, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Mode de vidance" = assainis_latrine_mode_vidange, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Mode de vidange des latrines",
-      subtitle = ""
-    )
+  gt()
 ```
 
-#### - Lieu où le ménage fait ses besoins à l'absence de latrine
+::: {.callout-note title="Interprétation" icon="true"}
 
-```{r}
-data_tchaoudjo2 |> 
-  tabyl(assainis_latrine_lieu_besoin, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Lieu de défécation" = assainis_latrine_lieu_besoin, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Lieu où le ménage fait ses besoins",
-      subtitle = ""
-    )
-```
+Les résultats de la @tbl-latrine-maison mettent en évidence une faible disponibilité des latrines au niveau des ménages de Tchaoudjo 2. Sseulement `18,7 %` des ménages disposent d’une latrine à domicile, contre `81,3 %` qui n’en disposent pas. Cette situation traduit un déficit important en équipements d’assainissement domestique et peut favoriser le recours à des solutions alternatives de défécation, notamment l’utilisation de latrines extérieures au ménage et surtout la défécation à l’air libre. Elle constitue ainsi un enjeu majeur en matière d’hygiène, d’assainissement et de prévention des risques sanitaires.
 
-#### - Raison de l'absence de latrine dans les ménages qui n'en possèdent pas
+Au niveau des ménages disposant d’une latrine (@tbl-latrine-type), les installations de type traditionnel sont largement prédominantes `(77,6 %)`, tandis que les latrines modernes ne représentent que `12,5 %` et les latrines VIP `9,2 %`. Les dispositifs `ATPC` et `ECOSAN` restent marginaux avec `0,4 % chacun*`.
 
-```{r}
-data_tchaoudjo2 |> 
-  tabyl(assainis_latrine_pourquoi_absente, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Raisons" = assainis_latrine_pourquoi_absente, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Raison de l'absence de latrine dans le ménage",
-      subtitle = ""
-    )
-```
+Concernant la vidange (@tbl-latrine-vidange), elle est principalement effectuée manuellement `(46,0 %)` ou par `changement de fosse (32,4 %)`, tandis que seulement `19,5 %` des ménages concernés ont recours à un camion de vidange. Les autres pratiques sont marginales : `1,8 %` déclarent que leur latrine n’a jamais été vidangée et `0,4 %` utilisent un traitement par des produits. Dans l’ensemble, ces résultats montrent que les difficultés d’assainissement ne concernent pas uniquement la faible couverture en latrines, mais également la qualité des installations et les conditions de gestion des boues de vidange. Ils soulignent ainsi la nécessité d’agir simultanément sur l’amélioration de l’accès aux latrines, la promotion d’installations améliorées et la sécurisation des pratiques de vidange et de gestion des déchets issus des ouvrages d’assainissement.
+:::
+
+
+#### - Lieu de défécation et raison de l'absence de latrine dans ménage
+
+:::: {.columns}
+
+::: {.column width=45%}
 
 ```{r}
 #| echo: false
-#| eval: false
-data_tchaoudjo2 <- data_tchaoudjo2 |> 
-  mutate(
-    assainis_latrine_pourquoi_absente = case_when(
-      assainis_latrine_absente_autre == "Locateur" ~ "Le propriétaire n'en a pas constuit",
-      assainis_latrine_absente_autre == "Location" ~ "Le propriétaire n'en a pas constuit",
-      assainis_latrine_absente_autre == "À l' air libre" ~ "Autre raison",
-      assainis_latrine_absente_autre == "À l'air libre" ~ "Autre raison",
-      assainis_latrine_absente_autre == "En-cours d'élaboration" ~ "Autre raison",
-      assainis_latrine_absente_autre == "Le sol ne tient pas" ~ "Autre raison",
-      assainis_latrine_absente_autre == "On avait un WC mais c'est gâté" ~ "Autre raison",
-      TRUE ~ assainis_latrine_pourquoi_absente
-    )
+#| label: fig-lieu-defecation
+#| fig-cap: "Lieu de défécation à l'absence de latrine"
+#| fig-width: 10
+#| fig-height: 8
+data_tchaoudjo2 |>
+  filter(!is.na(assainis_latrine_lieu_besoin)) |>
+  count(assainis_latrine_lieu_besoin) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  arrange(desc(pourcentage)) |>
+  ggplot(aes(x = 1, y = pourcentage, fill = assainis_latrine_lieu_besoin)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  geom_text(aes(x = 1.6,   # éloigne les pourcentages vers l'extérieur
+      label = paste0(round(pourcentage, 1), " %")),
+    position = position_stack(vjust = 0.5),
+    size = 6) +
+  xlim(0.5, 1.7) +   # crée de l'espace pour les étiquettes
+  labs(fill = "Lieu de défécation") +
+  theme_void() +
+  theme(
+    legend.position = "right",
+    legend.title = element_text(size = 16, face = "bold"),
+    legend.text = element_text(size = 14)
   )
 ```
 
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
+
 ```{r}
-data_tchaoudjo2 |> 
-  select(starts_with("assainis_douche")) |> 
-  colnames()
+#| echo: false
+#| label: fig-latrine-raison-absence
+#| fig-cap: "Raisons de l'absence de latrine dans le ménage"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(assainis_latrine_pourquoi_absente)) |>
+  count(assainis_latrine_pourquoi_absente) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(
+      x = pourcentage,
+      y = reorder(assainis_latrine_pourquoi_absente, pourcentage))) +
+  geom_col(color = "#0e826a", fill = "#32c0c8", width = 0.7) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+    theme(
+    axis.text.y = element_text(size = 12) # taille du texte de l'axe y
+  )
 ```
 
-#### - Existence de douche dans le ménage
+:::
+::::
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Les @fig-lieu-defecation et @fig-latrine-raison-absence mettent en évidence une situation préoccupante en matière d’assainissement pour les ménages ne disposant pas de latrine. Parmi ceux-ci, la **défécation à l’air libre (DAL)** constitue de très loin la principale pratique, avec `88,3 %` des ménages concernés. Les solutions alternatives restent peu utilisées : `5,9 %` recourent à une latrine publique du village ou du quartier, `2,5 %` à la latrine des voisins, `2,4 %` à la latrine de l’école et 0,9 % à celle d’un établissement public. Ces résultats montrent que l’absence de latrine au domicile se traduit, dans la très grande majorité des cas, par un recours à la défécation à l’air libre. Cette situation constitue un enjeu important d’hygiène et d’assainissement, en raison notamment des risques de contamination de l’environnement et d’exposition des populations aux maladies liées à l’insalubrité.
+
+L’analyse des raisons de l’absence de latrine permet d’identifier très clairement la principale contrainte : 97,0 % des ménages concernés évoquent le manque de moyens financiers. Les autres motifs sont très marginaux : le fait que le propriétaire n’ait pas construit de latrine représente `1,6 %`, le manque d’espace dans la maison `0,8 %` et les autres raisons `0,7 %`. Ainsi, l’insuffisance d’équipements d’assainissement domestique apparaît avant tout associée, selon les déclarations des ménages, à une contrainte économique. Combiné au niveau très élevé de défécation à l’air libre parmi les ménages sans latrine, ce résultat souligne l’importance d’actions facilitant l’accès des ménages aux ouvrages d’assainissement, notamment à travers des solutions techniquement adaptées et financièrement accessibles, accompagnées d’actions de sensibilisation à l’hygiène et à l’utilisation durable des latrines.
+:::
+
+#### - Existence et type de douche dans le ménage
+
+:::: {.columns}
+
+::: {.column width=45%}
 
 ```{r}
+#| echo: false
+#| label: tbl-douche
+#| tbl-cap: "Existence de douche dans le ménage"
 data_tchaoudjo2 |> 
   tabyl(assainis_douche_dans_maison, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Existence de douche" = assainis_douche_dans_maison, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Existence de douche dans le ménage",
-      subtitle = ""
-    )
+  gt()
 ```
+:::
 
-#### - Type de douche dans les ménages
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
 
 ```{r}
+#| echo: false
+#| label: tbl-douche-type
+#| tbl-cap: "Types de douche dans les ménages"
 data_tchaoudjo2 |> 
   tabyl(assainis_douche_type, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Types de douche" = assainis_douche_type, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Types de douche dans les ménages",
-      subtitle = ""
-    )
+  gt()
 ```
+:::
+
+::::
+
 
 #### - Lieu de douche des ménages qui n'en possède pas
 
 ```{r}
+#| echo: false
+#| label: tbl-douche-lieu
+#| tbl-cap: "Lieu de douche dans les ménages"
 data_tchaoudjo2 |> 
   tabyl(assainis_douche_lieu, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Lieu de douche" = assainis_douche_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Lieu de douche des ménages qui n'en possèdent pas",
-      subtitle = ""
-    )
+  gt()
 ```
 
-### Mode d'évacuation des eaux usées des ménages
+::: {.callout-note title="Interprétation" icon="true"}
+
+La @tbl-douche montre que `88,5 %` des ménages disposent d’un espace de douche, contre `11,5 %` qui n’en possèdent pas. Toutefois, la @tbl-douche-type montre que la disponibilité d’une douche ne signifie pas nécessairement l’existence d’une installation améliorée : parmi les ménages équipés, `85,2 %` disposent d’une douche traditionnelle, réalisée notamment en paille, tôle ou feuilles, tandis que seulement `14,8 %` possèdent une douche construite en dur (briques). Ainsi, si l’accès à un espace dédié à la toilette corporelle est relativement répandu, la prédominance des installations traditionnelles met en évidence un niveau encore limité d’amélioration des équipements sanitaires domestiques.
+
+La situation des `11,5 %` de ménages ne disposant pas de douche révèle par ailleurs des pratiques alternatives qui peuvent poser des enjeux de confort, d’intimité et d’hygiène. Près de la moitié d’entre eux `(47,3 %)` utilisent la douche des voisins, tandis que `34,1 %` se lavent à l’air libre. Les douches publiques du village ou du quartier sont utilisées par `16,8 %`, contre seulement `1,8 %` pour les douches des écoles. Ces résultats montrent les principaux défis ne concernent pas seulement la disponibilité des espaces de douche, mais également la qualité et la durabilité des installations existantes ainsi que l’accès à des espaces de toilette adéquats pour les ménages non équipés.
+:::
+
+#### - Mode d'évacuation des eaux usées et lieu de dépotoirs des ménages
+
+:::: {.columns}
+
+::: {.column width=45%}
 
 ```{r}
+#| echo: false
+#| label: tbl-eaux-usees
+#| tbl-cap: "Mode d'évacuation des eaux usées dans les ménages"
 data_tchaoudjo2 |> 
-  tabyl(assainis_eaux_usées_mode_devac, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Mode d'évacuation" = assainis_eaux_usées_mode_devac, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Mode d'évacuation des eaux usées dans les ménages",
-      subtitle = ""
-    )
+  filter(!is.na(assainis_eaux_usées_mode_devac)) |> 
+  count(assainis_eaux_usées_mode_devac) |> 
+  mutate(pourcentage = n / sum(n) * 100) |>
+  arrange(desc(pourcentage)) |>
+  rename("Mode d'évacuation" = assainis_eaux_usées_mode_devac, "Effectif" = n, "Pourcentage" = pourcentage) |> 
+  gt()
 ```
 
-### Existence de poubelle dans le ménage
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
 
 ```{r}
-data_tchaoudjo2 |> 
-  tabyl(assainis_a_poubelle, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Existence de poubelle" = assainis_a_poubelle, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Existence de poubelle dans les ménages",
-      subtitle = ""
-    )
-```
-
-### Lieu de dépotoir des ménages
-
-```{r}
+#| echo: false
+#| label: tbl-depotoir
+#| tbl-cap: "Lieu de dépotoir"
 data_tchaoudjo2 |> 
   tabyl(assainis_depotoir_lieu, show_na = FALSE) |> 
   adorn_pct_formatting(digits = 1) |> 
   arrange(desc(n)) |> 
   rename("Lieu de dépotoir" = assainis_depotoir_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Lieu de dépotoir des ménages",
-      subtitle = ""
-    )
+  gt()
 ```
 
-### Principaux problèmes d'assainissement selon ménage
+:::
+::::
 
-```{r}
-#| echo: false
-#| eval: false
-data_tchaoudjo2 |> 
-  tabyl(assainis_insalubrite_probleme, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Réponses" = assainis_insalubrite_probleme, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "Principaux problèmes d'assainissement selon ménage",
-      subtitle = ""
-    )
-```
+::: {.callout-note title="Interprétation" icon="true"}
 
+Les résultats da la @tbl-eaux-usees mettent en évidence que la quasi-totalité des ménages `(93,1 %)` déclare rejeter les eaux usées directement dans la rue, tandis que `4,4 %` les évacuent dans les caniveaux ou rigoles. Seulement `1,7 %` utilisent un puisard, alors que `0,8 %` les rejettent dans la brousse. Cette situation contribue à la stagnation des eaux, à l’insalubrité du cadre de vie, aux ristques de développement de larves de moustiques et à la dégradation des conditions d’hygiène.
 
-
-
-
+La gestion des ordures ménagères présente une situation tout aussi préoccupante (@tbl-depotoir) : `98,7 %` des ménages déclarent déposer leurs déchets dans un dépotoir sauvage à proximité, contre seulement `1,1 %` qui utilisent un dépotoir officiel ou aménagé. Le recours à un service de pré-collecte reste quasiment inexistant `(0,1 %)`. Le reste des ménages `(0,1 %)` brûlent leurs ordures. Ces résultats traduisent une faible structuration du système de collecte et d’évacuation des déchets solides La combinaison du rejet massif des eaux usées dans les rues et de l’utilisation généralisée des dépotoirs sauvages constitue donc un enjeu majeur d’assainissement pour la commune, appelant notamment au développement de solutions adaptées de drainage des eaux usées, à l’aménagement de points de regroupement ou de dépotoirs contrôlés et à l’organisation progressive de services de collecte ou de pré-collecte des déchets.
+:::
 
 ### - Caractéristiques de l'habitat
+
+#### - Statut d'occupation du logement et type de logement
+
+
+
+
+
+#### - Type de documents de propriété
+
+
+#### - Mode d'acquisition du terrain et de l'immeuble
+
+
+#### - Type d'habitation et fonction du logement
+
+
+#### - Type et caractéristiques du logement
+
+
+#### - Conflit foncier
+
+
+
+
 
 
 
