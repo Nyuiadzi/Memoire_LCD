@@ -2378,7 +2378,7 @@ La situation des `11,5 %` de ménages ne disposant pas de douche révèle par ai
 ```{r}
 #| echo: false
 #| label: tbl-eaux-usees
-#| tbl-cap: "Mode d'évacuation des eaux usées dans les ménages"
+#| tbl-cap: "Mode d'évacuation des eaux usées"
 data_tchaoudjo2 |> 
   filter(!is.na(assainis_eaux_usées_mode_devac)) |> 
   count(assainis_eaux_usées_mode_devac) |> 
@@ -2420,35 +2420,550 @@ La gestion des ordures ménagères présente une situation tout aussi préoccupa
 
 ### - Caractéristiques de l'habitat
 
-#### - Statut d'occupation du logement et type de logement
+#### - Statut d'occupation du logement et type de documents de propriété
 
+:::: {.columns}
 
+::: {.column width=45%}
 
+```{r}
+#| echo: false
+#| label: fig-statut-occupation
+#| fig-cap: "Statut d'occupation du logement"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_statut_occupation)) |>
+  count(habitat_statut_occupation) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_statut_occupation, pourcentage))) +
+  geom_col(color = "#6f4b12", fill = "#df9c50", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+    theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
 
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
 
-#### - Type de documents de propriété
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
 
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
+
+```{r}
+#| echo: false
+#| label: fig-doc-propriete
+#| fig-cap: "Type de documents de propriété"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_document_terrain)) |>
+  count(habitat_document_terrain) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_document_terrain, pourcentage))) +
+  geom_col(color = "#cdcc9c", fill = "#44b340", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+:::
+
+::::
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+### Interprétation
+
+Les résultats montrent une forte prédominance de la propriété du logement parmi les ménages enquêtés (@tbl-statut-occupation) : `78,8 %**` déclarent être propriétaires de leur habitation. À cette proportion s’ajoutent `11,9 %` de ménages vivant dans une maison familiale, ce qui indique que plus de neuf ménages sur dix occupent un logement relevant de leur patrimoine propre ou familial. La location reste relativement peu répandue, concernant seulement `8,2 %` des ménages, tandis que l’occupation gratuite ou temporaire représente `1,0 %`. Cette structure traduit ainsi une forte stabilité résidentielle des ménages et un faible poids du marché locatif. .
+:::
 
 #### - Mode d'acquisition du terrain et de l'immeuble
 
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{r}
+#| echo: false
+#| label: fig-acquisition-terrain
+#| fig-cap: "Mode d'acquisition du terrain"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_mode_acquis_terrain)) |>
+  count(habitat_mode_acquis_terrain) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_mode_acquis_terrain, pourcentage))) +
+  geom_col(color = "#e7d9da", fill = "#b53d4d", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
+
+```{r}
+#| echo: false
+#| label: fig-acquisition-immeuble
+#| fig-cap: "Mode d'acquisition de l'immeuble"
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_mode_acquis_immeuble)) |>
+  count(habitat_mode_acquis_immeuble) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_mode_acquis_immeuble, pourcentage))) +
+  geom_col(color = "#231267", fill = "#933ef4df", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+:::
+
+::::
+
+::: {.callout-note title="Interprétatin" icon="true"}
+
+Les résultats de la @fig-acquisition-terrain montrent que les modes d’acquisition du terrain et de l’immeuble reposent principalement sur des mécanismes non marchands et familiaux. Concernant le terrain, la donation constitue de loin le principal mode d’acquisition `(58,0 %)`, suivie de l’héritage `(32,9 %)`. L’achat ne concerne que `8,5 %` des ménages, tandis que les autres modes restent marginaux `(0,6 %)`. Ainsi, plus de neuf terrains sur dix sont acquis par donation ou héritage, ce qui traduit l’importance des mécanismes de transmission familiale ou patrimoniale dans l’accès au foncier.
+
+Pour l’immeuble (@fig-acquisition-immeuble), la situation est différente : `60,6 %` des ménages concernés déclarent avoir construit leur logement, ce qui constitue le principal mode d’acquisition. L’héritage ou la maison familiale et la donation représentent chacun `17,7 %`, tandis que l’achat direct d’un immeuble demeure faible `(3,5 %) et les autres modes représentent `0,6 %`. La faible place des transactions marchandes dans l’acquisition des terrains et des immeubles traduit ainsi un marché immobilier relativement limité.
+:::
 
 #### - Type d'habitation et fonction du logement
 
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{r}
+#| echo: false
+#| label: tbl-type-habitation
+#| tbl-cap: "Type d'habitation"
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_type_habitation)) |>
+  tabyl(habitat_type_habitation) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Type d'habitation" = habitat_type_habitation, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
+
+```{r}
+#| echo: false
+#| label: tbl-fonction-logement
+#| tbl-cap: "Fonction du logement"
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_logement_fonction)) |>
+  tabyl(habitat_logement_fonction) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Fonction du logement" = habitat_logement_fonction, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+:::
+
+::::
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Les résultats des @tbl-type-habitation et @tbl-fonction-logement montrent que les conditions d’habitation des ménages de Tchaoudjo 2 sont caractérisées par une prédominance de la maison individuelle, qui concerne `63,0 %` des ménages, contre `37,0 %` vivant dans une cour commune. Cette configuration traduit une présence importante de logements autonomes, même si plus d’un tiers des ménages évoluent encore dans des espaces résidentiels partagés. Concernant la fonction du logement, celle-ci est très largement résidentielle `(94,5 %)`, tandis que seulement `4,5 %` des logements ont une fonction exclusivement économique, notamment à travers la location ou le bail, et `1,0 %` combinent fonctions résidentielle et économique. Le logement apparaît ainsi avant tout comme un espace d’habitation des ménages, les usages économiques ou mixtes demeurant relativement marginaux.
+:::
 
 #### - Type et caractéristiques du logement
 
+```{r}
+#| echo: false
+#| label: fig-type-caract
+#| fig-cap: "Type et caractéristique du logement"
+#| fig-subcap:
+#|   - "Type de logement"
+#|   - "Nature des murs"
+#|   - "Nature du sol"
+#|   - "Nature du toit"
+#| layout: [[1,1], [1,1]]
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_logement_type)) |>
+  count(habitat_logement_type) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_logement_type, pourcentage))) +
+  geom_col(color = "#1e3b4d", fill = "#4da6ff", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
 
-#### - Conflit foncier
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_nature_murs)) |>
+  count(habitat_nature_murs) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_nature_murs, pourcentage))) +
+  geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_nature_sol)) |>
+  count(habitat_nature_sol) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_nature_sol, pourcentage))) +
+  geom_col(color = "#58360e", fill = "#cd9c3b", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_nature_toit)) |>
+  count(habitat_nature_toit) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(habitat_nature_toit, pourcentage))) +
+  geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+
+::: {.callout-note title="Interprétatin" icon="true"}
+
+Comme le montre la @fig-type-caract, les caractéristiques des logements mettent en évidence un habitat dominé par des formes relativement simples, avec toutefois une présence importante de matériaux durables. Le type de logement (@fig-type-caract-1) est dominté par une configuration de plusieurs chambres contigues “Sodjaline” ou séparées `(68,5 %)`, devant les chambres uniques ou studios `(21,6 %)`, tandis que les autres configurations restent peu représentées. 
+
+Concernant la nature des matériaux de construction (@fig-type-caract-2), `50,5 %` des logements ont des murs en banco ou terre cuite, auxquels s’ajoutent `28,9 %` de murs en terre, contre seulement `19,4 %` en parpaings ou briques, ce qui traduit une forte utilisation des matériaux locaux. Pour le sol (@fig-type-caract-3), le ciment prédomine avec 59,1 %, mais une proportion encore importante de logements conserve un sol en terre battue `(39,8 %)`. Enfin (@fig-type-caract-4), les toitures sont majoritairement réalisées en tôle ondulée ou bac aluminium `(76,9 %)`, tandis que `17,6 %` utilisent des tôles de récupération et `4,3 %` des feuilles, claies ou branches. 
+
+Dans l’ensemble, ces résultats font apparaître un habitat combinant des éléments de modernisation, notamment à travers la prédominance des sols cimentés et des couvertures en tôle, avec le maintien de modes constructifs traditionnels, particulièrement pour les murs. La proportion importante de sols en terre battue, de murs en terre et, dans une moindre mesure, de couvertures réalisées avec des matériaux précaires surtout dans l'espace rural constitue également un indicateur à prendre en compte dans l’analyse de la qualité et de la vulnérabilité des logements.
+:::
+
+#### - Conflits fonciers et leur résolution
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+#| label: tbl-conflit-foncier
+#| tbl-cap: "Existence de conflit foncier"
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_conflit_foncier)) |>
+  tabyl(habitat_conflit_foncier) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Conflit foncier" = habitat_conflit_foncier, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=50%}
+
+```{r}
+#| echo: false
+#| label: tbl-conflit-qui
+#| tbl-cap: "Conflit foncier avec qui"
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_conflit_foncier_avec_qui)) |>
+  tabyl(habitat_conflit_foncier_avec_qui) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Avec qui ?" = habitat_conflit_foncier_avec_qui, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+:::
+::::
 
 
+```{r}
+#| echo: false
+#| label: tbl-conflit-resolu
+#| tbl-cap: "Résolution des conflits fonciers"
+data_tchaoudjo2 |>
+  filter(!is.na(habitat_resolu)) |>
+  tabyl(habitat_resolu) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Conflit résolu" = habitat_resolu, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
 
+::: {.callout-note title="Interprétation" icon="true"}
 
+Les résultats montrent que les conflits fonciers déclarés restent relativement peu fréquents parmi les ménages enquêtés : `3,2 %` (47 ménages) déclarent avoir connu un conflit foncier, contre `76,2 %` qui indiquent ne pas en avoir connu (@tbl-conflit-foncier). Il convient toutefois de relever la proportion importante de réponses « Ne sais pas (NSP) » (20,6 %). Cette non-réponse peut traduire une méconnaissance de la situation foncière du ménage ou une réticence à se prononcer sur une question potentiellement sensible. 
 
+Parmi les 47 ménages ayant déclaré un conflit, ceux-ci opposent principalement le ménage à des membres de la famille `(36,2 %)` ou à la collectivité familiale `(34,0 %)` ; les autres parties représentent `21,3 %`, tandis que les conflits avec la `commune (8,5 %)` sont moins fréquents comme le montre la @tbl-conflit-qui. Le poids cumulé de la famille et de la collectivité `(70,2 %**)` suggère ainsi que les différends déclarés s'inscrivent principalement dans les rapports familiaux et communautaires liés au foncier. La résolution de ces conflits apparaît par ailleurs mitigée. 
 
+La @tbl-conflit-resolu montre que sur les 47 cas déclarés, `36,2 %` ont été résolus, tandis que `40,4 %` ne l'ont pas été et `23,4 %` sont encore en cours de résolution. Ainsi, près des deux tiers des conflits déclarés `(63,8 %)` ne sont pas encore définitivement réglés au moment de l'enquête. 
+
+Bien que le nombre de cas concernés reste limité, cette situation met en évidence des enjeux de sécurisation foncière, de prévention et de médiation des différends, particulièrement au niveau familial et communautaire. Dans une perspective de planification communale, ces résultats plaident notamment pour le renforcement des mécanismes locaux d'information sur les droits fonciers, de documentation et de sécurisation des transactions et transmissions foncières, ainsi que des dispositifs de médiation associant les acteurs communautaires et les institutions compétentes.
+:::
 
 ### - Accès à l'énergie et à l'électricité
 
+```{r}
+#| echo: false
+#| label: fig-energie-electricite
+#| fig-cap: "Accès à l'électricité et à l'énergie"
+#| fig-subcap:
+#|   - "Source d'éclairage"
+#|   - "Dépense mensuelle d'électricité"
+#|   - "Energie de cuisson"
+#|   - "Dépense mensuelle en énergie"
+#| layout: [[1,1], [1,1]]
+#| fig-width: 8
+#| fig-height: 5
+data_tchaoudjo2 |>
+  filter(!is.na(eclairage_source)) |>
+  count(eclairage_source) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(eclairage_source, pourcentage))) +
+  geom_col(color = "#1e3b4d", fill = "#4da6ff", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
 
+data_tchaoudjo2 |>
+  filter(!is.na(electricite_depense)) |>
+  count(electricite_depense) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(electricite_depense, pourcentage))) +
+  geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+
+data_tchaoudjo2 |>
+  filter(!is.na(energie_cuisson_source)) |>
+  count(energie_cuisson_source) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(energie_cuisson_source, pourcentage))) +
+  geom_col(color = "#58360e", fill = "#cd9c3b", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+
+data_tchaoudjo2 |>
+  filter(!is.na(energie_depense)) |>
+  count(energie_depense) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(energie_depense, pourcentage))) +
+  geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Il est observé une situation relativement favorable en matière d’accès à une source moderne d’éclairage, mais caractérisée par une forte complémentarité entre le réseau électrique conventionnel et l’énergie solaire (@fig-energie-electricite-1). L’électricité fournie par la CEET concerne `42,5 %` des ménages, tandis que les panneaux solaires représentent `40,5 %`. Ainsi, ces deux sources assurent à elles seules l’éclairage de `83,0 %` des ménages, avec une contribution du solaire presque équivalente à celle du réseau électrique. Cette situation témoigne du rôle majeur joué par les solutions solaires dans l’électrification des ménages, notamment comme alternative au réseau conventionnel. Néanmoins, une fraction des ménages reste dépendante de sources d’éclairage plus rudimentaires, principalement les lampes à pétrole ou bougies `(9,1 %)` et les lampes torches `(7,2 %)`, alors que les groupes électrogènes restent marginaux `(0,5 %)`.
+
+Les dépenses mensuelles consacrées à l’électricité apparaissent globalement faibles (@fig-energie-electricite-2) : `81,5 %` des ménages concernés dépensent moins de `5 000 FCFA` par mois et `13,9 %` entre `5 000` et `9 900 FCFA`. Les dépenses égales ou supérieures à `10 000 FCFA` ne concernent donc qu’une faible proportion des ménages. Ce profil doit toutefois être interprété en tenant compte de la forte présence du solaire dans les sources d’éclairage.
+
+En revanche, la situation est très différente pour l’énergie de cuisson, qui reste presque entièrement dépendante de la biomasse (@fig-energie-electricite-3). Le bois de chauffe est utilisé par `92,2 %` des ménages, auquel s’ajoutent `6,7 %` utilisant le charbon de bois et `0,4 %` combinant bois et charbon. Le gaz butane ne représente que `0,6 %`. Cette très forte dépendance aux combustibles ligneux constitue un enjeu important pour la commune, tant en matière de pression sur les ressources forestières que de transition vers des modes de cuisson plus propres. Elle est particulièrement pertinente à considérer dans la planification territoriale au regard des problématiques de gestion durable des ressources naturelles et de restauration des paysages.
+
+Enfin, la @(@fig-energie-electricite-4) montre que les dépenses mensuelles consacrées à l’énergie de cuisson sont également concentrées dans les tranches inférieures. `81,9 %` des ménages dépensent moins de `5 000 FCFA` par mois, contre `10,6 %` entre `5 000` et `9 900 FCFA` et `5,1 %` entre `10 000` et `14 900 FCFA`.
+
+Dans l’ensemble, les résultats révèlent donc un double profil énergétique : une diversification relativement importante des solutions d’éclairage, portée notamment par le solaire, mais une transition énergétique encore très limitée pour la cuisson, qui demeure fortement tributaire du bois-énergie. Les principaux enjeux concernent ainsi la poursuite de l’accès à une électricité fiable et abordable, particulièrement dans les zones insuffisamment desservies par le réseau, ainsi que la promotion progressive de solutions de cuisson plus efficaces et moins dépendantes des ressources forestières.
+:::
 
 ### - Situation par rapport à l'environnement, le changement climatique et les ressources forestières
 
