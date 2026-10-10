@@ -2510,7 +2510,7 @@ data_tchaoudjo2 |>
 
 ### Interprétation
 
-Les résultats montrent une forte prédominance de la propriété du logement parmi les ménages enquêtés (@tbl-statut-occupation) : `78,8 %**` déclarent être propriétaires de leur habitation. À cette proportion s’ajoutent `11,9 %` de ménages vivant dans une maison familiale, ce qui indique que plus de neuf ménages sur dix occupent un logement relevant de leur patrimoine propre ou familial. La location reste relativement peu répandue, concernant seulement `8,2 %` des ménages, tandis que l’occupation gratuite ou temporaire représente `1,0 %`. Cette structure traduit ainsi une forte stabilité résidentielle des ménages et un faible poids du marché locatif. .
+Les résultats montrent une forte prédominance de la propriété du logement parmi les ménages enquêtés (fig-statut-occupation) : `78,8 %**` déclarent être propriétaires de leur habitation. À cette proportion s’ajoutent `11,9 %` de ménages vivant dans une maison familiale, ce qui indique que plus de neuf ménages sur dix occupent un logement relevant de leur patrimoine propre ou familial. La location reste relativement peu répandue, concernant seulement `8,2 %` des ménages, tandis que l’occupation gratuite ou temporaire représente `1,0 %`. Cette structure traduit ainsi une forte stabilité résidentielle des ménages et un faible poids du marché locatif. .
 :::
 
 #### - Mode d'acquisition du terrain et de l'immeuble
@@ -2965,11 +2965,240 @@ Enfin, la @(@fig-energie-electricite-4) montre que les dépenses mensuelles cons
 Dans l’ensemble, les résultats révèlent donc un double profil énergétique : une diversification relativement importante des solutions d’éclairage, portée notamment par le solaire, mais une transition énergétique encore très limitée pour la cuisson, qui demeure fortement tributaire du bois-énergie. Les principaux enjeux concernent ainsi la poursuite de l’accès à une électricité fiable et abordable, particulièrement dans les zones insuffisamment desservies par le réseau, ainsi que la promotion progressive de solutions de cuisson plus efficaces et moins dépendantes des ressources forestières.
 :::
 
-### - Situation par rapport à l'environnement, le changement climatique et les ressources forestières
+### - Environnement, changement climatique et ressources forestières
 
+#### - Problèmes d'inondation vécu par les ménages
 
+```{r}
+#| echo: false
+#| label: tbl-inondation
+#| tbl-cap: "Problème d'inondation"
+data_tchaoudjo2 |>
+  filter(!is.na(inondation_probleme)) |>
+  tabyl(inondation_probleme) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Problème d'inondation" = inondation_probleme, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Les résultats montrent que la grande majorité des ménages enquêtés dans la commune de Tchaoudjo 2 `(88,0 %)` déclarent ne pas être confrontés à des problèmes d’inondation, contre `12,0 %` (175 ménages) qui affirment en subir. Bien que cette proportion reste relativement limitée, elle révèle l’existence de situations de vulnérabilité aux inondations susceptibles d'affecter les habitations, les biens des ménages, les infrastructures et les conditions de vie des populations concernées. Ces résultats soulignent ainsi la nécessité d’identifier les localités et les zones les plus exposées afin d’orienter les interventions communales en matière de prévention des risques d’inondation, d’amélioration du drainage des eaux pluviales et d’aménagement du territoire.
+:::
+
+#### - Effets du changement climatique perçus par les ménages
+
+```{r}
+#| echo: false
+#| output: false
+data_tchaoudjo2 <- data_tchaoudjo2 |>
+  mutate(
+    climat_changement_rec = case_when(
+      climat_changement %in% c(
+        "RAS",
+        "Irrégularité des pluies",
+        "Fortes chaleur",
+        "Poches de sécheresse",
+        "Les vents violents",
+        "L'érosion des sols",
+        "Inondations"
+      ) ~ climat_changement,
+
+      is.na(climat_changement) ~ NA_character_,
+
+      TRUE ~ "Combinaison de plusieurs effets"
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| label: tbl-climat-changement
+#| tbl-cap: "Modifications du climat perçues par le chef de ménage"
+data_tchaoudjo2 |>
+  filter(!is.na(climat_changement_rec)) |>
+  tabyl(climat_changement_rec) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Dommage d'inondation" = climat_changement_rec, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+La @tbl-climat-changement montre que `42,5 %` des ménages déclarent avoir observé une combinaison de plusieurs phénomènes dus aux changements climatiques, notamment l’irrégularité des pluies, les fortes chaleurs, les poches de sécheresse, les vents violents, les inondations et l’érosion des sols. Parmi les phénomènes signalés isolément, l’irrégularité des pluies arrive en tête `(8,8 %)`, suivie des vents violents `(4,5 %)`, de l’érosion des sols `(1,1 %)`, des inondations `(1,0 %)`, des fortes chaleurs `(0,7 %)` et des poches de sécheresse `(0,1 %)`. Toutefois, une proportion importante des ménages `(41,4 %)` déclare n’avoir constaté aucun phénomène particulier (RAS). 
+
+Ces résultats mettent en évidence une perception contrastée des manifestations du changement climatique, mais révèlent surtout que les ménages qui signalent des changements sont davantage confrontés à une combinaison de phénomènes qu’à des manifestations isolées. Dans une commune où les activités agricoles occupent une place prépondérante, ces perturbations climatiques perçues constituent des facteurs potentiels de vulnérabilité pour les systèmes de production, les ressources naturelles et les moyens de subsistance des populations. Elles soulignent ainsi l’importance d’intégrer l’adaptation au changement climatique, la gestion durable des terres, la conservation des eaux et des sols ainsi que la restauration des paysages forestiers dans les orientations stratégiques du Plan de développement communal.
+:::
+
+#### - Exploitation du bois et carbonisation
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+#| label: tbl-exploi-bois
+#| tbl-cap: "Exploitation du bois par le chef de ménage"
+data_tchaoudjo2 |>
+  filter(!is.na(bois_exploite)) |>
+  tabyl(bois_exploite) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Exploitation du bois" = bois_exploite, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-exploi-but
+#| tbl-cap: "But de l'exploitation du bois"
+data_tchaoudjo2 |>
+  filter(!is.na(bois_exploite_but)) |>
+  tabyl(bois_exploite_but) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("But de l'exploitation du bois" = bois_exploite_but, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+
+:::
+::::
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+#| label: tbl-carbonisation
+#| tbl-cap: "Carbonisation du bois pour du charbon"
+data_tchaoudjo2 |>
+  filter(!is.na(carbonisation)) |>
+  tabyl(carbonisation) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Carbonisation du bois" = carbonisation, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| label: tbl-reboisement
+#| tbl-cap: "Reboisement par le chef de ménage"
+data_tchaoudjo2 |>
+  filter(!is.na(reboisement)) |>
+  tabyl(reboisement) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Reboisement" = reboisement, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
+:::
+::::
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Les résultats des @tbl-exploi-bois et @tbl-exploi-but mettent en évidence une forte dépendance des populations aux ressources ligneuses, notamment pour la satisfaction des besoins énergétiques domestiques. En effet, `61,3 %` des ménages déclarent exploiter le bois, contre `38,7 %` qui ne le font pas. Parmi les ménages exploitant cette ressource, `90,7 %` l'utilisent principalement à des fins domestiques, notamment pour la cuisson et la transformation des produits, tandis que `9,3 %` l'exploitent à des fins commerciales. Cette prédominance de l'usage domestique confirme l'importance du bois dans les conditions de vie des populations et rejoint les résultats précédents sur les sources d'énergie de cuisson, selon lesquels `92,2 %` des ménages utilisent principalement le bois de chauffe. Elle suggère que les besoins énergétiques domestiques constituent un facteur important de sollicitation des ressources forestières, même si l'utilisation du bois de chauffe n'implique pas nécessairement son exploitation directe par les ménages.
+
+Par ailleurs selon la @tbl-carbonisation, `20,1 %` des ménages déclarent pratiquer la carbonisation du bois pour produire du charbon, contre `79,9 %` qui ne s'y adonnent pas. Cette activité constitue une autre forme de valorisation des ressources ligneuses, susceptible de contribuer aux moyens de subsistance des ménages, mais également d'accentuer la pression sur les ressources forestières lorsque les prélèvements ne sont pas compensés par une gestion durable.
+
+En matière de restauration des ressources forestières, les résultats de la @tbl-reboisement révèlent que seulement `29,6 %` des ménages déclarent pratiquer le reboisement, contre `70,4 %` qui n'y participent pas. Ce faible niveau de participation contraste avec l'importance de l'exploitation du bois et des besoins énergétiques domestiques. À titre de comparaison, la proportion de ménages déclarant exploiter le bois `(61,3 %)` est plus de deux fois supérieure à celle des ménages pratiquant le reboisement `(29,6 %)`. Cette différence suggère un déséquilibre potentiel entre les pratiques de prélèvement et les initiatives de renouvellement des ressources ligneuses. Toutefois, elle ne permet pas, à elle seule, de conclure à un déficit effectif de régénération forestière, qui dépend également des quantités de bois prélevées, des superficies reboisées, du taux de survie des plants et de la régénération naturelle.
+
+Dans l'ensemble, ces résultats mettent en évidence un enjeu majeur de gestion durable des ressources forestières dans la commune de Tchaoudjo 2. Ils soulignent la nécessité de concilier les besoins énergétiques et économiques des ménages avec la préservation du couvert végétal, notamment à travers la promotion de foyers améliorés, le développement de solutions alternatives de cuisson, l'agroforesterie, la régénération naturelle assistée et le renforcement des initiatives communautaires de reboisement. Ces orientations s'inscrivent directement dans la perspective de restauration des paysages forestiers, qui constitue une priorité transversale du développement communal.
+:::
 
 ### - Transport et mobilité
+
+```{r}
+#| echo: false
+#| label: fig-deplacement
+#| fig-cap: "Déplacements du chef de ménage hors de la ommune"
+#| fig-subcap:
+#|   - "Frequence de déplacement"
+#|   - "Principal moyen de déplacement"
+#| layout-ncol: 2
+#| # layout: [[1,1], [1,1]]
+#| fig-width: 8
+#| fig-height: 5
+
+data_tchaoudjo2 |>
+  filter(!is.na(deplacement_frequence)) |>
+  count(deplacement_frequence) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(deplacement_frequence, pourcentage))) +
+  geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+      theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+
+data_tchaoudjo2 |>
+  filter(!is.na(deplacement_principal_moyen)) |>
+  count(deplacement_principal_moyen) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  ggplot(aes(x = pourcentage, y = reorder(deplacement_principal_moyen, pourcentage))) +
+  geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
+  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Pourcentage (%)", y = "") +
+  theme_bw() +
+        theme(
+    # Modalités de l'axe Y
+    axis.text.y = element_text(size = 14),
+    # Graduations de l'axe X
+    axis.text.x = element_text(size = 14),
+    # Titres des axes
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    # Légende
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 11)
+  )
+```
+
+```{r}
+#| echo: false
+#| label: tbl-deplacement-cout
+#| tbl-cap: "Coût moyen mensuel lié aux déplacements/transports"
+data_tchaoudjo2 |>
+  filter(!is.na(deplacement_cout_mensuel)) |>
+  tabyl(deplacement_cout_mensuel) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Coût moyen mensuel" = deplacement_cout_mensuel, "Effectif" = n, "Pourcentage" = percent) |>
+  gt()
+```
 
 # - Conclusion
 
