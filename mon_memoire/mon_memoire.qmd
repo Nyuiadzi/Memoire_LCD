@@ -931,7 +931,7 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 # Recodage des modalités de la variable
 data_tchaoudjo2 <- data_tchaoudjo2 |> 
   mutate(
-    education_9_14ans_non_scolarise_raison = recode(
+    education_9_14ans_non_scolarise_raison = dplyr::recode(
       education_9_14ans_non_scolarise_raison,
       "Frais de scolarité élevés" = "Manque de moyens financiers",
       "A cause de maladie, infirmité ou accident" = "Maladie, infirmité ou accident",
