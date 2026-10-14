@@ -823,7 +823,7 @@ Cette association reste toutefois d’une **intensité faible à modérée**, co
 ```{r}
 #| echo: false
 #| label: tbl-educ-enfant
-#| tbl-cap: "Niveau d'étude chef de ménage et Scolarisation des enfants de 9 à 14 ans"
+#| tbl-cap: "Niveau d'étude chef de ménage et Non scolarisation des enfants de 9 à 14 ans"
 data_tchaoudjo2 |> 
   filter(education_niveau_etude != "NSP") |> # suppression de la modalité "NSP"
   tabyl(education_niveau_etude, education_9_14ans_non_scolarise) |>
