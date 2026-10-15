@@ -181,9 +181,9 @@ Les informations recueillies auprès du chef de ménage ont permis ainsi de cara
 
 ## - Échantillonnage
 
-Dans le cadre de l’enquête auprès des ménages, un échantillonnage stratifié géographique a été retenu afin de garantir une couverture représentative des différentes parties du territoire communal. La commune, dont la population totale est de 24 891 habitants selon le Recensemsent Général de la Population et de l'Habitat (RGPH 5, 2022), a été subdivisée en quatre strates géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest. Sur la base d'une hypothèse moyenne de 5 personnes par ménage, la population communale correspond à environ 4 978 ménages.
+Dans le cadre de l’enquête auprès des ménages, un échantillonnage stratifié géographique a été retenu afin de garantir une couverture représentative des différentes parties du territoire communal. La commune, dont la population totale est de 24 891 habitants selon le Recensement Général de la Population et de l'Habitat (RGPH 5, 2022), a été subdivisée en quatre strates géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest. Sur la base d'une hypothèse de 5 personnes par ménage en moyenne, la population communale correspond à environ 4 978 ménages.
 
-En tenant compte de la proportion de population des localités selon le RGPH 5 2022, la répartition des ménages entre les quatre strates est la suivante : 1 039 ménages dans la zone Nord-Est (20,9 %), 877 ménages dans la zone Nord-Ouest (17,6 %), 2 431 ménages dans la zone Sud-Est (48,8 %) et 631 ménages dans la zone Sud-Ouest (12,7 %). Cette stratification permet de tenir compte de la répartition spatiale de la population et d'assurer la présence de chacune des zones dans l'échantillon.
+En tenant compte de la proportion de population des localités selon le RGPH 5, la répartition des ménages entre les quatre strates est la suivante : 1 039 ménages dans la zone Nord-Est (20,9 %), 877 ménages dans la zone Nord-Ouest (17,6 %), 2 431 ménages dans la zone Sud-Est (48,8 %) et 631 ménages dans la zone Sud-Ouest (12,7 %). Cette stratification permet de tenir compte de la répartition spatiale de la population et d'assurer la présence de chacune des zones dans l'échantillon.
 
 La taille minimale de l'échantillon a ensuite été déterminée indépendamment pour chacune des quatre strates, à partir de la formule de Dagnelie pour l'estimation d'une proportion dans une population finie. Cette approche permet d'adapter la taille de l'échantillon à la population de chaque zone, plutôt que de calculer un seul échantillon pour l'ensemble de la commune et de le répartir mécaniquement entre les zones. La taille finale de l'échantillon communal correspond à la somme des tailles minimales obtenues pour les quatre strates.
 
@@ -218,7 +218,7 @@ La @tbl-echantillon présente l’échantillon minimum représentatif pour chaqu
 
 ## - Outils de collecte de données
 
-Pour la collecte des données, nous avons utilisé l'outils Kobotoolbox et l'application mobile KoboCollect sur Android. Ces outils ont l'avantage d'être gratuit et open sources. Aussi, le mode hors ligne disponible est idéal pour le terrain ainsi que la prise en charge de la géolocalisation et du multimédia (image, vidéo, audio). La plateforme Kobotoolbox a permis d'élaborer le questionnaire, de paramétrer les sauts conditionnels, la sélection en cascade et les critères de validation. Ces applications présente aussi l’avantage de géoréférencer les unités enquêtés, de suivre l'évolution des agents de collecte sur le terrain, de disposer des données en temps réel et de faciliter les contrôles des données à distance.
+Pour la collecte des données, nous avons utilisé l'outils Kobotoolbox et l'application mobile KoboCollect sur Android. Ces outils ont l'avantage d'être gratuit et open sources. Aussi, le mode hors ligne disponible est idéal pour le terrain ainsi que la prise en charge de la géolocalisation et du multimédia (image, vidéo, audio). La plateforme Kobotoolbox a permis d'élaborer le questionnaire, de paramétrer les sauts conditionnels, la sélection en cascade et les critères de validation. Ces applications présentent aussi l’avantage de géoréférencer les unités enquêtées, de suivre l'évolution des agents de collecte sur le terrain, de disposer des données en temps réel et de faciliter les contrôles des données à distance.
 
 ## - Le questionnaire d'enquête et le dictionnaire de données
 
@@ -259,7 +259,7 @@ La communication et la sensibilisation ont été assuré par la mairie de Tchaou
 
 La collecte des données a durée trois (03) jours, du 6 au 8 août 2026. La méthode de collecte retenue est "l’interview directe". Cette méthode consiste à se présenter dans chaque ménage, à poser des questions au Chef de ménage ou son répondant, c’est-à-dire tout autre membre capable d’y répondre et à enregistrer les renseignements recueillis. Les enquêteurs ont été répartis en 4 groupes selon les zones avec 3 superviseurs pour suivre et intervenir en cas de difficulté.
 
-La collecte de données sur le terrain est assurée par les agents d'enquête à l’aide des smartphoses via l'application mobile KoboCollect. Les agents d'enquête collectent les données qui sont ensuite transférées automatiquement par internet sur un serveur de Kobotoolbox. Les Superviseurs consultes le nombre d'enquête réalisé chaque jour par chaque agent d'enquête et font le point au Chef de mission. Ce dernier vérifie en fin de journée sur Kobotoolbox les données collectées et les localités couvertes pour déceler des incohérences éventuelles.
+La collecte de données sur le terrain est assurée par les agents d'enquête à l’aide des smartphones via l'application mobile KoboCollect. Les agents d'enquête collectent les données qui sont ensuite transférées automatiquement par internet sur un serveur de Kobotoolbox. Les Superviseurs consultes le nombre d'enquête réalisé chaque jour par chaque agent d'enquête et font le point au Chef de mission. Ce dernier vérifie en fin de journée sur Kobotoolbox les données collectées et les localités couvertes pour déceler des incohérences éventuelles.
 
 ## - Outils de traitement et d'analyse
 
@@ -290,6 +290,7 @@ La @tbl-echantillon_realise ci-dessous présente le nombre de ménages enquêté
 | Sud-Est           |     210 |       369 |       441 |
 | Sud-Ouest         |     266 |       313 |       313 |
 | **Total général** | **855** | **1 292** | **1 458** |
+
 
 ## - Installation des packages
 
