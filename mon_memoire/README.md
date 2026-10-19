@@ -1,6 +1,6 @@
 # Analyse des conditions socioéconomiques et de l’accès aux services essentiels à Tchaoudjo 2
 
-Ce dépôt contient le mémoire de **Nyuiadzi Komi ZIKPI** consacré aux conditions socioéconomiques des ménages de la commune de Tchaoudjo 2 et aux facteurs associés à leur accès aux services essentiels.
+Ce dépôt contient l'étude consacrée aux conditions socioéconomiques des ménages de la commune de Tchaoudjo 2 et aux facteurs associés à leur accès aux services essentiels.
 
 L’étude s’inscrit dans le cadre de l’élaboration du Plan de développement communal (PDC). Elle mobilise les données d’une enquête menée auprès des ménages du 6 au 8 août 2026 dans quatre zones géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest.
 
