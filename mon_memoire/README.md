@@ -1,14 +1,12 @@
 # Analyse des conditions socioéconomiques et de l’accès aux services essentiels à Tchaoudjo 2
 
-Ce dépôt contient l'étude consacrée aux conditions socioéconomiques des ménages de la commune de Tchaoudjo 2 et aux facteurs associés à leur accès aux services essentiels.
-
-L’étude s’inscrit dans le cadre de l’élaboration du Plan de développement communal (PDC). Elle mobilise les données d’une enquête menée auprès des ménages du 6 au 8 août 2026 dans quatre zones géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest.
+Ce dépôt contient l'étude consacrée aux conditions socioéconomiques des ménages de la commune de Tchaoudjo 2 et aux facteurs associés à leur accès aux services essentiels. L’étude s’inscrit dans le cadre de l’élaboration du Plan de développement communal (PDC). Elle mobilise les données d’une enquête menée auprès des ménages du 6 au 8 août 2026 dans quatre zones géographiques : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest de la commune de Tchaoudjo 2.
 
 ## Objectif de l’étude
 
 L’objectif général est d’analyser les conditions socioéconomiques des ménages et les facteurs associés à leur accès aux services essentiels, afin d’en dégager les principaux enjeux pour le développement communal.
 
-Plus précisément, le mémoire vise à :
+Plus précisément, l'étude vise à :
 
 - caractériser le profil démographique et socioéconomique des ménages de Tchaoudjo 2 ;
 - étudier les différences d’accès aux services essentiels selon les caractéristiques des ménages et leur localisation ;
@@ -18,7 +16,7 @@ Plus précisément, le mémoire vise à :
 
 L’analyse porte sur **1 458 ménages enquêtés**. Le questionnaire couvre notamment la démographie, l’éducation, l’emploi, les revenus, l’habitat, l’eau, la santé, l’hygiène et l’assainissement, l’énergie, l’environnement ainsi que le transport et la mobilité.
 
-Le traitement est réalisé avec **R** dans un document **Quarto**. Les méthodes mobilisées comprennent les statistiques descriptives, les tableaux croisés, les tests du Khi-deux et de Fisher, le V de Cramér, la comparaison de moyennes, l’ANOVA, le test de Kruskal-Wallis et, lorsque cela est pertinent, des analyses économétriques pour variables qualitatives.
+Le traitement est réalisé avec **R** dans un document **Quarto**. Les méthodes mobilisées comprennent les statistiques descriptives, les tableaux croisés, les tests du Khi-deux et de Fisher, le V de Cramér, la comparaison de moyennes, le test de Kruskal-Wallis.
 
 ## Organisation du projet
 

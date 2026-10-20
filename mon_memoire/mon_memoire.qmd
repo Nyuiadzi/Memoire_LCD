@@ -298,15 +298,15 @@ La @tbl-echantillon_realise ci-dessous présente le nombre de ménages enquêté
 #| echo: true
 if (!require(pacman)) install.packages("pacman")
 
-pacman::p_load(tidyverse, readxl, janitor, here,
+pacman::p_load(tidyverse, readxl, tidyr, janitor, here,
               gt, flextable, gtsummary, gtExtras)
 ```
 
 **Rôle des différents packages utilisés dans l'analyse des données :**
 
 - **pacman** : permet d'installer et de charger facilement plusieurs packages.
-- **tidyverse** : est un ensemble de packages pour la manipulation et la visualisation des données. Il contient entre autres `dplyr`, `ggplot2`, `readr` qui sont utilisés dans ce rapport.
-- **readxl, readr** : Packages pour lire des fichiers csv, Excel et texte.
+- **tidyverse** : est un ensemble de packages pour la manipulation et la visualisation des données. Il contient entre autres `dplyr`, `ggplot2`, qui sont utilisés dans ce rapport.
+- **readxl** : Packages pour lire des fichiers csv, Excel et texte.
 - **janitor** : Package pour le nettoyage des données et la création de tableau de fréquences.
 - **tidyr** : pour réorganiser et restructurer les tableaux en format long ou inversement selon les besoins.
 - **here** : pour gérer les chemins de fichiers.
@@ -443,8 +443,7 @@ data_tchaoudjo2 |>
   gt()
 ```
 
-::: callout-note
-## **Interprétation**
+::: {.callout-note title="Interprétation" icon="true"}
 
 Les résultats de la @tbl-situation_matri montrent que la grande majorité des chefs de ménage enquêtés vivent en couple ou sont mariés. Cette catégorie représente `70,1 %` des répondants, soit 1 022 personnes sur les 1 458 enquêtées. 
 Les veufs et veuves constituent la deuxième catégorie la plus importante, avec `17,9 %` des répondants (261 personnes), devant les célibataires qui représentent `9,8 %` (143 personnes). Les personnes divorcées sont, quant à elles, faiblement représentées avec seulement `2,2 %` (32 personnes). Au total, près de trois chefs de ménage sur dix (`29,9 %`) ne vivent donc pas en couple au moment de l’enquête.
@@ -487,11 +486,71 @@ v_cramer <- DescTools::CramerV(
 paste("La valeur du V de Cramer est égal à :", round(v_cramer, 2))
 ```
 
-::: callout-note
-## **Interprétation**
 
-Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, `Khi2(3) = 463,9`, `p < 0,001`. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de `7,79`. Le V de Cramér `V = 0,564` révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs.
+```{r}
+#| echo: false
+#| output: false
+# Tableau de contingence
+tab_matri_sexe <- table(
+  data_tchaoudjo2$situation_matri,
+  data_tchaoudjo2$sexe
+)
+
+# Test du khi-deux
+khi2_matri_sexe <- chisq.test(tab_matri_sexe)
+
+# Effectifs observés
+khi2_matri_sexe$observed
+
+# Effectifs attendus
+round(khi2_matri_sexe$expected, 2)
+
+# Résidus standardisés
+round(khi2_matri_sexe$stdres, 2)
+```
+
+```{r}
+#| echo: false
+#| output: false
+residus <- round(khi2_matri_sexe$stdres, 2)
+
+# Tableau indiquant les associations significatives
+interpretation_residus <- ifelse(
+  residus > 1.96,
+  "Surreprésenté",
+  ifelse(residus < -1.96, "Sous-représenté", "Écart non significatif")
+)
+
+interpretation_residus
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+data.frame(
+  Statut_matrimonial = rep(
+    rownames(khi2_matri_sexe$observed),
+    times = ncol(khi2_matri_sexe$observed)
+  ),
+  Sexe = rep(
+    colnames(khi2_matri_sexe$observed),
+    each = nrow(khi2_matri_sexe$observed)
+  ),
+  Effectif_observe = as.vector(khi2_matri_sexe$observed),
+  Effectif_attendu = round(as.vector(khi2_matri_sexe$expected), 2),
+  Residu_standardise = round(as.vector(khi2_matri_sexe$stdres), 2),
+  Interpretation = as.vector(interpretation_residus)
+)
+```
+
+::: {.callout-note title="Interprétation" icon="true"}
+
+Le test du Khi-deux met en évidence une association statistiquement significative entre le sexe et la situation matrimoniale du chef de ménage, `Khi2(3) = 463,9`, `p < 0,001`. Les conditions d’application du test sont respectées, l’effectif théorique minimal étant de `7,79`. Le V de Cramér `V = 0,564` révèle par ailleurs une association importante entre les deux variables. Cette relation se caractérise principalement par une forte représentation des hommes parmi les chefs de ménage mariés ou vivant en couple et, inversement, par une forte représentation des femmes parmi les chefs de ménage veufs. 
+
+Ainsi, dans l’échantillon étudié, le statut de chef de ménage masculin est principalement associé au mariage ou à la vie en couple, tandis que le statut de chef de ménage féminin est beaucoup plus fréquemment lié au veuvage et, dans une moindre mesure, au divorce ou au célibat. Ces résultats décrivent une association statistique et ne permettent pas d’établir une relation de causalité.
 :::
+
 
 #### - Ethnie et religion du chef de ménage
 
