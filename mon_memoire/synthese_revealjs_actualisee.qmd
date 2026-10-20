@@ -1,0 +1,744 @@
+---
+title: "Diagnostic du PDC de Tchaoudjo 2"
+subtitle: "Synthèse territoriale · Atelier de validation du rapport diagnostic"
+author: ""
+date: "2026-10-20"
+date-format: "DD/MM/YYYY"
+lang: fr
+format:
+  revealjs:
+    theme: dark
+    background-color: "#081b30"
+    slide-level: 2
+    width: 1280
+    height: 720
+    margin: 0.07
+    center: false
+    transition: fade
+    transition-speed: default
+    background-transition: fade
+    incremental: false
+    slide-number: c/t
+    show-slide-number: all
+    controls: true
+    progress: true
+    navigation-mode: linear
+    overview: true
+    history: true
+    hash: true
+    keyboard: true
+    touch: true
+    preview-links: false
+    embed-resources: true
+    footer: "Diagnostic territorial · PDC Tchaoudjo 2 · 2026"
+    include-in-header:
+      text: |
+        <style>
+        :root { --r-background-color:#081b30; --r-main-color:#edf3fa; --r-heading-color:#ffffff; --r-link-color:#65d9dc; --r-main-font:Arial,sans-serif; --r-heading-font:Arial,sans-serif; --r-main-font-size:29px; }
+        .reveal .slides {text-align:left;} .reveal h1{font-size:2.15em;line-height:1.12;} .reveal h2{font-size:1.48em;line-height:1.16;border-bottom:3px solid #36c4ce;padding-bottom:18px;margin-bottom:30px;} .reveal h3{font-size:1em;color:#65d9dc;} .reveal strong{color:#71dfe2;} .reveal p,.reveal li{line-height:1.35;} .reveal li{margin-bottom:16px;} .reveal table{font-size:.77em;width:100%;} .reveal th{color:#71dfe2;} .reveal td,.reveal th{padding:13px 15px;border-color:#38536b;} .reveal .footer{font-size:15px;color:#b7cadc;} .reveal .slide-number{color:#dbeaf5;background:transparent;} .reveal .source{font-size:17px;color:#b7cadc;margin-top:18px;line-height:1.3;} .reveal .message{border-left:5px solid #36c4ce;padding:12px 20px;background:#112c46;margin-top:22px;font-size:.87em;} .reveal .columns{gap:36px;} .reveal .chart{width:100%;height:auto;max-height:370px;} .reveal .big{font-size:2.8em;line-height:1.1;color:#71dfe2;font-weight:700;margin:15px 0;} .reveal .small{font-size:.78em;} .reveal section.chapter h2{font-size:2.3em;border:0;} .reveal section.chapter p{color:#bcdae9;} .reveal blockquote{background:transparent;box-shadow:none;font-style:normal;width:94%;border-left:5px solid #36c4ce;padding:20px;}
+        @media print{.reveal .fragment{opacity:1!important;visibility:visible!important;}}
+        </style>
+execute:
+  enabled: false
+---
+
+<!-- Document autonome : graphiques SVG intégrés, sans CSV ni package R requis.
+Rendu : quarto render synthese_revealjs_actualisee.qmd --to revealjs
+Navigation : flèches ; O = vue d'ensemble ; S = notes ; F = plein écran.
+Les graphiques reprennent les chiffres explicitement écrits dans la synthèse actualisée et le mémoire.
+Les résultats administratifs, cartographiques et déclaratifs sont distingués.
+Auteur à renseigner dans le YAML avant diffusion. Date à adapter à celle de l’atelier.
+Les pourcentages restent ceux publiés, sans recalcul à partir de données absentes.
+-->
+
+## Un diagnostic pour préparer les choix du PDC
+
+::: {.incremental}
+
+- Disposer d’une connaissance partagée du territoire et des conditions de vie.
+- Identifier les atouts, les disparités et les besoins prioritaires.
+- Relier les constats aux capacités institutionnelles et financières de la commune.
+
+:::
+::: {.message}
+**Objet de l’atelier :** examiner et consolider le diagnostic avant la programmation.
+:::
+
+
+
+## Parcours de la restitution
+
+1. **Démarche du diagnostic** et sources mobilisées.
+2. **Territoire et économie locale**.
+3. **Services essentiels et inclusion sociale**.
+4. **Environnement, mobilité et gouvernance**.
+5. **Orientations et points à valider**.
+
+
+## Méthodologie : une démarche participative et technique
+
+| Source | Modalités de collecte |
+|:--|:--|
+| Documentation | RGPH-4 et 5, monographies, rapports sectoriels, documents de la mairie |
+| Enquête ménages | **1 458 ménages** dans les quatre zones géographiques |
+| Concertation | **4 fora communautaires**, entretiens publics et privés |
+| Observation spatiale | Observations de terrain, services techniques, Géoportail et images satellitaires |
+
+::: {.message}
+Le croisement des sources documente les conditions de vie et le fonctionnement de la commune.
+:::
+
+
+
+## Analyse : croiser les chiffres, les perceptions et les cartes
+
+::: {.incremental}
+
+- **Quantitatif :** traitements statistiques, tableaux et graphiques sous R et Excel.
+- **Qualitatif :** analyse des échanges et structuration de la matrice FFOM.
+- **Spatial :** contrôle des données, cartographie et évolution de l’occupation du sol.
+- **Triangulation :** confrontation des résultats pour consolider les constats.
+
+:::
+
+::: {.notes}
+Les pourcentages d’enquête décrivent les répondants. Vérifier les dénominateurs et la pondération avant extrapolation. Les perceptions qualitatives et les données administratives ne se substituent pas les unes aux autres. Le CSV et les cartes sources ne sont pas joints : les graphiques sont reconstruits à partir des chiffres écrits, sans simulation de données.
+:::
+
+
+## Territoire et économie locale {.chapter data-transition="slide"}
+
+Des ressources productives réelles, une accessibilité et une diversification à renforcer.
+
+
+## Milieu physique et population : un territoire jeune
+
+| Indicateur | Valeur rapportée |
+|:--|:--|
+| Superficie | 468 km² |
+| Population en 2010 / 2022 | 20 768 / **24 891 habitants** |
+| Croissance annuelle indiquée | 1,7 % |
+| Population de moins de 20 ans | **53 %** |
+| Femmes dans la population | 50,6 % |
+
+::: {.message}
+La RN1, les plaines et les bas-fonds sont des atouts. Les reliefs compliquent la desserte de certaines localités.
+:::
+
+
+::: {.notes}
+Chiffres repris de la nouvelle synthèse. Le taux de croissance est celui indiqué dans le rapport, sans recalcul. Distinguer la part des femmes dans la population de celle des femmes chefs de ménage.
+:::
+
+
+## Occupation du sol : progression du bâti et recul forestier
+
+| Indicateur | 2000 | 2025 |
+|:--|:--|:--|
+| Espaces bâtis | 358,2 ha | **968,1 ha** |
+| Part des espaces forestiers | 38,3 % | **24,6 %** |
+
+::: {.message}
+Le rapport estime le recul forestier à **6 405,1 ha** entre 2000 et 2025.
+:::
+
+
+::: {.notes}
+Les surfaces forestières perdues et les pourcentages sont repris tels quels. Confirmer les classes d’occupation et la comparabilité des images avant validation. Les cartes ne sont pas jointes : aucun fond cartographique n’est recréé.
+:::
+
+
+## Foncier : sécurisation et réserves publiques à renforcer
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Sécurisation foncière"><title>Sécurisation foncière</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Absence de document foncier</text><rect x="420" y="60" width="486.78000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="916.78" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">85,4 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Terrain sans bornage officiel</text><rect x="420" y="127" width="507.3" height="34" rx="3" fill="#4ecbd3"/><text x="937.3" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">89,0 %</text></svg>
+```
+
+::: {.source}
+Bases distinctes : réponses foncières interprétables ; répondants à la question du bornage. Source : synthèse actualisée.
+:::
+
+::: {.message}
+Articuler le PDC avec le SDAU, sécuriser les emprises et constituer des réserves géoréférencées.
+:::
+
+
+::: {.notes}
+Un service de topographie existe. Aucune réserve foncière formellement constituée et sécurisée n’est documentée dans la synthèse. Les deux pourcentages ont des bases différentes.
+:::
+
+
+## Profil des ménages : des besoins à cibler
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Sexe des chefs de ménage"><title>Sexe des chefs de ménage</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Hommes</text><rect x="420" y="60" width="431.49" height="34" rx="3" fill="#4ecbd3"/><text x="861.49" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">75,7 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Femmes</text><rect x="420" y="127" width="138.51000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="568.51" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">24,3 %</text></svg>
+```
+
+::: {.source}
+Base : 1 458 ménages enquêtés. Source : enquête ménages, synthèse actualisée.
+:::
+
+::: {.message}
+**5 personnes à charge en médiane**. Les écarts d’instruction et les contraintes économiques appellent un ciblage adapté.
+:::
+
+
+::: {.notes}
+Ne pas confondre personnes à charge et taille du ménage. Les disparités d’instruction sont documentées dans le mémoire. La nouvelle synthèse donne aussi 24,35 % pour les femmes chefs de ménage : présentation harmonisée à une décimale.
+:::
+
+
+## Agriculture : premier pilier productif
+
+::: {.incremental}
+
+- **46,5 %** des chefs de ménage déclarent une profession agricole, d’élevage ou de pêche.
+- Maïs, soja, sorgho, riz et tubercules, avec l’anacarde et d’autres fruits.
+- Environ **30 coopératives** et **3 magasins** d’approvisionnement ou de stockage.
+- Production surtout pluviale, intrants coûteux, enclavement et mévente.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** améliorer les rendements, renforcer les coopératives et développer stockage et débouchés.
+:::
+
+
+::: {.notes}
+L’irrigation, la fertilité des sols et la résilience climatique complètent ces priorités. Ne pas confondre la catégorie professionnelle de l’enquête avec le poids du secteur dans le PIB communal, non mesuré ici.
+:::
+
+
+## Revenus : une fragilité économique importante
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Tranches de revenu déclarées"><title>Tranches de revenu déclarées</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Aucun revenu déclaré</text><rect x="420" y="60" width="306.09000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="736.09" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">53,7 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Moins de 52 500 FCFA</text><rect x="420" y="127" width="171.57000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="601.57" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">30,1 %</text></svg>
+```
+
+::: {.source}
+Base : 1 075 chefs de ménage, hors personnes sans emploi et élèves/étudiants. Source : mon_memoire.qmd, repris dans la synthèse.
+:::
+
+::: {.message}
+**63,6 % des ménages** signalent des difficultés à satisfaire leurs besoins essentiels.
+:::
+
+
+::: {.notes}
+Le sous-échantillon des revenus est documenté par le mémoire. Le revenu déclaré nul n’est pas une mesure exhaustive des ressources du ménage. La base de l’indicateur des besoins essentiels est différente.
+:::
+
+
+## Transformation : des initiatives à consolider
+
+| Point d’appui | Constat |
+|:--|:--|
+| Kasséna Pont | Agro Espoir Afrique SARL, CFIJ Togo et ONG AJA |
+| Pommes d’anacarde transformées | **5 tonnes en 2021 ; 100 tonnes en 2026**, selon le rapport |
+| Riz à Lama-Tessi | Formation de femmes à l’étuvage et au conditionnement |
+| Limite structurante | Une part importante des productions reste vendue brute |
+
+::: {.message}
+Faciliter le financement, l’énergie productive et les débouchés pour créer des emplois locaux.
+:::
+
+
+::: {.notes}
+Ces volumes décrivent l’initiative citée, sans représenter toute la production transformée de la commune. Vérifier le périmètre et la période de la donnée 2026 lors de la validation.
+:::
+
+
+## Artisanat : un potentiel d’emploi à mieux structurer
+
+::: {.incremental}
+
+- **Plus de 1 000 artisans** dans environ **25 corps de métier**, estimation à consolider.
+- Couture, coiffure, tissage, soudure, maçonnerie et menuiserie soutiennent l’auto-emploi.
+- Apprentissage traditionnel et collaboration mairie–Chambre de métiers.
+- Équipements, financement et débouchés restent limités.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** finaliser le recensement, mutualiser les équipements et renforcer apprentissage, certification et accès aux marchés.
+:::
+
+
+::: {.notes}
+Le centre artisanal est envisagé, non présenté comme réalisé. Prévoir gestion, sécurité au travail et inclusion des femmes, des jeunes et des personnes handicapées.
+:::
+
+
+## Commerce : des marchés à relier aux bassins de production
+
+::: {.incremental}
+
+- Trois grands marchés identifiés : **Lama-Tessi, Yara-Kabyè et Tchawaré**.
+- Le marché réhabilité de Kasséna dispose d’équipements marchands et sanitaires.
+- La proximité de Sokodé facilite les échanges et l’approvisionnement.
+- Activités largement informelles et de petite taille.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** moderniser les marchés, améliorer leur gestion et valoriser les produits locaux.
+:::
+
+
+::: {.notes}
+Compléter par l’hygiène, les déchets, le stockage, la réduction des pertes et l’accompagnement des commerçants. Le marché de Kasséna est mentionné séparément de la liste des trois grands marchés, conformément au document.
+:::
+
+
+## Services financiers : une proximité encore limitée
+
+::: {.incremental}
+
+- **UCMECT-TO à Lama-Tessi** : seule IMF signalée comme physiquement implantée.
+- Des institutions de Sokodé collectent périodiquement l’épargne.
+- Garanties, dossiers et délais limitent l’accès au crédit.
+- Les tontines « trois clés » soutiennent activités et dépenses familiales.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** adapter le financement aux petits acteurs et aux cycles agricoles, en reliant IMF, coopératives et tontines.
+:::
+
+
+::: {.notes}
+L’offre d’assurance reste à documenter. Ne pas supposer l’existence de produits de couverture des risques déjà opérationnels.
+:::
+
+
+## Tourisme : des ressources encore peu valorisées
+
+::: {.incremental}
+
+- Patrimoines cités : **Fazao-Malfakassa, Kalaré, Boubaridè et Akpakou**.
+- Les hôtels Colmar et La Référence et plusieurs auberges offrent une première capacité d’accueil.
+- Circuits, signalisation et promotion restent insuffisants.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** hiérarchiser les sites, structurer des circuits et améliorer l’accueil en préservant les patrimoines.
+:::
+
+
+::: {.notes}
+Associer les communautés, le guidage, l’artisanat et les produits du territoire. Aucun chiffre de fréquentation ou de capacité hôtelière n’est disponible dans cette synthèse.
+:::
+
+
+## Services essentiels et inclusion {.chapter data-transition="slide"}
+
+Des déficits d’accès qui appellent des interventions territorialisées.
+
+
+## Eau potable : des pannes et des déficits localisés
+
+| Inventaire au 31 juillet 2026 | Constat |
+|:--|:--|
+| Ouvrages recensés | **66** : 58 PMH, 7 postes autonomes et 1 AEP |
+| Fonctionnement | **48 en service ; 18 en panne**, toutes des PMH |
+| Points critiques | Yao-Kopé : 5 ouvrages sur 6 en panne ; Koboyo : l’unique ouvrage en panne |
+| Déficit estimé | **29 équivalents points d’eau**, dont 8 à Kasséna et 6 à Taré |
+
+::: {.message}
+Prioriser les localités sans point fonctionnel et organiser la maintenance.
+:::
+
+
+::: {.notes}
+Distinguer l’inventaire technique des résultats de l’enquête. Vérifier la méthode de calcul des équivalents points d’eau et la mise à jour du fonctionnement avant validation.
+:::
+
+
+## Eau : disponibilité et satisfaction à améliorer
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Difficultés d’accès au service"><title>Difficultés d’accès au service</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Sans point d’eau à domicile</text><rect x="420" y="60" width="365.37" height="34" rx="3" fill="#4ecbd3"/><text x="795.37" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">64,1 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Besoins insuffisamment couverts</text><rect x="420" y="127" width="368.79" height="34" rx="3" fill="#4ecbd3"/><text x="798.79" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">64,7 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Insatisfaction du service</text><rect x="420" y="194" width="389.31" height="34" rx="3" fill="#4ecbd3"/><text x="819.31" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">68,3 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants aux différentes questions ; indicateurs non additionnables. Source : synthèse actualisée.
+:::
+
+::: {.message}
+La distance, la continuité, la qualité et les usages concurrents doivent guider les investissements.
+:::
+
+
+::: {.notes}
+La nouvelle synthèse cite aussi 64,68 % de ruptures d’approvisionnement et 12,07 % traitant l’eau. Les ruptures et la couverture des besoins correspondent à des indicateurs distincts malgré des valeurs proches. Ne pas les fusionner.
+:::
+
+
+## Assainissement : un déficit d’équipements et de services
+
+| Indicateur | Valeur | Base |
+|:--|:--|:--|
+| Sans latrines à domicile | **81,3 %** | Ménages |
+| Défécation à l’air libre | **88,3 %** | Ménages sans latrines |
+| Rejet d’eaux usées dans la rue | **93,1 %** | Ménages répondants |
+| Dépotoirs sauvages ou informels | **98,7 %** | Ménages répondants |
+
+::: {.message}
+Soutenir les latrines adaptées, organiser la collecte et améliorer l’évacuation des eaux usées.
+:::
+
+
+::: {.notes}
+Les 88,3 % concernent uniquement les ménages sans latrines. Les contraintes financières appellent des solutions réalistes et une sensibilisation accompagnée de services effectifs. Inclure les sanitaires publics et l’entretien.
+:::
+
+
+## Santé : une offre de proximité sous contrainte
+
+| Ressources et accès | Constat rapporté |
+|:--|:--|
+| Personnel | 8 infirmiers, 1 sage-femme et 44 agents communautaires |
+| Médecin affecté | Aucun selon le diagnostic |
+| USP | Principales structures fréquentées : **85,5 %** |
+| Assurance santé | **86,6 %** des ménages sans assurance |
+
+::: {.message}
+Renforcer les équipes, les équipements, le transport des urgences et la protection financière.
+:::
+
+
+::: {.notes}
+Le document présente deux valeurs d’automédication : 63,79 % et 63,9 %. Elles ne correspondent pas au même arrondi : rapprochement des bases et de la version de calcul requis. La valeur n’est donc pas retenue comme chiffre de projection. Approvisionnement principal dans la rue : 41,63 %, à vérifier avec la base correspondante. Le paludisme reste la pathologie dominante citée.
+:::
+
+
+## Éducation : accueil et encadrement fragilisés
+
+| Indicateur | Situation rapportée |
+|:--|:--|
+| Préscolaire en 2025-2026 | **14 salles sur 27** en matériaux non durables |
+| Primaire | 4 établissements sans bâtiment en dur, environ 645 élèves |
+| Enseignants, 2021-2022 / 2025-2026 | **151 / 116** |
+| Élèves, mêmes périodes | 6 434 / 5 779 |
+| CEPD / cantines | **60,26 %** de réussite ; aucune cantine fonctionnelle signalée |
+
+::: {.message}
+Réhabiliter les écoles, renforcer les apprentissages et réduire les obstacles à la poursuite des études.
+:::
+
+
+::: {.notes}
+La comparaison régionale et nationale est mentionnée sans inventer de taux absents du fichier. Vérifier les périmètres d’établissements, les effectifs et les séries temporelles. Prévoir eau, latrines séparées, accessibilité et alimentation scolaire.
+:::
+
+
+## Protection sociale : des appuis et des moyens limités
+
+::: {.incremental}
+
+- Le centre social de Lama-Tessi couvre la commune avec **un seul agent** et peu de moyens.
+- En 2025 : **481 ménages** retenus pour les transferts sociaux.
+- Le dispositif EJV concerne **140 jeunes, dont 86 femmes**.
+- Absence de protocole communal formalisé de référencement signalée.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** renforcer le centre social, sécuriser le registre et coordonner les prises en charge.
+:::
+
+
+::: {.notes}
+ANADEB, Plan International, PAFED et INABAC apportent des appuis. Violences, travail des enfants et grossesses ou mariages précoces sont signalés qualitativement. Préserver confidentialité et protection des données. Suivre l’insertion et les AGR après appui.
+:::
+
+
+## Genre : reconnaître la contribution et renforcer le pouvoir d’agir
+
+::: {.incremental}
+
+- Les femmes dirigent environ **24,3 % des ménages enquêtés**.
+- Leur contribution à l’économie et aux dépenses familiales est importante.
+- Les focus groups signalent un pouvoir masculin dominant sur les ressources et décisions stratégiques.
+- Charges domestiques et corvées d’eau réduisent le temps disponible.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** budgétisation sensible au genre, accès aux ressources et participation effective aux décisions.
+:::
+
+
+::: {.notes}
+Les violences et pratiques néfastes sont des constats qualitatifs, sans taux de prévalence établi. Organiser un référencement confidentiel et soutenir des revenus autonomes et un accès sécurisé au crédit.
+:::
+
+
+## Handicap : deux indicateurs à ne pas confondre
+
+| Source / unité | Résultat rapporté |
+|:--|:--|
+| FETAPH : personnes | Environ **2 070 personnes**, soit 8,3 % apparents, à vérifier |
+| Enquête : ménages | Environ **12 %** comptent un membre en situation de handicap |
+| École primaire | **42 élèves** concernés, sans salle adaptée recensée |
+
+::: {.message}
+Consolider les données, auditer l’accessibilité et formaliser une politique communale d’inclusion.
+:::
+
+
+::: {.notes}
+Les deux premières proportions ne sont pas comparables : individus et ménages sont des unités distinctes. Vérifier l’année, le territoire et la définition du handicap dans la donnée FETAPH. Consulter les personnes concernées et formaliser les engagements budgétaires.
+:::
+
+
+## Jeunesse et sport : participation et équipements à renforcer
+
+::: {.incremental}
+
+- Faible organisation et participation des jeunes selon les entretiens.
+- Une dizaine de clubs de football et le Vaillant Badminton Club.
+- Deux terrains jugés acceptables : **Lama-Tessi et Kasséna**.
+- PAFED a appuyé **50 jeunes athlètes** de badminton entre 2024 et 2025.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** compléter le diagnostic jeunesse, instaurer le dialogue avec la mairie et entretenir les sites.
+:::
+
+
+::: {.notes}
+Ne pas généraliser les 50 bénéficiaires à tous les jeunes de la commune. Diversifier les disciplines, renforcer la sécurité et l’encadrement, associer filles, personnes handicapées et jeunes non scolarisés.
+:::
+
+
+## Habitat : une propriété fréquente, un confort à améliorer
+
+::: {.incremental}
+
+- **78,8 %** des ménages se déclarent propriétaires de leur logement.
+- Terre et banco restent présents dans les murs.
+- Près de **quatre logements sur dix** ont un sol en terre battue.
+- Assainissement, drainage et accès aux équipements conditionnent aussi le cadre de vie.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** améliorer progressivement les logements et promouvoir des techniques adaptées aux pluies et aux ressources locales.
+:::
+
+
+::: {.notes}
+La propriété déclarée n’établit pas la sécurisation juridique du terrain. Les matériaux traditionnels ne prouvent pas à eux seuls l’insalubrité.
+:::
+
+
+## Énergie : éclairage diversifié, cuisson au bois dominante
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Indicateurs énergétiques"><title>Indicateurs énergétiques</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Éclairage : réseau CEET</text><rect x="420" y="60" width="242.25" height="34" rx="3" fill="#4ecbd3"/><text x="672.25" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">42,5 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Éclairage : panneaux solaires</text><rect x="420" y="127" width="230.85" height="34" rx="3" fill="#4ecbd3"/><text x="660.85" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">40,5 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Cuisson : bois de chauffe</text><rect x="420" y="194" width="525.5400000000001" height="34" rx="3" fill="#4ecbd3"/><text x="955.5400000000001" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">92,2 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants. Éclairage et cuisson relèvent de questions différentes. Source : synthèse actualisée.
+:::
+
+::: {.message}
+**83 %** utilisent le réseau ou le solaire pour l’éclairage. Promouvoir la cuisson efficace et les usages productifs de l’énergie.
+:::
+
+
+::: {.notes}
+83 % décrit les sources d’éclairage, sans mesurer la continuité, la puissance disponible ou l’accès complet à tous les usages électriques. Les trois barres ne s’additionnent pas.
+:::
+
+
+## Environnement, mobilité et gouvernance {.chapter data-transition="slide"}
+
+Protéger les ressources et renforcer les capacités d’action communales.
+
+
+## Environnement : des risques à traiter localement
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Risques et changements perçus"><title>Risques et changements perçus</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Inondations déclarées</text><rect x="420" y="60" width="68.4" height="34" rx="3" fill="#4ecbd3"/><text x="498.4" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">12,0 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Érosion citée</text><rect x="420" y="127" width="240.54000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="670.54" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">42,2 %</text></svg>
+```
+
+::: {.source}
+Bases : enquêtés concernés par chaque question ; phénomènes et indicateurs distincts. Source : synthèse actualisée.
+:::
+
+::: {.message}
+Protéger sols et berges, entretenir le drainage et cibler les points critiques à partir des cartes de risques.
+:::
+
+
+::: {.notes}
+Les inondations concernent notamment Kasséna, Lama-Tessi et Solaou. Les perceptions ne constituent pas une mesure météorologique. La synthèse rapporte aussi 42,5 % signalant une combinaison de phénomènes climatiques. Intégrer les cultures adaptées, la maîtrise de l’eau et la prévention communautaire.
+:::
+
+
+## Forêts : des prélèvements et une restauration à articuler
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Usages et restauration forestière"><title>Usages et restauration forestière</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Exploitation du bois</text><rect x="420" y="60" width="349.40999999999997" height="34" rx="3" fill="#4ecbd3"/><text x="779.41" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">61,3 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Carbonisation</text><rect x="420" y="127" width="114.57000000000001" height="34" rx="3" fill="#4ecbd3"/><text x="544.57" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">20,1 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Participation au reboisement</text><rect x="420" y="194" width="168.72000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="598.72" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">29,6 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants ; pratiques pouvant se cumuler. Source : synthèse actualisée.
+:::
+
+::: {.message}
+Protéger Kalaré, les forêts-galeries et les berges ; développer agroforesterie et régénération naturelle.
+:::
+
+
+::: {.notes}
+Fazao-Malfakassa et le parc à karité de Boutonou sont aussi cités. La part forestière passe de 38,3 % à 24,6 % entre 2000 et 2025, présentée en début de restitution. Valoriser karité, miel et produits forestiers sans surexploitation. Prévoir l’entretien des plantations et espaces verts.
+:::
+
+
+## Transport : la RN1 ne lève pas l’enclavement rural
+
+::: {.incremental}
+
+- La **RN1 traverse la commune sur environ 19 km**.
+- Pistes dégradées en saison des pluies et ouvrages de franchissement insuffisants.
+- Kominiboua, Boutonou, Faring et Tondja sont cités comme enclavés.
+- **77,1 %** des ménages déclarent se déplacer rarement.
+
+:::
+::: {.message}
+**Enjeux prioritaires :** assurer des liaisons praticables vers marchés et services, sécuriser les traversées et organiser les taxi-motos.
+:::
+
+
+::: {.notes}
+Taxi-motos : mobilité, emplois et contribution aux recettes. La rareté des déplacements peut tenir à la proximité ou aux contraintes, sans démontrer une cause unique. Prioriser ponts, dalots et ponceaux et améliorer l’accessibilité des personnes à mobilité réduite.
+:::
+
+
+## Vulnérabilités : des réponses à coordonner
+
+| Constats croisés | Réponse à articuler |
+|:--|:--|
+| Faibles ressources et coûts des services | Accessibilité financière et revenus |
+| Déficits eau–assainissement et risques sanitaires | Équipements, services et prévention |
+| Agriculture et aléas climatiques | Adaptation et diversification |
+| Enclavement et débouchés limités | Pistes, marchés et services de proximité |
+
+::: {.message}
+Une approche territoriale intégrée permet de relier inclusion sociale, économie et durabilité.
+:::
+
+
+::: {.notes}
+Ces interactions sont des pistes d’interprétation. Elles ne constituent pas des relations causales établies par l’enquête.
+:::
+
+
+## Gouvernance : des acquis à structurer
+
+| Organisation | Diagnostic |
+|:--|:--|
+| Conseil municipal | **15 conseillers, dont 2 femmes** ; 3 commissions permanentes |
+| Administration | **8 agents, dont 4 femmes** |
+| Dialogue citoyen | CVD, réunions communautaires et Bureau du Citoyen depuis octobre 2025 |
+| Outils internes | Organigramme, fiches de poste et manuel de procédures non documentés |
+
+::: {.message}
+Clarifier les responsabilités, renforcer le montage de projets et donner des moyens aux espaces de concertation.
+:::
+
+
+::: {.notes}
+La synthèse signale l’absence de ces outils : confirmer leur état actuel avant validation. Les services cités sont l’état civil, la comptabilité, les recettes et la topographie. Renforcer planification, suivi-évaluation, coordination des partenaires et intercommunalité.
+:::
+
+
+## Finances : progression des recettes, investissement contraint
+
+| Millions de FCFA | 2021 | 2025 |
+|:--|:--|:--|
+| Recettes propres | 15,83 | **31,23** |
+| Dépenses de fonctionnement | 18,11 | **54,96** |
+| Recettes totales | Non précisé | 102,57 |
+| Dépenses d’investissement | Non précisé | **6,40** |
+
+::: {.message}
+Diversifier les financements et maîtriser les charges pour préserver la capacité d’investissement.
+:::
+
+
+::: {.notes}
+Les chiffres sont ceux du document fourni. Les recettes totales et dépenses affichées ne constituent pas ici un rapprochement comptable complet : vérifier périmètre, reports et autres postes avant de calculer un solde. Quatre collecteurs couvrent un territoire étendu. Renforcer la maîtrise d’ouvrage, les achats, la réception et la maintenance.
+:::
+
+
+## Orientations proposées pour le PDC
+
+| Axe | Priorités à examiner |
+|:--|:--|
+| Services essentiels | Eau, assainissement, santé et éducation dans les localités déficitaires |
+| Économie et inclusion | Productivité, transformation et insertion des femmes et des jeunes |
+| Mobilité et cadre de vie | Désenclavement, foncier sécurisé et amélioration de l’habitat |
+| Résilience et paysages | Adaptation agricole, gestion forestière et cuisson efficace |
+| Gouvernance et finances | Organisation interne, recettes, partenariats et maîtrise d’ouvrage |
+
+
+::: {.notes}
+Ces axes sont des propositions issues du diagnostic, pas une hiérarchisation déjà validée. Préciser les compétences de la commune et les responsabilités des partenaires.
+:::
+
+
+## Mise en œuvre : programmer selon les capacités
+
+::: {.incremental}
+
+- Cibler les localités et groupes les moins desservis.
+- Chiffrer les investissements et prévoir **exploitation et maintenance**.
+- Mobiliser ressources propres, dotations et partenariats.
+- Définir des indicateurs, des responsabilités et un suivi participatif.
+
+:::
+::: {.message}
+Relier les investissements du PDC aux ODD et à l’amélioration mesurable des conditions de vie.
+:::
+
+
+
+## Points à consolider lors de la validation
+
+::: {.incremental}
+
+- **Données sectorielles :** effectifs scolaires, carte sanitaire, inventaires et fonctionnement des ouvrages.
+- **Bases de calcul :** revenus, foncier, handicap et résultats d’enquête par zone.
+- **Cohérence :** séries financières, occupation du sol et chiffres divergents entre sources.
+- **Priorisation :** urgence des besoins, faisabilité, coûts et responsabilités.
+
+:::
+
+::: {.notes}
+Point chiffré identifié : automédication à 63,79 % ou 63,9 %. Ne pas décider qu’il s’agit d’un simple arrondi. Estimation FETAPH à consolider. Les cartes du rapport ne sont pas disponibles dans les pièces jointes. L’auteur et la date de l’atelier restent à renseigner.
+:::
+
+
+## Conclusion : un diagnostic pour décider
+
+::: {.incremental}
+
+- Des atouts agricoles, marchands et écologiques sur lesquels construire.
+- Des déficits d’accès aux services et des disparités territoriales persistantes.
+- Une capacité communale à renforcer pour transformer les priorités en projets réalisables.
+
+:::
+::: {.message}
+**La suite :** consolider le diagnostic, hiérarchiser les besoins et préparer une programmation réaliste.
+:::
+
+
+
+## Sources et notes de lecture
+
+- **Synthèse actualisée fournie** : diagnostic territorial, données sectorielles et enjeux.
+- **mon_memoire.qmd** : précisions méthodologiques sur les résultats d’enquête utilisés.
+- Graphiques intégrés à partir des chiffres rédigés ; aucune donnée brute simulée.
+- Auteur et date de l’atelier à renseigner avant diffusion.
+
+::: {.small}
+Navigation : **flèches** · **O** : vue d’ensemble · **S** : notes · **F** : plein écran.
+:::
+

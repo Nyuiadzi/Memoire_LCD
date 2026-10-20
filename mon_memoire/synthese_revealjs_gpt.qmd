@@ -1,0 +1,526 @@
+---
+title: "Tchaoudjo 2"
+subtitle: "Conditions de vie des ménages et accès aux services essentiels"
+author: "Nyuiadzi Komi ZIKPI"
+date: "2026-10-20"
+date-format: "DD/MM/YYYY"
+lang: fr
+format:
+  revealjs:
+    theme: dark
+    background-color: "#081b30"
+    slide-level: 2
+    width: 1280
+    height: 720
+    margin: 0.07
+    center: false
+    transition: fade
+    transition-speed: default
+    background-transition: fade
+    incremental: false
+    slide-number: c/t
+    show-slide-number: all
+    controls: true
+    progress: true
+    navigation-mode: linear
+    overview: true
+    history: true
+    hash: true
+    keyboard: true
+    touch: true
+    preview-links: false
+    embed-resources: true
+    footer: "Enquête ménages · PDC Tchaoudjo 2 · 2026"
+    include-in-header:
+      text: |
+        <style>
+        :root { --r-background-color:#081b30; --r-main-color:#edf3fa; --r-heading-color:#ffffff; --r-link-color:#65d9dc; --r-main-font:Arial,sans-serif; --r-heading-font:Arial,sans-serif; --r-main-font-size:29px; }
+        .reveal .slides {text-align:left;} .reveal h1{font-size:2.15em;line-height:1.12;} .reveal h2{font-size:1.48em;line-height:1.16;border-bottom:3px solid #36c4ce;padding-bottom:18px;margin-bottom:30px;} .reveal h3{font-size:1em;color:#65d9dc;} .reveal strong{color:#71dfe2;} .reveal p,.reveal li{line-height:1.35;} .reveal li{margin-bottom:16px;} .reveal table{font-size:.77em;width:100%;} .reveal th{color:#71dfe2;} .reveal td,.reveal th{padding:13px 15px;border-color:#38536b;} .reveal .footer{font-size:15px;color:#b7cadc;} .reveal .slide-number{color:#dbeaf5;background:transparent;} .reveal .source{font-size:17px;color:#b7cadc;margin-top:18px;line-height:1.3;} .reveal .message{border-left:5px solid #36c4ce;padding:12px 20px;background:#112c46;margin-top:22px;font-size:.87em;} .reveal .columns{gap:36px;} .reveal .chart{width:100%;height:auto;max-height:370px;} .reveal .big{font-size:2.8em;line-height:1.1;color:#71dfe2;font-weight:700;margin:15px 0;} .reveal .small{font-size:.78em;} .reveal section.chapter h2{font-size:2.3em;border:0;} .reveal section.chapter p{color:#bcdae9;} .reveal blockquote{background:transparent;box-shadow:none;font-style:normal;width:94%;border-left:5px solid #36c4ce;padding:20px;}
+        @media print{.reveal .fragment{opacity:1!important;visibility:visible!important;}}
+        </style>
+execute:
+  enabled: false
+---
+
+<!-- Document autonome : graphiques SVG intégrés, sans CSV ni package R requis.
+Rendu : quarto render synthese_revealjs.qmd --to revealjs
+Navigation : flèches ; O = vue d'ensemble ; S = notes ; F = plein écran.
+Les graphiques reprennent exclusivement les chiffres explicitement écrits dans mon_memoire.qmd.
+Les pourcentages restent ceux publiés, sans recalcul à partir de données absentes.
+-->
+
+## Une enquête pour orienter le PDC
+
+::: {.incremental}
+
+- Documenter les conditions de vie et les besoins des ménages.
+- Identifier les disparités entre les quatre zones de la commune.
+- Traduire les constats en investissements communaux ciblés.
+
+:::
+::: {.message}
+**Question directrice :** quelles priorités pour améliorer durablement l’accès aux services essentiels ?
+:::
+
+
+
+## Parcours de la présentation
+
+1. **Comprendre l’enquête** : méthode et précautions de lecture.
+2. **Lire les résultats** : profils, économie et services essentiels.
+3. **Orienter le PDC** : priorités, mise en œuvre et suivi.
+
+
+## Méthodologie : 1 458 ménages enquêtés
+
+:::: {.columns}
+::: {.column width="38%"}
+<div class="big">1 458</div>
+Ménages enquêtés dans **quatre zones** : Nord-Est, Nord-Ouest, Sud-Est et Sud-Ouest.
+:::
+::: {.column width="62%"}
+::: {.incremental}
+
+- Enquête quantitative structurée, avec collecte numérique sur **KoboCollect**.
+- Le **ménage** est l’unité statistique ; son chef renseigne les informations.
+- Statistiques descriptives et analyses bivariées sur certaines variables.
+
+:::
+:::
+::::
+
+::: {.notes}
+La stratification géographique vise à couvrir les différentes parties du territoire. Le mémoire décrit une sélection par itinéraire, en sautant un ménage sur deux. Cette procédure ne suffit pas à garantir un tirage aléatoire strict.
+:::
+
+
+## Précautions pour interpréter les résultats
+
+::: {.incremental}
+
+- Les réponses sont **déclaratives** : biais possibles de mémoire, de perception et d’estimation.
+- La base varie selon les questions : ménages, chefs de ménage ou sous-groupes.
+- Les parts des strates diffèrent de leur poids démographique : vérifier la **pondération** avant toute extrapolation communale.
+- Une association statistique ne démontre pas une relation de causalité.
+
+:::
+
+::: {.notes}
+Les graphiques sont reconstruits à partir des résultats écrits dans le mémoire, sans réexécuter les codes R. Le CSV data/data_tchaoudjo2.csv et les sorties graphiques ne sont pas joints. Les résultats sont présentés comme ceux des répondants, sans affirmer une représentativité statistique établie.
+:::
+
+
+## Résultats de l’enquête {.chapter data-transition="slide"}
+
+Profils des ménages, moyens d’existence et accès aux services.
+
+
+## Profil des ménages : une majorité de chefs masculins
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Sexe des chefs de ménage"><title>Sexe des chefs de ménage</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Hommes</text><rect x="420" y="60" width="431.49" height="34" rx="3" fill="#4ecbd3"/><text x="861.49" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">75,7 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Femmes</text><rect x="420" y="127" width="138.51000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="568.51" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">24,3 %</text></svg>
+```
+
+::: {.source}
+Base : 1 458 chefs de ménage ; 1 103 hommes et 355 femmes. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+**5 personnes à charge en médiane** : une pression potentielle sur les ressources des ménages.
+:::
+
+
+::: {.notes}
+Le nombre de personnes à charge ne doit pas être assimilé à la taille totale du ménage. Cibler les vulnérabilités sans supposer que tout ménage dirigé par une femme est nécessairement plus pauvre.
+:::
+
+
+## Éducation : un faible niveau d’instruction
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 450" role="img" aria-label="Niveau d’instruction des chefs de ménage"><title>Niveau d’instruction des chefs de ménage</title><line x1="420.0" y1="45" x2="420.0" y2="410" stroke="#29465e"/><text x="420.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="410" stroke="#29465e"/><text x="562.5" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="410" stroke="#29465e"/><text x="705.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="410" stroke="#29465e"/><text x="847.5" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="410" stroke="#29465e"/><text x="990.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Aucun niveau</text><rect x="420" y="60" width="222.87" height="34" rx="3" fill="#4ecbd3"/><text x="652.87" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">39,1 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Primaire</text><rect x="420" y="127" width="168.72000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="598.72" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">29,6 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Secondaire 1</text><rect x="420" y="194" width="117.42000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="547.4200000000001" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">20,6 %</text><text x="400" y="286" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Secondaire 2</text><rect x="420" y="261" width="46.739999999999995" height="34" rx="3" fill="#4ecbd3"/><text x="476.74" y="286" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">8,2 %</text><text x="400" y="353" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Université</text><rect x="420" y="328" width="11.4" height="34" rx="3" fill="#4ecbd3"/><text x="441.4" y="353" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">2,0 %</text></svg>
+```
+
+::: {.source}
+Base : chefs de ménage. Modalité NSP non représentée ; total affiché inférieur à 100 %. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+**68,7 %** n’ont pas dépassé le primaire. Adapter l’information et l’accompagnement aux niveaux d’instruction.
+:::
+
+
+::: {.notes}
+Ajout à partir de la section Éducation et formation du mémoire. Sans niveau d’étude : 53,0 % des femmes contre 34,6 % des hommes. Ces indicateurs concernent les chefs de ménage, pas l’ensemble des habitants ni les taux de scolarisation des enfants.
+:::
+
+
+## Économie : des professions peu diversifiées
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 383" role="img" aria-label="Principales professions déclarées"><title>Principales professions déclarées</title><line x1="420.0" y1="45" x2="420.0" y2="343" stroke="#29465e"/><text x="420.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="343" stroke="#29465e"/><text x="562.5" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="343" stroke="#29465e"/><text x="705.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="343" stroke="#29465e"/><text x="847.5" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="343" stroke="#29465e"/><text x="990.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Agriculteurs, éleveurs, pêcheurs</text><rect x="420" y="60" width="265.05" height="34" rx="3" fill="#4ecbd3"/><text x="695.05" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">46,5 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Sans emploi déclaré</text><rect x="420" y="127" width="146.49" height="34" rx="3" fill="#4ecbd3"/><text x="576.49" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">25,7 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Artisans</text><rect x="420" y="194" width="46.17" height="34" rx="3" fill="#4ecbd3"/><text x="476.17" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">8,1 %</text><text x="400" y="286" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Commerçants</text><rect x="420" y="261" width="33.63" height="34" rx="3" fill="#4ecbd3"/><text x="463.63" y="286" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">5,9 %</text></svg>
+```
+
+::: {.source}
+Base : chefs de ménage ; sélection des principales professions, catégories restantes non affichées. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+L’agriculture structure les moyens d’existence. La transformation locale et la diversification constituent des pistes de développement.
+:::
+
+
+::: {.notes}
+Ne pas confondre la profession (46,5 % agriculteurs, éleveurs ou pêcheurs) et le domaine d’activité (72,4 % agriculture et élevage dans un autre tableau). La part « sans emploi déclaré » n’est pas un taux de chômage au sens du BIT.
+:::
+
+
+## Revenus : une forte concentration dans les faibles tranches
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Revenus déclarés des chefs de ménage retenus"><title>Revenus déclarés des chefs de ménage retenus</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Aucun revenu déclaré</text><rect x="420" y="60" width="306.09000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="736.09" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">53,7 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Moins de 52 500 FCFA</text><rect x="420" y="127" width="171.57000000000002" height="34" rx="3" fill="#4ecbd3"/><text x="601.57" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">30,1 %</text></svg>
+```
+
+::: {.source}
+Base : 1 075 chefs de ménage, hors personnes sans emploi et élèves/étudiants. Autres tranches non affichées. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+**63,6 % des ménages** déclarent des difficultés à satisfaire leurs besoins essentiels.
+:::
+
+
+::: {.notes}
+Dans le sous-échantillon des revenus : 577 sans revenu déclaré et 324 sous 52 500 FCFA. Ne pas assimiler automatiquement revenu monétaire déclaré nul et absence totale de moyens de subsistance. L’indicateur de besoins essentiels a une autre base. Le seuil de 52 500 FCFA est repris comme tranche de l’enquête, sans qualifier ici le droit du travail en vigueur.
+:::
+
+
+## Eau : un service jugé insuffisant
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Difficultés déclarées concernant l’eau"><title>Difficultés déclarées concernant l’eau</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Sans point d’eau à domicile</text><rect x="420" y="60" width="365.37" height="34" rx="3" fill="#4ecbd3"/><text x="795.37" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">64,1 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Besoins insuffisamment couverts</text><rect x="420" y="127" width="368.79" height="34" rx="3" fill="#4ecbd3"/><text x="798.79" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">64,7 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Insatisfaction du service</text><rect x="420" y="194" width="389.31" height="34" rx="3" fill="#4ecbd3"/><text x="819.31" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">68,3 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants aux questions correspondantes. Indicateurs distincts, non additionnables. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+Améliorer la disponibilité des ouvrages, la continuité du service et l’accessibilité des localités mal desservies.
+:::
+
+
+::: {.notes}
+L’absence de point d’eau à domicile n’équivaut pas, à elle seule, à l’absence d’accès à une source améliorée. Les puits, forages et PMH présentent des situations de qualité et de fonctionnement à vérifier. Les distances varient selon les zones, mais aucune valeur supplémentaire n’est inventée ici.
+:::
+
+
+## Assainissement : un déficit majeur de latrines
+
+| Indicateur | Résultat | Population de référence |
+|:--|--:|:--|
+| Absence de latrines à domicile | **81,3 %** | Ménages enquêtés |
+| Défécation à l’air libre | **88,3 %** | Ménages sans latrines |
+
+::: {.incremental}
+
+- Le manque de moyens financiers constitue le principal frein évoqué.
+- Combiner accompagnement des ménages, solutions adaptées et sensibilisation communautaire.
+
+:::
+::: {.message}
+Les **88,3 %** concernent le sous-groupe sans latrines, et non l’ensemble des ménages.
+:::
+
+
+::: {.notes}
+Les deux pourcentages ne partagent pas le même dénominateur. Ne pas présenter 88,3 % comme un taux communal de défécation à l’air libre et ne pas en déduire ici un nouveau taux global.
+:::
+
+
+## Déchets et eaux usées : des pratiques à risque
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 249" role="img" aria-label="Pratiques de gestion des rejets"><title>Pratiques de gestion des rejets</title><line x1="420.0" y1="45" x2="420.0" y2="209" stroke="#29465e"/><text x="420.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="209" stroke="#29465e"/><text x="562.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="209" stroke="#29465e"/><text x="705.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="209" stroke="#29465e"/><text x="847.5" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="209" stroke="#29465e"/><text x="990.0" y="237" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Eaux usées rejetées dans la rue</text><rect x="420" y="60" width="530.67" height="34" rx="3" fill="#f3b768"/><text x="960.67" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">93,1 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Dépotoirs sauvages ou informels</text><rect x="420" y="127" width="562.59" height="34" rx="3" fill="#f3b768"/><text x="992.59" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">98,7 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants. Deux pratiques distinctes, non additionnables. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+Structurer progressivement la collecte des déchets et améliorer les dispositifs d’évacuation des eaux usées.
+:::
+
+
+
+## Santé : la proximité ne suffit pas à garantir l’accès
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Recours aux soins et protection sanitaire"><title>Recours aux soins et protection sanitaire</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Fréquentation des USP</text><rect x="420" y="60" width="487.35" height="34" rx="3" fill="#4ecbd3"/><text x="917.35" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">85,5 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Aucune assurance maladie</text><rect x="420" y="127" width="493.62" height="34" rx="3" fill="#4ecbd3"/><text x="923.62" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">86,6 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Automédication déclarée</text><rect x="420" y="194" width="364.23" height="34" rx="3" fill="#4ecbd3"/><text x="794.23" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">63,9 %</text></svg>
+```
+
+::: {.source}
+Bases : ménages pour les USP et l’assurance ; chefs de ménage pour l’automédication. Indicateurs distincts. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+Renforcer les soins de proximité, l’information sanitaire et l’accès aux mécanismes de protection sociale.
+:::
+
+
+::: {.notes}
+USP : unités de soins périphériques. Ces résultats ne permettent pas de mesurer directement la qualité clinique des soins ni d’attribuer l’automédication à une cause unique.
+:::
+
+
+## Habitat : la propriété ne garantit pas le confort
+
+:::: {.columns}
+::: {.column width="36%"}
+<div class="big">78,8 %</div>
+Des ménages se déclarent **propriétaires** de leur logement.
+:::
+::: {.column width="64%"}
+::: {.incremental}
+
+- Une partie des constructions utilise la **terre et le banco** pour les murs.
+- Près de **quatre logements sur dix** ont un sol en terre battue.
+- L’amélioration du cadre de vie dépend aussi de l’eau, de l’assainissement et des équipements.
+
+:::
+:::
+::::
+::: {.source}
+Source : mon_memoire.qmd, caractéristiques de l’habitat.
+:::
+
+::: {.message}
+Favoriser une amélioration progressive de l’habitat, adaptée aux ressources des ménages.
+:::
+
+
+::: {.notes}
+La propriété déclarée ne prouve pas une sécurisation juridique du foncier. Les matériaux traditionnels ne suffisent pas, à eux seuls, à établir une insalubrité.
+:::
+
+
+## Éclairage : le solaire complète le réseau CEET
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 450" role="img" aria-label="Sources d’éclairage"><title>Sources d’éclairage</title><line x1="420.0" y1="45" x2="420.0" y2="410" stroke="#29465e"/><text x="420.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="410" stroke="#29465e"/><text x="562.5" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="410" stroke="#29465e"/><text x="705.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="410" stroke="#29465e"/><text x="847.5" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="410" stroke="#29465e"/><text x="990.0" y="438" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Réseau CEET</text><rect x="420" y="60" width="242.25" height="34" rx="3" fill="#4ecbd3"/><text x="672.25" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">42,5 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Panneaux solaires</text><rect x="420" y="127" width="230.85" height="34" rx="3" fill="#4ecbd3"/><text x="660.85" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">40,5 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Pétrole ou bougies</text><rect x="420" y="194" width="51.87" height="34" rx="3" fill="#4ecbd3"/><text x="481.87" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">9,1 %</text><text x="400" y="286" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Lampes torches</text><rect x="420" y="261" width="41.04" height="34" rx="3" fill="#4ecbd3"/><text x="471.04" y="286" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">7,2 %</text><text x="400" y="353" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Groupes électrogènes</text><rect x="420" y="328" width="2.85" height="34" rx="3" fill="#4ecbd3"/><text x="432.85" y="353" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">0,5 %</text></svg>
+```
+
+::: {.source}
+Base : réponses sur la source d’éclairage. Écarts résiduels liés aux arrondis ou modalités non détaillées. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+**83,0 %** recourent au réseau CEET ou au solaire pour l’éclairage.
+:::
+
+
+::: {.notes}
+Cet indicateur décrit les sources d’éclairage. Il ne mesure pas un accès électrique complet, fiable, continu et suffisant pour tous les usages domestiques ou productifs.
+:::
+
+
+## Cuisson : une dépendance persistante au bois
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 383" role="img" aria-label="Sources d’énergie de cuisson"><title>Sources d’énergie de cuisson</title><line x1="420.0" y1="45" x2="420.0" y2="343" stroke="#29465e"/><text x="420.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="343" stroke="#29465e"/><text x="562.5" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="343" stroke="#29465e"/><text x="705.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="343" stroke="#29465e"/><text x="847.5" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="343" stroke="#29465e"/><text x="990.0" y="371" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Bois de chauffe</text><rect x="420" y="60" width="525.5400000000001" height="34" rx="3" fill="#f3b768"/><text x="955.5400000000001" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">92,2 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Charbon de bois</text><rect x="420" y="127" width="38.190000000000005" height="34" rx="3" fill="#f3b768"/><text x="468.19" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">6,7 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Gaz butane</text><rect x="420" y="194" width="3.42" height="34" rx="3" fill="#f3b768"/><text x="433.42" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">0,6 %</text><text x="400" y="286" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Bois et charbon</text><rect x="420" y="261" width="2.2800000000000002" height="34" rx="3" fill="#f3b768"/><text x="432.28" y="286" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">0,4 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants sur l’énergie de cuisson ; total soumis aux arrondis. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+Diffuser des solutions de cuisson plus efficaces et soutenir une gestion durable du bois-énergie.
+:::
+
+
+
+## Forêts : une restauration encore peu mobilisatrice
+
+```{=html}
+<svg class="chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 316" role="img" aria-label="Pratiques liées aux ressources forestières"><title>Pratiques liées aux ressources forestières</title><line x1="420.0" y1="45" x2="420.0" y2="276" stroke="#29465e"/><text x="420.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">0 %</text><line x1="562.5" y1="45" x2="562.5" y2="276" stroke="#29465e"/><text x="562.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">25 %</text><line x1="705.0" y1="45" x2="705.0" y2="276" stroke="#29465e"/><text x="705.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">50 %</text><line x1="847.5" y1="45" x2="847.5" y2="276" stroke="#29465e"/><text x="847.5" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">75 %</text><line x1="990.0" y1="45" x2="990.0" y2="276" stroke="#29465e"/><text x="990.0" y="304" fill="#b7cadc" text-anchor="middle" font-family="Arial" font-size="20">100 %</text><text x="400" y="85" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Exploitation du bois</text><rect x="420" y="60" width="349.40999999999997" height="34" rx="3" fill="#4ecbd3"/><text x="779.41" y="85" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">61,3 %</text><text x="400" y="152" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Carbonisation</text><rect x="420" y="127" width="114.57000000000001" height="34" rx="3" fill="#4ecbd3"/><text x="544.57" y="152" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">20,1 %</text><text x="400" y="219" fill="#edf3fa" text-anchor="end" font-family="Arial" font-size="23">Participation au reboisement</text><rect x="420" y="194" width="168.72000000000003" height="34" rx="3" fill="#4ecbd3"/><text x="598.72" y="219" fill="#ffffff" font-family="Arial" font-size="23" font-weight="bold">29,6 %</text></svg>
+```
+
+::: {.source}
+Base : ménages répondants. Pratiques pouvant se cumuler ; pourcentages non additionnables. Source : mon_memoire.qmd.
+:::
+
+::: {.message}
+La restauration des paysages forestiers doit s’articuler avec les besoins énergétiques et les activités agricoles.
+:::
+
+
+::: {.notes}
+L’exploitation déclarée ne permet pas de quantifier les volumes prélevés ni de mesurer directement la déforestation. Ces données appellent un diagnostic complémentaire des ressources et des usages.
+:::
+
+
+## Climat : des perturbations multiples perçues
+
+:::: {.columns}
+::: {.column width="36%"}
+<div class="big">42,5 %</div>
+Des ménages signalent une **combinaison de phénomènes climatiques**.
+:::
+::: {.column width="64%"}
+::: {.incremental}
+
+- Irrégularité des pluies et poches de sécheresse.
+- Fortes chaleurs, vents violents et inondations.
+- Érosion des sols et fragilité potentielle des moyens d’existence agricoles.
+
+:::
+:::
+::::
+::: {.message}
+Intégrer l’agroforesterie, la conservation des eaux et des sols et l’adaptation agricole au PDC.
+:::
+
+
+::: {.notes}
+Il s’agit de perceptions déclarées, pas de tendances climatiques établies par des séries météorologiques. Source : mon_memoire.qmd, environnement et changements climatiques.
+:::
+
+
+## Mobilité : des déplacements peu fréquents
+
+:::: {.columns}
+::: {.column width="36%"}
+<div class="big">77,1 %</div>
+Des ménages déclarent se déplacer **rarement**.
+:::
+::: {.column width="64%"}
+::: {.incremental}
+
+- Motos, tricycles personnels et transports collectifs jouent un rôle majeur.
+- Les faibles dépenses peuvent refléter une mobilité de proximité ou des contraintes financières.
+- L’amélioration des pistes facilite l’accès aux services et aux marchés.
+
+:::
+:::
+::::
+::: {.message}
+Prioriser les liaisons entre les localités enclavées, les services essentiels et les pôles d’échanges.
+:::
+
+
+::: {.notes}
+La fréquence déclarée ne mesure pas directement une demande de transport insatisfaite. Croiser les résultats avec l’état des pistes et les consultations communautaires. Source : mon_memoire.qmd, transport et mobilité.
+:::
+
+
+## Des vulnérabilités qui se renforcent
+
+| Constat croisé | Implication pour l’action communale |
+|:--|:--|
+| Faibles revenus et coûts des services | Cibler l’accessibilité financière |
+| Déficits en eau et assainissement | Articuler infrastructures et prévention sanitaire |
+| Dépendance agricole et aléas climatiques | Renforcer la résilience des moyens d’existence |
+| Enclavement et accès aux marchés | Relier mobilité, services et développement économique |
+
+
+::: {.message}
+Ces liens constituent des **pistes d’interprétation**, à confirmer par des analyses complémentaires.
+:::
+
+
+
+## Du diagnostic aux choix du PDC {.chapter data-transition="slide"}
+
+
+
+## Priorités proposées pour la programmation
+
+Des priorités proposées à discuter avec les acteurs et à chiffrer.
+
+| Axe | Interventions à examiner |
+|:--|:--|
+| **Eau et assainissement** | Redynamisation des comités de gestion, Construction/Réhabilitation des ouvrages, latrines adaptées aux moyens de ménage, organisation de la collecte des déchets |
+| **Économie et inclusion** | Promotion des chaînes de valeur agricoles, transformation, insertion des femmes et des jeunes |
+| **Services et mobilité** | Desserte des localités, soins de proximité, accompagnement éducatif |
+| **Énergie et paysages** | Cuisson efficace, agroforesterie, restauration des paysages et gestion du bois-énergie |
+
+
+::: {.source}
+Propositions issues de la synthèse. L’ordre définitif dépendra de la concertation, des coûts et des compétences des acteurs.
+:::
+
+
+
+## Mise en œuvre : des actions réalistes et financées
+
+::: {.incremental}
+
+- **Cibler** les localités et ménages insuffisamment desservis à partir d’un diagnostic croisé.
+- **Chiffrer et programmer** les investissements selon les ressources et les responsabilités institutionnelles.
+- **Mobiliser** l’État, les partenaires techniques et financiers, les associations et les acteurs privés.
+- **Associer les habitants** au choix des actions et au suivi des services.
+
+:::
+
+::: {.notes}
+Cette diapositive formule des recommandations, et non des engagements déjà pris. Prévoir les coûts d’exploitation, la maintenance et les responsabilités de gestion dès la conception des ouvrages.
+:::
+
+
+## Suivi du PDC : quelques indicateurs de référence
+
+| Indicateur de l’enquête | Référence descriptive | Évolution souhaitée |
+|:--|--:|:--|
+| Besoins en eau insuffisamment couverts | 64,7 % | Diminution |
+| Ménages sans latrines à domicile | 81,3 % | Diminution |
+| Difficultés à satisfaire les besoins essentiels | 63,6 % | Diminution |
+| Bois de chauffe comme énergie de cuisson | 92,2 % | Diminution |
+| Participation au reboisement | 29,6 % | Augmentation |
+
+
+::: {.source}
+Références de l’échantillon à documenter et consolider avant adoption. Les cibles chiffrées restent à fixer avec les acteurs.
+:::
+
+
+::: {.notes}
+Formaliser chaque indicateur : numérateur, dénominateur, désagrégations par zone et sexe lorsque pertinentes, source, fréquence, responsable et méthode de mesure. Vérifier la pondération et la comparabilité entre les enquêtes. Ne pas traiter ces références comme des estimations communales définitivement validées.
+:::
+
+
+## Conclusion : transformer les constats en investissements
+
+::: {.incremental}
+
+- Les ménages disposent d’atouts agricoles et d’une contribution importante du solaire à l’éclairage.
+- Les déficits d’assainissement et les difficultés économiques appellent une attention prioritaire.
+- Le PDC peut articuler services essentiels, inclusion économique et restauration des paysages.
+
+:::
+::: {.message}
+**La décision attendue :** retenir des priorités territorialisées, chiffrées et suivies dans le temps.
+:::
+
+
+::: {.notes}
+Terminer par les arbitrages à conduire : quels territoires cibler, quelles actions financer en premier, qui gère les services et comment mesurer l’amélioration des conditions de vie ?
+:::
+
+
+## Sources et utilisation de la présentation
+
+- **synthese_revealjs.qmd** : synthèse narrative initiale.
+- **mon_memoire.qmd** : résultats détaillés et interprétations de l’enquête.
+- Graphiques reconstruits à partir des **valeurs explicitement rédigées** dans ces fichiers.
+- Données brutes et sorties R non jointes : aucun résultat supplémentaire simulé.
+
+::: {.small}
+Navigation : **flèches** pour avancer · **O** pour la vue d’ensemble · **S** pour les notes · **F** pour le plein écran.
+:::
+
+
+::: {.notes}
+Pour actualiser les résultats, modifier les valeurs et les textes des graphiques SVG dans ce QMD, ou remplacer ces graphiques par les sorties R recalculées après vérification des bases et des pondérations.
+:::

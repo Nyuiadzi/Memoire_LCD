@@ -1,0 +1,354 @@
+---
+title: "Synthèse du rapport diagnostic du PDC Tchaoudjo 2"
+subtitle: "Atelier de validation du rapport diagnostic"
+author: "************************************"
+date: "`r Sys.Date()`"
+format: revealjs
+---
+
+## Introduction
+
+L’élaboration du Plan de développement communal (PDC) de Tchaoudjo 2 s’inscrit dans un contexte marqué par la nécessité de renforcer la planification territoriale et de promouvoir un développement local inclusif, durable et fondé sur une connaissance approfondie des réalités socioéconomiques des populations locales. 
+
+Dans cette perspective, la disponibilité de données fiables sur les caractéristiques démographiques des ménages, leurs conditions de vie, leurs activités économiques, leur accès aux services sociaux de base et leur environnement constitue un préalable essentiel à la définition de politiques publiques locales pertinentes. 
+
+C’est dans ce cadre qu'un diagnostic territorial a été réalisé afin de disposer d’une base d’informations actualisées permettant d’identifier les acquis, les disparités territoriales, les vulnérabilités et les besoins prioritaires de la population communale.
+
+## Méthodologie
+
+Le diagnostic a reposé sur une **démarche participative**, combinant des données secondaires et primaires, qualitatives et quantitatives. La revue documentaire a mobilisé les monographies territoriales, les résultats des RGPH-4 et 5, les rapports sectoriels, les bases cartographiques et les documents administratifs et financiers de la mairie. La collecte primaire a associé une enquête auprès de **1 458 ménages**, quatre fora communautaires, des entretiens avec les services publics et privés ainsi que des observations de terrain.
+
+La collecte des données a couvert d'une part les principales dimensions des conditions de vie des ménages, notamment les caractéristiques sociodémographiques, l’éducation, la santé, l’accès à l’eau potable, l’hygiène et l’assainissement, l’habitat, l’emploi et les revenus, l’énergie, le transport et la mobilité ainsi que l’environnement et les changements climatiques, et d'autres parts la dimension gouvernance institutionnelle et organisationnelle de la commune.
+
+Le traitement des données a combiné **analyses statistiques, qualitatives et spatiales**. Les analyses ont permis d’identifier les principales préoccupations et d’alimenter la matrice des forces, faiblesses, opportunités et menaces (FFOM). Parallèlement, les données des services techniques, du Géoportail national et des images satellitaires ont été croisées avec les observations de terrain, contrôlées puis intégrées à une base spatiale. Leur exploitation a permis de produire des cartes thématiques et d’analyser l’évolution de l’occupation du sol et du couvert végétal. La triangulation de ces différentes sources a ainsi permis de consolider les constats du diagnostic et d’éclairer les priorités de développement communal.
+
+
+## Synthèse des résultats de l'analyse diagnostic
+
+### Milieu physique et cadre humain
+
+La commune couvre 468 km² et compte 24 891 habitants en 2022, contre 20 768 en 2010. Le rapport indique une croissance annuelle de 1,7 %. Les moins de 20 ans représentent 53 % de la population et les femmes 50,6 %. La position sur la RN1, les plaines agricoles, les bas-fonds et le patrimoine forestier constituent des atouts, mais les reliefs montagneux limitent l’accessibilité de plusieurs localités. La diversité socioculturelle s’accompagne d’un vivre-ensemble globalement favorable.
+
+### Aménagement du territoire habitat et foncier
+
+L’espace communal s’organise autour de Lama-Tessi et de la RN1, avec des niveaux d’équipement variables entre localités. Entre 2000 et 2025, les espaces bâtis passent de 358,2 à 968,1 ha, tandis que les forêts reculent de 6 405,1 ha. L’enquête indique que 85,4 % des réponses foncières interprétables signalent l’absence de document et que 89 % des répondants à la question du bornage n’ont pas de terrain officiellement délimité. La commune dispose d’un service de topographie, mais pas encore de réserves foncières formellement constituées et sécurisées.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Articuler le PDC avec le SDAU en cours d’élaboration pour maîtriser l’occupation du sol.
+- Sécuriser les droits fonciers, les emprises publiques et les terrains destinés aux équipements.
+- Prévenir les conflits et organiser un inventaire géoréférencé des réserves foncières.
+- Répartir les services de manière équilibrée et améliorer l’habitat, notamment sa résistance aux pluies et son drainage.
+:::
+
+
+### Caractéristiques socio démographique de la population de Tchaoudjo 2
+
+Les résultats mettent en évidence une population caractérisée par une forte dépendance aux activités économiques rurales, des capacités financières limitées et des inégalités d’accès aux services essentiels. Sur le plan sociodémographique, les ménages sont majoritairement dirigés par des hommes (75,7 %), contre 24,3 % par des femmes. Le nombre de personnes à charge est relativement élevé, avec un nombre médian de 5 personnes par ménage, ce qui peut accentuer les contraintes économiques, notamment dans les familles disposant de revenus modestes ou irréguliers. Les résultats révèlent également des disparités entre les hommes et les femmes en matière d’instruction, soulignant la persistance de certaines inégalités socioéducatives. Ces caractéristiques constituent des facteurs importants à prendre en compte dans la conception des interventions communales, particulièrement en faveur des femmes, des enfants, des jeunes et des ménages les plus vulnérables.
+
+### L'économie locale
+
+#### Agriculture
+
+L’agriculture est le principal pilier productif de la commune. Les cultures comprennent le maïs, le soja, le sorgho, le riz, l’igname, le haricot et le manioc, ainsi que l’anacarde et d’autres fruits. Environ trente coopératives et trois magasins d’approvisionnement ou de stockage constituent des points d’appui. Malgré un début de mécanisation, les pratiques restent majoritairement traditionnelles et pluviales. L’enclavement, la cherté des intrants, les faibles rendements et la mévente limitent les revenus.
+
+L'enquête auprès des ménages confirme la prédominance du secteur primaire, notamment l’agriculture, qui représente `46,5 %` des principales activités professionnelles déclarées. Cette situation traduit le caractère essentiellement rural de l’économie communale et sa forte dépendance aux ressources naturelles ainsi qu’aux conditions climatiques. Parallèlement, les résultats font ressortir une précarité économique importante : `53,7 %` des chefs de ménages actifs déclarent ne disposer d’aucun revenu dans la classification retenue par l’enquête, tandis que `30,1 %` se situent dans une tranche de revenu inférieure à `52 500 FCFA`. En outre, `63,6 %` des ménages déclarent éprouver des difficultés à satisfaire leurs besoins essentiels.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Améliorer les rendements par des techniques adaptées et une mécanisation progressive ;
+- Renforcer la gestion des coopératives et leur accès collectif aux intrants et aux financements ;
+- Développer stockage, conservation et transformation pour mieux valoriser les récoltes ;
+- Structurer les circuits commerciaux vers Sokodé et les autres débouchés ;
+- Restaurer la fertilité, maîtriser l’eau et accroître la résilience climatique des exploitations ;
+- Développer les équipements, le stockage, le conditionnement et la qualité des produits.
+:::
+
+#### Industrie et transformation
+
+Le tissu industriel et agro-industriel demeure embryonnaire, mais plusieurs initiatives apportent des références locales. À Kasséna Pont, Agro Espoir Afrique SARL, avec le CFIJ Togo et l’ONG AJA, transforme la pomme d’anacarde et d’autres produits fruitiers. Le rapport indique 100 tonnes de pommes d’anacarde transformées en 2026, contre 5 tonnes en 2021. Des femmes de Lama-Tessi ont également été formées à l’étuvage et au conditionnement du riz. Une part importante des productions continue toutefois d’être vendue brute.
+
+Ces constats soulignent la faiblesse des capacités économiques d’une partie importante de la population et la nécessité de renforcer les opportunités de création de revenus, de diversification des activités économiques et de développement des chaînes de valeur agricoles. Elles mettent également en évidence l’importance de soutenir l’entrepreneuriat local, la transformation agroalimentaire, les activités génératrices de revenus et l’insertion économique des femmes et des jeunes.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Faciliter l’investissement et les financements des unités de transformation ;
+- Articuler transformation, énergie productive et création d’emplois non agricoles.
+:::
+
+#### Artisanat
+
+Les acteurs font état de plus de 1 000 artisans dans environ 25 corps de métier, estimation à consolider par le recensement en cours. Couture, coiffure, tissage, soudure, maçonnerie et menuiserie contribuent à l’auto-emploi, notamment des femmes et des jeunes. L’apprentissage traditionnel transmet des qualifications pratiques. La bonne collaboration avec la mairie et la Chambre de métiers constitue un acquis, mais le manque d’équipements, de financement et de débouchés limite la croissance des ateliers.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Finaliser le recensement pour mieux cibler les besoins et structurer le secteur ;
+- Améliorer les ateliers et mutualiser les équipements, notamment autour du centre artisanal envisagé ;
+- Renforcer l’apprentissage, la certification, la gestion et la sécurité au travail ;
+- Faciliter l’accès au financement et aux marchés au-delà de la commune ;
+- Associer femmes, jeunes et personnes handicapées aux opportunités économiques.
+:::
+
+#### Commerce et infrastructures marchandes
+
+Le commerce est le deuxième pilier de l’économie locale. Il repose sur les marchés périodiques, boutiques et petits points de vente, avec trois grands marchés identifiés à Lama-Tessi, Yara-Kabyè et Tchawaré. Le marché réhabilité de Kasséna dispose de hangars, magasins, boutiques, équipements sanitaires et d’un forage photovoltaïque. La proximité de Sokodé facilite l’approvisionnement et l’écoulement, mais les activités restent largement informelles et de petite taille.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Moderniser les marchés et améliorer hygiène, stockage et gestion des déchets ;
+- Organiser les flux entre bassins de production, marchés communaux et les zones urbaines ;
+- Développer la vente de produits transformés localement et réduire les pertes ;
+- Accompagner les commerçants en gestion et faciliter les financements adaptés ;
+- Renforcer la contribution des activités marchandes aux recettes communales.
+:::
+
+#### Services financiers banques et assurances
+
+Une seule institution de microfinance est signalée comme physiquement implantée dans la commune, UCMECT-TO à Lama-Tessi. D’autres institutions de Sokodé collectent périodiquement l’épargne. Les garanties, les dossiers de demande et les délais d’instruction rendent le crédit difficile, particulièrement pour les femmes, les jeunes et les producteurs. Les tontines « trois clés » soutiennent les activités économiques et les dépenses scolaires et sanitaires. L’offre d’assurance demeure à mieux documenter.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Rapprocher les services financiers des populations de l’ensemble de la commune ;
+- Adapter crédits, garanties et délais aux besoins des petits acteurs économiques ;
+- Développer des financements tenant compte des cycles et risques agricoles ;
+- Articuler IMF, tontines, coopératives, ONG et programmes d’accompagnement ;
+- Documenter les possibilités de couverture des risques et de sécurisation des investissements.
+:::
+
+#### Tourisme et hôtellerie
+Le tourisme reste peu développé malgré des ressources naturelles, culturelles et historiques diversifiées. Fazao-Malfakassa, la forêt communautaire de Kalaré, les roches ancestrales de Boubaridè et les bâtiments allemands d’Akpakou sont cités. Les hôtels Colmar et La Référence ainsi que plusieurs auberges constituent une première capacité d’accueil. L’absence de circuits organisés, de signalisation et de promotion limite la fréquentation et les retombées locales.
+
+**Principaux enjeux :**
+
+::: {incremental}
+•	Inventorier, documenter et hiérarchiser les sites avec les communautés ;
+•	Concentrer la valorisation sur les ressources à fort potentiel et développer des circuits cohérents ;
+•	Améliorer accueil, guidage, restauration, hébergement et information touristique ;
+•	Former les acteurs locaux et relier tourisme, artisanat et produits du territoire ;
+•	Concilier retombées économiques, conservation et respect des pratiques culturelles.
+:::
+
+### Services sociaux de base (eau, assainissement, santé, éducation)
+
+#### Eau potable
+
+L’inventaire au 31 juillet 2026 compte 66 ouvrages : 58 PMH, 7 postes d’eau autonomes et une AEP. Quarante-huit sont en service et 18 en panne, toutes les pannes concernant les PMH. À Yao-Kopé, cinq des six ouvrages sont hors service ; à Koboyo, l’unique ouvrage recensé est en panne. Le déficit est évalué à 29 équivalents points d’eau, dont 8 à Kasséna et 6 à Taré. L’enquête relève 64,68 % de ménages connaissant des ruptures d’approvisionnement et seulement 12,07 % traitant l’eau avant consommation.
+
+Les résultats de l'enquête ménage révèlent également des insuffisances structurelles importantes. Dans le secteur de l’eau potable, 64,1 % des ménages ne disposent pas d’un point d’eau à domicile, tandis que l’approvisionnement repose principalement sur les puits, les forages et les pompes à motricité humaine. La distance à parcourir pour accéder à l’eau varie sensiblement selon les zones géographiques, avec des situations particulièrement contraignantes dans certaines localités. Par ailleurs, `64,7 %` des ménages estiment que leurs besoins en eau ne sont pas suffisamment couverts et 68,3 % expriment une insatisfaction à l’égard du service. Ces résultats mettent en évidence des enjeux liés non seulement à la disponibilité des infrastructures hydrauliques, mais également à leur accessibilité, à la qualité de l’eau, à la continuité du service et à la satisfaction des usagers.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Réhabiliter les ouvrages en panne et organiser leur maintenance durable ;
+- Combler les déficits, en priorité dans les localités sans point fonctionnel et à Kasséna et Taré ;
+- Réduire les distances et garantir une disponibilité en saison sèche ;
+- Améliorer la qualité de l’eau et les pratiques de traitement à domicile ;
+- Renforcer la gestion communautaire et prévenir la concurrence avec les usages pastoraux.
+:::
+
+
+#### Hygiène et assainissement
+
+La situation de l’hygiène et de l’assainissement apparaît particulièrement préoccupante. En effet, `81,3 %` des ménages ne disposent pas de latrines à domicile et, parmi ceux-ci, `88,3 %` déclarent pratiquer la défécation à l’air libre. L’insuffisance des moyens financiers constitue la principale raison évoquée pour expliquer l’absence de latrines. À cela s’ajoutent des pratiques peu satisfaisantes de gestion des eaux usées et des déchets solides, avec respectivement `93,1 %` des ménages rejetant les eaux usées dans la rue et `98,7 %` utilisant des dépotoirs sauvages ou informels à proximité. Ces pratiques constituent des facteurs de risques sanitaires et environnementaux qui appellent des interventions prioritaires en matière d’assainissement familial, de gestion des déchets, de sensibilisation communautaire et de renforcement des services publics locaux.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Réduire la défécation à l’air libre par des latrines adaptées aux moyens des ménages ;
+- Construire ou réhabiliter les sanitaires publics, notamment dans les lieux de regroupement ;
+- Organiser la pré-collecte, la collecte et les dépotoirs aménagés ;
+- Améliorer l’évacuation des eaux usées et l’entretien des ouvrages ;
+- Renforcer la sensibilisation, les comités et les assistants d’hygiène.
+:::
+
+#### Santé
+
+L’offre de soins repose principalement sur les USP et les relais communautaires. Le diagnostic consolidé indique huit infirmiers, une sage-femme, 44 agents de santé communautaire et aucun médecin affecté dans la commune. L’enquête rapporte 63,79 % d’automédication, 41,63 % d’approvisionnement principal en médicaments dans la rue et 86,63 % de ménages sans assurance santé. Les progrès en santé maternelle sont inégaux selon les aires, tandis que le paludisme demeure la pathologie dominante citée.
+
+Les unités de soins périphériques constituent les principales structures fréquentées par les ménages `(85,5 %)`, confirmant leur rôle central dans l’offre de soins de proximité. Toutefois, l’accès effectif à des soins de qualité demeure confronté à plusieurs contraintes, notamment la faiblesse de la couverture en assurance, puisque `86,6 %` des ménages déclarent ne bénéficier d’aucune assurance maladie. La pratique de l’automédication, déclarée par `63,9 %` des chefs de ménage, ainsi que le recours important aux médicaments vendus dans la rue, traduisent également des comportements susceptibles d’exposer les populations à des risques sanitaires. Ces résultats soulignent la nécessité d’améliorer l’accessibilité financière et géographique des services de santé, de renforcer la qualité des prestations et de promouvoir la prévention ainsi que l’adhésion aux mécanismes de protection sociale.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Fiabiliser la carte sanitaire et les données communes aux différentes sources ;
+- Désenclaver les localités et améliorer le transport et la référence des urgences ;
+- Renforcer et fidéliser infirmiers, sage-femmes et autres personnels qualifiés ;
+- Équiper les structures en eau, énergie, maternité, laboratoire et médicaments ;
+- Développer prévention et protection financière pour réduire les recours à risque.
+:::
+
+#### Education
+
+Dans le domaine de l'éducation, le diagnostic souligne des déficits d’accueil, d’encadrement et d’accessibilité. En 2025-2026, 14 des 27 salles préscolaires sont en matériaux non durables. Au primaire, quatre établissements sont sans bâtiment en dur, pour environ 645 élèves. Entre 2021-2022 et 2025-2026, les enseignants passent de 151 à 116 et les élèves de 6 434 à 5 779. La réussite au CEPD atteint 60,26 %, sous les moyennes régionale et nationale citées. Aucune cantine fonctionnelle n’est signalée en 2025-2026. Les localités éloignées ont aussi des difficultés d’accès au secondaire.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Réhabiliter les écoles les plus fragiles et améliorer les locaux préscolaires.
+- Rééquilibrer les enseignants et renforcer lecture, calcul et maintien scolaire.
+- Réduire les distances et les obstacles à la poursuite des études.
+- Améliorer eau, latrines séparées, accessibilité et alimentation scolaire.
+- Fiabiliser les effectifs, les performances et le comptage des infrastructures.
+:::
+
+#### Protection sociale et filets sociaux
+
+Le centre social de Lama-Tessi couvre théoriquement toute la commune, avec un seul agent et sans bureau confidentiel, moyens de déplacement adaptés ni fonds d’urgence. ANADEB, Plan International, PAFED et INABAC apportent des appuis complémentaires. En 2025, 481 ménages sont retenus pour les transferts sociaux et 140 jeunes sont concernés par EJV, dont 86 femmes. Les violences, le travail des enfants et les grossesses ou mariages précoces sont signalés, sans protocole communal formalisé de référencement.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Doter le centre social des moyens humains, matériels et d’intervention nécessaires ;
+- Créer un registre social sécurisé et un circuit coordonné de référencement ;
+- Renforcer la protection de l’enfance et la prise en charge des violences ;
+- Étendre équitablement les interventions et suivre l’insertion et les AGR après appui ;
+- Maintenir les infrastructures réalisées et préparer la pérennisation des dispositifs.
+:::
+
+#### Genre équité et égalité des sexes
+
+Les femmes dirigent 24,35 % des ménages enquêtés et contribuent fortement aux activités économiques, aux soins et à l’éducation des enfants. Le focus group décrit toutefois un pouvoir masculin dominant sur les décisions stratégiques et les ressources patrimoniales. Les charges domestiques et les corvées d’eau réduisent le temps disponible des femmes. Leur participation aux groupements est un acquis, mais leur influence réelle reste insuffisamment documentée. Des violences, mariages précoces et pratiques néfastes sont signalés qualitativement.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Institutionnaliser une politique et une budgétisation communales sensibles au genre ;
+- Sécuriser l’accès aux terres et aux ressources productives ;
+- Réduire les corvées et soutenir des revenus autonomes et un crédit sécurisé ;
+- Renforcer la représentation effective dans les instances de décision et de suivi ;
+- Organiser une prévention et un référencement confidentiels des violences.
+:::
+
+#### Inclusion des personnes handicapées
+
+La FETAPH rapporte environ 2 070 personnes handicapées, soit une prévalence apparente de 8,3 %, à vérifier. L’enquête indique qu’environ 12 % des ménages ont au moins un membre en situation de handicap : ces deux indicateurs portent sur des unités différentes. Les obstacles concernent l’éducation, la santé, les transports et l’emploi. Le primaire compte 42 élèves handicapés scolarisés, sans salle adaptée recensée. Deux relais locaux sont mobilisés à Lama-Tessi, mais aucune politique ni budget communal structuré n’est documenté.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Formaliser une politique d’inclusion et une consultation permanente des personnes concernées ;
+- Consolider les données et auditer l’accessibilité des équipements et services ;
+- Renforcer l’école inclusive, les aides techniques et les aménagements nécessaires ;
+- Traduire les engagements budgétaires en décisions formelles et suivies.
+- Lutter contre les discriminations et protéger femmes et enfants handicapés contre les violences.
+:::
+
+#### Jeunesse sport et participation des jeunes
+
+La jeunesse est peu organisée et faiblement associée à la gouvernance communale, selon les entretiens. Le sport repose sur une dizaine de clubs de football, des tournois scolaires ou ponctuels et le Vaillant Badminton Club. Deux terrains sont jugés acceptables, à Lama-Tessi et Kasséna. Le matériel, l’encadrement et la diversification des disciplines restent limités. Le projet PAFED a appuyé 50 jeunes athlètes de badminton entre 2024 et 2025. Les effectifs et situations d’insertion des jeunes ne sont pas quantifiés à l’échelle communale.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Compléter le diagnostic jeunesse et inventorier clubs, sites et encadreurs ;
+- Créer un cadre régulier de dialogue avec la mairie et relier participation et insertion ;
+- Remettre en état les sites existants et prévoir fonctionnement et entretien ;
+- Diversifier les disciplines et renforcer l’encadrement et la sécurité ;
+- Associer femmes, personnes handicapées et jeunes non scolarisés aux activités.
+:::
+
+### Condition d'habitat
+
+L’analyse des conditions d’habitat met en évidence une prédominance de la propriété résidentielle, avec `78,8 %` des ménages se déclarant propriétaires de leur logement. Toutefois, cette situation ne garantit pas nécessairement des conditions d’habitation satisfaisantes. Une proportion importante des constructions utilise encore des matériaux traditionnels, notamment la terre et le banco pour les murs, tandis que près de quatre logements sur dix disposent d’un sol en terre battue. Ces caractéristiques, associées aux insuffisances en matière d’assainissement et d’accès à certains services, traduisent des conditions d’habitat parfois précaires. Elles soulignent la nécessité de promouvoir l’amélioration progressive du cadre de vie, la sécurisation foncière, l’accès aux équipements de base et des techniques de construction adaptées aux réalités économiques et environnementales locales.
+
+### Electricité et énergie
+
+Concernant l’énergie, l’étude révèle une évolution encourageante de l’accès à l’électricité, grâce à la complémentarité entre le réseau conventionnel et les solutions solaires. Ainsi, `42,5 %` des ménages utilisent l’électricité du réseau CEET et `40,5 %` des panneaux solaires, portant à environ `83 %` la proportion des ménages recourant à l’une de ces deux sources d’éclairage. Cette progression constitue un atout pour le développement socioéconomique local, même si des disparités territoriales subsistent. En revanche, les pratiques de cuisson demeurent fortement dépendantes des combustibles ligneux, avec `92,2 %` des ménages utilisant principalement le bois de chauffe. Cette dépendance soulève des enjeux importants en matière de transition énergétique et de préservation des ressources forestières.
+
+### Environnement, changement climatique et résilience territoriale
+
+La dégradation du cadre de vie combine dépôts sauvages, rejets d’eaux usées, pollution des milieux et drainage insuffisant. Les inondations sont signalées par `12 %` des enquêtés et concernent surtout les cours d’eau et zones basses, notamment autour de Kasséna, Lama-Tessi et Solaou. L’érosion est citée par `42,2 %` des répondants parmi les changements environnementaux perçus. Les pertes de sols, dommages aux bâtiments et difficultés d’évacuation des eaux appellent des interventions localisées.
+
+Les résultats de l'enquête ménage confirment l’importance des interactions entre les activités humaines, l’exploitation des ressources naturelles et les changements climatiques. En effet, `61,3 %` des ménages déclarent exploiter le bois, essentiellement pour satisfaire leurs besoins domestiques, tandis que `20,1 %` pratiquent la carbonisation. Parallèlement, seuls `29,6 %` des ménages déclarent participer à des activités de reboisement. Cette situation suggère une pression potentiellement importante sur les ressources ligneuses et souligne la nécessité de renforcer les pratiques de gestion durable des forêts et de restauration des paysages. Les perceptions relatives aux changements climatiques révèlent également que `42,5 %` des ménages signalent une combinaison de plusieurs phénomènes, notamment l’irrégularité des pluies, les fortes chaleurs, les vents violents, les poches de sécheresse, les inondations et l’érosion des sols. Ces manifestations perçues constituent des facteurs de vulnérabilité potentiels pour les activités agricoles, les ressources naturelles et les moyens de subsistance des populations. Elles justifient l’intégration de mesures d’adaptation climatique, de conservation des eaux et des sols, d’agroforesterie et de restauration des écosystèmes dans les stratégies de développement communal.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+- Protéger les sols, les berges, les habitations et les infrastructures exposées ;
+- Améliorer et entretenir le drainage des eaux pluviales ;
+- Réduire les rejets et déchets qui polluent les milieux et obstruent les ouvrages ;
+- Orienter les investissements à partir des cartes de risques et des points critiques ;
+- Renforcer la prévention et les capacités communautaires de gestion des risques ;
+- Intégrer l’adaptation climatique dans agriculture, eau, habitat et infrastructures ;
+- Promouvoir des variétés adaptées, cultures à cycle court et diversification.
+:::
+
+### Ressources forestières biodiversité et espaces verts
+
+Fazao-Malfakassa, Kalaré, les forêts-galeries et le parc à karité de Boutonou constituent les principaux patrimoines écologiques cités. Entre 2000 et 2025, les espaces forestiers passent de 38,3 % à 24,6 % du territoire. Le bois de chauffe, la carbonisation, l’extension agricole et les feux dégradent les habitats. Le comité de Kalaré décrit des coupes persistantes et des espèces en diminution. Écoles, mairie, marché, berges et parcs agroforestiers offrent des supports de restauration et de végétalisation.
+
+**Principaux enjeux :**
+
+::: {.incremental}
+•	Protéger les habitats et restaurer forêts-galeries, berges et espaces dégradés ;
+•	Renforcer la gestion et la surveillance communautaires, notamment à Kalaré ;
+•	Réduire les prélèvements de bois-énergie et promouvoir les foyers améliorés ;
+•	Développer agroforesterie, régénération naturelle et plantations d’espèces locales ;
+•	Valoriser durablement karité, miel et autres produits forestiers, avec entretien des espaces verts.
+:::
+
+
+### Transport et mobilité
+
+La RN1 traverse la commune sur environ 19 km et assure sa connexion avec Sokodé et les autres pôles économiques. Les pistes rurales desservent les villages et les zones de production, mais leur dégradation saisonnière et le déficit de ponts, dalots et ponceaux limitent la circulation. Kominiboua, Boutonou, Faring et Tondja sont notamment cités comme enclavés. Les taxi-motos assurent une mobilité de proximité, procurent des revenus aux jeunes et contribuent aux recettes communales.
+
+Les résultats de l'enquête ménage mettent en évidence une fréquence relativement limitée des déplacements, `77,1 %` des ménages déclarant se déplacer rarement. Les motos et tricycles personnels, ainsi que les transports collectifs, constituent les principaux moyens de déplacement. Les dépenses mensuelles de transport demeurent globalement modestes pour une proportion significative des ménages, ce qui pourrait traduire à la fois une mobilité de proximité et des contraintes économiques limitant les déplacements. Ces résultats, rapprochés des difficultés d’accessibilité de certaines localités, soulignent l’importance du désenclavement rural, de l’amélioration des pistes et des infrastructures de transport ainsi que du renforcement de la desserte des zones éloignées des principaux centres de services et d’échanges économiques.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Garantir des liaisons praticables toute l’année entre villages, marchés et services essentiels ;
+- Réhabiliter les pistes et réaliser les ouvrages de franchissement des points critiques ;
+- Réduire les coûts de transport des intrants, des productions et des personnes ;
+- Sécuriser les traversées de la RN1 et améliorer l’accessibilité des personnes à mobilité réduite ;
+- Organiser les taxi-motos, leurs espaces de stationnement et le recouvrement de la taxe de brousse.
+:::
+
+
+### Caractère multidmensionnel et interdépendant des vulnérabilités
+
+Au-delà des résultats sectoriels, l’étude fait ressortir le caractère multidimensionnel et interdépendant des vulnérabilités des ménages. Les difficultés économiques peuvent limiter l’accès aux soins, à l’assainissement, à une alimentation énergétique plus propre et à des moyens de transport adaptés. De même, les insuffisances d’accès à l’eau potable, à l’éducation et aux infrastructures de mobilité peuvent peser sur les conditions de vie et les opportunités économiques des populations. Enfin, la forte dépendance aux activités agricoles et aux ressources naturelles accroît potentiellement la sensibilité des ménages aux aléas climatiques. Ces interactions montrent que les réponses aux défis du développement communal ne sauraient être exclusivement sectorielles, mais nécessitent une approche territoriale intégrée, articulant développement économique, accès aux services essentiels, inclusion sociale et durabilité environnementale.
+
+### Gouvernance institutionnelle administration et participation
+
+Le conseil municipal compte 15 conseillers, dont deux femmes, et trois commissions permanentes. Le rapport décrit un leadership de proximité et une bonne collaboration entre élus. L’administration compte huit agents, dont quatre femmes, avec des services d’état civil, comptabilité, recettes et topographie. Les réunions mensuelles communautaires, les CVD et le Bureau du Citoyen fonctionnel depuis octobre 2025 soutiennent le dialogue. L’absence d’organigramme, de fiches de poste et de manuel de procédures, ainsi que le déficit de compétences spécialisées, limitent cependant les capacités opérationnelles.
+
+**Principaux enjeux :**
+
+::: {incremental}
+- Formaliser l’organisation administrative et clarifier les responsabilités et procédures ;
+- Renforcer planification, montage de projets, mobilisation financière et suivi-évaluation ;
+- Doter CVD, CCD et Bureau du Citoyen de moyens et de formations ;
+- Structurer une concertation permanente, inclusive et suivie d’actions ;
+- Coordonner les partenaires, développer l’intercommunalité et améliorer la qualité des services.
+:::
+
+### Finances locales et maîtrise d’ouvrage communale
+
+Les recettes propres passent de `15,83 millions FCFA` en 2021 à `31,23 millions` en 2025, selon le rapport. Les recettes totales atteignent `102,57 millions` en 2025, avec une forte contribution des dotations, subventions, dons et legs à l’investissement. Dans le même temps, les dépenses de fonctionnement passent de 18,11 à 54,96 millions FCFA et l’investissement tombe à `6,40 millions` en 2025. Quatre collecteurs couvrent un territoire étendu. La commune sait conduire de petites réalisations, mais sa capacité pour les opérations complexes reste à renforcer.
+
+**Principaux enjeux :**
+
+::: {incremental}
+•	Professionnaliser une mobilisation des recettes équitable, transparente et traçable ;
+•	Diversifier les financements et renforcer les capacités de montage de projets ;
+•	Maîtriser les charges courantes et préserver une capacité d’investissement ;
+•	Programmer des projets réalistes selon maturité, cofinancement et capacités techniques ;
+•	Structurer la maîtrise d’ouvrage du diagnostic à la réception et à la maintenance.
+:::
+
+## Orientation stratégique
+
+Au regard de ces constats, plusieurs orientations stratégiques devraient guider les interventions futures de la commune. Il apparaît prioritaire de renforcer l’accès équitable aux services sociaux de base, particulièrement l’eau potable, l’assainissement, la santé et l’éducation, en accordant une attention particulière aux localités insuffisamment desservies. La promotion du développement économique local devrait reposer sur l’amélioration de la productivité agricole, la valorisation des chaînes de valeur, le développement de la transformation des produits locaux et la création d’opportunités économiques pour les femmes et les jeunes. Parallèlement, la commune devra poursuivre les efforts d’amélioration de l’accessibilité territoriale, promouvoir les solutions énergétiques durables et renforcer la résilience des populations face aux changements climatiques. Une attention particulière devra être accordée à la restauration des paysages forestiers, à la réduction de la dépendance aux combustibles ligneux et à la diffusion de pratiques agroécologiques et de gestion durable des ressources naturelles.
+
+La mise en œuvre de ces orientations suppose également un renforcement des capacités institutionnelles, techniques et financières de la commune. Il conviendra notamment d’améliorer la planification et la programmation des investissements publics locaux, de renforcer la mobilisation des ressources propres et externes, de développer les partenariats avec l’État, les partenaires techniques et financiers, les organisations de la société civile et le secteur privé, et de promouvoir une participation effective des populations aux processus décisionnels. Les résultats de l’enquête devraient également servir de référence pour la définition d’indicateurs de suivi du PDC, la territorialisation des Objectifs de développement durable et l’évaluation périodique des progrès réalisés dans l’amélioration des conditions de vie des ménages.
+
+## Conclusion
+
+Le diagnostic constitue une base de connaissance essentielle pour orienter le développement de Tchaoudjo 2 vers un modèle plus inclusif, résilient et durable. Elle met en évidence des potentialités réelles, notamment dans les domaines agricole, énergétique et des ressources naturelles, mais révèle également des défis persistants liés à la précarité économique, aux insuffisances d’accès aux services essentiels, aux disparités territoriales et à la vulnérabilité environnementale. L’enjeu majeur pour la commune sera désormais de transformer ces constats en priorités stratégiques, en programmes d’investissement réalistes et en actions concrètes, hiérarchisées selon les besoins des populations et les capacités de mobilisation des ressources. C’est à cette condition que le Plan de développement communal pourra constituer un véritable instrument de transformation territoriale, d’amélioration durable des conditions de vie et de renforcement de la résilience des communautés de Tchaoudjo 2.
