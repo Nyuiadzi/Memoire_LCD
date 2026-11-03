@@ -30,6 +30,12 @@ format:
     # margin:
     #   x: 2cm
     #   y: 2cm
+    # format: typst
+    # lof: true
+    # lot: true
+    # crossref:
+    #   lof-title: "Figures"
+    #   lot-title: "Tables"
 
   docx:
     toc: true
@@ -296,10 +302,21 @@ La @tbl-echantillon_realise ci-dessous présente le nombre de ménages enquêté
 
 ```{r}
 #| echo: true
-if (!require(pacman)) install.packages("pacman")
+if (!require(pacman)) {
+  install.packages("pacman")
+}
 
-pacman::p_load(tidyverse, readxl, tidyr, janitor, here,
-              gt, flextable, gtsummary, gtExtras)
+pacman::p_load(
+  tidyverse,
+  readxl,
+  tidyr,
+  janitor,
+  here,
+  gt,
+  flextable,
+  gtsummary,
+  gtExtras
+)
 ```
 
 **Rôle des différents packages utilisés dans l'analyse des données :**
@@ -336,11 +353,11 @@ head(data_tchaoudjo2, 10) # visualisation des 10 premières lignes du jeu de don
 #| echo: false
 #| label: tbl-sexe
 #| tbl-cap: "Répartition des ménages enquêtés selon le sexe du chef de ménage"
-data_tchaoudjo2 |> 
-  tabyl(sexe) |> 
+data_tchaoudjo2 |>
+  tabyl(sexe) |>
   adorn_totals("row") |>
-  adorn_pct_formatting(digits = 1) |> 
-  rename("Sexe" = sexe, "Effectif" = n, "Pourcentage" = percent) |> 
+  adorn_pct_formatting(digits = 1) |>
+  rename("Sexe" = sexe, "Effectif" = n, "Pourcentage" = percent) |>
   gt() |>
   tab_style(
     style = cell_text(weight = "bold"),
@@ -363,12 +380,12 @@ La @tbl-sexe met en évidence une nette prédominance des hommes parmi les chefs
 #| output: false
 #| label: tbl-age_sexe
 #| tbl-cap: "Répartition des enquêtés selon la tranche d'âge et le sexe du chef de ménage"
-data_tchaoudjo2 |> 
-  tabyl(age, sexe) |> 
-  mutate(Total = Féminin + Masculin) |> 
+data_tchaoudjo2 |>
+  tabyl(age, sexe) |>
+  mutate(Total = Féminin + Masculin) |>
   as.data.frame() |>
   adorn_totals("row") |>
-  rename(Âge = age) |> 
+  rename(Âge = age) |>
   gt()
 ```
 
@@ -376,10 +393,10 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: fig-tranche_age
 #| fig-cap: "Répartition des enquêtés par tranche d'âge et par sexe"
-data_tchaoudjo2|>
+data_tchaoudjo2 |>
   ggplot() +
-  aes(x = age, fill = sexe)+
-  geom_bar(position = "dodge")+
+  aes(x = age, fill = sexe) +
+  geom_bar(position = "dodge") +
 
   geom_text(
     aes(
@@ -389,36 +406,32 @@ data_tchaoudjo2|>
     stat = "count",
     position = position_dodge(width = 0.9),
     vjust = -0.3,
-    size = 3
+    size = 6
   ) +
 
-  labs(title = "",
-       caption = "",
-       x = "Sexe",
-       y = "Effectif",
-       fill = "Sexe") +
-        
+  labs(title = "", caption = "", x = "Sexe", y = "Effectif", fill = "Sexe") +
+
   theme_bw() +
-    theme(
+  theme(
     # Titre du graphique
     plot.title = element_text(size = 14, face = "bold"),
     # Sous-titre du graphique
-    plot.subtitle = element_text(size = 12, face = "italic"),
+    plot.subtitle = element_text(size = 14, face = "italic"),
     # Note de bas de page du graphique
-    plot.caption = element_text(size = 10, face = "italic"),
+    plot.caption = element_text(size = 14, face = "italic"),
     # Valeurs graduées de l'axe Y
-    axis.text.y = element_text(size = 12),
+    axis.text.y = element_text(size = 14),
     # Modalités de l'axe X
-    axis.text.x = element_text(size = 10, face = "bold",  angle = 45, hjust = 1),
+    axis.text.x = element_text(size = 14, face = "bold", angle = 45, hjust = 1),
     # Titre de l'axe X
-    axis.title.x = element_text(size = 12, face = "bold"),
+    axis.title.x = element_text(size = 14, face = "bold"),
     # Titre de l'axe Y
-    axis.title.y = element_text(size = 12,face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
     # Légende
     legend.title = element_text(size = 14, face = "bold"),
-    legend.text = element_text(size = 12),
+    legend.text = element_text(size = 16),
     legend.key.size = unit(0.8, "cm")
-)
+  )
 ```
 
 ::: callout-note
@@ -433,13 +446,13 @@ La répartition des chefs de ménage selon l’âge montre une **forte concentra
 #| echo: false
 #| label: tbl-situation_matri
 #| tbl-cap: "Répartition des enquêtés selon la situation matrimoniale et le sexe du chef de ménage"
-data_tchaoudjo2 |> 
-  tabyl(situation_matri, sexe) |> 
-  mutate(Total = Féminin + Masculin) |> 
-  arrange(desc(Total)) |> 
+data_tchaoudjo2 |>
+  tabyl(situation_matri, sexe) |>
+  mutate(Total = Féminin + Masculin) |>
+  arrange(desc(Total)) |>
   as.data.frame() |>
   adorn_totals("row") |>
-  rename(Situation_matrimoniale = situation_matri) |> 
+  rename(Situation_matrimoniale = situation_matri) |>
   gt()
 ```
 
@@ -457,8 +470,9 @@ Test du Khi-deux d'indépendance entre la situation matrimoniale et le sexe du c
 
 ```{r}
 #| echo: false
-khi2_matri_sexe  <- chisq.test(
-  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
+khi2_matri_sexe <- chisq.test(
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
+)
 khi2_matri_sexe
 ```
 
@@ -466,7 +480,7 @@ khi2_matri_sexe
 #| echo: false
 # Vérification des effectifs attendus et de l'effectif attendus minimum
 khi2_matri_sexe$expected
-effectif_min  <- min(khi2_matri_sexe$expected)
+effectif_min <- min(khi2_matri_sexe$expected)
 ```
 
 ```{r}
@@ -478,7 +492,8 @@ paste("L'effectif attendu minimum est égal à :", round(effectif_min, 2))
 #| echo: false
 # Calcul du V de Cramer
 v_cramer <- DescTools::CramerV(
-  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe))
+  table(data_tchaoudjo2$situation_matri, data_tchaoudjo2$sexe)
+)
 ```
 
 ```{r}
@@ -566,17 +581,29 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 ```{r}
 #| echo: false
 #| output: false
-data_tchaoudjo2 |> 
-  tabyl(ethnie) |> 
+data_tchaoudjo2 |>
+  tabyl(ethnie) |>
   arrange(desc(n))
 ```
 
 ```{r}
 #| echo: false
-data_tchaoudjo2 <- data_tchaoudjo2 |> 
+data_tchaoudjo2 <- data_tchaoudjo2 |>
   mutate(
     ethnie_rec = case_when(
-      ethnie %in% c("Ife", "Konkomba", "Sola", "Akposso", "Lokpa", "Mina", "Pouda", "Samourè", "Yaka", "Zarma") ~ "Autres",
+      ethnie %in%
+        c(
+          "Ife",
+          "Konkomba",
+          "Sola",
+          "Akposso",
+          "Lokpa",
+          "Mina",
+          "Pouda",
+          "Samourè",
+          "Yaka",
+          "Zarma"
+        ) ~ "Autres",
       TRUE ~ ethnie
     )
   )
@@ -586,8 +613,8 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 ```{r}
 #| echo: false
 #| output: false
-data_tchaoudjo2 |> 
-  tabyl(ethnie_rec) |> 
+data_tchaoudjo2 |>
+  tabyl(ethnie_rec) |>
   arrange(desc(n))
 ```
 
@@ -599,8 +626,8 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: fig-ethnie
 #| fig-cap: "Type de centre de santé fréquenté par le ménage"
-#| fig-width: 8
-#| fig-height: 5
+#| fig-width: 10
+#| fig-height: 7
 data_tchaoudjo2 |>
   filter(!is.na(ethnie_rec)) |>
   count(ethnie_rec) |>
@@ -621,16 +648,22 @@ data_tchaoudjo2 |>
   geom_text(
     aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 3.5
+    size = 5
   ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.15))
   ) +
   labs(
     x = "Pourcentage (%)",
-    y = "Ethnie"
+    y = "Groupes ethniques"
   ) +
-  theme_bw()
+  theme_bw(base_size = 14) +
+  theme(
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 16),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold")
+  )
 ```
 
 :::
@@ -644,7 +677,7 @@ data_tchaoudjo2 |>
 
 ```{r}
 #| echo: false
-#| label: fig-religion
+#| #| label: fig-religion
 #| fig-cap: "Répartition des ménages selon la religion du chef de ménage"
 tab_religion <- table(data_tchaoudjo2$religion)
 pourcentage <- round(prop.table(tab_religion) * 100, 1)
@@ -653,6 +686,7 @@ labels <- paste0(names(tab_religion), " : ", pourcentage, "%")
 pie(
   tab_religion,
   labels = labels,
+  cex = 2, # Taille du texte des étiquettes
   #col = c("skyblue", "yellow", "tomato", "seagreen"),
   main = ""
 )
@@ -665,9 +699,9 @@ pie(
 ::: callout-note
 ## **Interprétation**
 
-La @fig-ethnie mettent en évidence que `55,7 %` des chefs de ménage sont Kabyè contre `21,9 %` de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ `76,8 %` des chefs de ménage enquêtés de l'échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent `6 %`, les Losso `5,5 %`, les Lamba `5,1 %` et les Nawda `2,6 %`.
+La @fig-ethnie met en évidence que `55,7 %` des chefs de ménage sont Kabyè contre `21,9 %` de Tem/Kotokoli. À elles seules, ces deux ethnies regroupent ainsi environ `76,8 %` des chefs de ménage enquêtés de l'échantillon, traduisant une concentration relativement importante de la population autour de ces deux principaux groupes ethniques. Les autres groupes présentent des effectifs nettement plus faibles : les Peulh représentent `6 %`, les Losso `5,5 %`, les Lamba `5,1 %` et les Nawda `2,6 %`.
 
-Le reste des partenances ethniques sont très minoritaires. Les Ewé représentent `0,8 %`, des Moba avec `0,6 %`, les Bassar `0,4 %` et des Adja `0,3 %`. La catégorie « Autres » (Ife, Konkomba, Sola, Akposso, Lokpa, Mina, Pouda, Samourè, Yaka, Zarma) regroupe `0,9 %` des enquêtés.
+Le reste des appartenances ethniques sont très minoritaires. Les Ewé représentent `0,8 %`, des Moba avec `0,6 %`, les Bassar `0,4 %` et des Adja `0,3 %`. La catégorie « Autres » (Ife, Konkomba, Sola, Akposso, Lokpa, Mina, Pouda, Samourè, Yaka, Zarma) regroupe `0,9 %` des enquêtés.
 
 Au niveau de la religion la @fig-religion montre que le christianisme constitue la religion la plus représentée parmi les chefs de ménage enquêtés, avec `42,9 %` de l’effectif total. Il est suivi de l’islam, pratiqué par `31,5 %` des chefs de ménage. Ces deux principales religions regroupent ainsi `74,4 %` des enquêtés. Les religions traditionnelles concernent pour leur part `11,2 %` des chefs de ménage. Par ailleurs, une proportion non négligeable des chefs de ménage, soit `13,6`, déclare n’appartenir à aucune religion, tandis que `0,8 %` n’ont pas précisé leur appartenance religieuse (NSP).
 :::
@@ -675,9 +709,9 @@ Au niveau de la religion la @fig-religion montre que le christianisme constitue 
 #### - Nombre de personnes à charge
 
 ```{r}
-data_tchaoudjo2 |> 
-    select("Nombre de personne à charge" = personne_nb_charge) |> 
-    summary()
+data_tchaoudjo2 |>
+  select("Nombre de personne à charge" = personne_nb_charge) |>
+  summary()
 ```
 
 ```{r}
@@ -708,7 +742,13 @@ data_tchaoudjo2 |>
     x = "Nombre de personnes à charge",
     y = "Effectif"
   ) +
-  theme_bw()
+  theme_bw(base_size = 14) +
+  theme(
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 16),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+  )
 
 data_tchaoudjo2 |>
   filter(!is.na(personne_nb_charge), !is.na(sexe)) |>
@@ -718,9 +758,12 @@ data_tchaoudjo2 |>
     x = "Sexe",
     y = "Nombre de personne à charge"
   ) +
-  theme_bw() +
+  theme_bw(base_size = 14) +
   theme(
-    legend.position = "none"
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 16),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
   )
 ```
 
@@ -744,10 +787,14 @@ Dans l'ensemble selon la @fig-boxplot-perso_charge-2, les résultats suggèrent 
 #| echo: false
 #| label: tbl-acte-naissance
 #| tbl-cap: "Enfant sans acte de naissance"
-data_tchaoudjo2 |> 
-  tabyl(enfant_pas_naissance) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  rename("Enfants sans acte de naissance" = enfant_pas_naissance, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(enfant_pas_naissance) |>
+  adorn_pct_formatting(digits = 1) |>
+  rename(
+    "Enfants sans acte de naissance" = enfant_pas_naissance,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -759,11 +806,15 @@ data_tchaoudjo2 |>
 #| label: tbl-sans-acte-raison
 #| tbl-cap: "Raison de l'absence d'acte de naissance"
 
-data_tchaoudjo2 |> 
-  tabyl(enfant_pas_naissance_raison, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Raisons de l'absence d'acte de naissance" = enfant_pas_naissance_raison, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(enfant_pas_naissance_raison, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Raisons de l'absence d'acte de naissance" = enfant_pas_naissance_raison,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -777,7 +828,7 @@ Les résultats de la @tbl-acte-naissance montrent que la grande majorité des m�
 
 Concernant les raisons évoquées dans la table  @tbl-sans-acte-raison, la principale difficulté tient à la **destruction ou à la perte de l’acte de naissance**, citée dans **50,3 %** des cas renseignés. Les obstacles directement liés à l’accessibilité des services d’état civil apparaissent également : **7,1 %** évoquent l’éloignement du centre d’état civil et **3,9 %** le coût jugé trop élevé de l’établissement de l’acte.
 
-Les « autres raisons » évoquées représentent également une part importante (**38,7 %**). Ces raisons sont : "l'établissement de l'acte est en cours", "l'enfant n'était pas né au Togo", "absence de régistre ou problème avec l'agent d'état civil", "l'âge de l'enfant est dépassé", "l'acte est fait mais c'est un faux", "l'agent d'état civil a pris l'argent mais ne l'a pas fait", "le père avait voyagé", "le délai est dépassé", "le manque de moyens financiers", "par négligeance", "l'enfant est un orphelin recueilli", "l'oublie". Ces résultats suggèrent ainsi que la problématique ne relève pas uniquement de l’enregistrement initial des naissances, mais également de la conservation et de la sécurisation des actes déjà établis.
+Les « autres raisons » évoquées représentent également une part importante (**38,7 %**). Ces raisons sont : "l'établissement de l'acte est en cours", "l'enfant n'était pas né au Togo", "absence de registre ou problème avec l'agent d'état civil", "l'âge de l'enfant est dépassé", "l'acte est fait mais c'est un faux", "l'agent d'état civil a pris l'argent mais ne l'a pas fait", "le père avait voyagé", "le délai est dépassé", "le manque de moyens financiers", "par négligence", "l'enfant est un orphelin recueilli", "l'oublie". Ces résultats suggèrent ainsi que la problématique ne relève pas uniquement de l’enregistrement initial des naissances, mais également de la conservation et de la sécurisation des actes déjà établis.
 :::
 
 ### - Education et formation
@@ -792,13 +843,13 @@ Les « autres raisons » évoquées représentent également une part importante
 #| echo: false
 #| label: tbl-etude-sexe
 #| tbl-cap: "Niveau d'étude et sexe du chef de ménage"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   tabyl(education_niveau_etude, sexe) |>
   adorn_totals(c("row", "col")) |>
   adorn_percentages("col") |>
   adorn_pct_formatting(digits = 1) |>
   adorn_ns(position = "front") |>
-  rename("Niveau d'étude" = education_niveau_etude) |> 
+  rename("Niveau d'étude" = education_niveau_etude) |>
   gt()
 ```
 
@@ -810,10 +861,10 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: fig-etude-sexe
 #| fig-cap: "Niveau d'étude et sexe du chef de ménage"
-data_tchaoudjo2|>
+data_tchaoudjo2 |>
   ggplot() +
-  aes(x = education_niveau_etude, fill = sexe)+
-  geom_bar(position = "dodge")+
+  aes(x = education_niveau_etude, fill = sexe) +
+  geom_bar(position = "dodge") +
   geom_text(
     aes(
       label = after_stat(count),
@@ -822,17 +873,19 @@ data_tchaoudjo2|>
     stat = "count",
     position = position_dodge(width = 0.9),
     vjust = -0.3,
-    size = 3
+    size = 5
   ) +
 
-  labs(title = "",
-       caption = "",
-       x = "Niveau d'étude",
-       y = "Effectif",
-       fill = "Sexe") +
-        
+  labs(
+    title = "",
+    caption = "",
+    x = "Niveau d'étude",
+    y = "Effectif",
+    fill = "Sexe"
+  ) +
+
   theme_bw() +
-    theme(
+  theme(
     # Titre du graphique
     plot.title = element_text(size = 14, face = "bold"),
     # Sous-titre du graphique
@@ -840,18 +893,18 @@ data_tchaoudjo2|>
     # Note de bas de page du graphique
     plot.caption = element_text(size = 10, face = "italic"),
     # Valeurs graduées de l'axe Y
-    axis.text.y = element_text(size = 12),
+    axis.text.y = element_text(size = 14),
     # Modalités de l'axe X
-    axis.text.x = element_text(size = 10, face = "bold",  angle = 25, hjust = 1),
+    axis.text.x = element_text(size = 14, face = "bold", angle = 25, hjust = 1),
     # Titre de l'axe X
-    axis.title.x = element_text(size = 12, face = "bold"),
+    axis.title.x = element_text(size = 16, face = "bold"),
     # Titre de l'axe Y
-    axis.title.y = element_text(size = 12,face = "bold"),
+    axis.title.y = element_text(size = 12, face = "bold"),
     # Légende
-    legend.title = element_text(size = 14, face = "bold"),
-    legend.text = element_text(size = 12),
+    legend.title = element_text(size = 16, face = "bold"),
+    legend.text = element_text(size = 16),
     legend.key.size = unit(0.8, "cm")
-)
+  )
 ```
 
 :::
@@ -870,9 +923,9 @@ Test du Khi-deux d'indépendance entre le niveau d'éducation et le sexe du chef
 
 ```{r}
 #| echo: false
-khi2_etude_sexe <- data_tchaoudjo2 |> 
-  filter(education_niveau_etude != "NSP") |> 
-  with(table(education_niveau_etude, sexe)) |> 
+khi2_etude_sexe <- data_tchaoudjo2 |>
+  filter(education_niveau_etude != "NSP") |>
+  with(table(education_niveau_etude, sexe)) |>
   chisq.test()
 
 khi2_etude_sexe
@@ -883,7 +936,7 @@ khi2_etude_sexe
 #| output: false
 # Vérification des effectifs attendus et de l'effectif attendus minimum
 khi2_etude_sexe$expected
-eff_min  <- min(khi2_etude_sexe$expected)
+eff_min <- min(khi2_etude_sexe$expected)
 ```
 
 
@@ -896,7 +949,8 @@ paste("L'effectif attendu minimum est :", round(eff_min, 2))
 #| echo: false
 # Calcul du V de Cramer
 v_cramer2 <- DescTools::CramerV(
-  table(data_tchaoudjo2$education_niveau_etude, data_tchaoudjo2$sexe))
+  table(data_tchaoudjo2$education_niveau_etude, data_tchaoudjo2$sexe)
+)
 ```
 
 
@@ -920,21 +974,21 @@ Cette association reste toutefois d’une **intensité faible à modérée**, co
 #| echo: false
 #| label: tbl-educ-enfant
 #| tbl-cap: "Niveau d'étude chef de ménage et Non scolarisation des enfants de 9 à 14 ans"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   filter(education_niveau_etude != "NSP") |> # suppression de la modalité "NSP"
   tabyl(education_niveau_etude, education_9_14ans_non_scolarise) |>
   adorn_totals(c("row", "col")) |>
   adorn_percentages("col") |>
   adorn_pct_formatting(digits = 1) |>
   adorn_ns(position = "front") |>
-  rename("Niveau d'étude" = education_niveau_etude) |> 
+  rename("Niveau d'étude" = education_niveau_etude) |>
   gt()
 ```
 
 ::: callout-note
 ## **Interprétation**
 
-La @tbl-educ-enfant semblre mettre en évidence une relation entre le **niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage**. Parmi les `46` sur `1452` ménages déclarant des enfants de 9 à 14 ans non scolarisés, **73,9 % des chefs de ménage n’ont aucun niveau d’étude**, contre seulement `38,1 %` parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : `19,6 %` des chefs ont le niveau primaire, `4,3 %` le secondaire 1, `2,2 %` le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.
+La @tbl-educ-enfant semble mettre en évidence une relation entre le **niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage**. Parmi les `46` sur `1452` ménages déclarant des enfants de 9 à 14 ans non scolarisés, **73,9 % des chefs de ménage n’ont aucun niveau d’étude**, contre seulement `38,1 %` parmi les ménages ne déclarant pas cette situation. À l’inverse, les niveaux d’instruction plus élevés sont beaucoup moins représentés parmi les ménages concernés : `19,6 %` des chefs ont le niveau primaire, `4,3 %` le secondaire 1, `2,2 %` le secondaire 2 et aucun n’a atteint l’université. Ces résultats suggèrent donc que la non-scolarisation des enfants de 9 à 14 ans est davantage observée dans les ménages dont le chef présente un faible niveau d’instruction.
 :::
 
 
@@ -942,9 +996,9 @@ Test du Khi-deux d'indépendance entre le niveau d'éducation du chef de ménage
 
 ```{r}
 #| echo: false
-khi2_etude_scol <- data_tchaoudjo2 |> 
-  filter(education_niveau_etude != "NSP") |> 
-  with(table(education_niveau_etude, education_9_14ans_non_scolarise)) |> 
+khi2_etude_scol <- data_tchaoudjo2 |>
+  filter(education_niveau_etude != "NSP") |>
+  with(table(education_niveau_etude, education_9_14ans_non_scolarise)) |>
   chisq.test()
 
 khi2_etude_scol
@@ -955,7 +1009,7 @@ khi2_etude_scol
 #| output: false
 # Vérification des effectifs attendus et de l'effectif attendus minimum
 khi2_etude_scol$expected
-eff_min  <- min(khi2_etude_scol$expected)
+eff_min <- min(khi2_etude_scol$expected)
 ```
 
 
@@ -990,7 +1044,7 @@ DescTools::CramerV(tab_etude_parent_scolarisation)
 
 ::: callout-note
 ## **Interprétation**
-Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. Le résultat confirme l’association observée (**χ² = 25,42 ; p < 0,001**). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : `73,9 %` des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre `38,1 %` parmi les ménages non concernés. Toutefois, le V de Cramér (**V = 0,13**) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.
+Les résultats mettent en évidence une association statistiquement significative entre le niveau d’étude du chef de ménage et la présence d’enfants de 9 à 14 ans non scolarisés dans le ménage. Le résultat confirme l’association observée (**χ² = 25,42 ; p < 0,001**). Les ménages concernés par la non-scolarisation sont particulièrement concentrés parmi ceux dont le chef n’a aucun niveau d’étude : `73,9 %` des ménages déclarant au moins un enfant de 9 à 14 ans non scolarisé ont un chef sans niveau d’étude, contre `38,1 %` parmi les ménages non concernés. Toutefois, le V de Cramer (**V = 0,13**) indique que l’intensité de l’association demeure faible. Ces résultats mettent ainsi en évidence un lien statistique entre les deux variables, sans permettre d’établir une relation de causalité.
 
 :::
 
@@ -999,9 +1053,12 @@ Les résultats mettent en évidence une association statistiquement significativ
 ```{r}
 #| echo: false
 #| output: false
-data_tchaoudjo2 |> 
-  select(education_9_14ans_non_scolarise_raison, education_9_14ans_non_scolarise_raison_autre) |> 
-  filter(education_9_14ans_non_scolarise_raison == "Autre, précisez") |> 
+data_tchaoudjo2 |>
+  select(
+    education_9_14ans_non_scolarise_raison,
+    education_9_14ans_non_scolarise_raison_autre
+  ) |>
+  filter(education_9_14ans_non_scolarise_raison == "Autre, précisez") |>
   gt()
 ```
 
@@ -1014,7 +1071,7 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
     education_9_14ans_non_scolarise_raison = if_else(
       education_9_14ans_non_scolarise_raison == "Autre, précisez" &
         !is.na(education_9_14ans_non_scolarise_raison_autre),
-      
+
       education_9_14ans_non_scolarise_raison_autre,
       education_9_14ans_non_scolarise_raison
     )
@@ -1025,7 +1082,7 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 #| echo: false
 #| output: false
 # Recodage des modalités de la variable
-data_tchaoudjo2 <- data_tchaoudjo2 |> 
+data_tchaoudjo2 <- data_tchaoudjo2 |>
   mutate(
     education_9_14ans_non_scolarise_raison = dplyr::recode(
       education_9_14ans_non_scolarise_raison,
@@ -1045,11 +1102,15 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-raison-scol
 #| tbl-cap: "Raisons de la non scolarisation des enfants"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   tabyl(education_9_14ans_non_scolarise_raison, show_na = FALSE) |>
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Raisons de la non scolarisation des enfants" = education_9_14ans_non_scolarise_raison, "Effectif" = n, "Pourcentage" = percent) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Raisons de la non scolarisation des enfants" = education_9_14ans_non_scolarise_raison,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1072,11 +1133,15 @@ Les contraintes d’accessibilité ou socioéconomiques apparaissent moins fréq
 #| echo: false
 #| label: tbl-alpha
 #| tbl-cap: "Personnes de plus de 15 ans qui se savent lire et écrire"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   tabyl(education_plus_15an_analphabete, show_na = FALSE) |>
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Ne sais pas lire et écrire" = education_plus_15an_analphabete, "Effectif" = n, "Pourcentage" = percent) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Ne sais pas lire et écrire" = education_plus_15an_analphabete,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1087,8 +1152,8 @@ data_tchaoudjo2 |>
 ```{r}
 #| echo: false
 #| output: false
-data_tchaoudjo2 |> 
-  select(education_plus_15an_analphabete, education_alphabetisation) |> 
+data_tchaoudjo2 |>
+  select(education_plus_15an_analphabete, education_alphabetisation) |>
   filter(education_plus_15an_analphabete == "Oui")
 ```
 
@@ -1096,11 +1161,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-alpha-cours
 #| tbl-cap: "Personnes qui suivent un cours d'alphabétisation"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   tabyl(education_alphabetisation, show_na = FALSE) |>
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Suit un cours d'alphabétisation" = education_alphabetisation, "Effectif" = n, "Pourcentage" = percent) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Suit un cours d'alphabétisation" = education_alphabetisation,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1120,11 +1189,15 @@ Parmi les ménages concernés, le recours aux dispositifs d’alphabétisation a
 #| echo: false
 #| label: tbl-formation
 #| tbl-cap: "Formation professionnelle du chef de ménage"
-data_tchaoudjo2 |> 
+data_tchaoudjo2 |>
   tabyl(education_apprentissage, show_na = FALSE) |>
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Formation professionnelle/apprentissage" = education_apprentissage, "Effectif" = n, "Pourcentage" = percent) |> 
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Formation professionnelle/apprentissage" = education_apprentissage,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1195,10 +1268,10 @@ D’autres filières occupent également une place non négligeable, notamment l
 #| label: tbl-profession
 #| tbl-cap: "Profession du chef de ménage"
 
-data_tchaoudjo2 |> 
-  tabyl(profession) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
+data_tchaoudjo2 |>
+  tabyl(profession) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
   rename("Profession" = profession, "Effectif" = n, "Pourcentage" = percent) |>
   gt()
 ```
@@ -1218,11 +1291,15 @@ Les autres catégories professionnelles restent très faiblement représentées 
 #| label: tbl-domaine
 #| tbl-cap: "Domaine d'activité du chef de ménage"
 
-data_tchaoudjo2 |> 
-  tabyl(domaine_activité) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Domaine d'activité" = domaine_activité, "Effectif" = n, "Pourcentage" = percent) |>
+data_tchaoudjo2 |>
+  tabyl(domaine_activité) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Domaine d'activité" = domaine_activité,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1240,11 +1317,15 @@ La structure professionnelle des chefs de ménage enquêtés est fortement domin
 #| label: tbl-secteur
 #| tbl-cap: "Secteur d'activité du chef de ménage"
 
-data_tchaoudjo2 |> 
-  tabyl(secteur_activité) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Secteur d'activité" = secteur_activité, "Effectif" = n, "Pourcentage" = percent) |>
+data_tchaoudjo2 |>
+  tabyl(secteur_activité) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Secteur d'activité" = secteur_activité,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1302,23 +1383,26 @@ Pour faciliter l'analyse, les modalités des tranches de revenu de "52 500 à 99
 data_tchaoudjo2 <- data_tchaoudjo2 |>
   dplyr::mutate(
     revenu_rec2 = dplyr::case_when(
-      revenu %in% c(
-        "52 500 à 74 900 F",
-        "75 000 à 99 900 F"
-      ) ~ "52 500 à 99 900 F",
+      revenu %in%
+        c(
+          "52 500 à 74 900 F",
+          "75 000 à 99 900 F"
+        ) ~ "52 500 à 99 900 F",
 
-      revenu %in% c(
-        "100 000 à 124 900 F",
-        "125 000 à 149 900 F"
-      ) ~ "100 000 à 149 900 F",
+      revenu %in%
+        c(
+          "100 000 à 124 900 F",
+          "125 000 à 149 900 F"
+        ) ~ "100 000 à 149 900 F",
 
-      revenu %in% c(
-        "150 000 à 199 900 F",
-        "200 000 à 249 900 F",
-        "250 000 à 299 900 F",
-        "300 000 à 399 900 F",
-        "500 000 F et plus"
-      ) ~ "150 000 F et plus",
+      revenu %in%
+        c(
+          "150 000 à 199 900 F",
+          "200 000 à 249 900 F",
+          "250 000 à 299 900 F",
+          "300 000 à 399 900 F",
+          "500 000 F et plus"
+        ) ~ "150 000 F et plus",
 
       TRUE ~ revenu
     )
@@ -1331,14 +1415,14 @@ On obtient le tableau @tbl-revenu-rec ci-dessous :
 #| echo: false
 #| label: tbl-revenu-rec
 #| tbl-cap: "Revenu selon le sexe du chef de ménage"
-data_tchaoudjo2 |> 
-  filter(profession != "Sans emploi" & profession != "Elève/étudiant") |> 
-  tabyl(revenu_rec2, sexe) |> 
-  mutate(Total = Féminin + Masculin) |> 
-  arrange(desc(Total)) |> 
+data_tchaoudjo2 |>
+  filter(profession != "Sans emploi" & profession != "Elève/étudiant") |>
+  tabyl(revenu_rec2, sexe) |>
+  mutate(Total = Féminin + Masculin) |>
+  arrange(desc(Total)) |>
   as.data.frame() |>
   adorn_totals("row") |>
-  rename("Tranches de revenu" = revenu_rec2) |> 
+  rename("Tranches de revenu" = revenu_rec2) |>
   gt()
 ```
 
@@ -1391,11 +1475,15 @@ Les informations qualitatives recueillies lors des focus groups avec les femmes 
 #| echo: false
 #| label: tbl-difficulte
 #| tbl-cap: "Difficultés pour faire face aux besoins vitaux"
-data_tchaoudjo2 |> 
-  tabyl(difficulte_besoin_vitaux) |> 
+data_tchaoudjo2 |>
+  tabyl(difficulte_besoin_vitaux) |>
   adorn_pct_formatting(digits = 1) |>
-  arrange(desc(n)) |> 
-  rename("Difficultés" = difficulte_besoin_vitaux, "Effectif" = n, "Pourcentage" = percent) |> 
+  arrange(desc(n)) |>
+  rename(
+    "Difficultés" = difficulte_besoin_vitaux,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1404,12 +1492,16 @@ data_tchaoudjo2 |>
 #| output: false
 #| label: tbl-difficulte_principale
 #| tbl-cap: "Les trois principales difficultés ?"
-data_tchaoudjo2 |> 
-  filter(!is.na(difficulte_besoin_vitaux_principales)) |> 
-  tabyl(difficulte_besoin_vitaux_principales) |> 
+data_tchaoudjo2 |>
+  filter(!is.na(difficulte_besoin_vitaux_principales)) |>
+  tabyl(difficulte_besoin_vitaux_principales) |>
   adorn_pct_formatting(digits = 1) |>
-  arrange(desc(n)) |> 
-  rename("Difficultés principales" = difficulte_besoin_vitaux_principales, "Effectif" = n, "Pourcentage" = percent) |> 
+  arrange(desc(n)) |>
+  rename(
+    "Difficultés principales" = difficulte_besoin_vitaux_principales,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1433,16 +1525,20 @@ Les difficultés rencontrées par les ménages apparaissent principalement liée
 #| echo: false
 #| label: tbl-eau-maison
 #| tbl-cap: "Source d’approvisionnement en eau dans le ménage"
-data_tchaoudjo2 |> 
-  tabyl(eau_dans_maison, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Source d'eau disponible dans le ménage" = eau_dans_maison, "Effectif" = n, "Pourcentage" = percent) |> 
-  gt() |> 
-    tab_header(
-      title = "",
-      subtitle = ""
-    )
+data_tchaoudjo2 |>
+  tabyl(eau_dans_maison, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Source d'eau disponible dans le ménage" = eau_dans_maison,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
+  gt() |>
+  tab_header(
+    title = "",
+    subtitle = ""
+  )
 ```
 
 :::
@@ -1459,15 +1555,16 @@ data_tchaoudjo2 |>
 data_tchaoudjo2 <- data_tchaoudjo2 |>
   mutate(
     eau_type_source_rec = case_when(
-      eau_type_source %in% c(
-        "Puit",
-        "PMH (Pompe à motricité humaine)",
-        "Adduction d'eau potable (AEP) communautaire",
-        "Forage personnel"
-      ) ~ eau_type_source,
-      
+      eau_type_source %in%
+        c(
+          "Puit",
+          "PMH (Pompe à motricité humaine)",
+          "Adduction d'eau potable (AEP) communautaire",
+          "Forage personnel"
+        ) ~ eau_type_source,
+
       !is.na(eau_type_source) ~ "Combinaisons de plusieurs sources",
-      
+
       TRUE ~ NA_character_
     )
   )
@@ -1477,11 +1574,15 @@ data_tchaoudjo2 <- data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-type-source
 #| tbl-cap: "Type d'installation d'eau dans le ménage"
-data_tchaoudjo2 |> 
-  tabyl(eau_type_source_rec, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Type de source d'eau dans le ménage" = eau_type_source_rec, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_type_source_rec, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Type de source d'eau dans le ménage" = eau_type_source_rec,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -1494,11 +1595,11 @@ data_tchaoudjo2 |>
 ```{r}
 #| echo: false
 #| output: false
-data_tchaoudjo2 |> 
-  tabyl(eau_potable_source_princ) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Source principale d'eau potable" = eau_potable_source_princ) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_potable_source_princ) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Source principale d'eau potable" = eau_potable_source_princ) |>
   gt()
 ```
 
@@ -1518,8 +1619,11 @@ data_tchaoudjo2 |>
   ggplot(aes(x = "", y = pourcentage, fill = eau_potable_source_princ)) +
   geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
-    position = position_stack(vjust = 0.5), size = 4) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    position = position_stack(vjust = 0.5),
+    size = 4
+  ) +
   labs(fill = "Source principale\nd'eau potable") +
   theme_void() +
   theme(
@@ -1654,7 +1758,7 @@ data_tchaoudjo2 |>
   ggplot(aes(sample = eau_distance, colour = Zone)) +
   stat_qq() +
   stat_qq_line() +
-  facet_wrap(~ Zone) +
+  facet_wrap(~Zone) +
   theme_bw()
 ```
 
@@ -1721,7 +1825,7 @@ data_tchaoudjo2 |>
     alpha = 0.2
   ) +
   facet_wrap(
-    ~ Zone,
+    ~Zone,
     ncol = 2
   ) +
   scale_x_continuous(
@@ -1849,11 +1953,11 @@ Le test de Kruskal-Wallis met en évidence une différence statistiquement signi
 #| echo: false
 #| label: tbl-qualite-eau
 #| tbl-cap: "Appréciation de la qualité de l'eau"
-data_tchaoudjo2 |> 
-  tabyl(eau_qualite_conso) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Qualité de l'eau" = eau_qualite_conso) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_qualite_conso) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Qualité de l'eau" = eau_qualite_conso) |>
   gt()
 ```
 
@@ -1865,11 +1969,11 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-traitement-eau
 #| tbl-cap: "Traitement de l'eau de boisson avant consommation"
-data_tchaoudjo2 |> 
-  tabyl(eau_traite, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Traitement de l'eau" = eau_traite) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_traite, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Traitement de l'eau" = eau_traite) |>
   gt()
 ```
 :::
@@ -1884,11 +1988,11 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-courture-besoin
 #| tbl-cap: "Courverture des besoins en eau"
-data_tchaoudjo2 |> 
-  tabyl(eau_besoin_couvert, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Couverture des besoins en eau" = eau_besoin_couvert) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_besoin_couvert, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename("Couverture des besoins en eau" = eau_besoin_couvert) |>
   gt()
 ```
 :::
@@ -2016,11 +2120,15 @@ Au niveau de la @fig-depense-eau, les dépenses consacrées à l’eau sont trè
 #| echo: false
 #| label: tbl-stockage-eau
 #| tbl-cap: "Lieu de stockage de l'eau"
-data_tchaoudjo2 |> 
-  tabyl(eau_lieu_stock) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Lieu de stockage de l'eau" = eau_lieu_stock, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_lieu_stock) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Lieu de stockage de l'eau" = eau_lieu_stock,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2036,11 +2144,15 @@ Les résultats de la @tbl-stockage-eau montrent que le stockage de l’eau dans 
 #| echo: false
 #| label: tbl-satisfaction-eau
 #| tbl-cap: "Satisfaction par rapport aux besoins en eau potable"
-data_tchaoudjo2 |> 
-  tabyl(eau_est_satisfait_besoin) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Satisfait" = eau_est_satisfait_besoin, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_est_satisfait_besoin) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Satisfait" = eau_est_satisfait_besoin,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2048,11 +2160,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-raison-insatisfaction
 #| tbl-cap: "Raison d'insatisfaction par rapport aux besoins en eau potable"
-data_tchaoudjo2 |> 
-  tabyl(eau_raison_non_satisfait, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Raison d'insafisfaction" = eau_raison_non_satisfait, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(eau_raison_non_satisfait, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Raison d'insafisfaction" = eau_raison_non_satisfait,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2093,7 +2209,7 @@ data_tchaoudjo2 |>
   geom_text(
     aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 3.5
+    size = 5
   ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.15))
@@ -2102,7 +2218,13 @@ data_tchaoudjo2 |>
     x = "Pourcentage (%)",
     y = "Type de centre de santé"
   ) +
-  theme_bw()
+  theme_bw(base_size = 14) +
+  theme(
+    axis.text.x = element_text(size = 10),
+    axis.text.y = element_text(size = 12),
+    axis.title.x = element_text(size = 12, face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
+  )
 ```
 
 ::: {.callout-note title="Interprétation" icon="true"}
@@ -2118,22 +2240,22 @@ La @fig-centre-frequente montrent une forte concentration de la fréquentation d
 data_tchaoudjo2 <- data_tchaoudjo2 |>
   mutate(
     sante_handicap_type_rec = case_when(
-      
       # Modalités simples à conserver
-      sante_handicap_type %in% c(
-        "Aucun handicap",
-        "handicap moteur",
-        "handicap visuel",
-        "Sourd et/ou muet",
-        "Handicapé mental",
-        "Autre handicap",
-        "Albinisme"
-      ) ~ sante_handicap_type,
-      
+      sante_handicap_type %in%
+        c(
+          "Aucun handicap",
+          "handicap moteur",
+          "handicap visuel",
+          "Sourd et/ou muet",
+          "Handicapé mental",
+          "Autre handicap",
+          "Albinisme"
+        ) ~ sante_handicap_type,
+
       # Toutes les autres modalités non manquantes correspondent
       # à une combinaison de plusieurs handicaps
       !is.na(sante_handicap_type) ~ "Combinaison de handicaps",
-      
+
       # Conservation des valeurs manquantes
       TRUE ~ NA_character_
     )
@@ -2166,7 +2288,7 @@ data_tchaoudjo2 |>
   geom_text(
     aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 3.5
+    size = 5
   ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.15))
@@ -2175,7 +2297,13 @@ data_tchaoudjo2 |>
     x = "Pourcentage (%)",
     y = "Handicap"
   ) +
-  theme_bw()
+  theme_bw(base_size = 14) +
+  theme(
+    axis.text.x = element_text(size = 10),
+    axis.text.y = element_text(size = 12),
+    axis.title.x = element_text(size = 12, face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
+  )
 ```
 
 ::: {.callout-note title="Interprétation" icon="true"}
@@ -2194,11 +2322,15 @@ La @fig-handicap-type montrent que la grande majorité des ménages enquêtés `
 #| echo: false
 #| label: tbl-auto-medication
 #| tbl-cap: "Auto médication du chef de ménage"
-data_tchaoudjo2 |> 
-  tabyl(sante_auto_medication, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Auto médication" = sante_auto_medication, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(sante_auto_medication, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Auto médication" = sante_auto_medication,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2214,11 +2346,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-lieu-medicament
 #| tbl-cap: "Lieu d'approvisionnement en médicaments pour le soin"
-data_tchaoudjo2 |> 
-  tabyl(sante_lieu_medicament, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Lieu d'approvisionnement en médicaments" = sante_lieu_medicament, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(sante_lieu_medicament, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Lieu d'approvisionnement en médicaments" = sante_lieu_medicament,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2237,11 +2373,15 @@ Les résultats mettent en évidence une forte pratique de l’automédication pa
 #| echo: false
 #| label: tbl-assurance-sante
 #| tbl-cap: "Existence d'une assurance santé"
-data_tchaoudjo2 |> 
-  tabyl(sante_assurance, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Assurance santé" = sante_assurance, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(sante_assurance, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Assurance santé" = sante_assurance,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2263,11 +2403,15 @@ La @tbl-assurance-sante met en évidence une très faible couverture des ménage
 #| echo: false
 #| label: tbl-latrine-maison
 #| tbl-cap: "Existence d'une latrine dans le ménage"
-data_tchaoudjo2 |> 
-  tabyl(assainis_latrine_maison, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Latrine à la maison" = assainis_latrine_maison, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_latrine_maison, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Latrine à la maison" = assainis_latrine_maison,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2283,11 +2427,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-latrine-type
 #| tbl-cap: "Type de latrine dans le ménage"
-data_tchaoudjo2 |> 
-  tabyl(assainis_latrine_type, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Mode de vidance" = assainis_latrine_type, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_latrine_type, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Mode de vidance" = assainis_latrine_type,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2299,11 +2447,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-latrine-vidange
 #| tbl-cap: "Mode de vidange des latrines"
-data_tchaoudjo2 |> 
-  tabyl(assainis_latrine_mode_vidange, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Mode de vidance" = assainis_latrine_mode_vidange, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_latrine_mode_vidange, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Mode de vidance" = assainis_latrine_mode_vidange,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2337,11 +2489,15 @@ data_tchaoudjo2 |>
   ggplot(aes(x = 1, y = pourcentage, fill = assainis_latrine_lieu_besoin)) +
   geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
-  geom_text(aes(x = 1.6,   # éloigne les pourcentages vers l'extérieur
-      label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(
+      x = 1.6, # éloigne les pourcentages vers l'extérieur
+      label = paste0(round(pourcentage, 1), " %")
+    ),
     position = position_stack(vjust = 0.5),
-    size = 6) +
-  xlim(0.5, 1.7) +   # crée de l'espace pour les étiquettes
+    size = 6
+  ) +
+  xlim(0.5, 1.7) + # crée de l'espace pour les étiquettes
   labs(fill = "Lieu de défécation") +
   theme_void() +
   theme(
@@ -2370,18 +2526,21 @@ data_tchaoudjo2 |>
   count(assainis_latrine_pourquoi_absente) |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(
-      x = pourcentage,
-      y = reorder(assainis_latrine_pourquoi_absente, pourcentage))) +
+    x = pourcentage,
+    y = reorder(assainis_latrine_pourquoi_absente, pourcentage)
+  )) +
   geom_col(color = "#0e826a", fill = "#32c0c8", width = 0.7) +
   geom_text(
     aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(
-    expand = expansion(mult = c(0, 0.15))) +
+    expand = expansion(mult = c(0, 0.15))
+  ) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-    theme(
+  theme(
     axis.text.y = element_text(size = 12) # taille du texte de l'axe y
   )
 ```
@@ -2406,11 +2565,15 @@ L’analyse des raisons de l’absence de latrine permet d’identifier très cl
 #| echo: false
 #| label: tbl-douche
 #| tbl-cap: "Existence de douche dans le ménage"
-data_tchaoudjo2 |> 
-  tabyl(assainis_douche_dans_maison, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Existence de douche" = assainis_douche_dans_maison, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_douche_dans_maison, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Existence de douche" = assainis_douche_dans_maison,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -2425,11 +2588,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-douche-type
 #| tbl-cap: "Types de douche dans les ménages"
-data_tchaoudjo2 |> 
-  tabyl(assainis_douche_type, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Types de douche" = assainis_douche_type, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_douche_type, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Types de douche" = assainis_douche_type,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -2443,11 +2610,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-douche-lieu
 #| tbl-cap: "Lieu de douche dans les ménages"
-data_tchaoudjo2 |> 
-  tabyl(assainis_douche_lieu, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Lieu de douche" = assainis_douche_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_douche_lieu, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Lieu de douche" = assainis_douche_lieu,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2468,12 +2639,16 @@ La situation des `11,5 %` de ménages ne disposant pas de douche révèle par ai
 #| echo: false
 #| label: tbl-eaux-usees
 #| tbl-cap: "Mode d'évacuation des eaux usées"
-data_tchaoudjo2 |> 
-  filter(!is.na(assainis_eaux_usées_mode_devac)) |> 
-  count(assainis_eaux_usées_mode_devac) |> 
+data_tchaoudjo2 |>
+  filter(!is.na(assainis_eaux_usées_mode_devac)) |>
+  count(assainis_eaux_usées_mode_devac) |>
   mutate(pourcentage = n / sum(n) * 100) |>
   arrange(desc(pourcentage)) |>
-  rename("Mode d'évacuation" = assainis_eaux_usées_mode_devac, "Effectif" = n, "Pourcentage" = pourcentage) |> 
+  rename(
+    "Mode d'évacuation" = assainis_eaux_usées_mode_devac,
+    "Effectif" = n,
+    "Pourcentage" = pourcentage
+  ) |>
   gt()
 ```
 
@@ -2489,11 +2664,15 @@ data_tchaoudjo2 |>
 #| echo: false
 #| label: tbl-depotoir
 #| tbl-cap: "Lieu de dépotoir"
-data_tchaoudjo2 |> 
-  tabyl(assainis_depotoir_lieu, show_na = FALSE) |> 
-  adorn_pct_formatting(digits = 1) |> 
-  arrange(desc(n)) |> 
-  rename("Lieu de dépotoir" = assainis_depotoir_lieu, "Effectif" = n, "Pourcentage" = percent) |> 
+data_tchaoudjo2 |>
+  tabyl(assainis_depotoir_lieu, show_na = FALSE) |>
+  adorn_pct_formatting(digits = 1) |>
+  arrange(desc(n)) |>
+  rename(
+    "Lieu de dépotoir" = assainis_depotoir_lieu,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2506,6 +2685,44 @@ Les résultats da la @tbl-eaux-usees mettent en évidence que la quasi-totalité
 
 La gestion des ordures ménagères présente une situation tout aussi préoccupante (@tbl-depotoir) : `98,7 %` des ménages déclarent déposer leurs déchets dans un dépotoir sauvage à proximité, contre seulement `1,1 %` qui utilisent un dépotoir officiel ou aménagé. Le recours à un service de pré-collecte reste quasiment inexistant `(0,1 %)`. Le reste des ménages `(0,1 %)` brûlent leurs ordures. Ces résultats traduisent une faible structuration du système de collecte et d’évacuation des déchets solides La combinaison du rejet massif des eaux usées dans les rues et de l’utilisation généralisée des dépotoirs sauvages constitue donc un enjeu majeur d’assainissement pour la commune, appelant notamment au développement de solutions adaptées de drainage des eaux usées, à l’aménagement de points de regroupement ou de dépotoirs contrôlés et à l’organisation progressive de services de collecte ou de pré-collecte des déchets.
 :::
+
+#### - Principaux problèmes d’insalubrité auxquels les ménages sont confrontés
+
+```{r}
+#| echo: false
+#| output: false
+#| label: tbl-insalubrite
+#| tbl-cap: "Principaux problèmes d'insalubrité"
+data_tchaoudjo2 |>
+  filter(!is.na(assainis_insalubrite_probleme)) |>
+  count(assainis_insalubrite_probleme) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  arrange(desc(pourcentage)) |>
+  rename(
+    "Problème d'insalubrité" = assainis_insalubrite_probleme,
+    "Effectif" = n,
+    "Pourcentage" = pourcentage
+  ) |>
+  gt()
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| label: tbl-insalubrite
+#| tbl-cap: "Principaux problèmes d'insalubrité"
+data_tchaoudjo2 |>
+  filter(!is.na(assainis_insalubrite_probleme_aucun)) |>
+  count(assainis_insalubrite_probleme_aucun) |>
+  mutate(pourcentage = n / sum(n) * 100) |>
+  arrange(desc(pourcentage)) |>
+  rename(
+    "Problème d'insalubrité" = assainis_insalubrite_probleme_aucun,
+    "Effectif" = n,
+    "Pourcentage" = pourcentage
+  ) |>
+  gt()
+```
 
 ### - Caractéristiques de l'habitat
 
@@ -2525,15 +2742,20 @@ data_tchaoudjo2 |>
   filter(!is.na(habitat_statut_occupation)) |>
   count(habitat_statut_occupation) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(habitat_statut_occupation, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(habitat_statut_occupation, pourcentage)
+  )) +
   geom_col(color = "#6f4b12", fill = "#df9c50", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-    theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
 
@@ -2567,15 +2789,20 @@ data_tchaoudjo2 |>
   filter(!is.na(habitat_document_terrain)) |>
   count(habitat_document_terrain) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(habitat_document_terrain, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(habitat_document_terrain, pourcentage)
+  )) +
   geom_col(color = "#cdcc9c", fill = "#44b340", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
 
@@ -2618,15 +2845,20 @@ data_tchaoudjo2 |>
   filter(!is.na(habitat_mode_acquis_terrain)) |>
   count(habitat_mode_acquis_terrain) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(habitat_mode_acquis_terrain, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(habitat_mode_acquis_terrain, pourcentage)
+  )) +
   geom_col(color = "#e7d9da", fill = "#b53d4d", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
 
@@ -2660,15 +2892,20 @@ data_tchaoudjo2 |>
   filter(!is.na(habitat_mode_acquis_immeuble)) |>
   count(habitat_mode_acquis_immeuble) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(habitat_mode_acquis_immeuble, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(habitat_mode_acquis_immeuble, pourcentage)
+  )) +
   geom_col(color = "#231267", fill = "#933ef4df", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
 
@@ -2710,7 +2947,11 @@ data_tchaoudjo2 |>
   tabyl(habitat_type_habitation) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Type d'habitation" = habitat_type_habitation, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Type d'habitation" = habitat_type_habitation,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2731,7 +2972,11 @@ data_tchaoudjo2 |>
   tabyl(habitat_logement_fonction) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Fonction du logement" = habitat_logement_fonction, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Fonction du logement" = habitat_logement_fonction,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -2761,15 +3006,20 @@ data_tchaoudjo2 |>
   filter(!is.na(habitat_logement_type)) |>
   count(habitat_logement_type) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(habitat_logement_type, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(habitat_logement_type, pourcentage)
+  )) +
   geom_col(color = "#1e3b4d", fill = "#4da6ff", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2788,13 +3038,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(habitat_nature_murs, pourcentage))) +
   geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2813,11 +3065,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(habitat_nature_sol, pourcentage))) +
   geom_col(color = "#58360e", fill = "#cd9c3b", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2836,11 +3092,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(habitat_nature_toit, pourcentage))) +
   geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2878,7 +3138,11 @@ data_tchaoudjo2 |>
   tabyl(habitat_conflit_foncier) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Conflit foncier" = habitat_conflit_foncier, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Conflit foncier" = habitat_conflit_foncier,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2899,7 +3163,11 @@ data_tchaoudjo2 |>
   tabyl(habitat_conflit_foncier_avec_qui) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Avec qui ?" = habitat_conflit_foncier_avec_qui, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Avec qui ?" = habitat_conflit_foncier_avec_qui,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -2915,7 +3183,11 @@ data_tchaoudjo2 |>
   tabyl(habitat_resolu) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Conflit résolu" = habitat_resolu, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Conflit résolu" = habitat_resolu,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -2950,13 +3222,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(eclairage_source, pourcentage))) +
   geom_col(color = "#1e3b4d", fill = "#4da6ff", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2975,13 +3249,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(electricite_depense, pourcentage))) +
   geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -2998,13 +3274,20 @@ data_tchaoudjo2 |>
   filter(!is.na(energie_cuisson_source)) |>
   count(energie_cuisson_source) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(energie_cuisson_source, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(energie_cuisson_source, pourcentage)
+  )) +
   geom_col(color = "#58360e", fill = "#cd9c3b", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -3023,11 +3306,15 @@ data_tchaoudjo2 |>
   mutate(pourcentage = n / sum(n) * 100) |>
   ggplot(aes(x = pourcentage, y = reorder(energie_depense, pourcentage))) +
   geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -3067,7 +3354,11 @@ data_tchaoudjo2 |>
   tabyl(inondation_probleme) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Problème d'inondation" = inondation_probleme, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Problème d'inondation" = inondation_probleme,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -3084,15 +3375,16 @@ Les résultats montrent que la grande majorité des ménages enquêtés dans la 
 data_tchaoudjo2 <- data_tchaoudjo2 |>
   mutate(
     climat_changement_rec = case_when(
-      climat_changement %in% c(
-        "RAS",
-        "Irrégularité des pluies",
-        "Fortes chaleur",
-        "Poches de sécheresse",
-        "Les vents violents",
-        "L'érosion des sols",
-        "Inondations"
-      ) ~ climat_changement,
+      climat_changement %in%
+        c(
+          "RAS",
+          "Irrégularité des pluies",
+          "Fortes chaleur",
+          "Poches de sécheresse",
+          "Les vents violents",
+          "L'érosion des sols",
+          "Inondations"
+        ) ~ climat_changement,
 
       is.na(climat_changement) ~ NA_character_,
 
@@ -3110,7 +3402,11 @@ data_tchaoudjo2 |>
   tabyl(climat_changement_rec) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Dommage d'inondation" = climat_changement_rec, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Dommage d'inondation" = climat_changement_rec,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -3136,7 +3432,11 @@ data_tchaoudjo2 |>
   tabyl(bois_exploite) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Exploitation du bois" = bois_exploite, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Exploitation du bois" = bois_exploite,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -3156,7 +3456,11 @@ data_tchaoudjo2 |>
   tabyl(bois_exploite_but) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("But de l'exploitation du bois" = bois_exploite_but, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "But de l'exploitation du bois" = bois_exploite_but,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
@@ -3176,7 +3480,11 @@ data_tchaoudjo2 |>
   tabyl(carbonisation) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Carbonisation du bois" = carbonisation, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Carbonisation du bois" = carbonisation,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -3196,7 +3504,11 @@ data_tchaoudjo2 |>
   tabyl(reboisement) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Reboisement" = reboisement, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Reboisement" = reboisement,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 :::
@@ -3234,15 +3546,20 @@ data_tchaoudjo2 |>
   filter(!is.na(deplacement_frequence)) |>
   count(deplacement_frequence) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(deplacement_frequence, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(deplacement_frequence, pourcentage)
+  )) +
   geom_col(color = "#69de8a", fill = "#90ba24a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")),
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
     hjust = -0.2,
-    size = 5.5) +
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-      theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -3259,13 +3576,20 @@ data_tchaoudjo2 |>
   filter(!is.na(deplacement_principal_moyen)) |>
   count(deplacement_principal_moyen) |>
   mutate(pourcentage = n / sum(n) * 100) |>
-  ggplot(aes(x = pourcentage, y = reorder(deplacement_principal_moyen, pourcentage))) +
+  ggplot(aes(
+    x = pourcentage,
+    y = reorder(deplacement_principal_moyen, pourcentage)
+  )) +
   geom_col(color = "#c0d1c5", fill = "#203c89a5", width = 0.7) +
-  geom_text(aes(label = paste0(round(pourcentage, 1), " %")), hjust = -0.2, size = 5.5) +
+  geom_text(
+    aes(label = paste0(round(pourcentage, 1), " %")),
+    hjust = -0.2,
+    size = 5.5
+  ) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Pourcentage (%)", y = "") +
   theme_bw() +
-        theme(
+  theme(
     # Modalités de l'axe Y
     axis.text.y = element_text(size = 14),
     # Graduations de l'axe X
@@ -3288,7 +3612,11 @@ data_tchaoudjo2 |>
   tabyl(deplacement_cout_mensuel) |>
   adorn_pct_formatting(digits = 1) |>
   arrange(desc(n)) |>
-  rename("Coût moyen mensuel" = deplacement_cout_mensuel, "Effectif" = n, "Pourcentage" = percent) |>
+  rename(
+    "Coût moyen mensuel" = deplacement_cout_mensuel,
+    "Effectif" = n,
+    "Pourcentage" = percent
+  ) |>
   gt()
 ```
 
